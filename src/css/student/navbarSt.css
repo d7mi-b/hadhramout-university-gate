@@ -1,0 +1,217 @@
+/* START NAVBAR */
+.navbar {
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 10;
+}
+
+/* START NAVBAR LIST */
+.navbar .list {
+    display: flex;
+    padding: 8px 0;
+    list-style: none;
+}
+
+.navbar .list a {
+    text-decoration: none;
+    color: var(--dark-color);
+    display: inline-block;
+}
+
+.navbar .list li {
+    font-size: 1rem;
+    margin: 0 0 0 20px;
+    cursor: pointer;
+}
+
+.navbar .list a:hover,
+.navbar .list li:hover {
+    color: var(--hover-color);
+    transition: 0.2s;
+}
+/* END NAVBAR LIST */
+
+/* START NAVBAR ICONS */
+.navbar .icons {
+    direction: ltr;
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+.navbar .image {
+    display: flex;
+    height: 100%;
+    width: fit-content;
+}
+
+.navbar img {
+    width: 50px;
+    margin: auto 0;
+    margin-right: 20px;
+}
+
+.icons svg {
+    width: 20px;
+    fill: var(--dark-color);
+    cursor: pointer;
+    display: inline-block;
+}
+
+.icons svg:hover:not(.wallet-icon) {
+    fill: var(--hover-color);
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.wallet {
+    display: flex;
+    padding: 5px;
+    margin: 6px 0;
+    text-align: center;
+}
+
+.icons .wallet-icon {
+    width: 20px;
+    margin-right: 5px;
+}
+/* END NAVBAR ICONS */
+
+/* START RESPONSIVE NAVBAR */
+@media (min-width: 280px) and (max-width: 992px) {
+    .navbar {
+        justify-content: flex-start;
+        padding: 10px;
+        width: 100%;
+        left: 10px;
+    }
+
+    .navbar .list {
+        display: none;
+    }
+
+    .navbar .icons {
+        direction: rtl;
+    }
+
+    .navbar .icons .profile-list,
+    .navbar .icons .navigation-list,
+    .navbar .icons .wallet {
+        display: none;
+    }
+}
+/* END RESPONSIVE NAVBAR */
+
+/* START LIST (SCHEDULES AND SERVCIES) */
+.nav-list {
+    list-style: none;
+    background-color: var(--dark-color);
+    padding: 5px 15px;
+    position: absolute;
+    margin: 3px 5px;
+    border-radius: 5px;
+    display: none;
+}
+
+.navbar .list .nav-list li {
+    padding: 5px;
+    margin: 15px auto;
+    border-bottom: 1px solid var(--blue);
+}
+
+.navbar .list .nav-list li a {
+    color: var(--white);
+}
+
+.navbar .list .nav-list li a:hover {
+    color: var(--hover-color);
+    transform: scale(1.04);
+    transition: 0.2s;
+}
+
+.services:hover .services-list,
+.schedules:hover .schedules-list {
+    display: block;
+}
+/* END LIST (SCHEDULES AND SERVCIES) */
+
+/* START PROFAILE INFO */
+.icon-list {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile {
+    position: absolute;
+    top: 40px;
+    left: 200px;
+    margin: 20px;
+    background-color: var(--gray);
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    display: none;
+    border-radius: 5px;
+}
+
+.profile .avatar {
+    margin: 15px auto;
+}
+
+.profile .avatar img {
+    width: 40%;
+    border-radius: 50%;
+    margin: 0;
+}
+
+.profile .btn {
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    text-decoration: none;
+    font-size: 0.7rem;
+}
+
+.profile-list:hover .profile,
+.navigation-list:hover .navigations {
+    display: block;
+}
+/* END PROFAILE INFO */
+
+/* START NAVIGATION */
+.navigations {
+    position: absolute;
+    top: 40px;
+    left: 250px;
+    margin: 20px;
+    background-color: var(--gray);
+    padding: 20px;
+    border-radius: 5px;
+    display: none;
+}
+/* END NAVIGATION */
+
+/* @media (min-width: 270px) and (max-width: 768px) {
+    .navbar {
+        padding: 15px;
+    }
+    .navbar .list {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--gray);
+        padding: 15px;
+        border-radius: 3px;
+        position: absolute;
+    }
+
+    .navbar .icons {
+        width: 100%;
+    }
+} */

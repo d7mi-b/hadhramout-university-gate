@@ -1,0 +1,154 @@
+/* START LOGIN */
+.login {
+    display: flex;
+    flex-direction: column;
+}
+
+/* START NAVBAR LOGIN */
+.login .navbar-login {
+    width: 100%;
+    padding: 20px 10%;
+    height: 10vh;
+}
+
+.login .navbar-login img {
+    width: 60px;
+    margin: 5px 10px;
+}
+/* END NAVBAR LOGIN */
+
+/* START CONTAINER LOGIN */
+.login .container {
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    margin: 0 auto;
+}
+
+.login .header {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login .image {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    width: 50%;
+}
+
+.login .image img {
+    width: 100%;
+}
+/* END CONTAINER LOGIN */
+
+/* RESPONCIVE CONTAINER LOGIN */
+@media (min-width: 238px) and (max-width: 991px) {
+    .login .container {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        height: 90vh;
+    }
+
+    .login .header {
+        width: 100%;
+    }
+
+    .login .header .btn {
+        align-self: center;
+    }
+
+    .login .image {
+        width: 60%;
+        margin: 15px auto;
+    }
+}
+/* START LOGIN FORM */
+.login-data {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(3, 3, 3, 0.6);
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+}
+
+.login-data .form {
+    width: 25%;
+    margin: 0 auto;
+    background-color: var(--gray);
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.login-data .form img {
+    width: 80%;
+    margin: 10px;
+}
+
+.login-data .form .input {
+    display: block;
+    padding: 10px;
+    margin: 10px auto;
+    width: 90%;
+    font-family: Cairo;
+    color: var(--blue);
+}
+
+.login-data .form .input:focus-visible {
+    outline-color: var(--hover-color);
+}
+
+.login-data .form .btn {
+    width: fit-content;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px auto;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 0.8rem;
+    display: block;
+    margin: 10px auto;
+    color: var(--blue);
+    width: fit-content;
+}
+
+.link:hover {
+    color: var(--hover-color);
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.cancel {
+    fill: #0a214c;
+    width: 6%;
+    display: block;
+    margin: 5px;
+    cursor: pointer;
+    position: relative;
+    right: 90%;
+}
+
+.cancel:hover {
+    fill: var(--hover-color);
+    transform: scale(1.03);
+    transition: 0.2s;
+}
+
+@media (min-width: 238px) and (max-width: 991px) {
+    .login-data .form {
+        width: 70%;
+    }
+}
+/* END LOGIN FORM */
+/* END LOGIN */

@@ -1,0 +1,187 @@
+.home {
+    padding: 20px 0;
+    margin: 40px auto 15px;
+}
+
+.home header {
+    margin: 15px 0;
+}
+
+.home header h2::before {
+    content: '- ';
+    color: var(--hover-color);
+}
+
+/* START NEWS */
+.news header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.news header .all-news {
+    width: fit-content;
+    text-decoration: none;
+    margin: 0;
+}
+
+.news .news-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.news .news-container .new {
+    padding: 10px;
+    box-shadow: 3px 3px 10px 2px #ddd;
+    background-color: var(--white);
+}
+
+.news .news-container .new img {
+    width: 100%;
+}
+
+.news .news-container .new .new-date {
+    display: inline-block;
+}
+
+.news .news-container .new a {
+    float: left;
+    color: var(--blue);
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.news .news-container .new a:hover {
+    color: var(--hover-color);
+    transform: scale(1.03);
+    transition: 0.2s;
+}
+
+@media (min-width: 280px) and (max-width: 992px) {
+    .news header {
+        margin: 10px 20px;
+    }
+    .news .news-container {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 25px;
+    }
+}
+/* END NEWS */
+
+/* START FAST SERVICES */
+.fast-servcies {
+    margin: 30px 0;
+    padding: 15px 0;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.services-container .service,
+.advertisements-container .advertisement {
+    padding: 20px 15px;
+    background-color: var(--dark-color);
+    color: var(--white);
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px 1px var(--gray);
+}
+
+.services-container .service:hover,
+.advertisements-container .advertisement:hover {
+    background-image: linear-gradient(
+        135deg,
+        var(--dark-color) 0%,
+        var(--blue) 100%
+    );
+    color: var(--hover-color);
+    transform: translate(0, -5px);
+    transition: 0.2s;
+}
+
+.services-container .service .icon svg {
+    width: 15%;
+    fill: var(--white);
+}
+
+.services-container .service:hover .icon svg {
+    fill: var(--hover-color);
+    transition: 0.5s;
+}
+
+.services-container .service h4 {
+    display: inline-block;
+}
+
+.services-container .service .price {
+    float: left;
+}
+
+@media (min-width: 280px) and (max-width: 992px) {
+    .services-container {
+        grid-template-columns: repeat(2, 0.5fr);
+        padding: 25px;
+    }
+
+    .fast-servcies header {
+        margin: 10px 20px;
+    }
+}
+/* END FAST SERVICES */
+
+/* START advertisements */
+.advertisements-container {
+    display: flex;
+    justify-content: center;
+}
+
+.advertisements-container .advertisement {
+    width: calc(100% / 5);
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.advertisements-container .advertisement:hover {
+    transform: scale(1.01);
+}
+
+.advertisements-container .advertisement p {
+    color: var(--hover-color);
+}
+
+@media (min-width: 280px) and (max-width: 768px) {
+    .advertisements header {
+        margin: 10px 20px;
+    }
+    .advertisements-container {
+        flex-direction: column;
+        padding: 25px;
+    }
+    .advertisements-container .advertisement {
+        width: 100%;
+        margin: 0 auto 15px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .advertisements header {
+        margin: 10px 20px;
+    }
+    .advertisements-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+        padding: 25px;
+    }
+    .advertisements-container .advertisement {
+        width: 90%;
+        margin: 0 auto 15px;
+    }
+}
