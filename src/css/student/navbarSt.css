@@ -1,6 +1,6 @@
 /* START NAVBAR */
 .navbar {
-    padding: 15px 10%;
+    padding: 10px 10%;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid var(--gray);

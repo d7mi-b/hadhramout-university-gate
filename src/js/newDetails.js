@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
-import '../../css/student/homeSt.css'
-import '../../css/student/newsSt.css'
-import new1 from '../../images/new1.jpg';
-import new2 from '../../images/new2.jpg';
-import new3 from '../../images/new3.jpg';
+import '../css/newDetails.css';
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import new1 from '../images/new1.jpg';
+import new2 from '../images/new2.jpg';
+import new3 from '../images/new3.jpg';
 
 let news = [
     {
@@ -50,35 +49,31 @@ let news = [
     },
 ]
 
-const NewsST = () => {
+const NewDetails = () => {
+    const { id } = useParams();
+
     return (
-        <section className="news news-page">
-            <header>
-                <h2>الأخبار</h2>
-            </header>
-            <div className="news-container">
-                {
-                    news.map((e, i, arr) => {
+        <div className="new-details-page">
+            {
+                news.map((e)=> {
+                    if (+id === e.id) {
                         return (
-                            <div className="new" key={e.id}>
+                            <article className="new-details">
                                 <div className="image">
-                                    <img src={e.image} alt="image" />
+                                    <img src={e.image} alt="" />
                                 </div>
-                                <article>
-                                    <header>
-                                        <h3>{e.title.slice(0, 70)}..</h3>
-                                    </header>
-                                    <p>{e.body.slice(0, 120)}...</p>
-                                    <p className="new-date">{e.date}</p>
-                                    <Link to={`/new/${e.id}`}>قراءة المزيد</Link>
-                                </article>
-                            </div>
-                        );
-                    })
-                }
-            </div>
-        </section>
+                                <header>
+                                    <h1 className="title">{e.title}</h1>
+                                    <p className="date">{e.date}</p>
+                                </header>
+                                <section className='body'>{e.body}</section>
+                            </article>
+                        )
+                    }
+                })
+            }
+        </div>
     );
 }
 
-export default NewsST;
+export default NewDetails;

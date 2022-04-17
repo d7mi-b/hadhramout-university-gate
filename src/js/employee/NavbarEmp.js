@@ -8,26 +8,6 @@ const NavbarEmp = () => {
         <nav className="navbar">
             <ul className='list'>
                 <li><Link to='/home'>الرئيسية</Link></li>
-
-                {/* SERVICES LIST */}
-                <li className='services'>
-                    <header>الخدمات </header>
-                    <ul className='services-list nav-list'>
-                        <li><a href='#'>تجديد القيد</a></li>
-                        <li><a href='#'>بيان درجات</a></li>
-                        <li><a href='#'>شهادة القيد</a></li>
-                        <li><a href='#'>رفع تظلم</a></li>
-                    </ul>
-                </li>
-
-                {/* SCHEDULES LIST */}
-                <li className='schedules'>
-                    <header>الجداول</header>
-                    <ul className='schedules-list nav-list'>
-                        <li><a href='#'>جدول المحاضرات</a></li>
-                        <li><a href='#'>التقويم الجامعي</a></li>
-                    </ul>
-                </li>
             </ul>
             <section className='icons'>
                 <img src={logo} alt='HUG' />

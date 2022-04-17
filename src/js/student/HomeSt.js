@@ -131,7 +131,7 @@ const HomeSt = () => {
                                                 </header>
                                                 <p>{e.body.slice(0, 120)}...</p>
                                                 <p className="new-date">{e.date}</p>
-                                                <a href='#'>قراءة المزيد</a>
+                                                <Link to={`/new/${e.id}`}>قراءة المزيد</Link>
                                             </article>
                                         </div>
                                     );

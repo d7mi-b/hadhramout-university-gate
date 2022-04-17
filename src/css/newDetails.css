@@ -1,0 +1,27 @@
+.new-details-page {
+    width: 80%;
+    margin: 80px auto 20px;
+}
+
+.new-details {
+    padding: 20px;
+    width: 80%;
+}
+
+.new-details .image {
+    margin: 10px 0;
+}
+
+.new-details .image img {
+    box-shadow: 2px 2px 10px 3px var(--gray);
+    width: 100%;
+}
+
+.new-details .header h1 {
+    margin: 10px 0;
+}
+
+.new-details .body {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}

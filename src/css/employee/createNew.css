@@ -1,0 +1,28 @@
+.create-new {
+    width: 80%;
+    margin: 100px auto 5px;
+}
+
+.create-new form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.create-new form input,
+.create-new form textarea {
+    padding: 8px;
+    font-family: Cairo;
+    margin: 5px 0 0;
+    display: block;
+}
+
+.create-new form textarea {
+    height: 80px;
+}
+
+.create-new form input:focus-visible,
+.create-new form textarea:focus-visible {
+    outline-color: var(--hover-color);
+}
