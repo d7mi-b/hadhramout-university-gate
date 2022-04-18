@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import ChargeWallte from './js/employee/ChargeWallte';
 import CreateNew from './js/employee/createNew';
 import HomeEmp from './js/employee/HomeEmp';
 import NavbarEmp from './js/employee/NavbarEmp';
@@ -22,6 +23,7 @@ function App() {
             <Login />
           </Route>
 
+          {/* STUDENT */}
           {/* HOME PAGE FOR STUDENT */}
           <Route path='/home'>
             <NavbarSt />
@@ -50,6 +52,7 @@ function App() {
             <Footer />
           </Route>
 
+          {/* EMPLOYEE */}
           {/* HOME PAGE FOR EMPLOYEE */}
           <Route path='/employee'>
             <NavbarEmp />
@@ -68,6 +71,13 @@ function App() {
           <Route path='/create-new'>
             <NavbarEmp />
             <CreateNew />
+            <Footer />
+          </Route>
+
+          {/* CHARGE WALLTE PAGE */}
+          <Route path='/charge-wallte'>
+            <NavbarEmp />
+            <ChargeWallte />
             <Footer />
           </Route>
 

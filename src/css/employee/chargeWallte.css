@@ -1,0 +1,37 @@
+.container-form {
+    width: 80%;
+    margin: 80px auto 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
+
+.container-form header {
+    margin: 10px 0;
+}
+
+.container-form header h2::before {
+    content: '';
+    border-right: 5px solid var(--hover-color);
+    margin-left: 10px;
+}
+
+.charge-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.charge-form input {
+    padding: 8px;
+    font-family: Cairo;
+    margin: 5px 0;
+    display: block;
+}
+
+.charge-form input:focus-visible {
+    outline-color: var(--hover-color);
+}
