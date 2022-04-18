@@ -1,0 +1,36 @@
+.calender {
+    margin: 90px auto 25px;
+}
+
+.calender .header h2::before {
+    content: '';
+    border-right: 5px solid var(--hover-color);
+    margin-left: 10px;
+}
+
+.semestar {
+    width: 80%;
+    margin: 15px auto;
+}
+
+.semestar header {
+    margin: 10px 0;
+}
+
+td {
+    border: 1px solid var(--dark-color);
+    padding: 5px;
+    width: 300px;
+    text-align: center;
+}
+
+.note {
+    margin: 15px auto;
+    width: 80%;
+}
+
+.note::before {
+    content: '';
+    border-right: 3px solid red;
+    margin-left: 10px;
+}

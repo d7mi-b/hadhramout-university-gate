@@ -26,7 +26,7 @@ const NavbarSt = () => {
                     <header>الجداول</header>
                     <ul className='schedules-list nav-list'>
                         <li><a href='#'>جدول المحاضرات</a></li>
-                        <li><a href='#'>التقويم الجامعي</a></li>
+                        <li><Link to='/calender'>التقويم الجامعي</Link></li>
                     </ul>
                 </li>
             </ul>

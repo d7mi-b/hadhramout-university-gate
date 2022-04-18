@@ -9,6 +9,7 @@ import NewDetails from './js/newDetails';
 import HomeSt from './js/student/HomeSt';
 import NavbarSt from './js/student/NavbarSt';
 import NewsST from './js/student/NewsSt';
+import UnCalenderSt from './js/student/UnvCalenderSt';
 
 function App() {
   return (
@@ -39,6 +40,13 @@ function App() {
           <Route path="/new/:id">
             <NavbarSt />
             <NewDetails />
+            <Footer />
+          </Route>
+
+          {/* UNVERSITY CALENDER PAGE FOR STUDENT */}
+          <Route path='/calender'>
+            <NavbarSt />
+            <UnCalenderSt />
             <Footer />
           </Route>
 
