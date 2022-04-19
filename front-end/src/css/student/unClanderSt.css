@@ -1,13 +1,3 @@
-.calender {
-    margin: 90px auto 25px;
-}
-
-.calender .header h2::before {
-    content: '';
-    border-right: 5px solid var(--hover-color);
-    margin-left: 10px;
-}
-
 .semestar {
     width: 80%;
     margin: 15px auto;

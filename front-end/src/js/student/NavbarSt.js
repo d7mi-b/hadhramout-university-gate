@@ -14,10 +14,10 @@ const NavbarSt = () => {
                 <li className='services'>
                     <header>الخدمات </header>
                     <ul className='services-list nav-list'>
-                        <li><a href='#'>تجديد القيد</a></li>
-                        <li><a href='#'>بيان درجات</a></li>
-                        <li><a href='#'>شهادة القيد</a></li>
-                        <li><a href='#'>رفع تظلم</a></li>
+                        <li><Link to='/renew'>تجديد القيد</Link></li>
+                        <li><Link to='#'>بيان درجات</Link></li>
+                        <li><Link to='#'>شهادة القيد</Link></li>
+                        <li><Link to='#'>رفع تظلم</Link></li>
                     </ul>
                 </li>
 

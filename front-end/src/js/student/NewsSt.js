@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import '../../css/student/homeSt.css'
 import '../../css/student/newsSt.css'
 import new1 from '../../images/new1.jpg';
 import new2 from '../../images/new2.jpg';
@@ -52,8 +51,8 @@ let news = [
 
 const NewsST = () => {
     return (
-        <section className="news news-page">
-            <header>
+        <section className="news news-page container-page container">
+            <header className='header'>
                 <h2>الأخبار</h2>
             </header>
             <div className="news-container">

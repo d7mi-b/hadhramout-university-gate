@@ -68,18 +68,6 @@
     }
 }
 /* START LOGIN FORM */
-.login-data {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background-color: rgba(3, 3, 3, 0.6);
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    display: none;
-}
-
 .login-data .form {
     width: 25%;
     margin: 0 auto;

@@ -1,14 +1,3 @@
-.container-schedule {
-    margin: 100px auto 25px;
-    width: 80%;
-}
-
-.container-schedule .header h2::before {
-    content: '';
-    border-right: 5px solid var(--hover-color);
-    margin-left: 5px;
-}
-
 .container-schedule .header h3 {
     margin: 5px 10px 20px;
 }

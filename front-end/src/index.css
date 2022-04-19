@@ -36,6 +36,33 @@ body {
     margin: 0 auto;
 }
 
+.container-page {
+    margin: 100px auto 25px;
+}
+
+.header {
+    margin: 15px 0;
+}
+
+.header h2::before {
+    content: '';
+    border-right: 5px solid var(--hover-color);
+    margin-left: 10px;
+}
+
+.background-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(3, 3, 3, 0.6);
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+    z-index: 12;
+}
+
 .btn {
     width: fit-content;
     color: var(--dark-color);

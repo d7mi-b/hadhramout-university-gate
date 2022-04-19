@@ -2,7 +2,7 @@ import '../../css/student/unClanderSt.css'
 
 const UnCalenderSt = () => {
     return (
-        <div className="container calender">
+        <div className="container-page container">
             <header className='header'>
                 <h2>التقويم الجامعي</h2>
             </header>

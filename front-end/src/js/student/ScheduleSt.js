@@ -93,7 +93,7 @@ let schedule = [
 
 const ScheduleSt = () => {
     return (
-        <div className="container-schedule">
+        <div className="container-schedule container-page container">
             <header className="header">
                 <h2>جدول المحاضرات</h2>
                 <h3>{department} - {level} - {semstire}</h3>
