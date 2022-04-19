@@ -10,6 +10,7 @@ import NewDetails from './js/newDetails';
 import HomeSt from './js/student/HomeSt';
 import NavbarSt from './js/student/NavbarSt';
 import NewsST from './js/student/NewsSt';
+import ScheduleSt from './js/student/ScheduleSt';
 import UnCalenderSt from './js/student/UnvCalenderSt';
 
 function App() {
@@ -49,6 +50,13 @@ function App() {
           <Route path='/calender'>
             <NavbarSt />
             <UnCalenderSt />
+            <Footer />
+          </Route>
+
+          {/* SCHEDULE PAGE FOR STUDENT */}
+          <Route path='/schedule'>
+            <NavbarSt />
+            <ScheduleSt />
             <Footer />
           </Route>
 

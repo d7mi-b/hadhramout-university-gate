@@ -22,6 +22,7 @@ td {
     padding: 5px;
     width: 300px;
     text-align: center;
+    background-color: var(--white);
 }
 
 .note {
