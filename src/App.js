@@ -4,6 +4,7 @@ import CreateNew from './js/employee/createNew';
 import HomeEmp from './js/employee/HomeEmp';
 import NavbarEmp from './js/employee/NavbarEmp';
 import NewsEmp from './js/employee/NewsEmp';
+import Withdraw from './js/employee/Withdraw';
 import Footer from './js/Footer';
 import Login from "./js/Login";
 import NewDetails from './js/newDetails';
@@ -86,6 +87,13 @@ function App() {
           <Route path='/charge-wallte'>
             <NavbarEmp />
             <ChargeWallte />
+            <Footer />
+          </Route>
+
+          {/* WITHDRAW FROM WALLTE PAGE */}
+          <Route path='/withdraw'>
+            <NavbarEmp />
+            <Withdraw />
             <Footer />
           </Route>
 

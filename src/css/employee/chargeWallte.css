@@ -17,7 +17,7 @@
     margin-left: 10px;
 }
 
-.charge-form {
+.form {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -25,13 +25,13 @@
     padding: 5px;
 }
 
-.charge-form input {
+.form input {
     padding: 8px;
     font-family: Cairo;
     margin: 5px 0;
     display: block;
 }
 
-.charge-form input:focus-visible {
+.form input:focus-visible {
     outline-color: var(--hover-color);
 }

@@ -12,7 +12,7 @@ let schedule = [
             {
                 id: 101,
                 name: 'Computer Graphics',
-                time: '8 - 10',
+                time: '8AM - 10AM',
                 place: 'D203'
             },
         ]
@@ -24,13 +24,13 @@ let schedule = [
             {
                 id: 201,
                 name: 'Microprocessor Interface',
-                time: '8 - 10',
+                time: '8AM - 10AM',
                 place: 'B204'
             },
             {
                 id: 202,
                 name: 'Engineering Economics & Management',
-                time: '10 - 12',
+                time: '10AM - 12PM',
                 place: 'C202'
             },
         ]
@@ -54,19 +54,19 @@ let schedule = [
             {
                 id: 401,
                 name: 'Computer Network 1',
-                time: '8 - 10',
+                time: '8AM - 10AM',
                 place: 'Lab B2'
             },
             {
                 id: 402,
                 name: 'Computer Graphics',
-                time: '10 - 12',
+                time: '10AM - 12PM',
                 place: 'Lab C1'
             },
             {
                 id: 403,
                 name: 'Microprocessor Interface',
-                time: '12 - 2',
+                time: '12PM - 2PM',
                 place: 'Lab D2'
             },
         ]
@@ -78,13 +78,13 @@ let schedule = [
             {
                 id: 501,
                 name: 'Computer Network 1',
-                time: '8 - 11',
+                time: '8AM - 11AM',
                 place: 'C202'
             },
             {
                 id: 502,
                 name: 'DSP',
-                time: '11 - 1',
+                time: '11AM - 1PM',
                 place: 'C202'
             },
         ]
