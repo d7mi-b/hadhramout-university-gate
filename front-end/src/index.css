@@ -84,6 +84,43 @@ body {
     transition: 0.2s;
 }
 
+.pay-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--white);
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.pay-section svg {
+    width: 50px;
+    fill: var(--dark-color);
+    margin: 10px auto 5px;
+}
+
+.pay-section .cancel {
+    width: 15px;
+    position: relative;
+    right: 210px;
+    margin: 0;
+}
+
+.pay-section .buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.pay-section .btn {
+    margin: 10px;
+}
+
 @media (min-width: 238px) and (max-width: 991px) {
     .container {
         width: 100%;

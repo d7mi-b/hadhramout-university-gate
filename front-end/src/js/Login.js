@@ -4,8 +4,30 @@ import logo from '../images/HUGLogo.png';
 import had from '../images/Hadhrmout.jpg';
 import signIn from '../images/sign_in.svg';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 const Login = () => {
+
+    // HANDEL CONTENT
+    const handelContent = () => {
+        let loginData = document.querySelector('.login-data');
+        let btnLogin = document.getElementById('btn-login');
+        let btnCancel = document.querySelector('.cancel');
+
+        btnLogin.addEventListener('click', () => {
+            loginData.style.cssText = "display: flex";
+            console.log("click")
+        })
+
+        btnCancel.addEventListener('click', () => {
+            loginData.style.cssText = "display: none";
+        })
+    }
+
+    React.useEffect(() => {
+        handelContent();
+    }, [])
+
     return (
         <div className="login">
 
@@ -44,25 +66,5 @@ const Login = () => {
         </div>
     );
 }
-
-// OPEN AND CLOSE LOGIN FORM
-document.addEventListener('DOMContentLoaded', () => {
-
-    let loginData = document.querySelector('.login-data');
-    let btnLogin = document.getElementById('btn-login');
-    let btnCancel = document.querySelector('.cancel');
-
-    btnLogin.addEventListener('click', () => {
-        loginData.style.cssText = "display: flex";
-        console.log("click")
-    })
-
-    btnCancel.addEventListener('click', () => {
-        loginData.style.cssText = "display: none";
-    })
-
-    
-
-})
 
 export default Login;

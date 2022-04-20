@@ -45,7 +45,7 @@ const NavbarSt = () => {
                             <p>هندسة حاسوب</p>
                             <p>مستوى رابع</p>
                         </section>
-                        <a className='btn' href='/'>تسجيل الخروج</a>
+                        <Link className='btn' to='/'>تسجيل الخروج</Link>
                     </div>
                 </div>
 

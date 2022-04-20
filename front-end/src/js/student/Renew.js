@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import '../../css/student/renewSt.css';
 
 let amount = 5000;
@@ -9,6 +10,28 @@ const Renew = () => {
     const handelClick = () => {
         setStudentSt(true);
     }
+
+    // HANDEL CONTENT
+    const handelContent = () => {
+        let backgroundSection = document.querySelector('.background-section');
+        let btnRenew = document.getElementById('btnRenew');
+        let btnCancel = document.querySelector('#cancel');
+        let btnProve = document.querySelector('#prove');
+        btnRenew.addEventListener('click', () => {
+            backgroundSection.style.cssText = "display: flex";
+        })
+
+        btnCancel.addEventListener('click', () => {
+            backgroundSection.style.cssText = "display: none";
+        })
+
+        btnProve.addEventListener('click', () => {
+            backgroundSection.style.cssText = "display: none";
+        })
+    }
+    React.useEffect(() => {
+        handelContent();
+    }, [])
 
     return (
         <div className="renew container container-page">
@@ -55,26 +78,5 @@ const Renew = () => {
         </div>
     );
 }
-
-// OPEN AND CLOSE LOGIN FORM
-document.addEventListener('DOMContentLoaded', () => {
-
-    let backgroundSection = document.querySelector('.background-section');
-    let btnRenew = document.getElementById('btnRenew');
-    let btnCancel = document.querySelector('#cancel');
-    let btnProve = document.querySelector('#prove');
-    btnRenew.addEventListener('click', () => {
-        backgroundSection.style.cssText = "display: flex";
-    })
-
-    btnCancel.addEventListener('click', () => {
-        backgroundSection.style.cssText = "display: none";
-    })
-
-    btnProve.addEventListener('click', () => {
-        backgroundSection.style.cssText = "display: none";
-    })
-
-})
 
 export default Renew;
