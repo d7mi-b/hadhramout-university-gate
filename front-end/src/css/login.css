@@ -32,6 +32,11 @@
     justify-content: center;
 }
 
+.login .header h3,
+.login .header #btn-login {
+    margin: 5px 15px;
+}
+
 .login .image {
     display: flex;
     flex-direction: column;

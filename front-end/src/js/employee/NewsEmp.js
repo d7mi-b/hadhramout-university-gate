@@ -53,7 +53,7 @@ let news = [
 
 const NewsEmp = () => {
     return (
-        <section className="news news-page">
+        <section className="news news-page container container-page">
             <header>
                 <h2>الأخبار</h2>
                 <Link to='/create-new' className="btn">خبر جديد</Link>

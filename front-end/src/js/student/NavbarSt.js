@@ -15,7 +15,7 @@ const NavbarSt = () => {
                     <header>الخدمات </header>
                     <ul className='services-list nav-list'>
                         <li><Link to='/renew'>تجديد القيد</Link></li>
-                        <li><Link to='#'>بيان درجات</Link></li>
+                        <li><Link to='/degree-statement'>بيان درجات</Link></li>
                         <li><Link to='#'>شهادة القيد</Link></li>
                         <li><Link to='#'>رفع تظلم</Link></li>
                     </ul>

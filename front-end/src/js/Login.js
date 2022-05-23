@@ -58,7 +58,7 @@ const Login = () => {
                         <input type='text' className='input' name='username' placeholder='إسم المستخدم' />
                         <input type='password' className='input' name='password' placeholder='كلمة المرور' />
                         <Link className='btn' to='/home'>تسجيل الدخول</Link>
-                        <a className='link' href='#'>نسيت كلمة المرور</a>
+                        <Link className='link' to='#'>نسيت كلمة المرور</Link>
                     </form>
                 </div>
 

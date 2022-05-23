@@ -36,6 +36,11 @@
     background-color: var(--white);
 }
 
+.news .news-container .new:hover {
+    transform: scale(1.01);
+    transition: 0.3s;
+}
+
 .news .news-container .new img {
     width: 100%;
 }

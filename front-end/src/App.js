@@ -8,6 +8,7 @@ import Withdraw from './js/employee/Withdraw';
 import Footer from './js/Footer';
 import Login from "./js/Login";
 import NewDetails from './js/newDetails';
+import DegreeSt from './js/student/DegreeSt';
 import HomeSt from './js/student/HomeSt';
 import NavbarSt from './js/student/NavbarSt';
 import NewsST from './js/student/NewsSt';
@@ -66,6 +67,13 @@ function App() {
           <Route path='/renew'>
             <NavbarSt />
             <Renew />
+            <Footer />
+          </Route>
+
+          {/* DEGREE STATEMENT PAGE FOR STUDENT */}
+          <Route path='/degree-statement'>
+            <NavbarSt />
+            <DegreeSt />
             <Footer />
           </Route>
 
