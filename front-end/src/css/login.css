@@ -61,6 +61,7 @@
 
     .login .header {
         width: 100%;
+        margin: 25px auto;
     }
 
     .login .header .btn {
@@ -68,8 +69,9 @@
     }
 
     .login .image {
-        width: 60%;
+        width: 70%;
         margin: 15px auto;
+        height: fit-content;
     }
 }
 /* START LOGIN FORM */
