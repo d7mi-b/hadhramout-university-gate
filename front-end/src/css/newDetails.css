@@ -25,3 +25,11 @@
     margin: 10px 0;
     font-size: 1.1rem;
 }
+
+@media (min-width: 238px) and (max-width: 991px) {
+    .new-details {
+        margin: 120px auto 35px;
+        width: 100%;
+        padding: 10px 0;
+    }
+}

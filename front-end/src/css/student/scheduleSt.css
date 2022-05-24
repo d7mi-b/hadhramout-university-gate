@@ -26,3 +26,25 @@
     box-shadow: 1px 1px 2px 1px #ddd;
     margin: 0 10px;
 }
+
+@media (min-width: 280px) and (max-width: 767px) {
+    .schedule {
+        width: 80%;
+        margin: 30px auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .day {
+        display: flex;
+        flex-direction: column;
+        margin: 10px auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .schedule {
+        width: 90%;
+        margin: 35px auto;
+    }
+}

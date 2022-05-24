@@ -28,3 +28,27 @@
 .display-degrees .btn {
     float: left;
 }
+
+@media (min-width: 238px) and (max-width: 767px) {
+    .choose-data form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .choose-data form label {
+        margin: 15px 0;
+    }
+
+    .display-degrees {
+        width: 90%;
+        margin: 30px auto;
+        height: 80vh;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .display-degrees {
+        width: 80%;
+        margin: 20px auto;
+    }
+}

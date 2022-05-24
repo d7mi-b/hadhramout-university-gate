@@ -29,6 +29,7 @@ body {
     background-size: contain;
     background-attachment: fixed;
     background-position: bottom;
+    height: max-content;
 }
 
 .container {
@@ -124,5 +125,9 @@ body {
 @media (min-width: 238px) and (max-width: 991px) {
     .container {
         width: 100%;
+    }
+
+    .header {
+        margin: 150px 25px 10px;
     }
 }
