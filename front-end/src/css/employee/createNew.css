@@ -6,7 +6,7 @@
 .create-new form {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 400px;
     margin: 0 auto;
 }
 
@@ -14,7 +14,7 @@
 .create-new form textarea {
     padding: 8px;
     font-family: Cairo;
-    margin: 5px 0 0;
+    margin: 10px 0;
     display: block;
 }
 
@@ -22,7 +22,37 @@
     height: 80px;
 }
 
+.create-new form .btn {
+    position: relative;
+    right: 340px;
+}
+
 .create-new form input:focus-visible,
 .create-new form textarea:focus-visible {
     outline-color: var(--hover-color);
+}
+
+@media (min-width: 238px) and (max-width: 767px) {
+    .create-new {
+        margin: 135px auto 25px;
+    }
+
+    .create-new form {
+        width: 300px;
+    }
+
+    .create-new form .btn {
+        position: relative;
+        right: 240px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .create-new {
+        margin: 135px auto 25px;
+    }
+
+    .create-new form {
+        width: 400px;
+    }
 }

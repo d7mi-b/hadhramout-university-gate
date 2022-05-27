@@ -23,6 +23,7 @@
     width: 300px;
     margin: 0 auto;
     padding: 5px;
+    width: 400px;
 }
 
 .form input {
@@ -34,4 +35,30 @@
 
 .form input:focus-visible {
     outline-color: var(--hover-color);
+}
+
+.form .btn {
+    position: relative;
+    right: 332px;
+}
+
+@media (min-width: 238px) and (max-width: 767px) {
+    .container-form {
+        margin-top: 120px;
+    }
+
+    .form {
+        width: 300px;
+    }
+
+    .form .btn {
+        position: relative;
+        right: 232px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .container-form {
+        margin-top: 120px;
+    }
 }

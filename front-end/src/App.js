@@ -4,6 +4,7 @@ import CreateNew from './js/employee/createNew';
 import HomeEmp from './js/employee/HomeEmp';
 import NavbarEmp from './js/employee/NavbarEmp';
 import NewsEmp from './js/employee/NewsEmp';
+import ScheduleEmp from './js/employee/ScheduleEmp';
 import Withdraw from './js/employee/Withdraw';
 import Footer from './js/Footer';
 import Login from "./js/Login";
@@ -110,6 +111,13 @@ function App() {
           <Route path='/withdraw'>
             <NavbarEmp />
             <Withdraw />
+            <Footer />
+          </Route>
+
+          {/* SCHEDULE PAGE FOR STUDENT */}
+          <Route path='/edit-schedule'>
+            <NavbarEmp />
+            <ScheduleEmp />
             <Footer />
           </Route>
 

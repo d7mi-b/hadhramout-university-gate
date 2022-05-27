@@ -9,7 +9,8 @@
     box-shadow: 3px 3px 10px 2px #ddd;
 }
 
-.schedule td {
+.schedule td,
+.schedule th {
     margin: 0;
     border-radius: 5px;
     border: none;

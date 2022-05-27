@@ -11,31 +11,53 @@
     z-index: 10;
 }
 
-/* START NAVBAR LIST */
+/* START NAVBAR LIST FOR EMPLOYEE */
+.navbar .list-emp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.navbar .list-emp .home-written {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.navbar .list-emp .home-icon {
+    display: none;
+}
+
+/* START NAVBAR LIST FOR STUDENT */
 .navbar .list-bar {
     display: none;
 }
 
-.navbar .list {
+.navbar .list,
+.navbar .list-emp {
     display: flex;
     padding: 8px 0;
     list-style: none;
 }
 
-.navbar .list a {
+.navbar .list a,
+.navbar .list-emp a {
     text-decoration: none;
     color: var(--dark-color);
     display: inline-block;
 }
 
-.navbar .list li {
+.navbar .list li,
+.navbar .list-emp li {
     font-size: 1rem;
     margin: 0 0 0 20px;
     cursor: pointer;
 }
 
 .navbar .list a:hover,
-.navbar .list li:hover {
+.navbar .list li:hover,
+.navbar .list-emp a:hover,
+.navbar .list-empli:hover {
     color: var(--hover-color);
     transition: 0.2s;
 }
@@ -144,9 +166,18 @@
         position: relative;
     }
 
-    .navbar .icons .profile-list,
-    .navbar .icons .navigation-list,
-    .navbar .icons .wallet {
+    .navbar .list-emp .home-written {
+        display: none;
+    }
+
+    .navbar .list-emp .home-icon {
+        display: block;
+        margin: 0 15px;
+    }
+
+    .navbar .list-emp .home-icon svg {
+        width: 25px;
+        fill: var(--dark-color);
     }
 }
 /* END RESPONSIVE NAVBAR */

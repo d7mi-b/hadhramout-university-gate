@@ -1,0 +1,53 @@
+.choose-sechedule form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+
+.subject-emp .place {
+    width: 80%;
+    display: inline-block;
+}
+
+.subject-emp .delete {
+    display: inline-block;
+}
+
+.subject-emp .delete svg {
+    fill: var(--white);
+    width: 15px;
+}
+
+.add-subject-icon {
+    text-align: left;
+}
+
+.add-subject-icon svg {
+    width: 35px;
+}
+
+.pay-section {
+    width: 400px;
+}
+
+.data-subject {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.data-subject form label {
+    margin: 10px;
+}
+
+.data-subject form input {
+    padding: 8px;
+    font-family: Cairo;
+    margin: 5px auto 10px;
+    display: block;
+    width: 100%;
+}
+
+.data-subject form .time {
+    display: inline-block;
+    width: 110px;
+}

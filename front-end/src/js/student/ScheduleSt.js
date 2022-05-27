@@ -103,7 +103,7 @@ const ScheduleSt = () => {
                     schedule.map(e => {
                         return (
                             <tr className='day' key={e.id}>
-                                <td><h4>{e.day}</h4></td>
+                                <th><h4>{e.day}</h4></th>
                                 {
                                     e.subjects.map(e => {
                                         return (
