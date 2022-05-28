@@ -107,6 +107,7 @@
     text-decoration: none;
     display: inline-block;
     margin: 10px auto;
+    right: 0;
 }
 
 .link {

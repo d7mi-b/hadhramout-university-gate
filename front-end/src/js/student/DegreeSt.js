@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import '../../css/student/degreeSt.css'
 
+let GPA = '79%';
+
 let data = [
     {
         id: 21,
         level: 'المستوى الثاني',
         semester: 'الفصل الدراسي الأول',
+        semesterAvr: '82%',
         subjects: [
             {
                 id:11,
@@ -61,6 +64,7 @@ let data = [
         id: 22,
         level: 'المستوى الثاني',
         semester: 'الفصل الدراسي الثاني',
+        semesterAvr: '85%',
         subjects: [
             {
                 id:21,
@@ -116,6 +120,7 @@ let data = [
         id: 31,
         level: 'المستوى الثالث',
         semester: 'الفصل الدراسي الأول',
+        semesterAvr: '82%',
         subjects: [
             {
                 id:11,
@@ -167,7 +172,7 @@ let data = [
             },
         ]
     }
-]
+];
 
 let levels = [
     {
@@ -195,7 +200,7 @@ let levels = [
         label:'المستوى الخامس',
         name: 'fifth-level'
     },
-]
+];
 
 let semesters = [
     {
@@ -208,7 +213,7 @@ let semesters = [
         label:'الفصل الدراسي الثاني',
         name: 'second-semestar'
     }
-]
+];
 
 let amount = 5000;
 
@@ -286,6 +291,10 @@ const DegreeSt = () => {
                                     <h4>{level}</h4>
                                     <h4>{semester}</h4>
                                 </header>
+                                <section className='averages'>
+                                    <h4>المعدل الفصلي: {e.semesterAvr}</h4>
+                                    <h4>المعدل التراكمي: {GPA}</h4>
+                                </section>
                                 <table>
                                     <tr>
                                         <th>المقرر الدراسي</th>

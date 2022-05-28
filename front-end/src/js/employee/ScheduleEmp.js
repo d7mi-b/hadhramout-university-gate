@@ -102,6 +102,7 @@ let schedules = [
                                     {
                                         id: 101,
                                         name: 'Integral Calclus',
+                                        prof: 'أ. محمد بافقيه',
                                         time: '8AM - 10AM',
                                         place: 'A204'
                                     },
@@ -120,6 +121,7 @@ let schedules = [
                                     {
                                         id: 201,
                                         name: 'Islamic Culture 2',
+                                        prof: 'د. رشيد بامعص',
                                         time: '8AM - 10AM',
                                         place: 'B204'
                                     },
@@ -132,6 +134,7 @@ let schedules = [
                                     {
                                         id: 203,
                                         name: 'English Language 2',
+                                        prof: 'أ. نايف بن همام',
                                         time: '12PM - 2PM',
                                         place: 'C202'
                                     },
@@ -144,6 +147,7 @@ let schedules = [
                                     {
                                         id: 301,
                                         name: 'Computer Programming',
+                                        prof: 'د. سهام بامطرف',
                                         time: '8AM - 10AM',
                                         place: 'C202'
                                     },
@@ -156,6 +160,7 @@ let schedules = [
                                     {
                                         id: 303,
                                         name: 'Computer Programming Tutorial',
+                                        prof: 'م. غذوان باوزير',
                                         time: '12PM - 1PM',
                                         place: 'C201'
                                     },
@@ -168,6 +173,7 @@ let schedules = [
                                     {
                                         id: 401,
                                         name: 'Computer Programming',
+                                        prof: 'م. غذوان باوزير',
                                         time: '8AM - 10AM',
                                         place: 'Lab C2'
                                     },
@@ -180,12 +186,14 @@ let schedules = [
                                     {
                                         id: 501,
                                         name: 'Integral Calculus',
+                                        prof: 'أ. محمد بافقيه',
                                         time: '8AM - 10AM',
                                         place: 'A204'
                                     },
                                     {
                                         id: 502,
                                         name: 'Introduction to Computer Engineering',
+                                        prof: 'د. عزت السعدي',
                                         time: '10AM - 12PM',
                                         place: 'A204'
                                     },
@@ -250,6 +258,7 @@ let schedules = [
                                     {
                                         id: 101,
                                         name: 'Computer Graphics',
+                                        prof: 'د. رشا بن ثعلب',
                                         time: '8AM - 10AM',
                                         place: 'D203'
                                     },
@@ -262,12 +271,14 @@ let schedules = [
                                     {
                                         id: 201,
                                         name: 'Microprocessor Interface',
+                                        prof: 'د. عبدالله باحسن',
                                         time: '8AM - 10AM',
                                         place: 'B204'
                                     },
                                     {
                                         id: 202,
                                         name: 'Engineering Economics & Management',
+                                        prof: 'أ. روينا',
                                         time: '10AM - 12PM',
                                         place: 'C202'
                                     },
@@ -292,18 +303,21 @@ let schedules = [
                                     {
                                         id: 401,
                                         name: 'Computer Network 1',
+                                        prof: 'م. فاطمة بافرج',
                                         time: '8AM - 10AM',
                                         place: 'Lab B2'
                                     },
                                     {
                                         id: 402,
                                         name: 'Computer Graphics',
+                                        prof: 'م. صفاء جوهر',
                                         time: '10AM - 12PM',
                                         place: 'Lab C1'
                                     },
                                     {
                                         id: 403,
                                         name: 'Microprocessor Interface',
+                                        prof: 'م. عصمت',
                                         time: '12PM - 2PM',
                                         place: 'Lab D2'
                                     },
@@ -316,12 +330,14 @@ let schedules = [
                                     {
                                         id: 501,
                                         name: 'Computer Network 1',
+                                        prof: 'د. مكارم بامطرف',
                                         time: '8AM - 11AM',
                                         place: 'C202'
                                     },
                                     {
                                         id: 502,
                                         name: 'DSP',
+                                        prof: 'د. خالد فوزي',
                                         time: '11AM - 1PM',
                                         place: 'C202'
                                     },
@@ -340,12 +356,14 @@ let schedules = [
                                     {
                                         id: 101,
                                         name: 'Artificial Intelligence',
+                                        prof: 'د. رشا بن ثعلب',
                                         time: '8AM - 10AM',
                                         place: 'C202'
                                     },
                                     {
                                         id: 102,
                                         name: 'Computer Network 2',
+                                        prof: 'د. مكارم بامطرف',
                                         time: '10AM - 1PM',
                                         place: 'C202'
                                     },
@@ -358,12 +376,14 @@ let schedules = [
                                     {
                                         id: 201,
                                         name: 'VLSI Circuit Design',
+                                        prof: 'م. وفاء إدريس',
                                         time: '8AM - 10AM',
                                         place: 'Lab C1'
                                     },
                                     {
                                         id: 202,
                                         name: 'Artificial Intelligence',
+                                        prof: 'م. عصمت',
                                         time: '10AM - 12PM',
                                         place: 'Lab C2'
                                     },
@@ -376,12 +396,14 @@ let schedules = [
                                     {
                                         id: 301,
                                         name: 'Data Security',
+                                        prof: 'م. فاطمة بافرج',
                                         time: '8AM - 10AM',
                                         place: 'Arch. Lab'
                                     },
                                     {
                                         id: 302,
                                         name: 'Real-Time Computer Control & PLC',
+                                        prof: 'م. علاء باسواقي',
                                         time: '10AM - 12PM',
                                         place: 'Lab'
                                     },
@@ -394,6 +416,7 @@ let schedules = [
                                     {
                                         id: 401,
                                         name: 'Computer Network 2',
+                                        prof: 'م. فاطمة بافرج',
                                         time: '8AM - 10AM',
                                         place: 'Lab'
                                     },
@@ -406,18 +429,21 @@ let schedules = [
                                     {
                                         id: 501,
                                         name: 'VLSI Circuit Design',
+                                        prof: 'د. خالد فوزي',
                                         time: '8AM - 10AM',
                                         place: 'C201'
                                     },
                                     {
                                         id: 502,
                                         name: 'Data Security',
+                                        prof: 'د. مكارم بامطرف',
                                         time: '10AM - 12PM',
                                         place: 'C201'
                                     },
                                     {
                                         id: 503,
                                         name: 'Real-Time Computer Control & PLC',
+                                        prof: 'م. علاء باسواقي',
                                         time: '12AM - 2PM',
                                         place: 'C201'
                                     },
@@ -719,6 +745,7 @@ const ScheduleEmp = () => {
                                                                 return (
                                                                     <td className='subject subject-emp' key={e4.id}>
                                                                         <h4>{e4.name}</h4>
+                                                                        <p>{e4.prof}</p>
                                                                         <p>{e4.time}</p>
                                                                         <p className='place'>{e4.place}</p>
                                                                         <div className='delete icons'>

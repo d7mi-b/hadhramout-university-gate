@@ -16,10 +16,11 @@
 }
 
 .display-degrees {
-    height: 60vh;
+    height: 70vh;
 }
 
-.display-degrees header {
+.display-degrees header,
+.display-degrees .averages {
     display: flex;
     justify-content: space-evenly;
     margin: 15px auto;
