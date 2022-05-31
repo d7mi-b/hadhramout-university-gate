@@ -122,6 +122,10 @@ body {
     margin: 10px;
 }
 
+.bold {
+    font-weight: 800;
+}
+
 @media (min-width: 238px) and (max-width: 991px) {
     .container {
         width: 100%;

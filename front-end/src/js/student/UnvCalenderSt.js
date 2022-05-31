@@ -15,9 +15,9 @@ const UnCalenderSt = () => {
                 <table className='sem-table'>
                     <thead>
                         <tr>
-                            <td><h4>التاريخ الميلادي</h4></td>
-                            <td><h4>التاريخ الهجري</h4></td>
-                            <td><h4>التفاصيل</h4></td>
+                            <th><h4>التاريخ الميلادي</h4></th>
+                            <th><h4>التاريخ الهجري</h4></th>
+                            <th><h4>التفاصيل</h4></th>
 
                         </tr>
                     </thead>

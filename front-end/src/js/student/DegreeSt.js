@@ -292,8 +292,8 @@ const DegreeSt = () => {
                                     <h4>{semester}</h4>
                                 </header>
                                 <section className='averages'>
-                                    <h4>المعدل الفصلي: {e.semesterAvr}</h4>
-                                    <h4>المعدل التراكمي: {GPA}</h4>
+                                    <p className='bold'>المعدل الفصلي: {e.semesterAvr}</p>
+                                    <p className='bold'>المعدل التراكمي: {GPA}</p>
                                 </section>
                                 <table>
                                     <tr>

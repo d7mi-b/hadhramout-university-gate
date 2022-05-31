@@ -744,7 +744,7 @@ const ScheduleEmp = () => {
                                                             e3.subjects.map((e4, i, arr) => {
                                                                 return (
                                                                     <td className='subject subject-emp' key={e4.id}>
-                                                                        <h4>{e4.name}</h4>
+                                                                        <p className='bold'>{e4.name}</p>
                                                                         <p>{e4.prof}</p>
                                                                         <p>{e4.time}</p>
                                                                         <p className='place'>{e4.place}</p>
