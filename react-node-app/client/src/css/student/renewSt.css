@@ -1,0 +1,16 @@
+.renew-container {
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.icon-renew svg {
+    width: 100px;
+    fill: var(--dark-color);
+}
+
+.renew-container .btn {
+    margin: 15px auto;
+}

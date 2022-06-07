@@ -1,0 +1,55 @@
+.choose-data form {
+    margin: 15px auto;
+    width: max-content;
+}
+
+.choose-data form select {
+    margin: 0 10px 0 25px;
+    padding: 5px;
+    width: 200px;
+    font-family: Cairo;
+    color: var(--dark-color);
+}
+
+.choose-data form select:focus-visible {
+    border-color: var(--hover-color);
+}
+
+.display-degrees {
+    height: 70vh;
+}
+
+.display-degrees header,
+.display-degrees .averages {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 15px auto;
+}
+
+.display-degrees .btn {
+    float: left;
+}
+
+@media (min-width: 238px) and (max-width: 767px) {
+    .choose-data form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .choose-data form label {
+        margin: 15px 0;
+    }
+
+    .display-degrees {
+        width: 90%;
+        margin: 30px auto;
+        height: 80vh;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .display-degrees {
+        width: 80%;
+        margin: 20px auto;
+    }
+}

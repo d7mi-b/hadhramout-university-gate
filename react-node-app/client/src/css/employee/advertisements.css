@@ -1,0 +1,11 @@
+.advertisements-emp {
+    margin: 90px auto;
+}
+
+.advertisements-emp .advertisement {
+    padding-bottom: 0;
+}
+
+.advertisement .icons svg {
+    fill: var(--white);
+}
