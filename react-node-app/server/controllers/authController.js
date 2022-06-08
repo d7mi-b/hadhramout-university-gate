@@ -16,23 +16,31 @@ module.exports.login_get = (req,res) => {
 
 module.exports.login_post = async (req,res) => {
 
-    const {registerNo , password} = req.body;
+    const {username , password} = req.body;
 
     try{
-        const student = await Student.login(registerNo,password);
+        const student = await Student.login(username,password);
         if(student){
+            console.log(student)
         res.status(200).json({student: student.id})
         }
-        else {
-            const employee = await Employee.login(registerNo,password)
-            res.status(200).json({employee: employee.id})
-        }
+      
+        
     }
     catch(err) {
-        res.status(400).json({})
-    }
+        
+        const employee = await Employee.login(username,password)
+        if(employee){
+            res.status(200).json({employee: employee.id})
+        }
 
+        res.status(400).json({})
+
+    }
+       
 }
+
+
 
 
 
@@ -55,7 +63,7 @@ module.exports.registerStudent= async (req,res) => {
             typeOfRegister:"public",
             wallet:10000,
             grades:[],
-            registerNo:1111111,
+            username:1111111,
             password:"1234"
             })
             res.status(201).json(student)

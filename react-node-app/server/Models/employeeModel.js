@@ -27,7 +27,7 @@ employeeSchema.pre('save', async function(next) {
 //to create the login method
 employeeSchema.statics.login = async function(username , password) {
     const employee = await this.findOne({ username });
-
+    
     if(employee) {
         const auth = await bcrypt.compare(password, employee.password);
         if(auth) {

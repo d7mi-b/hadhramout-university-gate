@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 const bcrypt = require("bcryptjs");
-const SALT_WORK_FACTOR = 10;
+
 
 const studentSchema = new Schema(
     {
         name : {type:String},
         dateOfBirth : {tupe:Date},
-        registerNo: {type:Number},
+        username: {type:Number},
         email : {type:String},
         age : {type:Number},
         phoneNo : {type:Number},
@@ -31,8 +31,8 @@ studentSchema.pre('save', async function(next) {
 })
 
 //to create the login method
-studentSchema.statics.login = async function(registerNo , password) {
-    const student = await this.findOne({ registerNo });
+studentSchema.statics.login = async function(username , password) {
+    const student = await this.findOne({ username });
 
     if(student) {
         const auth = await bcrypt.compare(password, student.password);

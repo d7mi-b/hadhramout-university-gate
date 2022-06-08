@@ -43,12 +43,14 @@ const Login = () => {
         try{
             const res = await fetch('/', {
                 method: 'POST',
-                body: JSON.stringify({registerNo: text, password}),
+                body: JSON.stringify({username: text, password}),
                 headers: {'Content-Type': 'application/json'}
             });
+            
             const data = await res.json();
             
             console.log(data)
+            console.log(data.student)
             if(data.errors) {
 
             }
@@ -57,12 +59,13 @@ const Login = () => {
                 window.location.replace('/home')
             }
             else {
-                const res = await fetch('/', {
+               /* const res = await fetch('/', {
                     method: 'POST',
                     body: JSON.stringify({username: text, password}),
                     headers: {'Content-Type': 'application/json'}
-                });
-                const data = await res.json();
+                });*/
+                //const data = await res.json();
+                console.log(data)
                 if(data.employee) {
                     setStudentLogin(data.employee)
                     window.location.replace('/employee')
