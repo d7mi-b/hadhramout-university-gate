@@ -56,7 +56,7 @@ const DataProvider = ({ children }) => {
 
     return (
         <studentLoginContext.Provider value={{studentLogin, setStudentLogin}}>
-            <WalletContext.Provider value={wallet}>
+            <WalletContext.Provider value={{ wallet, setWallet }}>
                 <NewsContext.Provider value={news}>
                     <StudentStateContext.Provider value={studentState}>
                         { children }

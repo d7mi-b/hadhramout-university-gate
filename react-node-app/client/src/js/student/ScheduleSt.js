@@ -107,27 +107,29 @@ const ScheduleSt = () => {
                 <h3>{department} - {level} - {semstire}</h3>
             </header>
             <table className='schedule'>
-                {
-                    schedule.map(e => {
-                        return (
-                            <tr className='day' key={e.id}>
-                                <th><p className='bold'>{e.day}</p></th>
-                                {
-                                    e.subjects.map(e => {
-                                        return (
-                                            <td className='subject' key={e.id}>
-                                                <p className='bold'>{e.name}</p>
-                                                <p>{e.prof}</p>
-                                                <p>{e.time}</p>
-                                                <p>{e.place}</p>
-                                            </td>
-                                        )
-                                    })
-                                }
-                            </tr>
-                        )
-                    })
-                }
+                <tbody>
+                    {
+                        schedule.map(e => {
+                            return (
+                                <tr className='day' key={e.id}>
+                                    <th><p className='bold'>{e.day}</p></th>
+                                    {
+                                        e.subjects.map(e => {
+                                            return (
+                                                <td className='subject' key={e.id}>
+                                                    <p className='bold'>{e.name}</p>
+                                                    <p>{e.prof}</p>
+                                                    <p>{e.time}</p>
+                                                    <p>{e.place}</p>
+                                                </td>
+                                            )
+                                        })
+                                    }
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
             </table>
         </div>
     );

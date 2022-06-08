@@ -147,8 +147,8 @@
     .navbar .list {
         display: none;
         position: absolute;
-        top: 60px;
-        right: 30px;
+        top: 35px;
+        right: 25px;
         background-color: var(--gray);
         width: 200px;
         text-align: center;
@@ -188,7 +188,7 @@
     background-color: var(--dark-color);
     padding: 5px 15px;
     position: absolute;
-    margin: 3px 5px;
+    margin: 0px 5px;
     border-radius: 5px;
     display: none;
 }
