@@ -12,12 +12,13 @@ const studentSchema = new Schema(
         age : {type:Number},
         phoneNo : {type:Number},
         grades : {type:Array},
+        state: {type: Boolean},
         wallet : {type:Number},
         level : {type:Number},
         department : {type:String},
         typeOfRegister : {type:String},
         password : {type:String},
-     },
+    },
     {
         timestamps : true,
     }
@@ -44,7 +45,7 @@ studentSchema.statics.login = async function(username , password) {
     throw Error('incorrect user')
 }
 
- 
+
 
 
 /*studentSchema.pre('save', function(next) {

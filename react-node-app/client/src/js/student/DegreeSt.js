@@ -257,7 +257,7 @@ const DegreeSt = () => {
             {/* CHOOSE LEVEL AND SEMESTER */}
             <section className="choose-data">
                 <form action="#" method="POST">
-                    <label for='level'>المستوى</label>
+                    <label htmlFor='level'>المستوى</label>
                     <select name="level" className="level" value={level} onChange={handelChangeLevel} >
                         {
                             levels.map(e => {
@@ -267,7 +267,7 @@ const DegreeSt = () => {
                             })
                         }
                     </select>
-                    <label for='semester'>الفصل الدراسي</label>
+                    <label htmlFor='semester'>الفصل الدراسي</label>
                     <select name="semester" className="semester" onChange={handelChangeSem}>
                         {
                             semesters.map(e => {

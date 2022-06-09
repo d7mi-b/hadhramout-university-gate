@@ -1,10 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/student/newsSt.css'
 import { useNews } from '../DataProvider';
-import new1 from '../../images/new1.jpg';
-import new2 from '../../images/new2.jpg';
-import new3 from '../../images/new3.jpg';
+// import new1 from '../../images/new1.jpg';
+// import new2 from '../../images/new2.jpg';
+// import new3 from '../../images/new3.jpg';
 
 // let news = [
 //     {

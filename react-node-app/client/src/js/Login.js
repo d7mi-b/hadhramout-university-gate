@@ -17,8 +17,7 @@ const Login = () => {
         let loginData = document.querySelector('.login-data');
         let btnLogin = document.getElementById('btn-login');
         let btnCancel = document.querySelector('.cancel');
-                
-       
+
         btnLogin.addEventListener('click', () => {
             loginData.style.cssText = "display: flex";
             console.log("click")
@@ -31,14 +30,10 @@ const Login = () => {
     }
 
     const logInData = async () => {
+
         const form = document.getElementById('login_form'); 
         const text = form.username.value;
         const password = form.password.value;
-        
-
-        console.log(text);
-        console.log(password);
-
 
         try{
             const res = await fetch('/', {
@@ -46,16 +41,20 @@ const Login = () => {
                 body: JSON.stringify({username: text, password}),
                 headers: {'Content-Type': 'application/json'}
             });
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 3cbb492675e56635088f7654eaaf78935e6f77bf
             const data = await res.json();
-            
             console.log(data)
             console.log(data.student)
             if(data.errors) {
 
             }
             if(data.student) {
-                setStudentLogin(data.student)
+                setStudentLogin(data)
+                console.log(studentLogin);
                 window.location.replace('/home')
             }
             else {
@@ -110,9 +109,9 @@ const Login = () => {
                         {/* CANCEL MARK */}
                         <svg className='cancel' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
                         <img src={signIn} alt='sign in' />
-                        <input type='text' className='input' name='username' placeholder='إسم المستخدم' />
+                        <input type='text' className='input' name='username' placeholder='رقم القيد' />
                         <input type='password' className='input' name='password' placeholder='كلمة المرور' />
-                        <Link className='btn' onClick={logInData}  >تسجيل الدخول</Link>
+                        <Link to='#' className='btn' onClick={logInData}>تسجيل الدخول</Link>
                         <Link className='link' to='#'>نسيت كلمة المرور</Link>
                     </form>
                 </div>

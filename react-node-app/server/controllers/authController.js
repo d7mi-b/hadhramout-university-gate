@@ -2,17 +2,10 @@ const Student = require('../Models/studentModel');
 const Employee = require('../Models/employeeModel');
 
 
-
-
-
-
 module.exports.login_get = (req,res) => {
     res.status(200).send("Hello")
 }
 
-
-
- 
 
 module.exports.login_post = async (req,res) => {
 
@@ -41,16 +34,16 @@ module.exports.login_post = async (req,res) => {
 }
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 3cbb492675e56635088f7654eaaf78935e6f77bf
 //To add students with Hashed password
-
 module.exports.registerStudent= async (req,res) => {
-    
-        
-        //create student 
 
+<<<<<<< HEAD
         try{
             const student = await Student.create({
             name:"Halah",
@@ -72,17 +65,42 @@ module.exports.registerStudent= async (req,res) => {
             console.log(err);
             res.status(400).send('error student not created')
         }
+=======
+    //create student 
+
+    try{
+        const student = await Student.create({
+        name:"عبدالرحمن بهيان",
+        age:24,
+        email:"aab.1419@hotmail.com",
+        phoneNo:7345689,
+        dateOfBirth:"27-05-1998",
+        level:4,
+        department:"Computer Engineering",
+        typeOfRegister:"priveat",
+        wallet:10000,
+        grades:[],
+        state: true,
+        registerNo:1111,
+        password:"1234"
+        })
+        res.status(201).json(student)
+    }
+    catch (err){
+        console.log(err);
+        res.status(400).send('error student not created')
+    }
+>>>>>>> 3cbb492675e56635088f7654eaaf78935e6f77bf
     
 }
 
 module.exports.registerEmployee= async (req,res) => {
-    
-        
+
     //create employee
 
     try{
         const employee = await Employee.create({
-       
+        
             name:"Ahmed",
             phone_NO:712946795,
             department:"Computer Engineering",

@@ -3,6 +3,7 @@ const express = require('express');
 //const { connectToDb, getDb } = require('./db');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authroutes')
+const newsRouter = require('./routes/newsRouter');
 
 const PORT = process.env.PORT || 3001;
 
@@ -12,7 +13,7 @@ app.use(express.urlencoded({extended: true }));
 
 //Connect to database
 
-mongoose.connect('mongodb://localhost:27017/HUG', { useNewUrlParser : true , useUnifiedTopology: true })
+mongoose.connect('mongodb://0.0.0.0:27017/HUG', { useNewUrlParser : true , useUnifiedTopology: true })
     .then((result) => {
         console.log("connected to database")
         app.listen(PORT)
@@ -22,6 +23,7 @@ mongoose.connect('mongodb://localhost:27017/HUG', { useNewUrlParser : true , use
     })
 
 app.use(authRoutes);
+app.use('/news', newsRouter);
 
 /*let db;
 
