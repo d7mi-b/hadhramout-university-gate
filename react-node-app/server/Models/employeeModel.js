@@ -11,6 +11,7 @@ const employeeSchema = new Schema(
         email : {type:String},
         dateOfBirth : {type:Date},
         password : {type:String},
+        position: {type: String}
     },
     {
         timestamps : true,

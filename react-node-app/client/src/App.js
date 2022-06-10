@@ -20,6 +20,7 @@ import Login from './js/Login'
 import DataProvider from "./js/DataProvider";
 import AdvertisementsEmp from "./js/employee/AdvertisementsEmp";
 import CreateAdv from "./js/employee/CreateAdv";
+import StudentData from "./js/StudentData";
 
 
 function App() {
@@ -36,54 +37,56 @@ function App() {
             </Route>
 
             {/* STUDENT */}
-            {/* HOME PAGE FOR STUDENT */}
-            <Route path='/home'>
-              <NavbarSt />
-              <HomeSt />
-              <Footer />
-            </Route>
+            <StudentData>
+              {/* HOME PAGE FOR STUDENT */}
+              <Route path='/home'>
+                <NavbarSt />
+                <HomeSt />
+                <Footer />
+              </Route>
 
-            {/* NEWS PAGE FOR STUDENT */}
-            <Route path='/news'>
-              <NavbarSt />
-              <NewsST />
-              <Footer />
-            </Route>
+              {/* NEWS PAGE FOR STUDENT */}
+              <Route path='/news'>
+                <NavbarSt />
+                <NewsST />
+                <Footer />
+              </Route>
 
-            {/* NEW DETAILS PAGE */}
-            <Route path="/new/:id">
-              <NavbarSt />
-              <NewDetails />
-              <Footer />
-            </Route>
+              {/* NEW DETAILS PAGE */}
+              <Route path="/new/:id">
+                <NavbarSt />
+                <NewDetails />
+                <Footer />
+              </Route>
 
-            {/* UNVERSITY CALENDER PAGE FOR STUDENT */}
-            <Route path='/calender'>
-              <NavbarSt />
-              <UnCalenderSt />
-              <Footer />
-            </Route>
+              {/* UNVERSITY CALENDER PAGE FOR STUDENT */}
+              <Route path='/calender'>
+                <NavbarSt />
+                <UnCalenderSt />
+                <Footer />
+              </Route>
 
-            {/* SCHEDULE PAGE FOR STUDENT */}
-            <Route path='/schedule'>
-              <NavbarSt />
-              <ScheduleSt />
-              <Footer />
-            </Route>
+              {/* SCHEDULE PAGE FOR STUDENT */}
+              <Route path='/schedule'>
+                <NavbarSt />
+                <ScheduleSt />
+                <Footer />
+              </Route>
 
-            {/* RENEW PAGE FOR STUDENT */}
-            <Route path='/renew'>
-              <NavbarSt />
-              <Renew />
-              <Footer />
-            </Route>
+              {/* RENEW PAGE FOR STUDENT */}
+              <Route path='/renew'>
+                <NavbarSt />
+                <Renew />
+                <Footer />
+              </Route>
 
-            {/* DEGREE STATEMENT PAGE FOR STUDENT */}
-            <Route path='/degree-statement'>
-              <NavbarSt />
-              <DegreeSt />
-              <Footer />
-            </Route>
+              {/* DEGREE STATEMENT PAGE FOR STUDENT */}
+              <Route path='/degree-statement'>
+                <NavbarSt />
+                <DegreeSt />
+                <Footer />
+              </Route>
+            </StudentData>
 
             {/* EMPLOYEE */}
             {/* HOME PAGE FOR EMPLOYEE */}
