@@ -61,8 +61,6 @@ import { useNews } from '../DataProvider';
 const NewsST = () => {
     let news = useNews();
 
-    console.log(news)
-    
     return (
         <section className="news news-page container-page container">
             <header className='header'>
@@ -70,19 +68,19 @@ const NewsST = () => {
             </header>
             <div className="news-container">
                 {
-                    news.map((e, i, arr) => {
+                    news.map((e) => {
                         return (
-                            <article className="new" key={e.id}>
+                            <article className="new" key={e._id}>
                                 <div className="image">
-                                    <img src={e.image} alt="image" />
+                                    <img src={e.image} alt="" />
                                 </div>
                                 <section>
                                     <header>
                                         <h3>{e.title.slice(0, 70)}..</h3>
                                     </header>
                                     <p>{e.body.slice(0, 120)}...</p>
-                                    <time datetime={e.dateNo} className="new-date">{e.date}</time>
-                                    <Link to={`/new/${e.id}`}>قراءة المزيد</Link>
+                                    <time dateTime={e.dateNo} className="new-date">{e.date}</time>
+                                    <Link to={`/news/${e._id}`}>قراءة المزيد</Link>
                                 </section>
                             </article>
                         );

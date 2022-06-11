@@ -1,9 +1,22 @@
 import { Link } from 'react-router-dom';
 import '../../css/student/navbarSt.css';
 import logo from '../../images/HUGLogo.png';
-import avatar from '../../images/avatar.jpg';
+import avatar from '../../images/avatar.png';
+import { useUser } from '../DataProvider';
+
 
 const NavbarEmp = () => {
+    const employee = useUser();
+
+    const logOut = () => {
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        logoutBtn.addEventListener('click', () => {
+            window.location.replace('/');
+            window.sessionStorage.clear();
+        })
+    }
+
     return (
         <nav className="navbar">
             <ul className='list-emp'>
@@ -21,11 +34,10 @@ const NavbarEmp = () => {
                             <img src={avatar} alt='avatar' />
                         </section>
                         <section className='info'>
-                            <p>عبدالرحمن أحمد بهيان</p>
-                            <p>هندسة حاسوب</p>
-                            <p>مستوى رابع</p>
+                            <p>{employee.name}</p>
+                            <p>{employee.department}</p>
                         </section>
-                        <a className='btn' href='/'>تسجيل الخروج</a>
+                        <Link id='logoutBtn' className='btn' to='/' onClick={logOut}>تسجيل الخروج</Link>
                     </div>
                 </div>
                 

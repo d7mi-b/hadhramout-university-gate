@@ -45,7 +45,7 @@ const Login = () => {
             }
             else if(data.position) {
                 window.sessionStorage.setItem("user", JSON.stringify(data));
-                // window.location.replace('/employee')
+                window.location.replace('/employee')
             }
             else if(data) {
                 window.sessionStorage.setItem("user", JSON.stringify(data));

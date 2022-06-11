@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/student/renewSt.css';
-import {useStudent} from '../StudentData';
+import { useUser } from '../DataProvider';
 
 let amount = 5000;
 
 const Renew = () => {
-    const student = useStudent();
+    const student = useUser();
 
     // HANDEL CONTENT
     const handelContent = () => {

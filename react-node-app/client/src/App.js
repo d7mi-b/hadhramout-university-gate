@@ -20,24 +20,20 @@ import Login from './js/Login'
 import DataProvider from "./js/DataProvider";
 import AdvertisementsEmp from "./js/employee/AdvertisementsEmp";
 import CreateAdv from "./js/employee/CreateAdv";
-import StudentData from "./js/StudentData";
-
 
 function App() {
 
   return (
     <div className="App">
-      <DataProvider>
         <Router>
           <Switch>
-
             {/* LOGIN PAGE */}
             <Route exact path="/">
               <Login />
             </Route>
 
+            <DataProvider>
             {/* STUDENT */}
-            <StudentData>
               {/* HOME PAGE FOR STUDENT */}
               <Route path='/home'>
                 <NavbarSt />
@@ -53,7 +49,7 @@ function App() {
               </Route>
 
               {/* NEW DETAILS PAGE */}
-              <Route path="/new/:id">
+              <Route path="/news/:id">
                 <NavbarSt />
                 <NewDetails />
                 <Footer />
@@ -86,65 +82,65 @@ function App() {
                 <DegreeSt />
                 <Footer />
               </Route>
-            </StudentData>
+
 
             {/* EMPLOYEE */}
-            {/* HOME PAGE FOR EMPLOYEE */}
-            <Route path='/employee'>
-              <NavbarEmp />
-              <HomeEmp />
-              <Footer />
-            </Route>
+              {/* HOME PAGE FOR EMPLOYEE */}
+              <Route path='/employee'>
+                <NavbarEmp />
+                <HomeEmp />
+                <Footer />
+              </Route>
 
-            {/* NEWS PAGE FOR EMPLOYEE */}
-            <Route path='/newsEmp'>
-              <NavbarEmp />
-              <NewsEmp />
-              <Footer />
-            </Route>
+              {/* NEWS PAGE FOR EMPLOYEE */}
+              <Route path='/newsEmp'>
+                <NavbarEmp />
+                <NewsEmp />
+                <Footer />
+              </Route>
 
-            {/* CREATE NEW NEWS PAGE */}
-            <Route path='/create-new'>
-              <NavbarEmp />
-              <CreateNew />
-              <Footer />
-            </Route>
+              {/* CREATE NEW NEWS PAGE */}
+              <Route path='/create-new'>
+                <NavbarEmp />
+                <CreateNew />
+                <Footer />
+              </Route>
 
-            {/* CHARGE WALLTE PAGE */}
-            <Route path='/charge-wallte'>
-              <NavbarEmp />
-              <ChargeWallte />
-              <Footer />
-            </Route>
+              {/* CHARGE WALLTE PAGE */}
+              <Route path='/charge-wallte'>
+                <NavbarEmp />
+                <ChargeWallte />
+                <Footer />
+              </Route>
 
-            {/* WITHDRAW FROM WALLTE PAGE */}
-            <Route path='/withdraw'>
-              <NavbarEmp />
-              <Withdraw />
-              <Footer />
-            </Route>
+              {/* WITHDRAW FROM WALLTE PAGE */}
+              <Route path='/withdraw'>
+                <NavbarEmp />
+                <Withdraw />
+                <Footer />
+              </Route>
 
-            {/* SCHEDULE PAGE FOR STUDENT */}
-            <Route path='/edit-schedule'>
-              <NavbarEmp />
-              <ScheduleEmp />
-              <Footer />
-            </Route>
+              {/* SCHEDULE PAGE FOR STUDENT */}
+              <Route path='/edit-schedule'>
+                <NavbarEmp />
+                <ScheduleEmp />
+                <Footer />
+              </Route>
 
-            {/* ADVERTISEMENTS PAGE FOR EMPLOYEE */}
-            <Route path='/advertisements'>
-              <NavbarEmp />
-              <AdvertisementsEmp />
-              <Footer />
-            </Route>
+              {/* ADVERTISEMENTS PAGE FOR EMPLOYEE */}
+              <Route path='/advertisements'>
+                <NavbarEmp />
+                <AdvertisementsEmp />
+                <Footer />
+              </Route>
 
-            {/* CREATE ADVERTISEMENTS PAGE FOR EMPLOYEE */}
-            <Route path='/create-adv'>
-              <NavbarEmp />
-              <CreateAdv />
-              <Footer />
-            </Route>
-
+              {/* CREATE ADVERTISEMENTS PAGE FOR EMPLOYEE */}
+              <Route path='/create-adv'>
+                <NavbarEmp />
+                <CreateAdv />
+                <Footer />
+              </Route>
+            </DataProvider>
             {/* 404 PAGE */}
             <Route path='*'>
               <h1>404</h1>
@@ -152,7 +148,6 @@ function App() {
 
           </Switch>
         </Router>
-      </DataProvider>
     </div>
   );
 }

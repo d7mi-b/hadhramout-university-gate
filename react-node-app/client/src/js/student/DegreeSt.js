@@ -296,26 +296,30 @@ const DegreeSt = () => {
                                     <p className='bold'>المعدل التراكمي: {GPA}</p>
                                 </section>
                                 <table>
-                                    <tr>
-                                        <th>المقرر الدراسي</th>
-                                        <th>الساعات المعتمدة</th>
-                                        <th>الدرجة</th>
-                                        <th>النقاط</th>
-                                        <th>التقدير</th>
-                                    </tr>
-                                    {
-                                        e.subjects.map(ele => {
-                                            return (
-                                                <tr key={ele.id}>
-                                                    <td>{ele.name}</td>
-                                                    <td>{ele.hours}</td>
-                                                    <td>{ele.degree}</td>
-                                                    <td>{ele.points}</td>
-                                                    <td>{ele.grade}</td>
-                                                </tr>
-                                            )
-                                        })
-                                    }
+                                    <thead>
+                                        <tr>
+                                            <th>المقرر الدراسي</th>
+                                            <th>الساعات المعتمدة</th>
+                                            <th>الدرجة</th>
+                                            <th>النقاط</th>
+                                            <th>التقدير</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            e.subjects.map(ele => {
+                                                return (
+                                                    <tr key={ele.id}>
+                                                        <td>{ele.name}</td>
+                                                        <td>{ele.hours}</td>
+                                                        <td>{ele.degree}</td>
+                                                        <td>{ele.points}</td>
+                                                        <td>{ele.grade}</td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
+                                    </tbody>
                                 </table>
 
                                 <button className='get-dgree btn' id='get-dgrees' onClick={handelContent}>الحصول عليه</button>

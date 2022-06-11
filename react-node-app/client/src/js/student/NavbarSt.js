@@ -2,11 +2,11 @@ import '../../css/student/navbarSt.css'
 import logo from '../../images/HUGLogo.png';
 import avatar from '../../images/avatar.png';
 import { Link } from 'react-router-dom';
-import { useStudent } from '../StudentData';
+import { useUser } from '../DataProvider';
 import { useEffect } from 'react';
 
 const NavbarSt = () => {
-    const student = useStudent();
+    const student = useUser();
 
     const logOut = () => {
         const logoutBtn = document.getElementById('logoutBtn');
