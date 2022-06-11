@@ -20,6 +20,7 @@ import Login from './js/Login'
 import DataProvider from "./js/DataProvider";
 import AdvertisementsEmp from "./js/employee/AdvertisementsEmp";
 import CreateAdv from "./js/employee/CreateAdv";
+import Grievance from "./js/student/Grievance";
 
 function App() {
 
@@ -83,6 +84,11 @@ function App() {
                 <Footer />
               </Route>
 
+              <Route path='/grievance-up'>
+                <NavbarSt />
+                <Grievance />
+                <Footer />
+              </Route>
 
             {/* EMPLOYEE */}
               {/* HOME PAGE FOR EMPLOYEE */}

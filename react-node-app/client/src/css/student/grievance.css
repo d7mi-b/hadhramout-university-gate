@@ -1,0 +1,35 @@
+.subjects {
+    padding: 10px;
+}
+
+.subjects .subjects-container {
+    display: flex;
+    margin: 20px auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.grievance .subjects-container .subject {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    background-image: linear-gradient(
+        135deg,
+        var(--grau) 0%,
+        var(--white) 100%
+    );
+    color: var(--dark-color);
+    cursor: pointer;
+}
+
+.grievance .subjects-container .choose {
+    background-image: linear-gradient(
+        135deg,
+        var(--dark-color) 0%,
+        var(--blue) 100%
+    );
+    color: var(--white);
+}

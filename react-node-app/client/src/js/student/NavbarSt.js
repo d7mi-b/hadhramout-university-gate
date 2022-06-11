@@ -38,7 +38,7 @@ const NavbarSt = () => {
                         <ul className='services-list nav-list'>
                             <li><Link to='/renew'>القيد</Link></li>
                             <li><Link to='/degree-statement'>بيان درجات</Link></li>
-                            <li><Link to='#'>رفع تظلم</Link></li>
+                            <li><Link to='/grievance-up'>رفع تظلم</Link></li>
                         </ul>
                     </li>
 
