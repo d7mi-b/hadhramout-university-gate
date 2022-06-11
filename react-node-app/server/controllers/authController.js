@@ -34,38 +34,9 @@ module.exports.login_post = async (req,res) => {
 }
 
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 3cbb492675e56635088f7654eaaf78935e6f77bf
 //To add students with Hashed password
 module.exports.registerStudent= async (req,res) => {
 
-<<<<<<< HEAD
-        try{
-            const student = await Student.create({
-            name:"Halah",
-            age:22,
-            email:"halah@gmail.com",
-            phoneNo:7345689,
-            dateOfBirth:"12-3-1999",
-            level:4,
-            department:"Computer Engineering",
-            typeOfRegister:"public",
-            wallet:10000,
-            grades:[],
-            username:1111111,
-            password:"1234"
-            })
-            res.status(201).json(student)
-        }
-        catch (err){
-            console.log(err);
-            res.status(400).send('error student not created')
-        }
-=======
     //create student 
 
     try{
@@ -90,7 +61,6 @@ module.exports.registerStudent= async (req,res) => {
         console.log(err);
         res.status(400).send('error student not created')
     }
->>>>>>> 3cbb492675e56635088f7654eaaf78935e6f77bf
     
 }
 
