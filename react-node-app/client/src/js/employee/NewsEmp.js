@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom';
 import '../../css/student/homeSt.css'
 import '../../css/student/newsSt.css'
 import '../../css/employee/newsEmp.css'
-import new1 from '../../images/new1.jpg';
-import new2 from '../../images/new2.jpg';
-import new3 from '../../images/new3.jpg';
+//import new1 from '../../images/new1.jpg';
+//import new2 from '../../images/new2.jpg';
+//import new3 from '../../images/new3.jpg';
+import { useNews } from '../DataProvider';
 
-let news = [
+/*let news = [
     {
         id: 1,
         title: 'برعاية فخامة رئيس الجمهورية: جامعة حضرموت تحتفي بتكريم أوائل الخريجين والحائزين على مرتبة الشرف من مختلف كليات الجامعة للعام الجامعي 2020 – 2021 م',
@@ -49,9 +50,11 @@ let news = [
         date: '9 مارس 2022',
         image: new3
     },
-]
+]*/
 
 const NewsEmp = () => {
+    let news = useNews();
+
     return (
         <section className="news news-page container container-page">
             <header>

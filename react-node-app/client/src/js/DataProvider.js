@@ -27,6 +27,7 @@ const DataProvider = ({ children }) => {
     const [studentState, setStudentState] = useState(false);
     const [steudent, setStudent] = useState({});
     const [studentLogin, setStudentLogin] = useState({});
+    const [advertisement, setAdvertisement] = useState([]);
 
     React.useEffect(() => {
         fetch("/api")
@@ -57,7 +58,7 @@ const DataProvider = ({ children }) => {
     return (
         <studentLoginContext.Provider value={{studentLogin, setStudentLogin}}>
             <WalletContext.Provider value={{ wallet, setWallet }}>
-                <NewsContext.Provider value={news}>
+            <NewsContext.Provider value={news}>
                     <StudentStateContext.Provider value={studentState}>
                         { children }
                     </StudentStateContext.Provider>
