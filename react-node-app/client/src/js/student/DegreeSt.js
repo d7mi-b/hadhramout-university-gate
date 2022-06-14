@@ -1,178 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useUser } from '../DataProvider';
 import '../../css/student/degreeSt.css'
-
-let GPA = '79%';
-
-let data = [
-    {
-        id: 21,
-        level: 'المستوى الثاني',
-        semester: 'الفصل الدراسي الأول',
-        semesterAvr: '82%',
-        subjects: [
-            {
-                id:11,
-                name: 'رياضيات 3',
-                hours: 3,
-                degree: 114,
-                points: 2,
-                grade: 'جيد',
-            },
-            {
-                id:12,
-                name: 'مقدمة برمجة 2',
-                hours: 3,
-                degree: 124,
-                points: 3,
-                grade: 'جيد جدًا',
-            },
-            {
-                id:13,
-                name: 'رياضيات متقطعة',
-                hours: 3,
-                degree: 120,
-                points: 3,
-                grade: 'جيد جدًا',
-            },
-            {
-                id:14,
-                name: 'أجهزة إلكترونية',
-                hours: 3,
-                degree: 122,
-                points: 3,
-                grade: 'جيد جدًا',
-            },
-            {
-                id:15,
-                name: 'إحتسابية عددية',
-                hours: 3,
-                degree: 120,
-                points: 3,
-                grade: 'جيد جدًا',
-            },
-            {
-                id:16,
-                name: 'لغة إنجليزية فنية',
-                hours: 2,
-                degree: 97,
-                points: 4,
-                grade: 'ممتاز',
-            },
-        ]
-    },
-    {
-        id: 22,
-        level: 'المستوى الثاني',
-        semester: 'الفصل الدراسي الثاني',
-        semesterAvr: '85%',
-        subjects: [
-            {
-                id:21,
-                name: 'رياضيات 4',
-                hours: 3,
-                degree: 100,
-                points: 2,
-                grade: 'جيد',
-            },
-            {
-                id:22,
-                name: 'هيكلة بيانات',
-                hours: 3,
-                degree: 124,
-                points: 3,
-                grade: 'جيد جدًا',
-            },
-            {
-                id:23,
-                name: 'تصميم منطقي',
-                hours: 4,
-                degree: 177,
-                points: 3,
-                grade: 'جيد جدًا',
-            },
-            {
-                id:24,
-                name: 'إشارات ونظم',
-                hours: 2,
-                degree: 81,
-                points: 3,
-                grade: 'جيد جدًا',
-            },
-            {
-                id:25,
-                name: 'تصميم مواقع الإنترنت',
-                hours: 3,
-                degree: 143,
-                points: 4,
-                grade: 'ممتاز',
-            },
-            {
-                id:26,
-                name: 'دوائر الكترونية',
-                hours: 3,
-                degree: 129,
-                points: 3,
-                grade: 'جيد جدًا',
-            },
-        ]
-    },
-    {
-        id: 31,
-        level: 'المستوى الثالث',
-        semester: 'الفصل الدراسي الأول',
-        semesterAvr: '82%',
-        subjects: [
-            {
-                id:11,
-                name: 'مبادئ قواعد البيانات',
-                hours: 3,
-                degree: 126,
-                points: 3,
-                grade: 'جيد جدًا',
-            },
-            {
-                id:12,
-                name: 'مبادئ أنظمة الأتصالات',
-                hours: 3,
-                degree: 121,
-                points: 3,
-                grade: 'جيد جدًا',
-            },
-            {
-                id:13,
-                name: 'ألكترونية رقمية',
-                hours: 3,
-                degree: 130,
-                points: 3,
-                grade: 'جيد جدًا',
-            },
-            {
-                id:14,
-                name: 'برمجة موجهة للموضوع',
-                hours: 3,
-                degree: 137,
-                points: 4,
-                grade: 'ممتاز',
-            },
-            {
-                id:15,
-                name: 'نظم وسيطرة',
-                hours: 3,
-                degree: 140,
-                points: 4,
-                grade: 'ممتاز',
-            },
-            {
-                id:16,
-                name: 'تنظيم الحاسوب',
-                hours: 3,
-                degree: 116,
-                points: 2,
-                grade: 'جيد',
-            },
-        ]
-    }
-];
 
 let levels = [
     {
@@ -220,6 +48,8 @@ let amount = 5000;
 const DegreeSt = () => {
     const [level, setLevel] = useState(levels[0].label);
     const [semester, setSemester] = useState(semesters[0].label);
+    const student = useUser();
+    const [degrees, setDegree] = useState([]);
 
     const handelChangeLevel = e => {
         setLevel(e.target.value);
@@ -248,6 +78,17 @@ const DegreeSt = () => {
             backgroundSection.style.cssText = "display: none";
         })
     }
+
+    useEffect(() => {
+
+        fetch('/degree?'  + new URLSearchParams({
+            username: student.username,
+            name: student.name
+        }))
+        .then((res) => res.json())
+        .then((data) => setDegree(data));
+
+    }, [])
 
     return (
         <div className="container-page container">
@@ -283,49 +124,58 @@ const DegreeSt = () => {
             {/* DISPALY DEGREE STATEMENT */}
             <section className='display-degrees'>
                 {
-                    data.map(e => {
-                        if (e.level === level && e.semester === semester)
-                        return (
-                            <div key={e.id}>
-                                <header className='display-degrees-header'>
-                                    <h4>{level}</h4>
-                                    <h4>{semester}</h4>
-                                </header>
-                                <section className='averages'>
-                                    <p className='bold'>المعدل الفصلي: {e.semesterAvr}</p>
-                                    <p className='bold'>المعدل التراكمي: {GPA}</p>
-                                </section>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>المقرر الدراسي</th>
-                                            <th>الساعات المعتمدة</th>
-                                            <th>الدرجة</th>
-                                            <th>النقاط</th>
-                                            <th>التقدير</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {
-                                            e.subjects.map(ele => {
-                                                return (
-                                                    <tr key={ele.id}>
-                                                        <td>{ele.name}</td>
-                                                        <td>{ele.hours}</td>
-                                                        <td>{ele.degree}</td>
-                                                        <td>{ele.points}</td>
-                                                        <td>{ele.grade}</td>
+                    degrees.map(e => {
+                        if (e.levelName === level) {
+                            return e.semesters.map(ele => {
+                                if (ele.semester === semester) {
+                                    return (
+                                        <div key={e.id}>
+                                            <header className='display-degrees-header'>
+                                                <h4>{level}</h4>
+                                                <h4>{semester}</h4>
+                                            </header>
+                                            <section className='averages'>
+                                                <p className='bold'>المعدل الفصلي: {ele.semAvg}</p>
+                                                <p className='bold'>المعدل التراكمي: {student.GPA}</p>
+                                            </section>
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>المقرر الدراسي</th>
+                                                        <th>الساعات المعتمدة</th>
+                                                        <th>الدرجة</th>
+                                                        <th>النقاط</th>
+                                                        <th>التقدير</th>
                                                     </tr>
-                                                )
-                                            })
-                                        }
-                                    </tbody>
-                                </table>
+                                                </thead>
+                                                <tbody>
+                                                    {
+                                                        ele.subjects.map(el => {
+                                                            return (
+                                                                <tr key={el.id}>
+                                                                    <td>{el.name}</td>
+                                                                    <td>{el.hours}</td>
+                                                                    <td>{el.degree}</td>
+                                                                    <td>{el.points}</td>
+                                                                    <td>{el.grade}</td>
+                                                                </tr>
+                                                            )
+                                                        })
+                                                    }
+                                                </tbody>
+                                            </table>
 
-                                <button className='get-dgree btn' id='get-dgrees' onClick={handelContent}>الحصول عليه</button>
-                            </div>
-                        )
+                                            <button className='get-dgree btn' id='get-dgrees' onClick={handelContent}>الحصول عليه</button>
+                                        </div>
+                                    )
+                                }
+                            })
+                        }
                     })
+                    // data.map(e => {
+                    //     if (e.levelName === level)
+                        
+                    // })
                 }
             </section>
             {/* SECTION OF PAYMENT */}

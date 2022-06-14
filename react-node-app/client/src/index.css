@@ -126,6 +126,15 @@ body {
     font-weight: 800;
 }
 
+textarea {
+    resize: none;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    outline-color: var(--hover-color);
+}
+
 @media (min-width: 238px) and (max-width: 991px) {
     .container {
         width: 100%;

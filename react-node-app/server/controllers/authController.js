@@ -41,19 +41,21 @@ module.exports.registerStudent= async (req,res) => {
 
         try{
             const student = await Student.create({
-            name:"عبدالرحمن بهيان",
-            age:24,
-            email:"abdulrahman@gmail.com",
-            phoneNo:7345689,
-            dateOfBirth:"27-5-1998",
-            level: "مستوى الرابع",
-            department:"هندسة حاسوب",
-            typeOfRegister:"نفقة خاصة",
-            state: true,
-            wallet:10000,
-            grades:[],
-            username:1111,
-            password:"1234"
+                _id: 111111,
+                name:"عبدالرحمن بهيان",
+                age:24,
+                email:"abdulrahman@gmail.com",
+                phoneNo:7345689,
+                dateOfBirth:"27-5-1998",
+                level: "مستوى الرابع",
+                department:"هندسة حاسوب",
+                typeOfRegister:"نفقة خاصة",
+                state: true,
+                wallet:10000,
+                GPA: '79%',
+                grades:[],
+                username:1111,
+                password:"1234"
             })
             res.status(201).json(student)
         }

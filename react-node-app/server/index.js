@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const authRoutes = require('./routes/authroutes')
 const newsRouter = require('./routes/newsRouter');
 const advertisementsRoute = require('./routes/advertisementsRoute');
+const degreeRoute = require('./routes/degreeRoute');
 
 const PORT = process.env.PORT || 3001;
 
@@ -24,3 +25,4 @@ mongoose.connect('mongodb://0.0.0.0:27017/HUG', { useNewUrlParser : true , useUn
 app.use(authRoutes);
 app.use('/news', newsRouter);
 app.use('/advertisements', advertisementsRoute);
+app.use('/degree', degreeRoute);
