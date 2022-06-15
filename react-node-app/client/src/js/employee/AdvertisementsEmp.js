@@ -7,7 +7,7 @@ const AdvertisementsEmp = () => {
 
     const deleteAdv = (id) => {
         console.log(id)
-        fetch(`/deleteads/${id}`,{
+        fetch(`/advertisements/deleteads/${id}`,{
             method: 'DELETE', 
         })
         .then(res => res.json())

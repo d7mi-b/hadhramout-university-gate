@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 
 const studentSchema = new Schema(
     {
+        _id: {type: Number},
         name : {type:String},
         dateOfBirth : {tupe:Date},
         username: {type:Number},
@@ -18,6 +19,7 @@ const studentSchema = new Schema(
         department : {type:String},
         typeOfRegister : {type:String},
         password : {type:String},
+        GPA: {type: String},
     },
     {
         timestamps : true,

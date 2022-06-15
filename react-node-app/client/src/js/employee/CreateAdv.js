@@ -10,14 +10,14 @@ const CreateAdv = () => {
         const date = form.date.value;
 
         try{
-            const res = await fetch('/create-ads', {
+            const res = await fetch('/advertisements/create-ads', {
                 method: 'POST',
                 body: JSON.stringify({ title, date}),
                 headers: {'Content-Type': 'application/json'}
             });
             const data = await res.json();
                 console.log(data)
-                window.location.replace('/advertisements')
+               
                 if(data.errors) {
     
                 }
@@ -28,6 +28,7 @@ const CreateAdv = () => {
         catch(err){
             console.log(err);
         }
+        window.location.replace('/advertisements')
 
     }
 

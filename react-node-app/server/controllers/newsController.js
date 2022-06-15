@@ -1,6 +1,5 @@
 const News = require("../Models/newsModel");
-const fs = require('fs');
-const {ObjectId} = require('mongodb')
+
 
 
 

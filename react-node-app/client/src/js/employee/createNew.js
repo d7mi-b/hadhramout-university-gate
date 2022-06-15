@@ -18,21 +18,12 @@ const CreateNew = () => {
         const date = form.date.value;
     
         try{
-            const res = await fetch('/add-new', {
+            const res = await fetch('/news/add-new', {
                 method: 'POST',
                 body: JSON.stringify({ title, body, image, date}),
                 headers: {'Content-Type': 'application/json'}
             });
             
-            //const data = await res.json();
-           
-                //console.log(data)
-               /* if(data.errors) {
-    
-                }
-               if(data){
-               
-               }*/
         }
         catch(err){
             console.log(err);

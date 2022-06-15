@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "62a173fe069ce2c4b8e7fa0d"
+  },
+  "name": "Ahmed",
+  "username": 27380,
+  "department": "Computer Engineering",
+  "email": "Ahmed@gmail.com",
+  "password": "$2a$10$q34n6M48cUeQy8C/7pcmMeKcyZ4IcmwoqDWJ4uCF2eO68dig3BXq6",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654748158972"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654748158972"
+    }
+  },
+  "__v": 0,
+  "position": "employee"
+}]

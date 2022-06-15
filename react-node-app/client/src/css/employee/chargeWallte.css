@@ -33,10 +33,6 @@
     display: block;
 }
 
-.form input:focus-visible {
-    outline-color: var(--hover-color);
-}
-
 .form .btn {
     position: relative;
     right: 332px;
