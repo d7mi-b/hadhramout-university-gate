@@ -93,9 +93,11 @@ const Grievance = () => {
         let btnCancel = document.querySelector('#cancel');
         let btnProve = document.querySelector('#prove');
         let btnClose = document.querySelector("#close");
-        if (btnGriv && data.subject) {
+        if (btnGriv) {
             btnGriv.addEventListener('click', () => {
-                backgroundSection.style.cssText = "display: flex";
+                if (data.subject && data.type) {
+                    backgroundSection.style.cssText = "display: flex";
+                }
                 console.log(data)
             })
 
