@@ -85,7 +85,8 @@ body {
     transition: 0.2s;
 }
 
-.pay-section {
+.pay-section,
+.check-section {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -100,7 +101,8 @@ body {
     width: 250px;
 }
 
-.pay-section svg {
+.pay-section svg,
+.check-section svg {
     width: 50px;
     fill: var(--dark-color);
     margin: 10px auto 5px;
@@ -124,6 +126,10 @@ body {
 
 .bold {
     font-weight: 800;
+}
+
+.check-section {
+    display: none;
 }
 
 textarea {

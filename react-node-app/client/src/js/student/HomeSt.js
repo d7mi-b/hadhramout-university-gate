@@ -85,15 +85,15 @@ const HomeSt = () => {
                                     return (
                                         <article className="new" key={e._id}>
                                             <div className="image">
-                                                <img src={e.image} alt="" />
+                                                <img src='' alt="" />
                                             </div>
                                             <section>
                                                 <header>
                                                     <h3>{e.title.slice(0, 70)}..</h3>
                                                 </header>
                                                 <p>{e.body.slice(0, 120)}...</p>
-                                                <time dateTime={e.dateNo} className="new-date">{e.date}</time>
-                                                <Link to={`/new/${e.id}`}>قراءة المزيد</Link>
+                                                <time dateTime={e.date} className="new-date">{e.date}</time>
+                                                <Link to={`/details/${e._id}`}>قراءة المزيد</Link>
                                             </section>
                                         </article>
                                     );
