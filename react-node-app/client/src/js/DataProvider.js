@@ -1,52 +1,31 @@
-import React, { Children, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 
-const WalletContext = React.createContext();
 const NewsContext = React.createContext();
-const StudentStateContext = React.createContext();
-const studentLoginContext = React.createContext();
-
-export function useWallet() {
-    return useContext(WalletContext)
-}
+const UserContext = React.createContext();
+const AdvContext = React.createContext();
 
 export function useNews() {
     return useContext(NewsContext)
 }
 
-export function useStudentState() {
-    return useContext(StudentStateContext)
+export function useUser() {
+    return useContext(UserContext);
 }
 
-export function useStudentLogin() {
-    return useContext(studentLoginContext)
+export function useAdv() {
+    return useContext(AdvContext);
 }
 
 const DataProvider = ({ children }) => {
     const [news, setNews] = useState([]);
-    const [wallet, setWallet] = useState(0);
-    const [studentState, setStudentState] = useState(false);
-    const [steudent, setStudent] = useState({});
-    const [studentLogin, setStudentLogin] = useState({});
+    const [ user ] = useState(JSON.parse(window.sessionStorage.getItem("user")));
     const [advertisement, setAdvertisement] = useState([]);
 
     React.useEffect(() => {
-        fetch("/api")
-        .then((res) => res.json())
-        .then((data) => setStudent(data));
-        
-        console.log(steudent)
 
-        // setWallet(steudent.wallet);
-
-        // setStudentState(steudent.state);
-
-        fetch("/api")
-        .then((res) => res.json())
-        .then((data) => setWallet(data.wallet));
-
-        fetch("/api")
-        .then((res) => res.json())
-        .then((data) => setStudentState(data.state));
+        fetch('/advertisements')
+        .then(res => res.json())
+        .then(data => setAdvertisement(data));
 
         fetch("/news")
         .then((res) => res.json())
@@ -56,16 +35,14 @@ const DataProvider = ({ children }) => {
     }, []);
 
     return (
-        <studentLoginContext.Provider value={{studentLogin, setStudentLogin}}>
-            <WalletContext.Provider value={{ wallet, setWallet }}>
-            <NewsContext.Provider value={news}>
-                    <StudentStateContext.Provider value={studentState}>
-                        { children }
-                    </StudentStateContext.Provider>
+        <AdvContext.Provider value={advertisement}>
+            <UserContext.Provider value={user}>
+                <NewsContext.Provider value={news}>
+                    { children }
                 </NewsContext.Provider>
-            </WalletContext.Provider>
-        </studentLoginContext.Provider>
-    );
+            </UserContext.Provider>
+        </AdvContext.Provider>
+    )
 }
 
 export default DataProvider;

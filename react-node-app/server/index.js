@@ -5,11 +5,13 @@ const authRoutes = require('./routes/authroutes')
 const newsRouter = require('./routes/newsRouter');
 const advertisementRoutes = require("./routes/advertisementRoutes")
 
+
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true }));
+
 
 //Connect to database
 

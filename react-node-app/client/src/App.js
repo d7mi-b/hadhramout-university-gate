@@ -20,128 +20,133 @@ import Login from './js/Login'
 import DataProvider from "./js/DataProvider";
 import AdvertisementsEmp from "./js/employee/AdvertisementsEmp";
 import CreateAdv from "./js/employee/CreateAdv";
-
+import Grievance from "./js/student/Grievance";
 
 function App() {
 
   return (
     <div className="App">
-      <DataProvider>
         <Router>
           <Switch>
-
             {/* LOGIN PAGE */}
             <Route exact path="/">
               <Login />
             </Route>
 
+            <DataProvider>
             {/* STUDENT */}
-            {/* HOME PAGE FOR STUDENT */}
-            <Route path='/home'>
-              <NavbarSt />
-              <HomeSt />
-              <Footer />
-            </Route>
+              {/* HOME PAGE FOR STUDENT */}
+              <Route path='/home'>
+                <NavbarSt />
+                <HomeSt />
+                <Footer />
+              </Route>
 
-            {/* NEWS PAGE FOR STUDENT */}
-            <Route path='/news'>
-              <NavbarSt />
-              <NewsST />
-              <Footer />
-            </Route>
+              {/* NEWS PAGE FOR STUDENT */}
+              <Route path='/news'>
+                <NavbarSt />
+                <NewsST />
+                <Footer />
+              </Route>
 
-            {/* NEW DETAILS PAGE */}
-            <Route path="/new/:id">
-              <NavbarSt />
-              <NewDetails />
-              <Footer />
-            </Route>
+              {/* NEW DETAILS PAGE */}
+              <Route path="/news/:id">
+                <NavbarSt />
+                <NewDetails />
+                <Footer />
+              </Route>
 
-            {/* UNVERSITY CALENDER PAGE FOR STUDENT */}
-            <Route path='/calender'>
-              <NavbarSt />
-              <UnCalenderSt />
-              <Footer />
-            </Route>
+              {/* UNVERSITY CALENDER PAGE FOR STUDENT */}
+              <Route path='/calender'>
+                <NavbarSt />
+                <UnCalenderSt />
+                <Footer />
+              </Route>
 
-            {/* SCHEDULE PAGE FOR STUDENT */}
-            <Route path='/schedule'>
-              <NavbarSt />
-              <ScheduleSt />
-              <Footer />
-            </Route>
+              {/* SCHEDULE PAGE FOR STUDENT */}
+              <Route path='/schedule'>
+                <NavbarSt />
+                <ScheduleSt />
+                <Footer />
+              </Route>
 
-            {/* RENEW PAGE FOR STUDENT */}
-            <Route path='/renew'>
-              <NavbarSt />
-              <Renew />
-              <Footer />
-            </Route>
+              {/* RENEW PAGE FOR STUDENT */}
+              <Route path='/renew'>
+                <NavbarSt />
+                <Renew />
+                <Footer />
+              </Route>
 
-            {/* DEGREE STATEMENT PAGE FOR STUDENT */}
-            <Route path='/degree-statement'>
-              <NavbarSt />
-              <DegreeSt />
-              <Footer />
-            </Route>
+              {/* DEGREE STATEMENT PAGE FOR STUDENT */}
+              <Route path='/degree-statement'>
+                <NavbarSt />
+                <DegreeSt />
+                <Footer />
+              </Route>
+
+              <Route path='/grievance-up'>
+                <NavbarSt />
+                <Grievance />
+                <Footer />
+              </Route>
 
             {/* EMPLOYEE */}
-            {/* HOME PAGE FOR EMPLOYEE */}
-            <Route path='/employee'>
-              <NavbarEmp />
-              <HomeEmp />
-              <Footer />
-            </Route>
+              {/* HOME PAGE FOR EMPLOYEE */}
+              <Route path='/employee'>
+                <NavbarEmp />
+                <HomeEmp />
+                <Footer />
+              </Route>
 
-            {/* NEWS PAGE FOR EMPLOYEE */}
-            <Route path='/newsEmp'>
-              <NavbarEmp />
-              <NewsEmp />
-              <Footer />
-            </Route>
+              {/* NEWS PAGE FOR EMPLOYEE */}
+              <Route path='/newsEmp'>
+                <NavbarEmp />
+                <NewsEmp />
+                <Footer />
+              </Route>
 
-            {/* CREATE NEW NEWS PAGE */}
-            <Route path='/create-new'>
-              <NavbarEmp />
-              <CreateNew />
-              <Footer />
-            </Route>
+              {/* CREATE NEW NEWS PAGE */}
+              <Route path='/create-new'>
+                <NavbarEmp />
+                <CreateNew />
+                <Footer />
+              </Route>
 
-            {/* CHARGE WALLTE PAGE */}
-            <Route path='/charge-wallte'>
-              <NavbarEmp />
-              <ChargeWallte />
-              <Footer />
-            </Route>
+              {/* CHARGE WALLTE PAGE */}
+              <Route path='/charge-wallte'>
+                <NavbarEmp />
+                <ChargeWallte />
+                <Footer />
+              </Route>
 
-            {/* WITHDRAW FROM WALLTE PAGE */}
-            <Route path='/withdraw'>
-              <NavbarEmp />
-              <Withdraw />
-              <Footer />
-            </Route>
+              {/* WITHDRAW FROM WALLTE PAGE */}
+              <Route path='/withdraw'>
+                <NavbarEmp />
+                <Withdraw />
+                <Footer />
+              </Route>
 
-            {/* SCHEDULE PAGE FOR STUDENT */}
-            <Route path='/edit-schedule'>
-              <NavbarEmp />
-              <ScheduleEmp />
-              <Footer />
-            </Route>
+              {/* SCHEDULE PAGE FOR STUDENT */}
+              <Route path='/edit-schedule'>
+                <NavbarEmp />
+                <ScheduleEmp />
+                <Footer />
+              </Route>
 
-            {/* ADVERTISEMENTS PAGE FOR EMPLOYEE */}
-            <Route path='/advertisements'>
-              <NavbarEmp />
-              <AdvertisementsEmp />
-              <Footer />
-            </Route>
+              {/* ADVERTISEMENTS PAGE FOR EMPLOYEE */}
+              <Route path='/advertisements'>
+                <NavbarEmp />
+                <AdvertisementsEmp />
+                <Footer />
+              </Route>
 
-            {/* CREATE ADVERTISEMENTS PAGE FOR EMPLOYEE */}
-            <Route path='/create-adv'>
-              <NavbarEmp />
-              <CreateAdv />
-              <Footer />
-            </Route>
-
+              {/* CREATE ADVERTISEMENTS PAGE FOR EMPLOYEE */}
+              <Route path='/create-adv'>
+                <NavbarEmp />
+                <CreateAdv />
+                <Footer />
+              </Route>
+            </DataProvider>
             {/* 404 PAGE */}
             <Route path='*'>
               <h1>404</h1>
@@ -149,7 +154,6 @@ function App() {
 
           </Switch>
         </Router>
-      </DataProvider>
     </div>
   );
 }

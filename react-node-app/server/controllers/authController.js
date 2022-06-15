@@ -14,53 +14,53 @@ module.exports.login_post = async (req,res) => {
     try{
         const student = await Student.login(username,password);
         if(student){
-            console.log(student)
-        res.status(200).json({student: student.id})
+            res.status(200).json(student)
+            return;
         }
-      
-        
     }
     catch(err) {
         
         const employee = await Employee.login(username,password)
         if(employee){
-            res.status(200).json({employee: employee.id})
+            res.status(200).json(employee)
+            return;
         }
 
-        res.status(400).json({})
+        res.status(400).json({err: 'error'})
 
     }
-       
+
 }
+
+
+
 
 
 //To add students with Hashed password
 module.exports.registerStudent= async (req,res) => {
 
-    //create student 
-
-    try{
-        const student = await Student.create({
-        name:"عبدالرحمن بهيان",
-        age:24,
-        email:"aab.1419@hotmail.com",
-        phoneNo:7345689,
-        dateOfBirth:"27-05-1998",
-        level:4,
-        department:"Computer Engineering",
-        typeOfRegister:"priveat",
-        wallet:10000,
-        grades:[],
-        state: true,
-        registerNo:1111,
-        password:"1234"
-        })
-        res.status(201).json(student)
-    }
-    catch (err){
-        console.log(err);
-        res.status(400).send('error student not created')
-    }
+        try{
+            const student = await Student.create({
+            name:"عبدالرحمن بهيان",
+            age:24,
+            email:"abdulrahman@gmail.com",
+            phoneNo:7345689,
+            dateOfBirth:"27-5-1998",
+            level: "مستوى الرابع",
+            department:"هندسة حاسوب",
+            typeOfRegister:"نفقة خاصة",
+            state: true,
+            wallet:10000,
+            grades:[],
+            username:1111,
+            password:"1234"
+            })
+            res.status(201).json(student)
+        }
+        catch (err){
+            console.log(err);
+            res.status(400).send('error student not created')
+        }
     
 }
 
@@ -76,8 +76,9 @@ module.exports.registerEmployee= async (req,res) => {
             department:"Computer Engineering",
             email:"Ahmed@gmail.com",
             date_Of_Birth:"2-5-1989",
-            username:"27380",
-            password:1234
+            username:"111",
+            password:1234,
+            position:"true"
         })
         res.status(201).json(employee)
     }

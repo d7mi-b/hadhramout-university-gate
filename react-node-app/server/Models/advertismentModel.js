@@ -5,8 +5,7 @@ const { Schema } = mongoose;
 const advertisementSchema = new Schema(
     {
         title:{type: String} ,
-        date: {type: String},
-        dateNo: {type: String}
+        date: {type: String}
     },
     {
         timestamps: true

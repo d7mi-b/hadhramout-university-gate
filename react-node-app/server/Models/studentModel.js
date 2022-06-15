@@ -14,7 +14,7 @@ const studentSchema = new Schema(
         grades : {type:Array},
         state: {type: Boolean},
         wallet : {type:Number},
-        level : {type:Number},
+        level : {type:String},
         department : {type:String},
         typeOfRegister : {type:String},
         password : {type:String},
@@ -82,6 +82,6 @@ studentSchema.methods.comparePassword = function(candidatePassword, cb) {
 };*/
 
 
-const Student = mongoose.model('Student',studentSchema);
+const Student = mongoose.model('students',studentSchema);
 
 module.exports = Student;

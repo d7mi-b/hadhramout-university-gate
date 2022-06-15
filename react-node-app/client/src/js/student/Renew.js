@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/student/renewSt.css';
-import {useStudentState} from '../DataProvider'
+import { useUser } from '../DataProvider';
 
 let amount = 5000;
 
 const Renew = () => {
-    const studentState = useStudentState();
-    console.log(studentState)
+    const student = useUser();
 
     // HANDEL CONTENT
     const handelContent = () => {
@@ -41,7 +40,7 @@ const Renew = () => {
 
             {/* IF studentSt TRUE */}
             {
-                studentState
+                student.state
                 &&
                 <section className="check renew-container">
                     <div className="icon-renew">
@@ -54,7 +53,7 @@ const Renew = () => {
 
             {/* IF studentst FALSE */}
             {
-                !studentState 
+                !student.state 
                 && 
                 <section className='not-check renew-container'>
                     <div className='icon-renew'>

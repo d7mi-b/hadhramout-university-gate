@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../css/student/homeSt.css'
-// import new1 from '../../images/new1.jpg'
-// import new2 from '../../images/new2.jpg'
-// import new3 from '../../images/new3.jpg'
-import { useNews } from '../DataProvider';
+import { useNews,useAdv } from '../DataProvider';
 
 // let news = [
 //     {
@@ -90,12 +87,11 @@ let services = [
 
 const HomeSt = () => {
     const news = useNews();
-    const [advertisement, setAdvertisement] = useState([]);
+    const advertisement = useAdv();
+    
 
     useEffect(() => {
-        fetch('/advertisements')
-        .then(res => res.json())
-        .then(data => setAdvertisement(data));
+        
     }, [])
 
     return (
@@ -146,7 +142,7 @@ const HomeSt = () => {
                                                 </header>
                                                 <p>{e.body.slice(0, 120)}...</p>
                                                 <time dateTime={e.dateNo} className="new-date">{e.date}</time>
-                                                <Link to={`/new/${e.id}`}>قراءة المزيد</Link>
+                                                <Link to={`/details/${e._id}`}>قراءة المزيد</Link>
                                             </section>
                                         </article>
                                     );

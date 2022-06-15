@@ -5,11 +5,8 @@ import had from '../images/Hadhrmout.jpg';
 import signIn from '../images/sign_in.svg';
 import { Link } from 'react-router-dom';
 import React from 'react';
-import { useEffect, useState } from 'react'
-import { useStudentLogin } from './DataProvider'; 
 
 const Login = () => {
-    const {studentLogin, setStudentLogin} = useStudentLogin();
 
     // HANDEL CONTENT
     const handelContent = () => {
@@ -20,8 +17,6 @@ const Login = () => {
 
         btnLogin.addEventListener('click', () => {
             loginData.style.cssText = "display: flex";
-            console.log("click")
-            
         })
 
         btnCancel.addEventListener('click', () => {
@@ -42,39 +37,27 @@ const Login = () => {
                 headers: {'Content-Type': 'application/json'}
             });
             const data = await res.json();
-            console.log(data)
-            console.log(data.student)
+            console.log(data);
+
             if(data.errors) {
 
             }
-            if(data.student) {
-                setStudentLogin(data)
-                console.log(studentLogin);
-                window.location.replace('/home')
+            else if(data.position) {
+                window.sessionStorage.setItem("user", JSON.stringify(data));
+                window.location.replace('/employee')
             }
-            else {
-               /* const res = await fetch('/', {
-                    method: 'POST',
-                    body: JSON.stringify({username: text, password}),
-                    headers: {'Content-Type': 'application/json'}
-                });*/
-                //const data = await res.json();
-                console.log(data)
-                if(data.employee) {
-                    setStudentLogin(data.employee)
-                    window.location.replace('/employee')
-                }
+            else if(data) {
+                window.sessionStorage.setItem("user", JSON.stringify(data));
+                window.location.replace('/home')
             }
         }
         catch(err) {
             console.log(err);
         }
-
     }
 
     React.useEffect(() => {
         handelContent();
-        logInData();
     }, [])
 
     return (

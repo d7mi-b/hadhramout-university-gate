@@ -28,3 +28,16 @@ module.exports.add_advertisement= async (req,res) => {
         res.status(400).json({advertisement: "advertisement not created"})
     }
 }
+
+
+module.exports.deleteAdv= async (req,res) => {
+    const id = req.params.id;
+        try{
+            const adv = await Advertisements.findByIdAndDelete(id)
+            res.status(200).json(adv)
+                
+        }
+        catch(err) {
+            console.log(err);
+        }
+}
