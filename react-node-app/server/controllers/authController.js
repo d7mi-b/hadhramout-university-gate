@@ -78,8 +78,9 @@ module.exports.registerEmployee= async (req,res) => {
             department:"Computer Engineering",
             email:"Ahmed@gmail.com",
             date_Of_Birth:"2-5-1989",
-            username:"27380",
-            password:1234
+            username:"111",
+            password:1234,
+            position:"true"
         })
         res.status(201).json(employee)
     }

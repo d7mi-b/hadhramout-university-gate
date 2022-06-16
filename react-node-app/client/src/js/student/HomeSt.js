@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../css/student/homeSt.css'
-import { useNews } from '../DataProvider';
+import { useNews,useAdv } from '../DataProvider';
 
 
 let services = [
@@ -37,13 +36,7 @@ let services = [
 
 const HomeSt = () => {
     const news = useNews();
-    const [advertisement, setAdvertisement] = useState([]);
-
-    useEffect(() => {
-        fetch('/advertisements')
-        .then(res => res.json())
-        .then(data => setAdvertisement(data));
-    }, [])
+    const advertisement = useAdv();
 
     return (
         <div className="home">

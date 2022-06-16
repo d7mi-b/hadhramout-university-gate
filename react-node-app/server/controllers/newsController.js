@@ -1,21 +1,66 @@
-const { ObjectId } = require("mongodb");
 const News = require("../Models/newsModel");
 
-const news_index = (req, res) => {
-    News.find()
-        .then(result => res.status(200).json(result))
-        .catch(err => console.log(err))
+
+
+
+//add news
+
+module.exports.addNews= async (req,res) => {
+
+    const news = req.body;
+
+    try{
+        const news_ = await News.create(news);
+        /* news_.img.data = fs.readFileSync(req.files.userPhoto.path)
+        news_.img.contentType = 'image/png';
+        news_.save();*/
+        res.status(201).json(news_)
+    }
+    catch (err) {
+        console.log(err);
+        res.status(400).json({New: "News not created"})
+    }
+
 }
 
-const single_news = (req, res) => {
+
+//To get news
+
+module.exports.news_index = async (req,res) => {
+
+    try{
+    const news = await News.find()
+    
+    res.status(200).json(news);
+    }
+    catch (err) {
+        console.log(err);
+        res.status(400).json({new: "there is no news"})
+    }
+}
+
+//To get only one new
+
+module.exports.single_news = async (req, res) => {
     const id = req.params.id;
-
-    News.findById(ObjectId(id))
-        .then(result => res.status(200).json(result))
-        .catch(err => console.log(err))
+    try{
+        const news = await News.findById(id)
+        res.status(200).json(news);
+    }
+    catch(err) {
+        console.log(err);
+    }
 }
 
-module.exports = {
-    news_index,
-    single_news
+//Delete News 
+
+module.exports.deleteNews= async (req,res) => {
+    const id = req.params.id;
+        try{
+            const news = await News.findByIdAndDelete(id)
+            res.status(200).json(news)
+        }
+        catch(err) {
+            console.log(err);
+        }
 }

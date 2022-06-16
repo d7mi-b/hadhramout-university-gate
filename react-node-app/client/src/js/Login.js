@@ -36,7 +36,6 @@ const Login = () => {
                 body: JSON.stringify({username: text, password}),
                 headers: {'Content-Type': 'application/json'}
             });
-
             const data = await res.json();
             console.log(data);
 

@@ -1,8 +1,8 @@
 const express = require('express');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const authRoutes = require('./routes/authroutes')
 const newsRouter = require('./routes/newsRouter');
-const advertisementsRoute = require('./routes/advertisementsRoute');
+const advertisementsRoute = require('./routes/advertisementRoutes');
 const degreeRoute = require('./routes/degreeRoute');
 const grievanceRoute = require('./routes/grievanceRoute');
 
@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true }));
+
 
 //Connect to database
 
