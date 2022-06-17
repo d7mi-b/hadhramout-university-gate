@@ -1,5 +1,6 @@
 const Student = require('../Models/studentModel');
 const Employee = require('../Models/employeeModel');
+const { ObjectId } = require('mongodb');
 
 
 module.exports.login_get = (req,res) => {
@@ -32,9 +33,25 @@ module.exports.login_post = async (req,res) => {
 
 }
 
+// To update wallte of student
+module.exports.update_wallte = async (req, res) => {
+    const {username, wallet} = req.body;
 
+    const student = Student;
+    student.updateOne({username: username}, {$set: {wallet: req.body.wallet}})
+        .then(result => res.status(200))
+        .catch(err => console.log(err));
+}
 
+module.exports.update_User = async (req, res) => {
+    const {username} = req.query;
 
+    Student.findOne({ username })
+        .then(result => {
+            return res.status(200).json(result)
+        })
+        .catch(err => console.log(err))
+}
 
 //To add students with Hashed password
 module.exports.registerStudent= async (req,res) => {

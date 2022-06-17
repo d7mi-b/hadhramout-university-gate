@@ -18,12 +18,12 @@ export function useAdv() {
 
 const DataProvider = ({ children }) => {
     const [news, setNews] = useState([]);
-    const [ user ] = useState(JSON.parse(window.sessionStorage.getItem("user")));
+    const [user] = useState(JSON.parse(window.sessionStorage.getItem("user")));
     const [advertisement, setAdvertisement] = useState([]);
 
     React.useEffect(() => {
 
-        fetch('/advertisements')
+        fetch('/advert')
         .then(res => res.json())
         .then(data => setAdvertisement(data));
 

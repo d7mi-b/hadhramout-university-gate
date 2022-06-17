@@ -17,7 +17,7 @@ const Grievance = () => {
     const student = useUser();
     const [degrees, setDegree] = useState([]);
     const [checkAmount, setCheckAmount] = useState(true);
-    const [data, setData] = useState({
+    const [data] = useState({
         username: student.username,
         name: student.name,
         department: student.department,
@@ -30,6 +30,7 @@ const Grievance = () => {
         state: false,
     })
 
+    // function to check subject
     const chooseSubject = (e) => {
         if(canSelect) {
             if(e.target.classList.contains('subject')) {
@@ -66,6 +67,7 @@ const Grievance = () => {
         }
     }
 
+    // function to check type
     const chooseType = (e) => {
         if (selectType) {
             e.target.classList.toggle('choose');
@@ -87,7 +89,6 @@ const Grievance = () => {
         
         let backgroundSection = document.querySelector('.background-section');
         let checkSection = document.querySelector('.check-section');
-        let paySection = document.querySelector('.pay-section');
         let btnGriv = document.getElementById('btn-griv');
         let btnCancel = document.querySelector('#cancel');
         let btnProve = document.querySelector('#prove');
@@ -114,15 +115,40 @@ const Grievance = () => {
         }
     }
 
+    // function to check wallte
     const checkAmountFun = () => {
         if (amount <= student.wallet) {
             setCheckAmount(true);
+
+            // POST grievance
             fetch('/grievances/create', {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(data)
             }).then(() => console.log('up done'))
             .catch((err) => console.log(err));
+
+            // update wallet of student
+            fetch('/updateWallet', {
+                method: 'PATCH',
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    username: student.username,
+                    wallet: student.wallet - amount
+                })
+            }).then((result) => console.log(result))
+            .catch((err) => console.log(err));
+
+            // update data of student
+            fetch('/updateUser?' + new URLSearchParams({
+                username: student.username,
+                name: student.name
+            }))
+            .then((res) => res.json())
+            .then((data) => {
+                window.sessionStorage.setItem('user', JSON.stringify(data))
+                window.location.reload();
+            });
         }
         else {
             setCheckAmount(false);
@@ -132,6 +158,7 @@ const Grievance = () => {
     useEffect(() => {
         handelContent();
 
+        // fetch degrees of student
         fetch('/degree?'  + new URLSearchParams({
             username: student.username,
             name: student.name
@@ -141,6 +168,7 @@ const Grievance = () => {
 
     }, [])
 
+    // display last semester
     degrees.map((e, i, arr) => {
         arr[arr.length - 1].semesters.map((el, i, ar) => {
             return subjects =  ar[ar.length - 1].subjects;

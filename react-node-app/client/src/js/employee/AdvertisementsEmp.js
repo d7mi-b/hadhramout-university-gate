@@ -7,17 +7,17 @@ const AdvertisementsEmp = () => {
 
     const deleteAdv = (id) => {
         console.log(id)
-        fetch(`/advertisements/deleteads/${id}`,{
+        fetch(`/advert/deleteads/${id}`,{
             method: 'DELETE', 
         })
         .then(res => res.json())
-        .then((data) =>  window.location.replace('/advertisements'))
+        .then((data) =>  window.location.replace('/ads'))
         .catch(err => console.log(err))
         
     }
 
     useEffect(() => {
-        fetch('/advertisements')
+        fetch('/advert')
         .then(res => res.json())
         .then(data => setAdvertisements(data));
     }, [])

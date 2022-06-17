@@ -1,6 +1,4 @@
 import React from 'react';
-import { useAdv } from '../DataProvider';
-
 
 const CreateAdv = () => {
 
@@ -10,25 +8,25 @@ const CreateAdv = () => {
         const date = form.date.value;
 
         try{
-            const res = await fetch('/advertisements/create-ads', {
+            const res = await fetch('/advert/cre', {
                 method: 'POST',
-                body: JSON.stringify({ title, date}),
-                headers: {'Content-Type': 'application/json'}
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ title, date})
             });
             const data = await res.json();
-                console.log(data)
-               
+                console.log(data);
+
                 if(data.errors) {
-    
+                    console.log(data.errors)
                 }
-               if(data){
-               
-               }
+                if(data){
+                
+                }
         }
         catch(err){
             console.log(err);
         }
-        window.location.replace('/advertisements')
+        window.location.replace('/ads')
 
     }
 
@@ -38,9 +36,9 @@ const CreateAdv = () => {
                 <h2>إعلان جديد</h2>
             </header>
             <form action="#" method="POST" id="adv-form" >
-                <label for='title'>الإعلان</label>
+                <label htmlFor='title'>الإعلان</label>
                 <input name="title" type='text' id="title-new" />
-                <label for='date'>التاريخ</label>
+                <label htmlFor='date'>التاريخ</label>
                 <input name="date" type='date' id="date-new" />
                 <button className='btn' onClick={addAdv}>إنشاء</button>
             </form>

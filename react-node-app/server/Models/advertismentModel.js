@@ -12,5 +12,5 @@ const advertisementSchema = new Schema(
     }
 )
 
-const Advertisements = mongoose.model("advertisements",advertisementSchema)
+const Advertisements = mongoose.model("Advertisements",advertisementSchema)
 module.exports = Advertisements;

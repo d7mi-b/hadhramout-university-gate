@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authroutes')
 const newsRouter = require('./routes/newsRouter');
-const advertisementsRoute = require('./routes/advertisementRoutes');
+const advertisementRoute = require('./routes/advertisementRoutes');
 const degreeRoute = require('./routes/degreeRoute');
 const grievanceRoute = require('./routes/grievanceRoute');
 
@@ -26,6 +26,6 @@ mongoose.connect('mongodb://0.0.0.0:27017/HUG', { useNewUrlParser : true , useUn
 
 app.use(authRoutes);
 app.use('/news', newsRouter);
-app.use('/advertisements', advertisementsRoute);
+app.use('/advert', advertisementRoute);
 app.use('/degree', degreeRoute);
 app.use('/grievances', grievanceRoute);
