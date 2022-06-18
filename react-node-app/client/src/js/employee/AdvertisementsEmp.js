@@ -7,7 +7,7 @@ const AdvertisementsEmp = () => {
 
     const deleteAdv = (id) => {
         console.log(id)
-        fetch(`/advertisements/deleteads/${id}`,{
+        fetch(`/ads/deleteads/${id}`,{
             method: 'DELETE', 
         })
         .then(res => res.json())
@@ -17,7 +17,7 @@ const AdvertisementsEmp = () => {
     }
 
     useEffect(() => {
-        fetch('/advertisements')
+        fetch('/ads')
         .then(res => res.json())
         .then(data => setAdvertisements(data));
     }, [])

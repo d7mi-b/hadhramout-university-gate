@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAdv } from '../DataProvider';
+
 
 
 const CreateAdv = () => {
@@ -10,11 +10,12 @@ const CreateAdv = () => {
         const date = form.date.value;
 
         try{
-            const res = await fetch('/advertisements/create-ads', {
+            const res = await fetch('/ads/create-ads', {
                 method: 'POST',
                 body: JSON.stringify({ title, date}),
                 headers: {'Content-Type': 'application/json'}
             });
+            window.location.replace('/advertisements')
             const data = await res.json();
                 console.log(data)
                
@@ -28,7 +29,7 @@ const CreateAdv = () => {
         catch(err){
             console.log(err);
         }
-        window.location.replace('/advertisements')
+       
 
     }
 
