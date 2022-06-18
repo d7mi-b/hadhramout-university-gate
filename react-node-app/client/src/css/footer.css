@@ -9,3 +9,19 @@
     bottom: 0;
     width: 100%;
 }
+
+.footer a {
+    color: var(--hover-color);
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 10px auto;
+    width: max-content;
+}
+
+.footer a:hover {
+    color: var(--gray);
+    text-decoration: underline;
+    transform: scale(1.01);
+    transition: 0.2s;
+}

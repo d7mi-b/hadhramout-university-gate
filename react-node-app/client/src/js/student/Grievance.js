@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../../css/student/grievance.css';
 import { useUser } from '../DataProvider';
+import {Link} from 'react-router-dom';
 
 let subjects = [];
 
@@ -25,9 +26,9 @@ const Grievance = () => {
         data: NoTimeDate,
         subject: '',
         degree: 0,
-        reaon: '',
+        reson: '',
         type: '',
-        state: false,
+        state: 'تحت المعالجة',
     })
 
     // function to check subject
@@ -82,7 +83,7 @@ const Grievance = () => {
     }
 
     const handelReson = (e) => {
-        data.reaon = e.target.value;
+        data.reson = e.target.value;
     }
 
     const handelContent = () => {
@@ -186,8 +187,9 @@ const Grievance = () => {
                 <h2>رفع تظلم</h2>
             </header>
             <section className="subjects">
-                <header>
+                <header className='header'>
                     <h3>المواد المتاحة</h3>
+                    <Link to='/my-grievane' className='btn'>تظلماتي</Link>
                 </header>
                 <section className="subjects-container">
                     {

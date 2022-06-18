@@ -7,15 +7,15 @@ const ChargeWallte = () => {
                 <h2>شحن محفظة طالب</h2>
             </header>
             <form action="#" method="POST" className="charge-form form">
-                <label for="idStudent">رقم الطالب</label>
+                <label htmlFor="idStudent">رقم الطالب</label>
                 <input name="idStudent" type='number' required />
-                <label for="name">إسم الطالب</label>
+                <label htmlFor="name">إسم الطالب</label>
                 <input name="name" type='text' required />
-                <label for="checkNo">رقم السند</label>
+                <label htmlFor="checkNo">رقم السند</label>
                 <input name="checkNo" type='number' required />
-                <label for="amount">المبلغ</label>
+                <label htmlFor="amount">المبلغ</label>
                 <input name="amount" type="number" required />
-                <label for="date">التاريخ</label>
+                <label htmlFor="date">التاريخ</label>
                 <input name="date" type='date' required />
                 <button className='btn'>شحن</button>
             </form>

@@ -5,6 +5,7 @@ const newsRouter = require('./routes/newsRouter');
 const advertisementRoute = require('./routes/advertisementRoutes');
 const degreeRoute = require('./routes/degreeRoute');
 const grievanceRoute = require('./routes/grievanceRoute');
+const suggestionsRoute = require('./routes/suggestionRoute');
 
 const PORT = process.env.PORT || 3001;
 
@@ -29,3 +30,4 @@ app.use('/news', newsRouter);
 app.use('/advert', advertisementRoute);
 app.use('/degree', degreeRoute);
 app.use('/grievances', grievanceRoute);
+app.use('/suggestion', suggestionsRoute);

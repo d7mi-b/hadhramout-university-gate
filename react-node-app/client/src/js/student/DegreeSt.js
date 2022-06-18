@@ -91,7 +91,7 @@ const DegreeSt = () => {
     }, [])
 
     return (
-        <div className="container-page container">
+        <div className="container-page container container-degree-page">
             <header className="header">
                 <h2>بيان درجات</h2>
             </header>

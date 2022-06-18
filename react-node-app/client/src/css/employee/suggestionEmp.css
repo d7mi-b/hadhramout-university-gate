@@ -1,0 +1,20 @@
+.suggestion-container {
+}
+
+.suggestion {
+    box-shadow: 3px 3px 10px 2px #ddd;
+    background-color: var(--white);
+    width: 80%;
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.suggestion section {
+    margin: 15px;
+}
+
+.suggestion .student-info {
+    display: flex;
+    justify-content: space-evenly;
+}

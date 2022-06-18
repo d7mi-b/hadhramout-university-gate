@@ -640,8 +640,6 @@ const ScheduleEmp = () => {
         let btnCancel = document.querySelector('#cancel');
         let btnAdd = document.querySelector('#add');
 
-        console.log(btnAddSubj)
-
         btnAddSubj.addEventListener('click', () => {
             backgroundSection.style.cssText = "display: flex";
         })
@@ -666,7 +664,7 @@ const ScheduleEmp = () => {
             <section className="choose-sechedule choose-data">
                 <form action="#" method="POST">
                     <div>
-                        <label for='departement'>القسم</label>
+                        <label htmlFor='departement'>القسم</label>
                         <select name="departement" className="departement" value={departement} onChange={handelchangeDep} >
                             {
                                 departements.map(e => {
@@ -678,7 +676,7 @@ const ScheduleEmp = () => {
                         </select>
                     </div>
                     <div>
-                        <label for='level'>المستوى</label>
+                        <label htmlFor='level'>المستوى</label>
                         <select name="level" className="level" value={level} onChange={handelChangeLevel} >
                             {
                                 levels.map(e => {
@@ -690,7 +688,7 @@ const ScheduleEmp = () => {
                         </select>
                     </div>
                     <div>
-                        <label for='semester'>الفصل الدراسي</label>
+                        <label htmlFor='semester'>الفصل الدراسي</label>
                         <select name="semester" className="semester" value={semester} onChange={handelChangeSem}>
                             {
                                 semesters.map(e => {
@@ -702,7 +700,7 @@ const ScheduleEmp = () => {
                         </select>
                     </div>
                     <div>
-                        <label for='group2'>المسار</label>
+                        <label htmlFor='group2'>المسار</label>
                         <select name="group2" className="group2" value={group2} onChange={handelChangeGroup2}>
                             {
                                 groubs2.map(e => {
@@ -714,7 +712,7 @@ const ScheduleEmp = () => {
                         </select>
                     </div>
                     <div>
-                        <label for='group1'>المجموعة</label>
+                        <label htmlFor='group1'>المجموعة</label>
                         <select name="group1" className="group1" value={group1} onChange={handelChangeGroup1}>
                             {
                                 groubs1.map(e => {
@@ -729,44 +727,46 @@ const ScheduleEmp = () => {
             </section>
 
             <table className='schedule'>
-                {
-                    schedules.map(e => {
-                        if (e.departement === departement)
-                            return e.levels.map(e1 => {
-                                if (e1.level === level)
-                                    return e1.semesters.map(e2 => {
-                                        if (e2.semester === semester)
-                                            return e2.schedule.map(e3 => {
-                                                return (
-                                                    <tr className='day' key={e3.id}>
-                                                        <th><h4>{e3.day}</h4></th>
-                                                        {
-                                                            e3.subjects.map((e4, i, arr) => {
-                                                                return (
-                                                                    <td className='subject subject-emp' key={e4.id}>
-                                                                        <p className='bold'>{e4.name}</p>
-                                                                        <p>{e4.prof}</p>
-                                                                        <p>{e4.time}</p>
-                                                                        <p className='place'>{e4.place}</p>
-                                                                        <div className='delete icons'>
-                                                                            <svg className='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM394.8 466.1C393.2 492.3 372.3 512 346.9 512H101.1C75.75 512 54.77 492.3 53.19 466.1L31.1 128H416L394.8 466.1z"/></svg>
-                                                                        </div>
-                                                                    </td>
-                                                                )
-                                                            })
-                                                        }
-                                                    </tr>
-                                                )}
-                                            )
-                                    })
-                            }) 
-                    })
-                }
-                <tr>
-                    <td className='add-subject-icon icons' id='add-subject-icon' colSpan='5' onClick={handelContent}>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 368C269.3 368 280 357.3 280 344V280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H280V168C280 154.7 269.3 144 256 144C242.7 144 232 154.7 232 168V232H168C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H232V344C232 357.3 242.7 368 256 368z"/></svg>
-                    </td>
-                </tr>
+                <tbody>
+                    {
+                        schedules.map(e => {
+                            if (e.departement === departement)
+                                return e.levels.map(e1 => {
+                                    if (e1.level === level)
+                                        return e1.semesters.map(e2 => {
+                                            if (e2.semester === semester)
+                                                return e2.schedule.map(e3 => {
+                                                    return (
+                                                        <tr className='day' key={e3.id}>
+                                                            <th><h4>{e3.day}</h4></th>
+                                                            {
+                                                                e3.subjects.map((e4, i, arr) => {
+                                                                    return (
+                                                                        <td className='subject subject-emp' key={e4.id}>
+                                                                            <p className='bold'>{e4.name}</p>
+                                                                            <p>{e4.prof}</p>
+                                                                            <p>{e4.time}</p>
+                                                                            <p className='place'>{e4.place}</p>
+                                                                            <div className='delete icons'>
+                                                                                <svg className='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM394.8 466.1C393.2 492.3 372.3 512 346.9 512H101.1C75.75 512 54.77 492.3 53.19 466.1L31.1 128H416L394.8 466.1z"/></svg>
+                                                                            </div>
+                                                                        </td>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </tr>
+                                                    )}
+                                                )
+                                        })
+                                }) 
+                        })
+                    }
+                    <tr>
+                        <td className='add-subject-icon icons' id='add-subject-icon' colSpan='5' onClick={handelContent}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 368C269.3 368 280 357.3 280 344V280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H280V168C280 154.7 269.3 144 256 144C242.7 144 232 154.7 232 168V232H168C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H232V344C232 357.3 242.7 368 256 368z"/></svg>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
             
             <div className='background-section add-subject'>
@@ -776,21 +776,21 @@ const ScheduleEmp = () => {
                     <section className='data-subject'>
                         <form action='#' method='POST'>
                             <div>
-                                <label for='name-subj'>إسم المادة</label>
+                                <label htmlFor='name-subj'>إسم المادة</label>
                                 <input name='name-subj' type='text' />
                             </div>
                             <div>
-                                <label for='prof'>الدكتور</label>
+                                <label htmlFor='prof'>الدكتور</label>
                                 <input name='prof' type='text' />
                             </div>
                             <div>
-                                <label for='time-from'>من</label>
+                                <label htmlFor='time-from'>من</label>
                                 <input className='time' name='time-from' type='text' />
-                                <label for='time-to'>إلى</label>
+                                <label htmlFor='time-to'>إلى</label>
                                 <input className='time' name='time-to' type='text' />
                             </div>
                             <div>
-                                <label for='place'>القاعة</label>
+                                <label htmlFor='place'>القاعة</label>
                                 <input name='place' type='text' />
                             </div>
                         </form>
