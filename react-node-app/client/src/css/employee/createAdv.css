@@ -1,0 +1,23 @@
+.create-adv {
+    width: 400px;
+    margin: 15px auto;
+}
+
+.create-adv form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.create-adv form input,
+.create-adv form textarea {
+    padding: 8px;
+    font-family: Cairo;
+    margin: 10px 0;
+    display: block;
+}
+
+.create-adv .btn {
+    align-self: left;
+}

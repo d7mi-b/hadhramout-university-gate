@@ -8,6 +8,7 @@ const walletChargeSchema = new Schema(
         studentName: {type: String},
         checkNo: {type: Number},
         amount:{type: Number},
+        type: {type: String},
         date: {type:String}
     },
     {
@@ -15,5 +16,6 @@ const walletChargeSchema = new Schema(
     }
 )
 
-const walletCharge = mongoose.model("WalletCharge",walletChargeSchema)
+const walletCharge = mongoose.model("WalletCharge", walletChargeSchema);
+
 module.exports = walletCharge;

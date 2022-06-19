@@ -1,39 +1,46 @@
-import '../../css/employee/chargeWallte.css'
-
+import '../../css/employee/chargeWallte.css';
+import { useState } from 'react';
 
 const ChargeWallte = () => {
-   
+    const [data] = useState({
+        studentNo: 0,
+        studentName: '',
+        checkNo: 0,
+        amount: 0,
+        type: 'إيداع',
+        date: ''
+    });
+
     
     const addToWallet= () => {
 
         const form = document.getElementById("chargeWallet-form");
-        const studentNo = form.idStudent.value;
-        const studentName = form.name.value;
-        const checkNo = form.checkNo.value;
-        const amount = form.amount.value;
-        const date = form.date.value;
+        data.studentNo = +form.idStudent.value;
+        data.studentName = form.name.value;
+        data.checkNo = +form.checkNo.value;
+        data.amount = +form.amount.value;
+        data.date = form.date.value;
 
-        fetch('/charge/add-wallet', {
-                method: 'POST',
-                body: JSON.stringify({ studentNo, studentName, checkNo, amount, date}),
-                headers: {'Content-Type': 'application/json'}
-            })
-            .then(() => console.log('Add') )
-            .catch(err => console.log(err));
-            
-            
         fetch('/charge/update-wallet',{
                 method: 'PATCH',
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({username: Number(studentNo) ,amount: Number(amount)}) 
+                body: JSON.stringify({username: data.studentNo, amount: data.amount}) 
                 })
-                .then((res) => res.window.location.replace('/charge-wallte'))
+                .then((res) => {
+                    if(res.status === 200) {
+                        fetch('/charge/add-wallet', {
+                            method: 'POST',
+                            body: JSON.stringify(data),
+                            headers: {'Content-Type': 'application/json'}
+                        })
+                        .then(() => window.location.reload())
+                        .catch(err => console.log(err));
+                        
+                    }
+                })
                 .catch(err => console.log(err))
 
         }
-        
-    
-    
 
     return (
         <div className="container-form">
@@ -41,7 +48,7 @@ const ChargeWallte = () => {
                 <h2>شحن محفظة طالب</h2>
             </header>
             <form action="#" method="POST" className="charge-form form" id='chargeWallet-form'>
-                <label for="idStudent">رقم الطالب</label>
+                <label htmlFor="idStudent">رقم الطالب</label>
                 <input name="idStudent" type='number' required />
                 <label htmlFor="name">إسم الطالب</label>
                 <input name="name" type='text' required />
@@ -51,8 +58,10 @@ const ChargeWallte = () => {
                 <input name="amount" type="number" required />
                 <label htmlFor="date">التاريخ</label>
                 <input name="date" type='date' required />
-                <button className='btn' onClick={addToWallet}>شحن</button>
             </form>
+            <section className='buttons'>
+                <button className='btn' onClick={addToWallet}>شحن</button>
+            </section>
         </div>
     );
 }

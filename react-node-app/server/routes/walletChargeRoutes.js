@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.patch("/update-wallet",walletChargeController.updateWallet);
 router.post("/add-wallet",walletChargeController.addToWallet);
-//router.delete('/deleteads/:id',adverController.deleteAdv)
+router.patch('/whitdrawWallet', walletChargeController.withdrawWallet);
 
 module.exports= router;

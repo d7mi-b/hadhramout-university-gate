@@ -33,9 +33,13 @@
     display: block;
 }
 
-.form .btn {
-    position: relative;
-    right: 332px;
+.buttons {
+    width: 400px;
+    margin: 10px auto;
+}
+
+.buttons .btn {
+    float: left;
 }
 
 @media (min-width: 238px) and (max-width: 767px) {
