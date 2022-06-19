@@ -12,7 +12,7 @@ const grievanceSchema = mongoose.Schema(
         degree: {type: String},
         reson: {type: String},
         type: {type: String},
-        state: {type: Boolean}
+        state: {type: String}
     },
     {
         timestamps: true

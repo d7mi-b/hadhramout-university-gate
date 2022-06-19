@@ -2,6 +2,11 @@
     padding: 10px;
 }
 
+.grievance .subjects .header {
+    display: flex;
+    justify-content: space-between;
+}
+
 .subjects .subjects-container {
     display: flex;
     margin: 20px auto;
@@ -68,4 +73,42 @@
     padding: 15px;
     font-family: Cairo;
     display: block;
+}
+
+@media (min-width: 280px) and (max-width: 767px) {
+    .subjects {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .subjects .subjects-container {
+        height: 900px;
+        display: grid;
+    }
+    .subjects .subjects-container .subject {
+        margin: 10px auto;
+    }
+    .subjects .subjects-container .subject:hover {
+        transform: scale(1.01);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .subjects {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .subjects .subjects-container {
+        height: 400px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        padding: 20px;
+    }
+    .subjects .subjects-container .subject {
+        margin: 10px auto;
+        height: 125px;
+    }
+    .subjects .subjects-container .subject:hover {
+        transform: scale(1.01);
+    }
 }

@@ -41,6 +41,14 @@
         flex-direction: column;
         margin: 10px auto;
     }
+
+    .day th {
+        width: 100%;
+    }
+
+    .day .subject {
+        margin: 5px auto;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

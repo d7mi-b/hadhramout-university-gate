@@ -170,7 +170,17 @@
 
 @media (min-width: 238px) and (max-width: 991px) {
     .login-data .form {
-        width: 70%;
+        width: 300px;
+    }
+    .login .header {
+        width: 90%;
+        margin: 15px auto;
+    }
+    .login .header h2 {
+        width: 100%;
+        border-right: none;
+        white-space: normal;
+        animation: none;
     }
 }
 /* END LOGIN FORM */

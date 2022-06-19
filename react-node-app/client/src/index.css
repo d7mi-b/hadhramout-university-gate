@@ -134,6 +134,8 @@ body {
 
 textarea {
     resize: none;
+    font-family: Cairo;
+    color: var(--dark-color);
 }
 
 input:focus-visible,

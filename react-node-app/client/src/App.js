@@ -22,6 +22,10 @@ import AdvertisementsEmp from "./js/employee/AdvertisementsEmp";
 import CreateAdv from "./js/employee/CreateAdv";
 import Grievance from "./js/student/Grievance";
 import NotFound from "./js/NotFound";
+import GrivenceEmp from "./js/employee/GrivenceEmp";
+import MyGrivences from "./js/student/MyGrivences";
+import SuggestionsST from "./js/student/SuggestionsST";
+import SuggestionEmp from "./js/employee/SuggestionEmp";
 
 function App() {
   const [student, setStudent] = useState();
@@ -98,6 +102,14 @@ function App() {
                 <Route path='/grievance-up'>
                   <Grievance />
                 </Route>
+
+                <Route path='/my-grievane'>
+                  <MyGrivences />
+                </Route>
+
+                <Route path='/suggestions-submet'>
+                  <SuggestionsST />
+                </Route>
                 
                 <Footer />
               </div>
@@ -151,6 +163,15 @@ function App() {
                 <Route path='/create-adv'>
                   <CreateAdv />
                 </Route>
+
+                {/* GRIVENCES PAGE FOR EMPLOYEE */}
+                  <Route path='/grievance-emp'>
+                    <GrivenceEmp />
+                  </Route>
+
+                  <Route path='/suggestion-Emp'>
+                    <SuggestionEmp />
+                  </Route>
 
                 <Footer />
               </div>

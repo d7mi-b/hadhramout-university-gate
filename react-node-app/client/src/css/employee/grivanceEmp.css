@@ -1,0 +1,47 @@
+.grivance {
+    box-shadow: 3px 3px 10px 2px #ddd;
+    background-color: var(--white);
+    width: 80%;
+    margin: 15px auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.grivance .bold {
+    margin: 10px 25px;
+}
+
+.choose-state {
+    text-align: center;
+    margin: 25px auto;
+}
+
+.choose-state select {
+    font-family: Cairo;
+    margin: 0 10px;
+    padding: 3px;
+    width: 150px;
+}
+
+.choose-state select option {
+    font-family: Cairo;
+}
+
+.grivance .student-grv,
+.grivance .subject-grv,
+.grivance .grv-state,
+.grivance .grv-state .buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttons button {
+    margin-left: 10px;
+}
+
+.grv-state p {
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    justify-content: center;
+}
