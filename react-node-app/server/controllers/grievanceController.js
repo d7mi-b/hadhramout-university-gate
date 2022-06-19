@@ -1,12 +1,17 @@
 const { ObjectId } = require('mongodb');
 const Grievance = require('../Models/grievanceModel');
+const Student = require('../Models/studentModel');
 
 // add grievance to database
 const grievancePost = (req, res) => {
     const grievance = new Grievance(req.body);
 
     grievance.save()
-        .then(result => console.log('Done'))
+        .then(result => {
+            Student.updateOne({username: req.body.username}, {$set: {wallet: req.body.wallet}})
+                .then(result => res.status(200).json(result))
+                .catch(err => console.log(err));
+        })
         .catch(err => console.log(err));
 }
 

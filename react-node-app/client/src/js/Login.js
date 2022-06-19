@@ -42,6 +42,7 @@ const Login = () => {
 
             }
             else if(data.position) {
+                console.log(data)
                 window.sessionStorage.setItem("user", JSON.stringify(data));
                 window.location.replace('/employee')
             }

@@ -43,6 +43,15 @@ module.exports.update_wallte = async (req, res) => {
         .catch(err => console.log(err));
 }
 
+module.exports.update_state = async (req, res) => {
+    const {username, state, wallet} = req.body;
+
+    const student = Student;
+    student.updateOne({username: username}, {$set: {state: state, wallet: wallet}})
+        .then(result => res.status(200).json(result))
+        .catch(err => console.log(err));
+}
+
 module.exports.update_User = async (req, res) => {
     const {username} = req.query;
 

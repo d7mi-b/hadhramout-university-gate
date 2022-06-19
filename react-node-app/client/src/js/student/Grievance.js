@@ -29,6 +29,7 @@ const Grievance = () => {
         reson: '',
         type: '',
         state: 'تحت المعالجة',
+        wallet: student.wallet - amount
     })
 
     // function to check subject
@@ -126,30 +127,24 @@ const Grievance = () => {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(data)
-            }).then(() => console.log('up done'))
+            }).then((result) => {
+                if (result.status === 200) {
+                    fetch('/updateUser?' + new URLSearchParams({
+                        username: student.username,
+                        name: student.name
+                    }))
+                    .then((res) => res.json())
+                    .then((data) => {
+                        window.sessionStorage.setItem('user', JSON.stringify(data))
+                        window.location.reload()
+                    });
+                }
+            })
             .catch((err) => console.log(err));
 
-            // update wallet of student
-            fetch('/updateWallet', {
-                method: 'PATCH',
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({
-                    username: student.username,
-                    wallet: student.wallet - amount
-                })
-            }).then((result) => console.log(result))
-            .catch((err) => console.log(err));
-
+            
             // update data of student
-            fetch('/updateUser?' + new URLSearchParams({
-                username: student.username,
-                name: student.name
-            }))
-            .then((res) => res.json())
-            .then((data) => {
-                window.sessionStorage.setItem('user', JSON.stringify(data))
-                window.location.reload();
-            });
+            
         }
         else {
             setCheckAmount(false);

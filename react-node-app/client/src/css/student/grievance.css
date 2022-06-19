@@ -75,6 +75,10 @@
     display: block;
 }
 
+.grievance .background-section {
+    height: 100%;
+}
+
 @media (min-width: 280px) and (max-width: 767px) {
     .subjects {
         width: 90%;
