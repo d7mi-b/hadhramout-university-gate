@@ -45,6 +45,9 @@ function App() {
       else
         setStudent(true)
     }
+    else{
+    
+    }
   }, [])
 
   return (
@@ -152,7 +155,7 @@ function App() {
                 </Route>
 
                 {/* ADVERTISEMENTS PAGE FOR EMPLOYEE */}
-                <Route path='/ads'>
+                <Route path='/advertisements'>
                   <AdvertisementsEmp />
                 </Route>
 

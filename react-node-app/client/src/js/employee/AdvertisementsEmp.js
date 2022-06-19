@@ -1,26 +1,23 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import '../../css/employee/advertisements.css'
+import { useAdv } from "../DataProvider";
 
 const AdvertisementsEmp = () => {
-    const [advertisements, setAdvertisements] = useState([]);
+
+    const advertisements = useAdv();
 
     const deleteAdv = (id) => {
         console.log(id)
-        fetch(`/advert/deleteads/${id}`,{
+        fetch(`/ads/deleteads/${id}`,{
             method: 'DELETE', 
         })
         .then(res => res.json())
-        .then((data) =>  window.location.replace('/ads'))
+        .then((data) =>  window.location.replace('/advertisements'))
         .catch(err => console.log(err))
         
     }
 
-    useEffect(() => {
-        fetch('/advert')
-        .then(res => res.json())
-        .then(data => setAdvertisements(data));
-    }, [])
 
     return (
         <section className="advertisements-emp advertisements container news">

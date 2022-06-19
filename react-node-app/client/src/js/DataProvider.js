@@ -23,7 +23,7 @@ const DataProvider = ({ children }) => {
 
     React.useEffect(() => {
 
-        fetch('/advert')
+        fetch('/ads')
         .then(res => res.json())
         .then(data => setAdvertisement(data));
 

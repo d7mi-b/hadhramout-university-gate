@@ -18,8 +18,7 @@ module.exports.get_advertisement= async (req,res) => {
 module.exports.add_advs = async (req, res) => {
 
     const advertisement = req.body;
-    console.log('done')
-
+    
     try{
         const adver = await Advertisements.create(advertisement);
         res.status(201).json(adver)
