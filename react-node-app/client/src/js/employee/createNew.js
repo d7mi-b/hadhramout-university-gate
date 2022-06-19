@@ -7,29 +7,26 @@ import React from 'react';
 
 const CreateNew = () => {
 
-
     const addNews = async () => {
     
-
+        
         const form = document.getElementById('news_form'); 
         const title = form.title.value;
         const body = form.body.value;
         const image = form.image.value;
         const date = form.date.value;
-    
-        try{
-            const res = await fetch('/news/add-new', {
-                method: 'POST',
-                body: JSON.stringify({ title, body, image, date}),
-                headers: {'Content-Type': 'application/json'}
-            });
-            
-        }
-        catch(err){
-            console.log(err);
-        }
-        window.location.replace('/newsEmp')
+
+        const res = await fetch(`/news/add-new`,{
+            method: 'POST',
+            body: JSON.stringify({ title, body, image, date}),
+            headers: {'Content-Type': 'application/json'} 
+        })
+        .then(res =>  window.location.replace('/newsEmp'))
+        .then(data => window.location.replace('/newsEmp') )
+        .catch(err => console.log(err))
+        
     }
+
 
     return (
         <div className="create-new">

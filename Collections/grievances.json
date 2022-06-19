@@ -1,0 +1,277 @@
+[{
+  "_id": {
+    "$oid": "62ab79f0b96f87bdc74cc513"
+  },
+  "username": 1111,
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "subject": "قياسات الكترونية",
+  "degree": "136",
+  "type": "جمع درجات",
+  "state": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655405040823"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655405040823"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab7a20eda18ee48b5bf200"
+  },
+  "username": 1111,
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "subject": "قياسات الكترونية",
+  "degree": "136",
+  "type": "جمع درجات",
+  "state": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655405088766"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655405088766"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab7ae2621dcfe956a9bc04"
+  },
+  "username": 1111,
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "subject": "إحصاء وإحتمالات",
+  "degree": "109",
+  "type": "جمع درجات",
+  "state": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655405282614"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655405282614"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab7b173f0ca0e988e5a27c"
+  },
+  "username": 1111,
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "subject": "إحصاء وإحتمالات",
+  "degree": "109",
+  "type": "جمع درجات",
+  "state": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655405335183"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655405335183"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab7c8bf8f52c51c78b190b"
+  },
+  "username": 1111,
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "subject": "إحصاء وإحتمالات",
+  "degree": "109",
+  "type": "جمع درجات",
+  "state": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655405707978"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655405707978"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab7ce1cd3c8a2259e0cecf"
+  },
+  "username": 1111,
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "subject": "إحصاء وإحتمالات",
+  "degree": "109",
+  "type": "جمع درجات",
+  "state": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655405793834"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655405793834"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab7d48aa270ba522280ea3"
+  },
+  "username": 1111,
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "subject": "إحصاء وإحتمالات",
+  "degree": "109",
+  "type": "جمع درجات",
+  "state": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655405896475"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655405896475"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab7df1b3233740a62dcc71"
+  },
+  "username": 1111,
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "subject": "إحصاء وإحتمالات",
+  "degree": "109",
+  "type": "جمع درجات",
+  "state": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655406065267"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655406065267"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab7e898c629a5dd2a2fb34"
+  },
+  "username": 1111,
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "subject": "إحصاء وإحتمالات",
+  "degree": "109",
+  "type": "جمع درجات",
+  "state": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655406217180"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655406217180"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab7f00bd6c4e2fbf5941a0"
+  },
+  "username": 1111,
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "subject": "إحصاء وإحتمالات",
+  "degree": "109",
+  "type": "جمع درجات",
+  "state": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655406336674"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655406336674"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab7f1e8e86baa6e5b8780b"
+  },
+  "username": 1111,
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "subject": "إحصاء وإحتمالات",
+  "degree": "109",
+  "type": "جمع درجات",
+  "state": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655406367004"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655406367004"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab864d5dbe1c51722f7591"
+  },
+  "username": 1111,
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "subject": "إحصاء وإحتمالات",
+  "degree": "109",
+  "type": "جمع درجات",
+  "state": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655408205055"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655408205055"
+    }
+  },
+  "__v": 0
+}]

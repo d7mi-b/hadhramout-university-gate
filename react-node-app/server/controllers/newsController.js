@@ -11,7 +11,7 @@ module.exports.addNews= async (req,res) => {
 
     try{
         const news_ = await News.create(news);
-       /* news_.img.data = fs.readFileSync(req.files.userPhoto.path)
+        /* news_.img.data = fs.readFileSync(req.files.userPhoto.path)
         news_.img.contentType = 'image/png';
         news_.save();*/
         res.status(201).json(news_)
@@ -44,9 +44,8 @@ module.exports.news_index = async (req,res) => {
 module.exports.single_news = async (req, res) => {
     const id = req.params.id;
     try{
-    const news = await News.findById(id)
+        const news = await News.findById(id)
         res.status(200).json(news);
-        
     }
     catch(err) {
         console.log(err);
@@ -60,7 +59,6 @@ module.exports.deleteNews= async (req,res) => {
         try{
             const news = await News.findByIdAndDelete(id)
             res.status(200).json(news)
-                
         }
         catch(err) {
             console.log(err);

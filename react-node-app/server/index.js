@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Advertisements = require('./Models/advertismentModel');
 const authRoutes = require('./routes/authroutes')
 const newsRouter = require('./routes/newsRouter');
 const advertisementsRoute = require('./routes/advertisementRoutes');
 const degreeRoute = require('./routes/degreeRoute');
 const walletChargeRoute = require('./routes/walletChargeRoutes')
+const grievanceRoute = require('./routes/grievanceRoute');
 
 const PORT = process.env.PORT || 3001;
 
@@ -30,3 +30,4 @@ app.use('/news', newsRouter);
 app.use('/ads', advertisementsRoute);
 app.use('/degree', degreeRoute);
 app.use('/charge',walletChargeRoute)
+app.use('/grievances', grievanceRoute);

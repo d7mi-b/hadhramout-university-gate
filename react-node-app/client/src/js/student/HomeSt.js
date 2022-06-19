@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../css/student/homeSt.css'
 import { useNews,useAdv } from '../DataProvider';
@@ -38,11 +37,6 @@ let services = [
 const HomeSt = () => {
     const news = useNews();
     const advertisement = useAdv();
-    
-
-    useEffect(() => {
-        
-    }, [])
 
     return (
         <div className="home">

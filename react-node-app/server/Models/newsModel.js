@@ -8,8 +8,10 @@ const newsSchema = new Schema(
         title: {type: String},
         body: {type: String},
         date: {type: String},
-        img: {data: Buffer,
-            contentType: String }
+        img: {
+            data: Buffer,
+            contentType: String 
+        }
     },
     {
         timestamps: true

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import '../../css/employee/advertisements.css'
+import { useAdv } from "../DataProvider";
 
 const AdvertisementsEmp = () => {
-    const [advertisements, setAdvertisements] = useState([]);
+
+    const advertisements = useAdv();
 
     const deleteAdv = (id) => {
         console.log(id)
@@ -16,11 +18,6 @@ const AdvertisementsEmp = () => {
         
     }
 
-    useEffect(() => {
-        fetch('/ads')
-        .then(res => res.json())
-        .then(data => setAdvertisements(data));
-    }, [])
 
     return (
         <section className="advertisements-emp advertisements container news">

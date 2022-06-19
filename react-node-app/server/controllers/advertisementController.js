@@ -2,7 +2,7 @@ const Advertisements = require('../Models/advertismentModel');
 
 
 module.exports.get_advertisement= async (req,res) => {
-  
+
     try{
         const advertisement = await Advertisements.find()
         
@@ -15,10 +15,10 @@ module.exports.get_advertisement= async (req,res) => {
 }
 
 
-module.exports.add_advertisement= async (req,res) => {
-   
-    const advertisement = req.body;
+module.exports.add_advs = async (req, res) => {
 
+    const advertisement = req.body;
+    
     try{
         const adver = await Advertisements.create(advertisement);
         res.status(201).json(adver)

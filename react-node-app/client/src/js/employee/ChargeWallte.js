@@ -2,35 +2,37 @@ import '../../css/employee/chargeWallte.css'
 
 
 const ChargeWallte = () => {
+   
     
-    const addToWallet= async (req,res) => {
+    const addToWallet= () => {
+
         const form = document.getElementById("chargeWallet-form");
         const studentNo = form.idStudent.value;
         const studentName = form.name.value;
         const checkNo = form.checkNo.value;
+        const amount = form.amount.value;
         const date = form.date.value;
 
-        try{
-            const res = await fetch('/charge/add-wallet', {
+        fetch('/charge/add-wallet', {
                 method: 'POST',
-                body: JSON.stringify({ studentNo, studentName, checkNo, date}),
+                body: JSON.stringify({ studentNo, studentName, checkNo, amount, date}),
                 headers: {'Content-Type': 'application/json'}
-            });
-            const data = await res.json();
-                console.log(data)
-               
-                if(data.errors) {
+            })
+            .then(() => console.log('Add') )
+            .catch(err => console.log(err));
+            
+            
+        fetch('/charge/update-wallet',{
+                method: 'PATCH',
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({username: Number(studentNo) ,amount: Number(amount)}) 
+                })
+                .then((res) => res.window.location.replace('/charge-wallte'))
+                .catch(err => console.log(err))
+
+        }
+        
     
-                }
-               if(data){
-               
-               }
-        }
-        catch(err){
-            console.log(err);
-        }
-        window.location.replace('/charge-wallte')
-    }
     
 
     return (

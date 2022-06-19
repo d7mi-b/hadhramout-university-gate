@@ -17,7 +17,7 @@ import Renew from './js/student/Renew';
 import ScheduleSt from './js/student/ScheduleSt';
 import UnCalenderSt from './js/student/UnvCalenderSt';
 import Login from './js/Login'
-import DataProvider, { useUser } from "./js/DataProvider";
+import DataProvider from "./js/DataProvider";
 import AdvertisementsEmp from "./js/employee/AdvertisementsEmp";
 import CreateAdv from "./js/employee/CreateAdv";
 import Grievance from "./js/student/Grievance";
@@ -25,6 +25,14 @@ import NotFound from "./js/NotFound";
 
 function App() {
   const [student, setStudent] = useState();
+
+  const route = () => {
+    if (!JSON.parse(window.sessionStorage.getItem('user')) && window.location.href !== 'http://localhost:3000/') {
+        window.location.replace('/')
+    }
+  }
+
+  route()
 
   useEffect(() => {
     if (JSON.parse(window.sessionStorage.getItem('user'))) {

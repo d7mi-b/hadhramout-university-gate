@@ -4,10 +4,10 @@ const { Schema } = mongoose;
 
 const walletChargeSchema = new Schema(
     {
-        student_No:{type: Number} ,
-        student_name: {type: String},
-        check_No: {type: Number},
-        amount:{type:Number},
+        studentNo:{type: Number} ,
+        studentName: {type: String},
+        checkNo: {type: Number},
+        amount:{type: Number},
         date: {type:String}
     },
     {

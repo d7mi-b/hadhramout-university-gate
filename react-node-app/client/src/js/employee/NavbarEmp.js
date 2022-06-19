@@ -3,6 +3,7 @@ import '../../css/student/navbarSt.css';
 import logo from '../../images/HUGLogo.png';
 import avatar from '../../images/avatar.png';
 import { useUser } from '../DataProvider';
+import { useEffect } from 'react';
 
 
 const NavbarEmp = () => {
@@ -16,6 +17,10 @@ const NavbarEmp = () => {
             window.sessionStorage.clear();
         })
     }
+
+    useEffect(() => {
+        logOut()
+    }, [])
 
     return (
         <nav className="navbar">

@@ -18,7 +18,7 @@ export function useAdv() {
 
 const DataProvider = ({ children }) => {
     const [news, setNews] = useState([]);
-    const [ user ] = useState(JSON.parse(window.sessionStorage.getItem("user")));
+    const [user] = useState(JSON.parse(window.sessionStorage.getItem("user")));
     const [advertisement, setAdvertisement] = useState([]);
 
     React.useEffect(() => {
