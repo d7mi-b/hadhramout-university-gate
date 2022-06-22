@@ -17,9 +17,17 @@ const grievancePost = (req, res) => {
 
 // get grievanes
 const grievanceGet = async (req, res) => {
+    const {department, page, state} = req.query;
+
+    const pages = page || 0;
+    const grvPerPage = 5;
 
     try {
-        const grievance = await Grievance.find().sort({$natural: -1});
+        const grievance = await Grievance.find({department: department})
+            .sort({$natural: -1})
+            .skip(pages * grvPerPage)
+            .limit(grvPerPage)
+            
         res.status(200).json(grievance);
     }
     catch (err) {
@@ -42,15 +50,14 @@ const updateStateGrv = async (req, res) => {
 
 // get all griveances of a student
 const MyGrievance = async (req, res) => {
-    const {username} = req.query;
+    const {username, page, state} = req.query;
 
-    let grvs = [];
-    const page = req.query.page || 0;
+    const pages = page || 0;
     const grvPerPage = 5;
 
-    Grievance.find({ username: username })
+    Grievance.find({ username: username, state: state })
         .sort({$natural: -1})
-        .skip(page * grvPerPage)
+        .skip(pages * grvPerPage)
         .limit(grvPerPage)
         .then(result => {
             return res.status(200).json(result)

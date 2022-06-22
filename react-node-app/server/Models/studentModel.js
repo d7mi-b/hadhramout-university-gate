@@ -6,7 +6,6 @@ const { json } = require('express');
 
 const studentSchema = new Schema(
     {
-        _id: {type: Number},
         name : {type:String},
         dateOfBirth : {tupe:Date},
         username: {

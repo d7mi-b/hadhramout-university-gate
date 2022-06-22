@@ -180,8 +180,6 @@ const Grievance = () => {
         return counter === 1;
     }, 2);
 
-    console.log(counter, openTest)
-
     return (
         <div className="container container-page grievance">
             <header className="header">

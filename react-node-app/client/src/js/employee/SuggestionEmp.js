@@ -15,13 +15,20 @@ const types = [
 const SuggestionEmp = () => {
     const [suggestion, setSuggestion] = useState([]);
     const [type, setType] = useState('إقتراح');
+    const [pages, setPage] = useState(0);
+
+    const handelPages = (e) => {
+        setPage(pages + 1)
+    }
 
     const handelChangeType = (e) => {
         setType(e.target.value);
     }
 
     useEffect(() => {
-        fetch('/suggestion/get-all')
+        fetch('/suggestion/get-all?'  + new URLSearchParams({
+            page: +pages,
+        }))
             .then(res => res.json())
             .then(data => setSuggestion(data));
     }, []);
@@ -67,6 +74,12 @@ const SuggestionEmp = () => {
                     })
                 }
             </section>
+            {
+                suggestion.length >= 5 &&
+                <section className='pages'>
+                    <button className='btn' onClick={handelPages}>المزيد...</button>
+                </section>
+            }
         </div>
     );
 }

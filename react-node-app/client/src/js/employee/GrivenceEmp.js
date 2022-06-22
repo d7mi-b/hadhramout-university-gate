@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import {useUser} from '../DataProvider';
 import '../../css/employee/grivanceEmp.css';
 
 const states = [
@@ -18,7 +19,13 @@ const states = [
 
 const GrivenceEmp = () => {
     const [grivence, setGrivence] = useState([]);
-    const [state, setState] = useState('تحت المعالجة');
+    const [state, setState] = useState(states[0].label);
+    const [pages, setPage] = useState(0)
+    const employee = useUser();
+
+    const handelPages = (e) => {
+        setPage(pages + 1)
+    }
 
     const handelChangeState = e => {
         setState(e.target.value);
@@ -57,9 +64,14 @@ const GrivenceEmp = () => {
     useEffect(() => {
 
         // get grivances from database
-        fetch('/grievances/get')
+        fetch('/grievances/get?'  + new URLSearchParams({
+            department: employee.department,
+            page: +pages,
+            state: state
+        }))
             .then(res => res.json())
             .then(data => setGrivence(data));
+
     })
 
     return (
@@ -118,6 +130,12 @@ const GrivenceEmp = () => {
                     })
                 }
             </section>
+            {
+                grivence.length >= 5 &&
+                <section className='pages'>
+                    <button className='btn' onClick={handelPages}>المزيد...</button>
+                </section>
+            }
         </div>
     );
 }

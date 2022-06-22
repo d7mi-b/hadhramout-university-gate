@@ -9,8 +9,17 @@ module.exports.suggestionsPost = async (req, res) => {
 }
 
 module.exports.suggestionsGet = async (req, res) => {
+    const {page} = req.query;
+
+    const pages = page || 0;
+    const grvPerPage = 5;
+
     try {
-        const suggestion = await Suggestions.find();
+        const suggestion = await Suggestions.find()
+            .sort({$natural: -1})
+            .skip(pages * grvPerPage)
+            .limit(grvPerPage)
+            
         res.status(200).json(suggestion);
     }
     catch (err) {

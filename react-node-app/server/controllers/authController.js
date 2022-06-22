@@ -78,8 +78,7 @@ module.exports.registerStudent= async (req,res) => {
 
         try{
             const student = await Student.create({
-                _id: 111111,
-                name:"عبدالرحمن بهيان",
+                name:"علي محمد",
                 age:24,
                 email:"abdulrahman@gmail.com",
                 phoneNo:7345689,
