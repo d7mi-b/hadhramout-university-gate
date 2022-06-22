@@ -1,10 +1,12 @@
+import React from 'react';
+import { useState } from 'react';
 import '../../css/student/scheduleSt.css';
+import { useUser } from '../DataProvider';
 
-let department = 'هندسة حاسوب';
-let level = 'مستوى رابع';
-let semstire = 'الفصل الدراسي الأول'
 
-let schedule = [
+
+
+/*let schedule = [
     {
         id: 1,
         day: 'الأحد',
@@ -97,14 +99,32 @@ let schedule = [
             },
         ]
     },
-]
+]*/
 
 const ScheduleSt = () => {
+
+    const student = useUser();
+    const [schedule, setSchedule] = useState([]);
+    const department = student.departement;
+    const level = student.level;
+    const semester = student.semester;
+    const group1 = student.group1;
+    const group2 = student.group2;
+
+    const getSchedule= () => {
+
+        fetch(`/schedule/${department}/${level}/${semester}/${group1}/${group2}`)
+        .then(result => setSchedule(result))
+        .catch(err => console.log(err))
+    }
+
+    React.useEffect(getSchedule)
+
     return (
         <div className="container-schedule container-page container">
             <header className="header">
                 <h2>جدول المحاضرات</h2>
-                <h3>{department} - {level} - {semstire}</h3>
+                <h3>{department} - {level} - {semester}</h3>
             </header>
             <table className='schedule'>
                 <tbody>

@@ -3,6 +3,12 @@ const Employee = require('../Models/employeeModel');
 const { ObjectId } = require('mongodb');
 
 
+//handle errors
+const handleErrors= (err) => {
+    console.log(err.message, err.code)
+}
+
+
 module.exports.login_get = (req,res) => {
     res.status(200).send("Hello")
 }
@@ -20,13 +26,15 @@ module.exports.login_post = async (req,res) => {
         }
     }
     catch(err) {
+        handleErrors(err); 
         
         const employee = await Employee.login(username,password)
         if(employee){
             res.status(200).json(employee)
             return;
         }
-
+   
+        handleErrors(err); 
         res.status(400).json({err: 'error'})
 
     }

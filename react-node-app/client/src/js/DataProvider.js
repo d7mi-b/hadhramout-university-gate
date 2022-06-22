@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 const NewsContext = React.createContext();
 const UserContext = React.createContext();
 const AdvContext = React.createContext();
+const IdContext = React.createContext();
 
 export function useNews() {
     return useContext(NewsContext)
@@ -16,10 +17,13 @@ export function useAdv() {
     return useContext(AdvContext);
 }
 
+
+
 const DataProvider = ({ children }) => {
     const [news, setNews] = useState([]);
     const [user] = useState(JSON.parse(window.sessionStorage.getItem("user")));
     const [advertisement, setAdvertisement] = useState([]);
+   
 
     React.useEffect(() => {
 
@@ -38,7 +42,9 @@ const DataProvider = ({ children }) => {
         <AdvContext.Provider value={advertisement}>
             <UserContext.Provider value={user}>
                 <NewsContext.Provider value={news}>
-                    { children }
+                    
+                        { children }
+                   
                 </NewsContext.Provider>
             </UserContext.Provider>
         </AdvContext.Provider>

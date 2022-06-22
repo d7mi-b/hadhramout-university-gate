@@ -7,6 +7,7 @@ const degreeRoute = require('./routes/degreeRoute');
 const walletChargeRoute = require('./routes/walletChargeRoutes')
 const grievanceRoute = require('./routes/grievanceRoute');
 const suggestionsRoute = require('./routes/suggestionRoute');
+const scheduleRoute = require('./routes/scheduleRoute')
 
 const PORT = process.env.PORT || 3001;
 
@@ -33,3 +34,4 @@ app.use('/degree', degreeRoute);
 app.use('/charge',walletChargeRoute)
 app.use('/grievances', grievanceRoute);
 app.use('/suggestion', suggestionsRoute);
+app.use('/schedule', scheduleRoute)
