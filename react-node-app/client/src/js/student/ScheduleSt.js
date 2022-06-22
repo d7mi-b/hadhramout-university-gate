@@ -101,11 +101,34 @@ import { useUser } from '../DataProvider';
     },
 ]*/
 
+let days =  [
+    {
+        id:1,
+        day:'الاحد'
+    },
+    {
+        id:2,
+        day:'الاثنين'
+    },
+    {
+        id:3,
+        day:"الثلاثاء"
+    },
+    {
+        id:4,
+        day:'الاربعاء'
+    },
+    {
+        id:5,
+        day:'الخميس'
+    }
+]
+
 const ScheduleSt = () => {
 
     const student = useUser();
     const [schedule, setSchedule] = useState([]);
-    const department = student.departement;
+    const department = student.department;
     const level = student.level;
     const semester = student.semester;
     const group1 = student.group1;
@@ -114,11 +137,15 @@ const ScheduleSt = () => {
     const getSchedule= () => {
 
         fetch(`/schedule/${department}/${level}/${semester}/${group1}/${group2}`)
-        .then(result => setSchedule(result))
+        .then(res => res.json())
+        .then(data => setSchedule(data.subjects))
         .catch(err => console.log(err))
     }
 
-    React.useEffect(getSchedule)
+    React.useEffect(() => {
+        getSchedule();
+
+    }, [])
 
     return (
         <div className="container-schedule container-page container">
@@ -129,20 +156,22 @@ const ScheduleSt = () => {
             <table className='schedule'>
                 <tbody>
                     {
-                        schedule.map(e => {
+                        days.map(e => {
                             return (
                                 <tr className='day' key={e.id}>
                                     <th><p className='bold'>{e.day}</p></th>
                                     {
-                                        e.subjects.map(e => {
-                                            return (
-                                                <td className='subject' key={e.id}>
-                                                    <p className='bold'>{e.name}</p>
-                                                    <p>{e.prof}</p>
-                                                    <p>{e.time}</p>
-                                                    <p>{e.place}</p>
+                                        schedule.map(i => {
+                                            if (e.day === i.day)
+                                           { 
+                                               return (
+                                                <td className='subject' key={i.Id}>
+                                                    <p className='bold'>{i.subject}</p>
+                                                    <p>{i.prof}</p>
+                                                    <p>{i.time_from}-{i.time_to}</p>
+                                                    <p>{i.place}</p>
                                                 </td>
-                                            )
+                                            )}
                                         })
                                     }
                                 </tr>

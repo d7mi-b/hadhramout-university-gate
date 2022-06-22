@@ -84,13 +84,15 @@ module.exports.registerStudent= async (req,res) => {
                 email:"abdulrahman@gmail.com",
                 phoneNo:7345689,
                 dateOfBirth:"27-5-1998",
-                level: "مستوى الرابع",
+                level: "المستوى الرابع",
                 department:"هندسة حاسوب",
+                semester:"الفصل الدراسي الأول",
+                group1:"A",
+                group2:"صباحي",
                 typeOfRegister:"نفقة خاصة",
                 state: true,
                 wallet:10000,
                 GPA: '79%',
-                grades:[],
                 username:1111,
                 password:"1234"
             })

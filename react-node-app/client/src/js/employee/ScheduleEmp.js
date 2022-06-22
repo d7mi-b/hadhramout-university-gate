@@ -127,7 +127,7 @@ let days =  [
 const ScheduleEmp = () => {
     const [department, setdepartment] = useState(departements[0].label)
     const [level, setLevel] = useState(levels[0].label);
-    const [semester, setSemester] = useState(semesters[1].label);
+    const [semester, setSemester] = useState(semesters[0].label);
     const [group1, setgroup1] = useState(groubs1[0].label);
     const [group2, setgroup2] = useState(groubs2[0].label);
     const [schedules, setSchedules] = useState([]);

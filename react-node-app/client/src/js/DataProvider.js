@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 const NewsContext = React.createContext();
 const UserContext = React.createContext();
 const AdvContext = React.createContext();
-const IdContext = React.createContext();
+
 
 export function useNews() {
     return useContext(NewsContext)
