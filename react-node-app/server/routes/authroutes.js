@@ -5,7 +5,8 @@ const router = Router();
 
 
 router.get('/',authController.login_get);
-router.post('/',authController.login_post);
+router.post('/studentLogin',authController.login_post_student);
+router.post('/employeeLogin',authController.login_post_employee);
 router.get('/registerS',authController.registerStudent);
 router.get('/registerE',authController.registerEmployee);
 router.patch('/updateWallet', authController.update_wallte);

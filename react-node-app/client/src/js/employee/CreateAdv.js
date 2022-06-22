@@ -1,20 +1,26 @@
 import '../../css/employee/createAdv.css'
-const CreateAdv = () => {
 
-    const addAdv = async () => {
-
-        const form = document.getElementById("adv-form");
-        const title = form.title.value;
-        const date = form.date.value;
-        
-        const res= await fetch(`/ads/create-ads`,{
+const adsCreate = async (data) => {
+    return fetch(`/ads/create-ads`,{
             method: 'POST',
-            body: JSON.stringify({ title, date}),
+            body: JSON.stringify(data),
             headers: {'Content-Type': 'application/json'} 
         })
         .then(() => window.location.replace('/advertisements'))
         .catch(err => console.log(err))
-        
+}
+
+const CreateAdv = () => {
+    
+    const handelSubmit = async (e) => {
+
+        e.preventDefault();
+
+        const form = document.getElementById("adv-form");
+        const title = form.title.value;
+        const date = form.date.value;
+
+        const data = await adsCreate({ title, date});
     }
 
 
@@ -24,13 +30,13 @@ const CreateAdv = () => {
                 <h2>إعلان جديد</h2>
             </header>
             <section className='ads-data create-adv'>
-                <form action="#" method="POST" id="adv-form" >
+                <form onSubmit={handelSubmit} id="adv-form" >
                     <label htmlFor='title'>الإعلان</label>
-                    <input name="title" type='text' id="title-new" />
+                    <input name="title" type='text' id="title-new" required />
                     <label htmlFor='date'>التاريخ</label>
-                    <input name="date" type='date' id="date-new" />
+                    <input name="date" type='date' id="date-new" required />
+                    <button className='btn'>إنشاء</button>
                 </form>
-                <button className='btn' onClick={addAdv} >إنشاء</button>
             </section>
         </div>
     );

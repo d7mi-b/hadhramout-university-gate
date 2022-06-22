@@ -4,7 +4,7 @@ module.exports.suggestionsPost = async (req, res) => {
     const suggestions = new Suggestions(req.body);
 
     suggestions.save()
-        .then(result => console.log('Done'))
+        .then(result => res.status(201).json(result))
         .catch(err => console.log(err));
 }
 

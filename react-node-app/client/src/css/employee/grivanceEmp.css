@@ -35,11 +35,16 @@
     justify-content: space-evenly;
 }
 
+.grivance .grv-state .buttons {
+    margin: 10px 0;
+}
+
 .buttons button {
     margin-left: 10px;
 }
 
-.grv-state p {
+.grv-state p,
+.grv-state time {
     display: flex;
     flex-direction: column;
     height: 70px;

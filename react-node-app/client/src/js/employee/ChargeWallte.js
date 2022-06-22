@@ -1,27 +1,8 @@
 import '../../css/employee/chargeWallte.css';
 import { useState } from 'react';
 
-const ChargeWallte = () => {
-    const [data] = useState({
-        studentNo: 0,
-        studentName: '',
-        checkNo: 0,
-        amount: 0,
-        type: 'إيداع',
-        date: ''
-    });
-
-    
-    const addToWallet= () => {
-
-        const form = document.getElementById("chargeWallet-form");
-        data.studentNo = +form.idStudent.value;
-        data.studentName = form.name.value;
-        data.checkNo = +form.checkNo.value;
-        data.amount = +form.amount.value;
-        data.date = form.date.value;
-
-        fetch('/charge/update-wallet',{
+const chargeWallet = async (data) => {
+    return fetch('/charge/update-wallet',{
                 method: 'PATCH',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({username: data.studentNo, amount: data.amount}) 
@@ -39,6 +20,30 @@ const ChargeWallte = () => {
                     }
                 })
                 .catch(err => console.log(err))
+}
+
+const ChargeWallte = () => {
+    const [data] = useState({
+        studentNo: 0,
+        studentName: '',
+        checkNo: 0,
+        amount: 0,
+        type: 'إيداع',
+        date: ''
+    });
+
+    
+    const handelSubmit = async (e) => {
+        e.preventDefault();
+
+        const form = document.getElementById("chargeWallet-form");
+        data.studentNo = +form.idStudent.value;
+        data.studentName = form.name.value;
+        data.checkNo = +form.checkNo.value;
+        data.amount = +form.amount.value;
+        data.date = form.date.value;
+
+        const charge = await chargeWallet(data);
 
         }
 
@@ -47,7 +52,7 @@ const ChargeWallte = () => {
             <header>
                 <h2>شحن محفظة طالب</h2>
             </header>
-            <form action="#" method="POST" className="charge-form form" id='chargeWallet-form'>
+            <form onSubmit={handelSubmit} className="charge-form form" id='chargeWallet-form'>
                 <label htmlFor="idStudent">رقم الطالب</label>
                 <input name="idStudent" type='number' required />
                 <label htmlFor="name">إسم الطالب</label>
@@ -58,10 +63,10 @@ const ChargeWallte = () => {
                 <input name="amount" type="number" required />
                 <label htmlFor="date">التاريخ</label>
                 <input name="date" type='date' required />
+                <section className='buttons'>
+                    <button className='btn'>شحن</button>
+                </section>
             </form>
-            <section className='buttons'>
-                <button className='btn' onClick={addToWallet}>شحن</button>
-            </section>
         </div>
     );
 }

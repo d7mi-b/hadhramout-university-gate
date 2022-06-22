@@ -13,6 +13,15 @@ const types = [
     }
 ]
 
+const suggestionPost = async (data) => {
+    return fetch('/suggestion/create', {
+        method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(data)
+        }).then(() => window.location.reload())
+        .catch((err) => console.log(err));
+}
+
 const SuggestionsST = () => {
     const student = useUser();
     const [data] = useState({
@@ -32,15 +41,9 @@ const SuggestionsST = () => {
         data.body = e.target.value;
     }
 
-    const handelSubmet = () => {
-
-        fetch('/suggestion/create', {
-            method: 'POST',
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(data)
-            }).then(() => console.log('up done'))
-            .catch((err) => console.log(err));
-
+    const handelSubmet = async (e) => {
+        e.preventDefault();
+        suggestionPost(data);
     }
 
     return (
@@ -50,7 +53,7 @@ const SuggestionsST = () => {
             </header>
 
             <section className='data-section'>
-                <form acton='#' method='POST'>
+                <form onSubmit={handelSubmet} method='POST'>
                     <div>
                         <label htmlFor='type'>النوع</label>
                         <select name='type' onChange={handelChangeType}>
@@ -63,9 +66,11 @@ const SuggestionsST = () => {
                             }
                         </select>
                     </div>
-                    <textarea onChange={handelChangeBody}></textarea>
+                    <textarea onChange={handelChangeBody} required></textarea>
+                    <section className='submit'>
+                        <button className='btn'>إرسال</button>
+                    </section>
                 </form>
-                <button className='btn' onClick={handelSubmet}>إرسال</button>
             </section>
         </div>
     );

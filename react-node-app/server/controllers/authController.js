@@ -3,12 +3,16 @@ const Employee = require('../Models/employeeModel');
 const { ObjectId } = require('mongodb');
 
 
+const handleErrors = (err) => {
+    console.log(err.message)
+}
+
 module.exports.login_get = (req,res) => {
     res.status(200).send("Hello")
 }
 
 
-module.exports.login_post = async (req,res) => {
+module.exports.login_post_student = async (req,res) => {
 
     const {username , password} = req.body;
 
@@ -20,17 +24,24 @@ module.exports.login_post = async (req,res) => {
         }
     }
     catch(err) {
-        
+        res.status(400).json(err.message)
+    }
+}
+
+module.exports.login_post_employee = async (req,res) => {
+
+    const {username , password} = req.body;
+
+    try{
         const employee = await Employee.login(username,password)
         if(employee){
             res.status(200).json(employee)
             return;
         }
-
-        res.status(400).json({err: 'error'})
-
     }
-
+    catch(err) {
+        res.status(400).json(err.message)
+    }
 }
 
 // To update wallte of student

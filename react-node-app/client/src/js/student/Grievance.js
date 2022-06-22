@@ -7,9 +7,11 @@ let subjects = [];
 
 let amount = 5000;
 
+let counter = 0;
+
 // get the date of today
 var d = new Date(); 
-var NoTimeDate = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+var NoTimeDate = d.getFullYear()+'-'+(d.getMonth() +1)+'-'+(d.getDate());
 
 let canSelect = true;
 let selectType = true;
@@ -23,7 +25,7 @@ const Grievance = () => {
         name: student.name,
         department: student.department,
         level: student.level,
-        data: NoTimeDate,
+        date: NoTimeDate,
         subject: '',
         degree: 0,
         reson: '',
@@ -173,8 +175,12 @@ const Grievance = () => {
 
     // check if all subject of student is very good or not for open test
     let openTest = subjects.every(e => {
-        return e.points > 2
+        if (e.points > 2)
+            counter++
+        return counter === 1;
     }, 2);
+
+    console.log(counter, openTest)
 
     return (
         <div className="container container-page grievance">
@@ -244,7 +250,7 @@ const Grievance = () => {
                             <p>تم رفع التظلم</p>
                         </div>
                     }
-                    <div className='buttons'>
+                    <div className='button'>
                         <button className='btn' id='close'>إغلاق</button>
                     </div>
                 </section>

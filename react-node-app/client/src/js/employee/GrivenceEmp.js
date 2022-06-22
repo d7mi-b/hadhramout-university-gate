@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import '../../css/employee/grivanceEmp.css';
-import {useUser} from '../DataProvider';
 
 const states = [
     {
@@ -19,7 +18,6 @@ const states = [
 
 const GrivenceEmp = () => {
     const [grivence, setGrivence] = useState([]);
-    const student = useUser();
     const [state, setState] = useState('تحت المعالجة');
 
     const handelChangeState = e => {
@@ -106,6 +104,7 @@ const GrivenceEmp = () => {
                                 </section>
                                 <section className='grv-state'>
                                     <p>حالة التظلم: {e.state}</p>
+                                    <time dateTime={e.createdAt}>التاريخ: {e.date}</time>
                                     {
                                         e.state === 'تحت المعالجة' &&
                                         <section className='buttons'>

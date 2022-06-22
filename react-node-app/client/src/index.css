@@ -26,7 +26,7 @@ body {
     color: var(--dark-color);
     background-image: url(./images/Cloudy.svg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-attachment: fixed;
     background-position: bottom;
     height: max-content;
@@ -66,10 +66,10 @@ body {
 
 .btn {
     width: fit-content;
-    color: var(--dark-color);
+    color: #9b9b9b;
     background-color: transparent;
     padding: 5px 12px;
-    border: 1px solid var(--dark-color);
+    border: 1px solid #9b9b9b;
     margin: 15px 0;
     font-size: 0.9rem;
     font-family: Cairo;
@@ -141,6 +141,82 @@ textarea {
 input:focus-visible,
 textarea:focus-visible {
     outline-color: var(--hover-color);
+}
+
+/* From uiverse.io by @mrhyddenn */
+.form__group {
+    position: relative;
+    padding: 20px 0 0;
+    width: 100%;
+    max-width: 250px;
+    margin: 10px auto;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 14px;
+    color: var(--blue);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+    font-size: 17px;
+    cursor: text;
+    top: 20px;
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 14px;
+    color: #9b9b9b;
+    pointer-events: none;
+}
+
+.form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 600;
+    border-width: 3px;
+    border-image: linear-gradient(
+        to right,
+        var(--dark-color),
+        var(--hover-color)
+    );
+    border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 14px;
+    color: var(--hover-color);
+    font-weight: 600;
+}
+
+/* reset input */
+.form__field:required,
+.form__field:invalid {
+    box-shadow: none;
+}
+
+.error {
+    color: #ff2233;
+    font-size: 14px;
+    padding: 5px;
 }
 
 @media (min-width: 238px) and (max-width: 991px) {

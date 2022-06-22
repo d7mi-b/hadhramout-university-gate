@@ -74,7 +74,7 @@ const HomeSt = () => {
                     <div className="news-container">
                         {
                             news.map((e, i, arr) => {
-                                if (arr.length - 3 <= i)
+                                if (i <= 2)
                                     return (
                                         <article className="new" key={e._id}>
                                             <div className="image">
@@ -103,7 +103,8 @@ const HomeSt = () => {
                     </header>
                     <div className='advertisements-container'>
                         {
-                            advertisement.map(e => {
+                            advertisement.map((e, i) => {
+                                if(i < 5)
                                 return (
                                     <article className='advertisement' key={e._id}>
                                         <header>
