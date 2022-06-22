@@ -31,7 +31,17 @@ const DataProvider = ({ children }) => {
         .then((res) => res.json())
         .then((data) => setNews(data));
 
-        setUser(JSON.parse(window.sessionStorage.getItem("user")));
+        if (!user.position) {
+            fetch('/updateUser?' + new URLSearchParams({
+                username: user.username,
+                name: user.name
+            }))
+            .then((res) => res.json())
+            .then((data) => {
+                window.sessionStorage.setItem('user', JSON.stringify(data))
+            });
+            setUser(JSON.parse(window.sessionStorage.getItem("user")));
+        }
 
     }, []);
 

@@ -219,6 +219,16 @@ textarea:focus-visible {
     padding: 5px;
 }
 
+.pages {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.pages button {
+    margin: 0 10px;
+}
+
 @media (min-width: 238px) and (max-width: 991px) {
     .container {
         width: 100%;

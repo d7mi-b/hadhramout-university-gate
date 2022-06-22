@@ -20,7 +20,12 @@ let states = [
 const MyGrivences = () => {
     const [grivence, setGrivence] = useState([]);
     const [state, setState] = useState(states[0].label);
+    const [pages, setPage] = useState(0)
     const student = useUser();
+
+    const handelPages = (e) => {
+        setPage(pages + 1)
+    }
 
     const handelChangeState = e => {
         setState(e.target.value);
@@ -30,6 +35,8 @@ const MyGrivences = () => {
 
         fetch('/grievances/myGrievances?' + new URLSearchParams({
             username: student.username,
+            page: +pages,
+            state: state
         }))
         .then((res) => res.json())
         .then((data) => setGrivence(data));
@@ -86,6 +93,12 @@ const MyGrivences = () => {
                     })
                 }
             </section>
+            {
+                grivence.length >= 5 &&
+                <section className='pages'>
+                    <button className='btn' onClick={handelPages}>المزيد...</button>
+                </section>
+            }
         </div>
     );
 }
