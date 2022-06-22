@@ -10,7 +10,7 @@ const degree_index = (req, res) => {
         })
         .catch(err => console.log(err))
 }
-
+ 
 module.exports = {
     degree_index
 }

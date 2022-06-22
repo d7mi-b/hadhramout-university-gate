@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../../css/employee/scheduleEmp.css'
 
+
 let departements = [
     {
         id: 1,
@@ -75,513 +76,6 @@ let semesters = [
     }
 ]
 
-let schedules = [
-    {
-        id: 1,
-        departement: 'هندسة حاسوب',
-        levels: [
-            {
-                id: 11,
-                level: 'المستوى الأول',
-                semesters: [
-                    {
-                        id: 111,
-                        semester: 'الفصل الدراسي الأول',
-                        schedule: [
-                            
-                        ]
-                    },
-                    {
-                        id: 112,
-                        semester: 'الفصل الدراسي الثاني',
-                        schedule: [
-                            {
-                                id: 1121,
-                                day: 'الأحد',
-                                subjects: [
-                                    {
-                                        id: 101,
-                                        name: 'Integral Calclus',
-                                        prof: 'أ. محمد بافقيه',
-                                        time: '8AM - 10AM',
-                                        place: 'A204'
-                                    },
-                                    {
-                                        id: 102,
-                                        name: 'Physics 2',
-                                        time: '10AM - 12PM',
-                                        place: 'A204'
-                                    },
-                                ]
-                            },
-                            {
-                                id: 1122,
-                                day: 'الإثنين',
-                                subjects: [
-                                    {
-                                        id: 201,
-                                        name: 'Islamic Culture 2',
-                                        prof: 'د. رشيد بامعص',
-                                        time: '8AM - 10AM',
-                                        place: 'B204'
-                                    },
-                                    {
-                                        id: 202,
-                                        name: 'Arabic Language 2',
-                                        time: '10AM - 12PM',
-                                        place: 'C202'
-                                    },
-                                    {
-                                        id: 203,
-                                        name: 'English Language 2',
-                                        prof: 'أ. نايف بن همام',
-                                        time: '12PM - 2PM',
-                                        place: 'C202'
-                                    },
-                                ]
-                            },
-                            {
-                                id: 1123,
-                                day: 'الثلاثاء',
-                                subjects: [
-                                    {
-                                        id: 301,
-                                        name: 'Computer Programming',
-                                        prof: 'د. سهام بامطرف',
-                                        time: '8AM - 10AM',
-                                        place: 'C202'
-                                    },
-                                    {
-                                        id: 302,
-                                        name: 'Physics 2',
-                                        time: '10AM - 12PM',
-                                        place: 'Lab'
-                                    },
-                                    {
-                                        id: 303,
-                                        name: 'Computer Programming Tutorial',
-                                        prof: 'م. غذوان باوزير',
-                                        time: '12PM - 1PM',
-                                        place: 'C201'
-                                    },
-                                ]
-                            },
-                            {
-                                id: 1124,
-                                day: 'الأربعاء',
-                                subjects: [
-                                    {
-                                        id: 401,
-                                        name: 'Computer Programming',
-                                        prof: 'م. غذوان باوزير',
-                                        time: '8AM - 10AM',
-                                        place: 'Lab C2'
-                                    },
-                                ]
-                            },
-                            {
-                                id: 1415,
-                                day: 'الخميس',
-                                subjects: [
-                                    {
-                                        id: 501,
-                                        name: 'Integral Calculus',
-                                        prof: 'أ. محمد بافقيه',
-                                        time: '8AM - 10AM',
-                                        place: 'A204'
-                                    },
-                                    {
-                                        id: 502,
-                                        name: 'Introduction to Computer Engineering',
-                                        prof: 'د. عزت السعدي',
-                                        time: '10AM - 12PM',
-                                        place: 'A204'
-                                    },
-                                ]
-                            },
-                        ]
-                    }
-                ]
-            },
-            {
-                id: 12,
-                level: 'المستوى الثاني',
-                semesters: [
-                    {
-                        id: 121,
-                        semester: 'الفصل الدراسي الأول',
-                        schedule: [
-                            
-                        ]
-                    },
-                    {
-                        id: 122,
-                        semester: 'الفصل الدراسي الثاني',
-                        schedule: [
-                            
-                        ]
-                    }
-                ]
-            },
-            {
-                id: 13,
-                level: 'المستوى الثالث',
-                semesters: [
-                    {
-                        id: 131,
-                        semester: 'الفصل الدراسي الأول',
-                        schedule: [
-                            
-                        ]
-                    },
-                    {
-                        id: 132,
-                        semester: 'الفصل الدراسي الثاني',
-                        schedule: [
-                            
-                        ]
-                    }
-                ]
-            },
-            {
-                id: 14,
-                level: 'المستوى الرابع',
-                semesters: [
-                    {
-                        id: 141,
-                        semester: 'الفصل الدراسي الأول',
-                        schedule: [
-                            {
-                                id: 1411,
-                                day: 'الأحد',
-                                subjects: [
-                                    {
-                                        id: 101,
-                                        name: 'Computer Graphics',
-                                        prof: 'د. رشا بن ثعلب',
-                                        time: '8AM - 10AM',
-                                        place: 'D203'
-                                    },
-                                ]
-                            },
-                            {
-                                id: 1412,
-                                day: 'الإثنين',
-                                subjects: [
-                                    {
-                                        id: 201,
-                                        name: 'Microprocessor Interface',
-                                        prof: 'د. عبدالله باحسن',
-                                        time: '8AM - 10AM',
-                                        place: 'B204'
-                                    },
-                                    {
-                                        id: 202,
-                                        name: 'Engineering Economics & Management',
-                                        prof: 'أ. روينا',
-                                        time: '10AM - 12PM',
-                                        place: 'C202'
-                                    },
-                                ]
-                            },
-                            {
-                                id: 1413,
-                                day: 'الثلاثاء',
-                                subjects: [
-                                    {
-                                        id: 301,
-                                        name: 'Course Project',
-                                        time: '',
-                                        place: ''
-                                    },
-                                ]
-                            },
-                            {
-                                id: 1414,
-                                day: 'الأربعاء',
-                                subjects: [
-                                    {
-                                        id: 401,
-                                        name: 'Computer Network 1',
-                                        prof: 'م. فاطمة بافرج',
-                                        time: '8AM - 10AM',
-                                        place: 'Lab B2'
-                                    },
-                                    {
-                                        id: 402,
-                                        name: 'Computer Graphics',
-                                        prof: 'م. صفاء جوهر',
-                                        time: '10AM - 12PM',
-                                        place: 'Lab C1'
-                                    },
-                                    {
-                                        id: 403,
-                                        name: 'Microprocessor Interface',
-                                        prof: 'م. عصمت',
-                                        time: '12PM - 2PM',
-                                        place: 'Lab D2'
-                                    },
-                                ]
-                            },
-                            {
-                                id: 1415,
-                                day: 'الخميس',
-                                subjects: [
-                                    {
-                                        id: 501,
-                                        name: 'Computer Network 1',
-                                        prof: 'د. مكارم بامطرف',
-                                        time: '8AM - 11AM',
-                                        place: 'C202'
-                                    },
-                                    {
-                                        id: 502,
-                                        name: 'DSP',
-                                        prof: 'د. خالد فوزي',
-                                        time: '11AM - 1PM',
-                                        place: 'C202'
-                                    },
-                                ]
-                            },
-                        ]
-                    },
-                    {
-                        id: 142,
-                        semester: 'الفصل الدراسي الثاني',
-                        schedule: [
-                            {
-                                id: 1421,
-                                day: 'الأحد',
-                                subjects: [
-                                    {
-                                        id: 101,
-                                        name: 'Artificial Intelligence',
-                                        prof: 'د. رشا بن ثعلب',
-                                        time: '8AM - 10AM',
-                                        place: 'C202'
-                                    },
-                                    {
-                                        id: 102,
-                                        name: 'Computer Network 2',
-                                        prof: 'د. مكارم بامطرف',
-                                        time: '10AM - 1PM',
-                                        place: 'C202'
-                                    },
-                                ]
-                            },
-                            {
-                                id: 1422,
-                                day: 'الإثنين',
-                                subjects: [
-                                    {
-                                        id: 201,
-                                        name: 'VLSI Circuit Design',
-                                        prof: 'م. وفاء إدريس',
-                                        time: '8AM - 10AM',
-                                        place: 'Lab C1'
-                                    },
-                                    {
-                                        id: 202,
-                                        name: 'Artificial Intelligence',
-                                        prof: 'م. عصمت',
-                                        time: '10AM - 12PM',
-                                        place: 'Lab C2'
-                                    },
-                                ]
-                            },
-                            {
-                                id: 1423,
-                                day: 'الثلاثاء',
-                                subjects: [
-                                    {
-                                        id: 301,
-                                        name: 'Data Security',
-                                        prof: 'م. فاطمة بافرج',
-                                        time: '8AM - 10AM',
-                                        place: 'Arch. Lab'
-                                    },
-                                    {
-                                        id: 302,
-                                        name: 'Real-Time Computer Control & PLC',
-                                        prof: 'م. علاء باسواقي',
-                                        time: '10AM - 12PM',
-                                        place: 'Lab'
-                                    },
-                                ]
-                            },
-                            {
-                                id: 1424,
-                                day: 'الأربعاء',
-                                subjects: [
-                                    {
-                                        id: 401,
-                                        name: 'Computer Network 2',
-                                        prof: 'م. فاطمة بافرج',
-                                        time: '8AM - 10AM',
-                                        place: 'Lab'
-                                    },
-                                ]
-                            },
-                            {
-                                id: 1425,
-                                day: 'الخميس',
-                                subjects: [
-                                    {
-                                        id: 501,
-                                        name: 'VLSI Circuit Design',
-                                        prof: 'د. خالد فوزي',
-                                        time: '8AM - 10AM',
-                                        place: 'C201'
-                                    },
-                                    {
-                                        id: 502,
-                                        name: 'Data Security',
-                                        prof: 'د. مكارم بامطرف',
-                                        time: '10AM - 12PM',
-                                        place: 'C201'
-                                    },
-                                    {
-                                        id: 503,
-                                        name: 'Real-Time Computer Control & PLC',
-                                        prof: 'م. علاء باسواقي',
-                                        time: '12AM - 2PM',
-                                        place: 'C201'
-                                    },
-                                ]
-                            },
-                        ]
-                    }
-                ]
-            },
-            {
-                id: 15,
-                level: 'المستوى الخامس',
-                semesters: [
-                    {
-                        id: 151,
-                        semester: 'الفصل الدراسي الأول',
-                        schedule: [
-                            
-                        ]
-                    },
-                    {
-                        id: 152,
-                        semester: 'الفصل الدراسي الثاني',
-                        schedule: [
-                            
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        id: 2,
-        departement: 'هندسة إلكترونية',
-        levels: [
-            {
-                id: 21,
-                level: 'المستوى الأول',
-                semesters: [
-                    {
-                        id: 211,
-                        semester: 'الفصل الدراسي الأول',
-                        schedule: [
-                            
-                        ]
-                    },
-                    {
-                        id: 212,
-                        semester: 'الفصل الدراسي الثاني',
-                        schedule: [
-                            
-                        ]
-                    }
-                ]
-            },
-            {
-                id: 22,
-                level: 'المستوى الثاني',
-                semesters: [
-                    {
-                        id: 221,
-                        semester: 'الفصل الدراسي الأول',
-                        schedule: [
-                            
-                        ]
-                    },
-                    {
-                        id: 222,
-                        semester: 'الفصل الدراسي الثاني',
-                        schedule: [
-                            
-                        ]
-                    }
-                ]
-            },
-            {
-                id: 23,
-                level: 'المستوى الثالث',
-                semesters: [
-                    {
-                        id: 231,
-                        semester: 'الفصل الدراسي الأول',
-                        schedule: [
-                            
-                        ]
-                    },
-                    {
-                        id: 232,
-                        semester: 'الفصل الدراسي الثاني',
-                        schedule: [
-                            
-                        ]
-                    }
-                ]
-            },
-            {
-                id: 24,
-                level: 'المستوى الرابع',
-                semesters: [
-                    {
-                        id: 241,
-                        semester: 'الفصل الدراسي الأول',
-                        schedule: [
-                            
-                        ]
-                    },
-                    {
-                        id: 242,
-                        semester: 'الفصل الدراسي الثاني',
-                        schedule: [
-                            
-                        ]
-                    }
-                ]
-            },
-            {
-                id: 25,
-                level: 'المستوى الخامس',
-                semesters: [
-                    {
-                        id: 251,
-                        semester: 'الفصل الدراسي الأول',
-                        schedule: [
-                            
-                        ]
-                    },
-                    {
-                        id: 252,
-                        semester: 'الفصل الدراسي الثاني',
-                        schedule: [
-                            
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-]
 
 let groubs1 = [
     {
@@ -607,15 +101,102 @@ let groubs2 = [
     }
 ]
 
+let days =  [
+    {
+        id:1,
+        day:'الاحد'
+    },
+    {
+        id:2,
+        day:'الاثنين'
+    },
+    {
+        id:3,
+        day:"الثلاثاء"
+    },
+    {
+        id:4,
+        day:'الاربعاء'
+    },
+    {
+        id:5,
+        day:'الخميس'
+    }
+]
+
 const ScheduleEmp = () => {
-    const [departement, setdepartement] = useState(departements[0].label)
+    const [department, setdepartment] = useState(departements[0].label)
     const [level, setLevel] = useState(levels[0].label);
     const [semester, setSemester] = useState(semesters[1].label);
     const [group1, setgroup1] = useState(groubs1[0].label);
     const [group2, setgroup2] = useState(groubs2[0].label);
+    const [schedules, setSchedules] = useState([]);
+    const [id, setId] = useState();
+    
+
+
+    const addSubject = async (e) => {
+
+        console.log(id)
+        const form = document.getElementById('subject-form');
+        const subject =form.name_subj.value;
+        const prof = form.prof.value;
+        const time_from = form.time_from.value;
+        const time_to = form.time_to.value;
+        const place = form.place.value;
+        const day = form.day.value;
+        const Id= Math.random()
+
+        const res = await fetch(`/schedule/${id}`, {
+            method:'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ subject, prof, time_from, time_to, place, day, Id})
+        })
+        .then(res => res )
+        .catch(err => console.log(err))
+
+        e.preventDefault();
+        getSchedule();
+
+    }
+
+    const getSchedule = () => {
+
+        fetch(`/schedule/${department}/${level}/${semester}/${group1}/${group2}`)
+        .then(res => res.json())
+    .then(data => {
+        if(data){
+        setSchedules(data.subjects)
+        setId(data._id)
+        }
+        else{
+            fetch('/schedule/add', {
+                method:'POST',
+                body: JSON.stringify({ department, level, semester, group2, group1}),
+                headers: {'Content-Type': 'application/json'} 
+            })
+            .then(res => res.json())
+            .then(data =>{
+                setSchedules(data.subjects)
+                setId(data._id)
+            } )
+            .catch(err => console.log(err))
+                
+        }
+    })
+        .catch(err => console.log(err));
+
+    }
+
+    const deleteSubj= (e) => {
+
+        fetch(`/schedule/${id}/${e}`,{
+
+        })
+    }
 
     const handelchangeDep = e => {
-        setdepartement(e.target.value);
+        setdepartment(e.target.value);
     }
 
     const handelChangeLevel = e => {
@@ -653,19 +234,26 @@ const ScheduleEmp = () => {
         })
     }
 
-    useEffect(handelContent)
+    
+
+    useEffect(handelContent);
+
+    React.useEffect(() => {
+        getSchedule();
+
+    }, [])
     
     return (
         <div className="container-schedule container-page container">
             <header className="header">
-                <h2>جدول المحاضرات</h2>
+                <h2>جدول المحاضرات</h2> 
             </header>
 
             <section className="choose-sechedule choose-data">
-                <form action="#" method="POST">
+                <form >
                     <div>
-                        <label htmlFor='departement'>القسم</label>
-                        <select name="departement" className="departement" value={departement} onChange={handelchangeDep} >
+                        <label htmlFor='department'>القسم</label>
+                        <select name="department" className="departement" value={department} onChange={handelchangeDep} >
                             {
                                 departements.map(e => {
                                     return (
@@ -723,42 +311,45 @@ const ScheduleEmp = () => {
                             }
                         </select>
                     </div>
+                    
                 </form>
+                <div className='buttons'>
+                    <button className="btn" onClick={getSchedule}>انشاء</button>
+                    
+                </div>
             </section>
 
             <table className='schedule'>
                 <tbody>
                     {
-                        schedules.map(e => {
-                            if (e.departement === departement)
-                                return e.levels.map(e1 => {
-                                    if (e1.level === level)
-                                        return e1.semesters.map(e2 => {
-                                            if (e2.semester === semester)
-                                                return e2.schedule.map(e3 => {
-                                                    return (
-                                                        <tr className='day' key={e3.id}>
-                                                            <th><h4>{e3.day}</h4></th>
-                                                            {
-                                                                e3.subjects.map((e4, i, arr) => {
-                                                                    return (
-                                                                        <td className='subject subject-emp' key={e4.id}>
-                                                                            <p className='bold'>{e4.name}</p>
-                                                                            <p>{e4.prof}</p>
-                                                                            <p>{e4.time}</p>
-                                                                            <p className='place'>{e4.place}</p>
-                                                                            <div className='delete icons'>
-                                                                                <svg className='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM394.8 466.1C393.2 492.3 372.3 512 346.9 512H101.1C75.75 512 54.77 492.3 53.19 466.1L31.1 128H416L394.8 466.1z"/></svg>
-                                                                            </div>
-                                                                        </td>
-                                                                    )
-                                                                })
-                                                            }
-                                                        </tr>
-                                                    )}
+                        
+                            days.map(i =>{
+                            
+                                return (
+                                    <tr className='day' key={i.id}>
+                                        <th><p className='bold'>{i.day}</p></th>
+
+                                       { 
+                                        schedules.map(e => {
+                                            if (e.day === i.day){
+                                                return(
+                                                    <td className='subject subject-emp' key={e.Id}>
+                                                        <p className='bold'>{e.subject}</p>
+                                                        <p>{e.prof}</p>
+                                                        <p>{e.time_from} - {e.time_to}</p>
+                                                        <p>{e.place}</p>
+                                                        <div className='delete icons'>
+                                                            <svg className='delete-icon' onClick={() => deleteSubj(e.Id)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM394.8 466.1C393.2 492.3 372.3 512 346.9 512H101.1C75.75 512 54.77 492.3 53.19 466.1L31.1 128H416L394.8 466.1z"/></svg>
+                                                        </div>
+                                                    </td>
                                                 )
-                                        })
-                                }) 
+                                            }
+                                             })
+                                        } 
+                                    </tr>
+
+                                )
+                            
                         })
                     }
                     <tr>
@@ -774,10 +365,10 @@ const ScheduleEmp = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM80 256C71.16 256 64 263.2 64 272V368C64 376.8 71.16 384 80 384H176C184.8 384 192 376.8 192 368V272C192 263.2 184.8 256 176 256H80z"/></svg>
                     <h4>إضافة مادة</h4>
                     <section className='data-subject'>
-                        <form action='#' method='POST'>
+                        <form  id='subject-form'>
                             <div>
                                 <label htmlFor='name-subj'>إسم المادة</label>
-                                <input name='name-subj' type='text' />
+                                <input name='name_subj' type='text' required />
                             </div>
                             <div>
                                 <label htmlFor='prof'>الدكتور</label>
@@ -785,20 +376,23 @@ const ScheduleEmp = () => {
                             </div>
                             <div>
                                 <label htmlFor='time-from'>من</label>
-                                <input className='time' name='time-from' type='text' />
+                                <input className='time' name='time_from' type='text' />
                                 <label htmlFor='time-to'>إلى</label>
-                                <input className='time' name='time-to' type='text' />
+                                <input className='time' name='time_to' type='text' />
                             </div>
                             <div>
                                 <label htmlFor='place'>القاعة</label>
                                 <input name='place' type='text' />
+                                <label htmlFor='day'>اليوم</label>
+                                <input name='day' type='text' required />
                             </div>
                         </form>
                     </section>
                     <div className='buttons'>
-                        <button className='btn' id='add' >إضافة</button>
+                        <button className='btn' id='add' onClick={addSubject}>إضافة</button>
                         <button className='btn' id='cancel'>إلغاء</button>
                     </div>
+                   
                 </section>
             </div>
         </div>

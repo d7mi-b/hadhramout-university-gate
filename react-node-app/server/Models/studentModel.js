@@ -8,7 +8,11 @@ const studentSchema = new Schema(
     {
         name : {type:String},
         dateOfBirth : {tupe:Date},
-        username: {type:Number},
+        username: {
+            type:Number,
+            required:[true , 'please enter username'],
+            lowercase:true
+        },
         email : {type:String},
         age : {type:Number},
         phoneNo : {type:Number},
@@ -18,7 +22,11 @@ const studentSchema = new Schema(
         level : {type:String},
         department : {type:String},
         typeOfRegister : {type:String},
-        password : {type:String},
+        password : {
+            type:String,
+            required:[true, 'please enter a password'],
+            minlength:[4, 'Minimum password length is 4 charachters']
+        },
         GPA: {type: String},
     },
     {
