@@ -134,24 +134,6 @@ const ScheduleEmp = () => {
     const [id, setId] = useState();
     
 
-    const addSchedule= async (e) => {
-
-
-        try{
-        const res= await fetch('/schedule/add', {
-            method:'POST',
-            body: JSON.stringify({ department, level, semester, group2, group1}),
-            headers: {'Content-Type': 'application/json'} 
-        })
-        const data = await res.json();
-        setId(data);
-    }
-    catch(err) {
-        console.log(err)
-    }
-        e.preventDefault();
-      
-    }
 
     const addSubject = async (e) => {
 
@@ -188,7 +170,18 @@ const ScheduleEmp = () => {
         setId(data._id)
         }
         else{
-            setSchedules([])
+            fetch('/schedule/add', {
+                method:'POST',
+                body: JSON.stringify({ department, level, semester, group2, group1}),
+                headers: {'Content-Type': 'application/json'} 
+            })
+            .then(res => res.json())
+            .then(data =>{
+                setSchedules(data.subjects)
+                setId(data._id)
+            } )
+            .catch(err => console.log(err))
+                
         }
     })
         .catch(err => console.log(err));
@@ -321,8 +314,8 @@ const ScheduleEmp = () => {
                     
                 </form>
                 <div className='buttons'>
-                    <button className="btn" onClick={addSchedule}>انشاء</button>
-                    <button className="btn" onClick={getSchedule} >استعراض</button>
+                    <button className="btn" onClick={getSchedule}>انشاء</button>
+                    
                 </div>
             </section>
 

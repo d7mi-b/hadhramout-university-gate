@@ -3,12 +3,14 @@
     "$oid": "62a21c9c2fec298b6013dceb"
   },
   "name": "هاله بن هلابي",
-  "username": 1111111,
+  "username": {
+    "$numberLong": "22222222222"
+  },
   "email": "halah@gmail.com",
   "age": 22,
   "phoneNo": 7345689,
   "grades": [],
-  "wallet": 10000,
+  "wallet": 5000,
   "level": "مستوى رابع",
   "department": "هندسة حاسوب",
   "typeOfRegister": "قبول عام",
@@ -20,23 +22,26 @@
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1654791324851"
+      "$numberLong": "1655648291761"
     }
   },
   "__v": 0,
-  "GPA": "92%"
+  "GPA": "92%",
+  "state": true
 },{
   "_id": {
     "$oid": "62a2d4fb9496c2f4407e8a9f"
   },
   "name": "عبدالرحمن بهيان",
-  "username": 1111,
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "email": "abdulrahman@gmail.com",
   "age": 24,
   "phoneNo": 7345689,
   "grades": [],
   "state": true,
-  "wallet": 10000,
+  "wallet": 20500,
   "level": "مستوى الرابع",
   "department": "هندسة حاسوب",
   "typeOfRegister": "نفقة خاصة",
@@ -48,7 +53,7 @@
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1654838523574"
+      "$numberLong": "1655885134835"
     }
   },
   "__v": 0,

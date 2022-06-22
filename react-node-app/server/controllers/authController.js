@@ -3,18 +3,16 @@ const Employee = require('../Models/employeeModel');
 const { ObjectId } = require('mongodb');
 
 
-//handle errors
-const handleErrors= (err) => {
-    console.log(err.message, err.code)
+const handleErrors = (err) => {
+    console.log(err.message)
 }
-
 
 module.exports.login_get = (req,res) => {
     res.status(200).send("Hello")
 }
 
 
-module.exports.login_post = async (req,res) => {
+module.exports.login_post_student = async (req,res) => {
 
     const {username , password} = req.body;
 
@@ -26,19 +24,24 @@ module.exports.login_post = async (req,res) => {
         }
     }
     catch(err) {
-        handleErrors(err); 
-        
+        res.status(400).json(err.message)
+    }
+}
+
+module.exports.login_post_employee = async (req,res) => {
+
+    const {username , password} = req.body;
+
+    try{
         const employee = await Employee.login(username,password)
         if(employee){
             res.status(200).json(employee)
             return;
         }
-   
-        handleErrors(err); 
-        res.status(400).json({err: 'error'})
-
     }
-
+    catch(err) {
+        res.status(400).json(err.message)
+    }
 }
 
 // To update wallte of student
@@ -48,6 +51,15 @@ module.exports.update_wallte = async (req, res) => {
     const student = Student;
     student.updateOne({username: username}, {$set: {wallet: req.body.wallet}})
         .then(result => res.status(200))
+        .catch(err => console.log(err));
+}
+
+module.exports.update_state = async (req, res) => {
+    const {username, state, wallet} = req.body;
+
+    const student = Student;
+    student.updateOne({username: username}, {$set: {state: state, wallet: wallet}})
+        .then(result => res.status(200).json(result))
         .catch(err => console.log(err));
 }
 

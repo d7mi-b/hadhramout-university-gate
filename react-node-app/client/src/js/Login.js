@@ -4,9 +4,27 @@ import logo from '../images/HUGLogo.png';
 import had from '../images/Hadhrmout.jpg';
 import signIn from '../images/sign_in.svg';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, {useState} from 'react';
+
+const loginStudent = async (data) => {
+    return fetch('/studentLogin', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {'Content-Type': 'application/json'}
+        }).then(data => data.json());
+}
+
+const loginEmployee = async (data) => {
+    return fetch('/employeeLogin', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {'Content-Type': 'application/json'}
+        }).then(data => data.json());
+}
 
 const Login = () => {
+    const [ error, setError ] = useState(false);
+    const [errMsg, setErrMsg] = useState('');
 
     // HANDEL CONTENT
     const handelContent = () => {
@@ -24,34 +42,43 @@ const Login = () => {
         })
     }
 
-    const logInData = async () => {
-
+    const handelSubmit = async e => {
         const form = document.getElementById('login_form'); 
         const text = form.username.value;
         const password = form.password.value;
 
-        try{
-            const res = await fetch('/', {
-                method: 'POST',
-                body: JSON.stringify({username: text, password}),
-                headers: {'Content-Type': 'application/json'}
-            });
-            const data = await res.json();
-
-            if(data.errors) {
-
+        e.preventDefault();
+        if (text.length === 11) {
+            const data = await loginStudent({username: text, password});
+            if (data === 'incorrect user') {
+                setErrMsg('اسم المستخدم غير صحيح')
+                setError(true)
             }
-            else if(data.position) {
-                window.sessionStorage.setItem("user", JSON.stringify(data));
-                window.location.replace('/employee')
+            else if (data === 'incorrect password') {
+                setErrMsg('كلمة المرور غير صحيحة')
+                setError(true)
             }
-            else if(data) {
+            else {
+                setError(false)
                 window.sessionStorage.setItem("user", JSON.stringify(data));
                 window.location.replace('/home')
             }
         }
-        catch(err) {
-            console.log(err);
+        else if (text.length === 5) {
+            const data = await loginEmployee({username: text, password});
+            if (data === 'incorrect user') {
+                setErrMsg('اسم المستخدم غير صحيح')
+                setError(true)
+            }
+            else if (data === 'incorrect password') {
+                setErrMsg('كلمة المرور غير صحيحة')
+                setError(true)
+            }
+            else {
+                setError(false)
+                window.sessionStorage.setItem("user", JSON.stringify(data));
+                window.location.replace('/employee')
+            }
         }
     }
 
@@ -82,13 +109,23 @@ const Login = () => {
 
                 {/* LOGIN FORM */}
                 <div className='login-data background-section'>
-                    <form action='#' method='POST' className='form' id='login_form'>
+                    <form onSubmit={handelSubmit} className='form' id='login_form'>
                         {/* CANCEL MARK */}
                         <svg className='cancel' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
                         <img src={signIn} alt='sign in' />
-                        <input type='text' className='input' name='username' placeholder='رقم القيد' />
-                        <input type='password' className='input' name='password' placeholder='كلمة المرور' />
-                        <Link to='#' className='btn' onClick={logInData}>تسجيل الدخول</Link>
+                        <div class="form__group field">
+                            <input required placeholder="رقم المستخدم" name='username' class="form__field" type="input" />
+                            <label class="form__label" htmlFor='username'>رقم المستخدم</label>
+                        </div>
+                        <div class="form__group field">
+                            <input required placeholder="كلمة السر" name='password' class="form__field" type="password" />
+                            <label class="form__label" htmlFor='password'>كلمة المرور</label>
+                        </div>
+                        {
+                            error && 
+                            <p className='error'>{errMsg}</p>
+                        }
+                        <button to='#' className='btn'>تسجيل الدخول</button>
                         <Link className='link' to='#'>نسيت كلمة المرور</Link>
                     </form>
                 </div>

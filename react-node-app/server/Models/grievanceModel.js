@@ -7,7 +7,7 @@ const grievanceSchema = mongoose.Schema(
         name: {type: String},
         department: {type: String},
         level: {type: String},
-        date: {type: Date},
+        date: {type: String},
         subject: {type: String},
         degree: {type: String},
         reson: {type: String},

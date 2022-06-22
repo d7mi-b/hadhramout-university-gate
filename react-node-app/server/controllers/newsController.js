@@ -29,7 +29,7 @@ module.exports.addNews= async (req,res) => {
 module.exports.news_index = async (req,res) => {
 
     try{
-    const news = await News.find()
+    const news = await News.find().sort({$natural: -1})
     
     res.status(200).json(news);
     }

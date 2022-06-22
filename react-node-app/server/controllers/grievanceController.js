@@ -1,12 +1,17 @@
 const { ObjectId } = require('mongodb');
 const Grievance = require('../Models/grievanceModel');
+const Student = require('../Models/studentModel');
 
 // add grievance to database
 const grievancePost = (req, res) => {
     const grievance = new Grievance(req.body);
 
     grievance.save()
-        .then(result => console.log('Done'))
+        .then(result => {
+            Student.updateOne({username: req.body.username}, {$set: {wallet: req.body.wallet}})
+                .then(result => res.status(200).json(result))
+                .catch(err => console.log(err));
+        })
         .catch(err => console.log(err));
 }
 
@@ -14,7 +19,7 @@ const grievancePost = (req, res) => {
 const grievanceGet = async (req, res) => {
 
     try {
-        const grievance = await Grievance.find();
+        const grievance = await Grievance.find().sort({$natural: -1});
         res.status(200).json(grievance);
     }
     catch (err) {
@@ -39,7 +44,14 @@ const updateStateGrv = async (req, res) => {
 const MyGrievance = async (req, res) => {
     const {username} = req.query;
 
+    let grvs = [];
+    const page = req.query.page || 0;
+    const grvPerPage = 5;
+
     Grievance.find({ username: username })
+        .sort({$natural: -1})
+        .skip(page * grvPerPage)
+        .limit(grvPerPage)
         .then(result => {
             return res.status(200).json(result)
         })

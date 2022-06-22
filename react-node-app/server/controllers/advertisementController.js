@@ -4,7 +4,7 @@ const Advertisements = require('../Models/advertismentModel');
 module.exports.get_advertisement= async (req,res) => {
 
     try{
-        const advertisement = await Advertisements.find()
+        const advertisement = await Advertisements.find().sort({$natural: -1})
         
         res.status(200).json(advertisement);
         }
