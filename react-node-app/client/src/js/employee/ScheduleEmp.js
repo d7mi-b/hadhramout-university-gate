@@ -188,13 +188,14 @@ const ScheduleEmp = () => {
 
     }
 
-    const deleteSubj= (e) => {
-        fetch(`/schedule/deleteSub`,{
+    const deleteSubj = (e) => {
+        fetch(`/schedule/deleteSub/${id}`, {
             method: 'PATCH',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({id1: id}) 
-        })
-        .then(res => {})
+            body: JSON.stringify({ id2: e }) 
+            })
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
 
     const handelchangeDep = e => {
@@ -309,12 +310,10 @@ const ScheduleEmp = () => {
                             }
                         </select>
                     </div>
-                    
+                    <div className='buttons'>
+                        <p className="btn" onClick={getSchedule}>عرض</p>
+                    </div>
                 </form>
-                <div className='buttons'>
-                    <button className="btn" onClick={getSchedule}>انشاء</button>
-                    
-                </div>
             </section>
 
             <table className='schedule'>

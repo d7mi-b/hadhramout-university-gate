@@ -71,6 +71,16 @@
     }
 }
 
+.container-schedule .choose-sechedule .buttons {
+    width: max-content;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.container-schedule .choose-sechedule .buttons .btn {
+    float: none;
+}
+
 @media (min-width: 768px) and (max-width: 991px) {
     .choose-sechedule form {
         grid-template-columns: repeat(2, 1fr);

@@ -51,13 +51,12 @@ module.exports.getSchedule = (req,res) => {
 }
 
 
-module.exports.deleteSubj = (req,res) => {
-    const {id1} = req.body;
-    
-    console.log(ObjectId(id1))
+module.exports.deleteSubj = async (req,res) => {
+    const id = req.params.id;
+    const {id2} = req.body;
 
-    // Schedule.findByIdAndUpdate({_id: ObjectId(id1)},{$pull:{subjects:[{Id:id2}]}})
-    // .then(result => res.status(200).json(result.subjects))
-    // .catch(err => console.log(err))
+    Schedule.updateOne({_id: ObjectId(id)}, {$pull: { subjects: {Id: id2} }})
+    .then(result => res.status(200).json(result.subjects))
+    .catch(err => console.log(err))
 
 }
