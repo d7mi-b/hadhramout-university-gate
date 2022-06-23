@@ -9,9 +9,8 @@
   "email": "halah@gmail.com",
   "age": 22,
   "phoneNo": 7345689,
-  "grades": [],
   "wallet": 5000,
-  "level": "مستوى رابع",
+  "level": "المستوى الرابع",
   "department": "هندسة حاسوب",
   "typeOfRegister": "قبول عام",
   "password": "$2a$10$YoM.R9uqdoK/0SJ6yuIRCOMSxU/21ufymWrgx65wtu2l8WJXAa00i",
@@ -27,7 +26,10 @@
   },
   "__v": 0,
   "GPA": "92%",
-  "state": true
+  "state": true,
+  "group1": "A",
+  "group2": "صباحي",
+  "semester": "الفصل الدراسي الأول"
 },{
   "_id": {
     "$oid": "62a2d4fb9496c2f4407e8a9f"
@@ -39,10 +41,9 @@
   "email": "abdulrahman@gmail.com",
   "age": 24,
   "phoneNo": 7345689,
-  "grades": [],
   "state": true,
   "wallet": 20500,
-  "level": "مستوى الرابع",
+  "level": "المستوى الرابع",
   "department": "هندسة حاسوب",
   "typeOfRegister": "نفقة خاصة",
   "password": "$2a$10$8Bh9.QaeUjDyI.6BV.br7u9kPQEt5JRh3wMOwBcJreHPNWz0WrZrK",
@@ -57,5 +58,8 @@
     }
   },
   "__v": 0,
-  "GPA": "79%"
+  "GPA": "79%",
+  "group1": "A",
+  "group2": "صباحي",
+  "semester": "الفصل الدراسي الأول"
 }]

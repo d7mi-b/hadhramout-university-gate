@@ -111,4 +111,106 @@
   "group2": "صباحي",
   "subjects": [],
   "__v": 0
+},{
+  "_id": {
+    "$oid": "62b358938d38023b87c82295"
+  },
+  "department": "هندسة حاسوب",
+  "level": "المستوى الرابع",
+  "semester": "الفصل الدراسي الأول",
+  "group1": "A",
+  "group2": "صباحي",
+  "subjects": [
+    {
+      "subject": "Computer Graphics",
+      "prof": "د. رشا بن ثعلب",
+      "time_from": "8",
+      "time_to": "10",
+      "place": "D203",
+      "day": "الاحد",
+      "Id": 0.6623768742469831
+    },
+    {
+      "subject": "Microprocessor Interface",
+      "prof": "د. عبدالله باحسن",
+      "time_from": "8",
+      "time_to": "10",
+      "place": "B204",
+      "day": "الاثنين",
+      "Id": 0.5320681675413428
+    },
+    {
+      "subject": "Engineering Economics & Management",
+      "prof": "أ. روينا",
+      "time_from": "10",
+      "time_to": "12",
+      "place": "B204",
+      "day": "الاثنين",
+      "Id": 0.3414221362972498
+    },
+    {
+      "subject": "Course Project",
+      "prof": "",
+      "time_from": "",
+      "time_to": "",
+      "place": "",
+      "day": "الثلاثاء",
+      "Id": 0.7779989356503303
+    },
+    {
+      "subject": "Course Project",
+      "prof": "",
+      "time_from": "",
+      "time_to": "",
+      "place": "",
+      "day": "الثلاثاء",
+      "Id": 0.9414928412450367
+    },
+    {
+      "subject": "Computer Network 1",
+      "prof": "م. فاطمة بافرج",
+      "time_from": "8",
+      "time_to": "10",
+      "place": "LAB B2",
+      "day": "الاربعاء",
+      "Id": 0.8571101339854721
+    },
+    {
+      "subject": "Computer Graphics",
+      "prof": "م. صفاء جوهر",
+      "time_from": "10",
+      "time_to": "12",
+      "place": "LAB C1",
+      "day": "الاربعاء",
+      "Id": 0.016562364215632286
+    },
+    {
+      "subject": "Microprocessor Interface",
+      "prof": "م. عصمت",
+      "time_from": "12",
+      "time_to": "2",
+      "place": "LAB D2",
+      "day": "الاربعاء",
+      "Id": 0.5101379592942306
+    },
+    {
+      "subject": "Computer Network 1",
+      "prof": "د. مكارم بامطرف",
+      "time_from": "8",
+      "time_to": "10",
+      "place": "C202",
+      "day": "الخميس",
+      "Id": 0.9134036821516907
+    },
+    {
+      "subject": "DSP",
+      "prof": "د. خالد فوزي",
+      "time_from": "10",
+      "time_to": "12",
+      "place": "C202",
+      "day": "الخميس",
+      "Id": 0.490032802449234
+    }
+  ],
+  "__v": 0
 }]
