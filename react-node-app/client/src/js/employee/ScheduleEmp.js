@@ -127,7 +127,7 @@ let days =  [
 const ScheduleEmp = () => {
     const [department, setdepartment] = useState(departements[0].label)
     const [level, setLevel] = useState(levels[0].label);
-    const [semester, setSemester] = useState(semesters[1].label);
+    const [semester, setSemester] = useState(semesters[0].label);
     const [group1, setgroup1] = useState(groubs1[0].label);
     const [group2, setgroup2] = useState(groubs2[0].label);
     const [schedules, setSchedules] = useState([]);
@@ -164,35 +164,37 @@ const ScheduleEmp = () => {
 
         fetch(`/schedule/${department}/${level}/${semester}/${group1}/${group2}`)
         .then(res => res.json())
-    .then(data => {
-        if(data){
-        setSchedules(data.subjects)
-        setId(data._id)
-        }
-        else{
-            fetch('/schedule/add', {
-                method:'POST',
-                body: JSON.stringify({ department, level, semester, group2, group1}),
-                headers: {'Content-Type': 'application/json'} 
-            })
-            .then(res => res.json())
-            .then(data =>{
+        .then(data => {
+            if(data){
                 setSchedules(data.subjects)
                 setId(data._id)
-            } )
-            .catch(err => console.log(err))
-                
-        }
-    })
+            }
+            else{
+                fetch('/schedule/add', {
+                    method:'POST',
+                    body: JSON.stringify({ department, level, semester, group2, group1}),
+                    headers: {'Content-Type': 'application/json'} 
+                })
+                .then(res => res.json())
+                .then(data =>{
+                    setSchedules(data.subjects)
+                    setId(data._id)
+                } )
+                .catch(err => console.log(err))
+                    
+            }
+        })
         .catch(err => console.log(err));
 
     }
 
     const deleteSubj= (e) => {
-
-        fetch(`/schedule/${id}/${e}`,{
-
+        fetch(`/schedule/deleteSub`,{
+            method: 'PATCH',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({id1: id}) 
         })
+        .then(res => {})
     }
 
     const handelchangeDep = e => {
@@ -234,11 +236,7 @@ const ScheduleEmp = () => {
         })
     }
 
-    
-
-    useEffect(handelContent);
-
-    React.useEffect(() => {
+    useEffect(() => {
         getSchedule();
 
     }, [])
@@ -322,14 +320,11 @@ const ScheduleEmp = () => {
             <table className='schedule'>
                 <tbody>
                     {
-                        
-                            days.map(i =>{
-                            
-                                return (
-                                    <tr className='day' key={i.id}>
-                                        <th><p className='bold'>{i.day}</p></th>
-
-                                       { 
+                        days.map(i =>{
+                            return (
+                                <tr className='day' key={i.id}>
+                                    <th><p className='bold'>{i.day}</p></th>
+                                    { 
                                         schedules.map(e => {
                                             if (e.day === i.day){
                                                 return(
@@ -344,12 +339,10 @@ const ScheduleEmp = () => {
                                                     </td>
                                                 )
                                             }
-                                             })
-                                        } 
-                                    </tr>
-
-                                )
-                            
+                                        })
+                                    } 
+                                </tr>
+                            )
                         })
                     }
                     <tr>
@@ -392,7 +385,6 @@ const ScheduleEmp = () => {
                         <button className='btn' id='add' onClick={addSubject}>إضافة</button>
                         <button className='btn' id='cancel'>إلغاء</button>
                     </div>
-                   
                 </section>
             </div>
         </div>
