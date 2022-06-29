@@ -16,10 +16,22 @@ var NoTimeDate = d.getFullYear()+'-'+(d.getMonth() +1)+'-'+(d.getDate());
 let canSelect = true;
 let selectType = true;
 
+// check if all subject of student is very good or not for open test
+    const checkPoints = (subjects) => {
+        counter = 0;
+        for (let i = 0; i < subjects.length; i++) {
+            if (subjects[i].points < 3)
+                counter = counter + 1;
+            else
+                continue
+        }
+    }
+
 const Grievance = () => {
     const student = useUser();
     const [degrees, setDegree] = useState([]);
     const [checkAmount, setCheckAmount] = useState(true);
+    const [checkOpenTest, setCheckOpenTest] = useState(0);
     const [data] = useState({
         username: student.username,
         name: student.name,
@@ -173,12 +185,7 @@ const Grievance = () => {
         })
     })
 
-    // check if all subject of student is very good or not for open test
-    let openTest = subjects.every(e => {
-        if (e.points > 2)
-            counter++
-        return counter === 1;
-    }, 2);
+    checkPoints(subjects)
 
     return (
         <div className="container container-page grievance">
@@ -205,14 +212,14 @@ const Grievance = () => {
                 </section>
                 {/* if openTest = true then the student has opne test button */}
                 {
-                    openTest && 
+                    counter === 1 && 
                     <section className='options'>
                         <p className='bold btn open-test' onClick={chooseType}>فتح دفتر</p>
                         <p className='bold btn readd-degree' onClick={chooseType}>جمع درجات</p>
                     </section>
                 }
                 {
-                    !openTest && 
+                    counter !== 1 && 
                     <section className='options'>
                         <p className='bold btn readd-degree' onClick={chooseType}>جمع درجات</p>
                     </section>

@@ -164,35 +164,38 @@ const ScheduleEmp = () => {
 
         fetch(`/schedule/${department}/${level}/${semester}/${group1}/${group2}`)
         .then(res => res.json())
-    .then(data => {
-        if(data){
-        setSchedules(data.subjects)
-        setId(data._id)
-        }
-        else{
-            fetch('/schedule/add', {
-                method:'POST',
-                body: JSON.stringify({ department, level, semester, group2, group1}),
-                headers: {'Content-Type': 'application/json'} 
-            })
-            .then(res => res.json())
-            .then(data =>{
+        .then(data => {
+            if(data){
                 setSchedules(data.subjects)
                 setId(data._id)
-            } )
-            .catch(err => console.log(err))
-                
-        }
-    })
+            }
+            else{
+                fetch('/schedule/add', {
+                    method:'POST',
+                    body: JSON.stringify({ department, level, semester, group2, group1}),
+                    headers: {'Content-Type': 'application/json'} 
+                })
+                .then(res => res.json())
+                .then(data =>{
+                    setSchedules(data.subjects)
+                    setId(data._id)
+                } )
+                .catch(err => console.log(err))
+                    
+            }
+        })
         .catch(err => console.log(err));
 
     }
 
-    const deleteSubj= (e) => {
-
-        fetch(`/schedule/${id}/${e}`,{
-
-        })
+    const deleteSubj = (e) => {
+        fetch(`/schedule/deleteSub/${id}`, {
+            method: 'PATCH',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ id2: e }) 
+            })
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
 
     const handelchangeDep = e => {
@@ -234,11 +237,7 @@ const ScheduleEmp = () => {
         })
     }
 
-    
-
-    useEffect(handelContent);
-
-    React.useEffect(() => {
+    useEffect(() => {
         getSchedule();
 
     }, [])
@@ -311,25 +310,20 @@ const ScheduleEmp = () => {
                             }
                         </select>
                     </div>
-                    
+                    <div className='buttons'>
+                        <p className="btn" onClick={getSchedule}>عرض</p>
+                    </div>
                 </form>
-                <div className='buttons'>
-                    <button className="btn" onClick={getSchedule}>انشاء</button>
-                    
-                </div>
             </section>
 
             <table className='schedule'>
                 <tbody>
                     {
-                        
-                            days.map(i =>{
-                            
-                                return (
-                                    <tr className='day' key={i.id}>
-                                        <th><p className='bold'>{i.day}</p></th>
-
-                                       { 
+                        days.map(i =>{
+                            return (
+                                <tr className='day' key={i.id}>
+                                    <th><p className='bold'>{i.day}</p></th>
+                                    { 
                                         schedules.map(e => {
                                             if (e.day === i.day){
                                                 return(
@@ -344,12 +338,10 @@ const ScheduleEmp = () => {
                                                     </td>
                                                 )
                                             }
-                                             })
-                                        } 
-                                    </tr>
-
-                                )
-                            
+                                        })
+                                    } 
+                                </tr>
+                            )
                         })
                     }
                     <tr>
@@ -392,7 +384,6 @@ const ScheduleEmp = () => {
                         <button className='btn' id='add' onClick={addSubject}>إضافة</button>
                         <button className='btn' id='cancel'>إلغاء</button>
                     </div>
-                   
                 </section>
             </div>
         </div>
