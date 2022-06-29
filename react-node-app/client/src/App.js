@@ -26,6 +26,7 @@ import GrivenceEmp from "./js/employee/GrivenceEmp";
 import MyGrivences from "./js/student/MyGrivences";
 import SuggestionsST from "./js/student/SuggestionsST";
 import SuggestionEmp from "./js/employee/SuggestionEmp";
+import CalanderEmp from "./js/employee/CalanderEmp";
 
 function App() {
   const [student, setStudent] = useState();
@@ -171,6 +172,10 @@ function App() {
 
                   <Route path='/suggestion-Emp'>
                     <SuggestionEmp />
+                  </Route>
+
+                  <Route path='/Add-calander'>
+                    <CalanderEmp />
                   </Route>
 
                 <Footer />

@@ -133,7 +133,7 @@ body {
 }
 
 textarea {
-    resize: none;
+     resize: none;
     font-family: Cairo;
     color: var(--dark-color);
 }
