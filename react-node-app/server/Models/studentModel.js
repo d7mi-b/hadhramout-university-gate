@@ -7,16 +7,15 @@ const { json } = require('express');
 const studentSchema = new Schema(
     {
         name : {type:String},
-        dateOfBirth : {tupe:Date},
+        DOB : {tupe:Date},
         username: {
             type:Number,
             required:[true , 'please enter username'],
             lowercase:true
         },
         email : {type:String},
-        age : {type:Number},
-        phoneNo : {type:Number},
         state: {type: Boolean},
+        valid: {type: Boolean},
         wallet : {type:Number},
         level : {type:String},
         department : {type:String},
@@ -30,6 +29,12 @@ const studentSchema = new Schema(
             minlength:[4, 'Minimum password length is 4 charachters']
         },
         GPA: {type: String},
+        collage: {type: String},
+        sex: {type: String},
+        nationality: {type: String},
+        POB: {type: String},
+        yearToJoin: {type: String},
+        gread: {type: String}
     },
     {
         timestamps : true,

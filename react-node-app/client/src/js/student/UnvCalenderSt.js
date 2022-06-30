@@ -1,5 +1,13 @@
 import '../../css/student/unClanderSt.css'
 
+const getDate = (e) => {
+  const year = new Date(e).getFullYear();
+  const month = new Date(e).getMonth();
+  const day = new Date(e).getDate();
+
+  return `${year}-${month}-${day}`;
+}
+
 const UnCalenderSt = () => {
     return (
         <div className="container-page container">
@@ -109,7 +117,7 @@ const UnCalenderSt = () => {
                     </tbody>
                 </table>
             </section>
-            
+
             {/* NOTES */}
             <p className='note'>بإستثناء كلية الهندسة والبترول وكلية الطب والعلوم الصحية تخصص طب بشري</p>
         </div>

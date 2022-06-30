@@ -1,11 +1,11 @@
 const Advertisements = require('../Models/advertismentModel');
 
 
-module.exports.get_advertisement= async (req,res) => {
+module.exports.get_advertisement = async (req,res) => {
 
     try{
         const advertisement = await Advertisements.find().sort({$natural: -1})
-        
+
         res.status(200).json(advertisement);
         }
         catch (err) {
@@ -18,7 +18,7 @@ module.exports.get_advertisement= async (req,res) => {
 module.exports.add_advs = async (req, res) => {
 
     const advertisement = req.body;
-    
+
     try{
         const adver = await Advertisements.create(advertisement);
         res.status(201).json(adver)
@@ -35,7 +35,7 @@ module.exports.deleteAdv= async (req,res) => {
         try{
             const adv = await Advertisements.findByIdAndDelete(id)
             res.status(200).json(adv)
-                
+
         }
         catch(err) {
             console.log(err);

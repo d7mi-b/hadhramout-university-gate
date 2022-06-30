@@ -2,6 +2,14 @@ import { Link } from 'react-router-dom';
 import '../../css/student/newsSt.css'
 import { useNews } from '../DataProvider';
 
+const getDate = (e) => {
+  const year = new Date(e).getFullYear();
+  const month = new Date(e).getMonth();
+  const day = new Date(e).getDate();
+
+  return `${year}-${month}-${day}`;
+}
+
 const NewsST = () => {
     let news = useNews();
 
@@ -23,7 +31,7 @@ const NewsST = () => {
                                         <h3>{e.title.slice(0, 70)}..</h3>
                                     </header>
                                     <p>{e.body.slice(0, 120)}...</p>
-                                    <time dateTime={e.date} className="new-date">{e.date}</time>
+                                    <time dateTime={getDate(e.date)} className="new-date">{getDate(e.date)}</time>
                                     <Link to={`/details/${e._id}`}>قراءة المزيد</Link>
                                 </section>
                             </article>

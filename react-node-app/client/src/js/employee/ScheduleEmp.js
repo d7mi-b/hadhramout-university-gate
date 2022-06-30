@@ -132,12 +132,12 @@ const ScheduleEmp = () => {
     const [group2, setgroup2] = useState(groubs2[0].label);
     const [schedules, setSchedules] = useState([]);
     const [id, setId] = useState();
-    
+
 
 
     const addSubject = async (e) => {
+        e.preventDefault();
 
-        console.log(id)
         const form = document.getElementById('subject-form');
         const subject =form.name_subj.value;
         const prof = form.prof.value;
@@ -155,7 +155,6 @@ const ScheduleEmp = () => {
         .then(res => res )
         .catch(err => console.log(err))
 
-        e.preventDefault();
         getSchedule();
 
     }
@@ -173,7 +172,7 @@ const ScheduleEmp = () => {
                 fetch('/schedule/add', {
                     method:'POST',
                     body: JSON.stringify({ department, level, semester, group2, group1}),
-                    headers: {'Content-Type': 'application/json'} 
+                    headers: {'Content-Type': 'application/json'}
                 })
                 .then(res => res.json())
                 .then(data =>{
@@ -181,7 +180,7 @@ const ScheduleEmp = () => {
                     setId(data._id)
                 } )
                 .catch(err => console.log(err))
-                    
+
             }
         })
         .catch(err => console.log(err));
@@ -192,7 +191,7 @@ const ScheduleEmp = () => {
         fetch(`/schedule/deleteSub/${id}`, {
             method: 'PATCH',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({ id2: e }) 
+            body: JSON.stringify({ id2: e })
             })
         .then(res => console.log(res))
         .catch(err => console.log(err))
@@ -241,11 +240,11 @@ const ScheduleEmp = () => {
         getSchedule();
 
     }, [])
-    
+
     return (
         <div className="container-schedule container-page container">
             <header className="header">
-                <h2>جدول المحاضرات</h2> 
+                <h2>جدول المحاضرات</h2>
             </header>
 
             <section className="choose-sechedule choose-data">
@@ -323,7 +322,8 @@ const ScheduleEmp = () => {
                             return (
                                 <tr className='day' key={i.id}>
                                     <th><p className='bold'>{i.day}</p></th>
-                                    { 
+                                    {
+                                        schedules &&
                                         schedules.map(e => {
                                             if (e.day === i.day){
                                                 return(
@@ -339,7 +339,7 @@ const ScheduleEmp = () => {
                                                 )
                                             }
                                         })
-                                    } 
+                                    }
                                 </tr>
                             )
                         })
@@ -351,7 +351,7 @@ const ScheduleEmp = () => {
                     </tr>
                 </tbody>
             </table>
-            
+
             <div className='background-section add-subject'>
                 <section className='pay-section'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM80 256C71.16 256 64 263.2 64 272V368C64 376.8 71.16 384 80 384H176C184.8 384 192 376.8 192 368V272C192 263.2 184.8 256 176 256H80z"/></svg>

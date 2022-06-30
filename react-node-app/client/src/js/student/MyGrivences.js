@@ -2,6 +2,14 @@ import { useEffect, useState } from 'react';
 import '../../css/employee/grivanceEmp.css'
 import { useUser } from '../DataProvider';
 
+const getDate = (e) => {
+  const year = new Date(e).getFullYear();
+  const month = new Date(e).getMonth();
+  const day = new Date(e).getDate();
+
+  return `${year}-${month}-${day}`;
+}
+
 let states = [
     {
         id: 1,
@@ -86,7 +94,7 @@ const MyGrivences = () => {
                                 </section>
                                 <section className='grv-state'>
                                     <p>حالة التظلم: {e.state}</p>
-                                    <time dateTime={e.createdAt}>التاريخ: {e.date}</time>
+                                    <time dateTime={getDate(e.date)}>التاريخ: {getDate(e.date)}</time>
                                 </section>
                             </article>
                         )

@@ -7,8 +7,6 @@
     "$numberLong": "22222222222"
   },
   "email": "halah@gmail.com",
-  "age": 22,
-  "phoneNo": 7345689,
   "wallet": 5000,
   "level": "المستوى الرابع",
   "department": "هندسة حاسوب",
@@ -29,7 +27,18 @@
   "state": true,
   "group1": "A",
   "group2": "صباحي",
-  "semester": "الفصل الدراسي الأول"
+  "semester": "الفصل الدراسي الأول",
+  "collage": "الهندسة والبترول",
+  "sex": "انثى",
+  "nationality": "اليمن",
+  "DOB": {
+    "$date": {
+      "$numberLong": "921445200000"
+    }
+  },
+  "POB": "السعودية",
+  "yearToJoin": "2018-2019",
+  "gread": "ممتاز"
 },{
   "_id": {
     "$oid": "62a2d4fb9496c2f4407e8a9f"
@@ -39,10 +48,8 @@
     "$numberLong": "11111111111"
   },
   "email": "abdulrahman@gmail.com",
-  "age": 24,
-  "phoneNo": 7345689,
   "state": true,
-  "wallet": 20500,
+  "wallet": 11300,
   "level": "المستوى الرابع",
   "department": "هندسة حاسوب",
   "typeOfRegister": "نفقة خاصة",
@@ -54,12 +61,23 @@
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655885134835"
+      "$numberLong": "1656615280894"
     }
   },
   "__v": 0,
   "GPA": "79%",
   "group1": "A",
   "group2": "صباحي",
-  "semester": "الفصل الدراسي الأول"
+  "semester": "الفصل الدراسي الأول",
+  "collage": "الهندسة والبترول",
+  "nationality": "اليمن",
+  "sex": "ذكر",
+  "DOB": {
+    "$date": {
+      "$numberLong": "896302800000"
+    }
+  },
+  "POB": "السعودية",
+  "yearToJoin": "2018-2019",
+  "gread": "جيد"
 }]

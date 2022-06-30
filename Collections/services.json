@@ -1,0 +1,31 @@
+[{
+  "_id": 1,
+  "name": "رفع التظلم",
+  "state": true,
+  "price": 500,
+  "type": "جمع درجات"
+},{
+  "_id": 2,
+  "name": "رفع التظلم",
+  "state": true,
+  "price": 2000,
+  "type": "فتح دفتر"
+},{
+  "_id": 3,
+  "name": "بيان درجات",
+  "state": true,
+  "price": 200,
+  "type": ""
+},{
+  "_id": 4,
+  "name": "شهادة قيد",
+  "state": true,
+  "price": 500,
+  "type": ""
+},{
+  "_id": 5,
+  "name": "تجديد القيد",
+  "state": true,
+  "price": 5000,
+  "type": ""
+}]

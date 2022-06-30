@@ -1,0 +1,208 @@
+<html>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            direction: rtl;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        /* header page */
+        .header {
+            text-align: center;
+            padding: 10px;
+            border-bottom: 5px solid #000;
+            font-size: 12px
+        }
+
+        .header .header-content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bold {
+            font-weight: 600;
+        }
+
+        .header-content .logo img {
+            width: 70%;
+        }
+
+        /* content of page */
+        .container .content .title {
+          margin: 15px auto;
+        }
+        .container .content h1 {
+            margin: 5px auto;
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        .content section {
+            width: 95%;
+            margin: 5px auto;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .info-inner {
+          display: flex;
+          justify-content: space-between;
+          margin: 5px auto;
+          font-size: 14px;
+        }
+
+        .info-inner span {
+          font-weight: 600
+        }
+
+        .user-data {
+            text-decoration: underline;
+        }
+
+        table {
+          border: 1px solid #000
+          text-align: center;
+          width: 100%;
+          margin: 15px auto;
+        }
+
+        table td,
+        table th {
+          border: 1px solid #000;
+          text-align: center;
+          padding: 5px 7px;
+        }
+
+        .first-raw p {
+          display: inline-block;
+          width: max-content;
+          margin: 0 10px
+        }
+
+        /* signatures */
+        .signatures {
+            font-size: 12px;
+            height: 25vh;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .signatures div {
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .signatures div .bold {
+            margin: 15px auto;
+        }
+        
+    </style>
+
+    <body>
+        <div class="container">
+            <header class="header">
+                <h2>بسم الله الرحمن الرحيم</h2>
+                <section class="header-content">
+                    <div class="header-info">
+                        <p>الجمهورية اليمنية</p>
+                        <p class="bold">جامعة حضرموت</p>
+                        <p class="bold">الإدارة العامة للقبول والتسجيل</p>
+                        <p class="bold">{{collage}}</p>
+                    </div>
+                    <div class="logo">
+                        <img src="../../public/hadhramout.jpg" alt="LOGO" >
+                    </div>
+                    <div class="date">
+                        <time class="bold" datetime="2022-06-07">التاريخ: 2022/06/07</time>
+                    </div>
+                </section>
+            </header>
+
+            <artical class="content">
+              <header class="title">
+                <h1>سجل الدرجات للطالب</h1>
+                <h1>غير الخريجين</h1>
+              </header>
+
+              <section class="info">
+                <section class="info-inner">
+                  <p>إسم الطالب رباعيًا: <span>{{name}}</span></p>
+                  <p>الجنس: <span>{{sex}}</span></p>
+                  <p>الجنسية: <span>{{nationality}}</span></p>
+                  <p>رقم القيد: <span>{{username}}</span></p>
+                </section>
+                <section class="info-inner">
+                  <p>مكان الميلاد وتاريخه: <span>{{POB}} - {{DOB}}</span></p>
+                  <p>عام الإلتحاق: <span>{{yearToJoin}}</span></p>
+                  <p>المستوى: <span>{{level}}</span></p>
+                </section>
+                <section class="info-inner">
+                  <p>التخصص: <span>{{department}}</span></p>
+                  <p>المعدل التراكمي: <span>{{GPA}}</span></p>
+                  <p>التقدير: <span>{{gread}}</span></p>
+                  <p>حالة الطالب دراسيًا: <span>مقيد</span></p>
+                </section>
+              </section>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th colspan='5' class="first-raw">
+                      <p>{{degreeLevel}} {{semestar}}</p>
+                      <p>المعدل الفصلي: {{semAvg}}</p>
+                      <p>التقدير: {{semGrd}}</p>
+                    </th>
+                  </tr>
+
+                  <tr>
+                    <th>المقرر الدراسي</th>
+                    <th>الساعات المعتمدة</th>
+                    <th>الدرجة</th>
+                    <th>النقاط</th>
+                    <th>التقدير</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each subjects as |subject|}}
+                  <tr>
+                      <td>{{subject.name}}</td>
+                      <td>{{subject.hours}}</td>
+                      <td>{{subject.degree}}</td>
+                      <td>{{subject.points}}</td>
+                      <td>{{subject.grade}}</td>
+                  {{/each}}
+                  </tr>
+                </tbody>
+              </table>
+            </artical>
+
+            <section class="signatures">
+                <div>
+                    <p class="bold"></p>
+                    <p class="bold">مسجل التخصص</p>
+                </div>
+                <div>
+                    <p class="bold"></p>
+                    <p class="bold">مسجل الكلية</p>
+                </div>
+                <div>
+                    <p class="bold"></p>
+                    <p class="bold">عميد الكلية</p>
+                </div>
+            </section>
+
+            
+        </div>
+
+    </body>
+
+</html>

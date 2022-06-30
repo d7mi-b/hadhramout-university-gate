@@ -7,7 +7,10 @@ const degreeRoute = require('./routes/degreeRoute');
 const walletChargeRoute = require('./routes/walletChargeRoutes')
 const grievanceRoute = require('./routes/grievanceRoute');
 const suggestionsRoute = require('./routes/suggestionRoute');
-const scheduleRoute = require('./routes/scheduleRoute')
+const scheduleRoute = require('./routes/scheduleRoute');
+const pdfRoutes = require('./routes/pdfRoutes');
+const servicesRoute = require('./routes/servicesRoute');
+const transactionReoute = require('./routes/transactionRoute');
 
 const PORT = process.env.PORT || 3001;
 
@@ -27,6 +30,7 @@ mongoose.connect('mongodb://0.0.0.0:27017/HUG', { useNewUrlParser : true , useUn
         console.log(err)
     })
 
+app.use(express.static('/server/public'))
 app.use(authRoutes);
 app.use('/news', newsRouter);
 app.use('/ads', advertisementsRoute);
@@ -34,4 +38,7 @@ app.use('/degree', degreeRoute);
 app.use('/charge',walletChargeRoute)
 app.use('/grievances', grievanceRoute);
 app.use('/suggestion', suggestionsRoute);
-app.use('/schedule', scheduleRoute)
+app.use('/schedule', scheduleRoute);
+app.use('/pdf', pdfRoutes);
+app.use('/services', servicesRoute);
+app.use('/transaction', transactionReoute);

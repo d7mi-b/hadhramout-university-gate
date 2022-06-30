@@ -3,7 +3,13 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useNews } from './DataProvider';
 import { useEffect, useState } from 'react';
 
+const getDate = (e) => {
+  const year = new Date(e).getFullYear();
+  const month = new Date(e).getMonth();
+  const day = new Date(e).getDate();
 
+  return `${year}-${month}-${day}`;
+}
 
 const NewDetails = () => {
     const { id } = useParams();
@@ -23,7 +29,7 @@ const NewDetails = () => {
                 </div>
                 <header>
                     <h1 className="title">{news.title}</h1>
-                    <time datetime={news.date} className="date">{news.date}</time>
+                    <time datetime={getDate(news.date)} className="date">{getDate(news.date)}</time>
                 </header>
                 <section className='body'>{news.body}</section>
             </article>
