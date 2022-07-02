@@ -155,6 +155,13 @@ const ScheduleEmp = () => {
         .then(res => res )
         .catch(err => console.log(err))
 
+        form.name_subj.value = "";
+        form.prof.value = "" ;
+        form.time_from.value = ""; 
+        form.time_to.value =  "";
+        form.place.value = ""; 
+        form.day.value = "";
+        
         e.preventDefault();
         getSchedule();
 
@@ -195,6 +202,7 @@ const ScheduleEmp = () => {
             body: JSON.stringify({ id2: e }) 
             })
         .then(res => console.log(res))
+        .then(result => getSchedule())
         .catch(err => console.log(err))
     }
 
@@ -324,6 +332,7 @@ const ScheduleEmp = () => {
                                 <tr className='day' key={i.id}>
                                     <th><p className='bold'>{i.day}</p></th>
                                     { 
+                                        schedules &&
                                         schedules.map(e => {
                                             if (e.day === i.day){
                                                 return(

@@ -4,18 +4,10 @@
     grid-gap: 30px;
 }
 
-.add-data form{
-    display: grid;
-    grid-template-columns: repeat(3, 3fr);
-    grid-gap: 30px;
-}
-
 .data {
-    display: inline-block;
-    width: 60%;
-    height: 60%;
-    padding: 5px;
-    margin: 25;
+    
+    width: 70%;
+
 }
 
 .edit-text{
@@ -23,5 +15,11 @@
 }
 
 .btn-add {
+    display: flex;
+    justify-content: center;
     margin-right: 4px;
+}
+
+.deletebtn{
+    width: fit-content;
 }

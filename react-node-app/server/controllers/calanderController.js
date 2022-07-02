@@ -2,6 +2,7 @@ const Calander = require('../Models/calanderModel');
 const { ObjectId } = require('mongodb');
 
 
+
 module.exports.add_cal= async (req,res) => {
     
     const year = req.body;
@@ -58,4 +59,36 @@ module.exports.get_cal = (req,res) => {
         console.log(err)
         res.status(400).json({calander:"Not found"})
     })
+}
+
+module.exports.deleteDet = async (req,res) => {
+    const id = req.params.id;
+    const {Id, sem} = req.body;
+
+    
+    if(sem === 'sem1')
+    {
+        Calander.updateOne({_id: ObjectId(id)}, {$pull: { semester1: {Id} }})
+        .then(result => res.status(200).json(result.id))
+        .catch(err => console.log(err))
+    }
+    else{
+        Calander.updateOne({_id: ObjectId(id)}, {$pull: { semester2: {Id} }})
+        .then(result => res.status(200).json(result.id))
+        .catch(err => console.log(err))
+    }
+}
+
+module.exports.get_last = async (req,res) => {
+
+    
+    try{
+    const get = await Calander.findOne().sort({year:-1})
+     res.status(200).json(get)
+    
+    }
+    catch(err){
+        console.log(err)
+        res.status(400).json({calander: "there is no calander"})
+    }
 }
