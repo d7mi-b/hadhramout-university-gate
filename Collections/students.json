@@ -38,7 +38,10 @@
   },
   "POB": "السعودية",
   "yearToJoin": "2018-2019",
-  "gread": "ممتاز"
+  "gread": "ممتاز",
+  "notification": [
+    ""
+  ]
 },{
   "_id": {
     "$oid": "62a2d4fb9496c2f4407e8a9f"
@@ -49,7 +52,7 @@
   },
   "email": "abdulrahman@gmail.com",
   "state": true,
-  "wallet": 11300,
+  "wallet": 26700,
   "level": "المستوى الرابع",
   "department": "هندسة حاسوب",
   "typeOfRegister": "نفقة خاصة",
@@ -61,7 +64,7 @@
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1656615280894"
+      "$numberLong": "1657529140706"
     }
   },
   "__v": 0,
@@ -79,5 +82,55 @@
   },
   "POB": "السعودية",
   "yearToJoin": "2018-2019",
-  "gread": "جيد"
+  "gread": "جيد",
+  "notification": [
+    {
+      "id": {
+        "$numberLong": "1657528328711"
+      },
+      "notify": "تم رفع تظلم في مادة معالجات دقيقة",
+      "new": false,
+      "date": {
+        "$date": {
+          "$numberLong": "1657528328711"
+        }
+      }
+    },
+    {
+      "id": {
+        "$numberLong": "1657528962173"
+      },
+      "notify": "تم شحن المحفظة بمبلغ 10000 ريال",
+      "new": true,
+      "date": {
+        "$date": {
+          "$numberLong": "1657528962173"
+        }
+      }
+    },
+    {
+      "id": {
+        "$numberLong": "1657528996342"
+      },
+      "notify": "تم إصدار شهادة قيد",
+      "new": true,
+      "date": {
+        "$date": {
+          "$numberLong": "1657528996342"
+        }
+      }
+    },
+    {
+      "id": {
+        "$numberLong": "1657529140705"
+      },
+      "notify": "تم تحديث حالة التظلم في مادة أنظمة تشغيل إالى مقبول",
+      "new": true,
+      "date": {
+        "$date": {
+          "$numberLong": "1657529140705"
+        }
+      }
+    }
+  ]
 }]
