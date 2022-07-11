@@ -34,7 +34,8 @@ const studentSchema = new Schema(
         nationality: {type: String},
         POB: {type: String},
         yearToJoin: {type: String},
-        gread: {type: String}
+        gread: {type: String},
+        notification: {type: Array}
     },
     {
         timestamps : true,

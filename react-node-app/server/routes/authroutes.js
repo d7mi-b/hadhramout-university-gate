@@ -12,6 +12,9 @@ router.get('/registerE',authController.registerEmployee);
 router.patch('/updateWallet', authController.update_wallte);
 router.get('/updateUser', authController.update_User);
 router.patch('/updateUserState', authController.update_state);
+router.patch('/deleteNotification', authController.deleteNotification);
+router.patch('/stateNotification', authController.stateNotification);
+
 
 
 module.exports = router;

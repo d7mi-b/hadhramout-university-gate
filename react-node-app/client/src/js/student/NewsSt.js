@@ -3,11 +3,11 @@ import '../../css/student/newsSt.css'
 import { useNews } from '../DataProvider';
 
 const getDate = (e) => {
-  const year = new Date(e).getFullYear();
-  const month = new Date(e).getMonth();
-  const day = new Date(e).getDate();
+    const year = new Date(e).getFullYear();
+    const month = new Date(e).getMonth();
+    const day = new Date(e).getDate();
 
-  return `${year}-${month}-${day}`;
+    return `${year}-${month}-${day}`;
 }
 
 const NewsST = () => {

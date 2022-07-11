@@ -17,11 +17,20 @@ const states = [
     }
 ]
 
+const getDate = (e) => {
+    const year = new Date(e).getFullYear();
+    const month = new Date(e).getMonth();
+    const day = new Date(e).getDate();
+
+    return `${year}-${month}-${day}`;
+}
+
 const GrivenceEmp = () => {
     const [grivence, setGrivence] = useState([]);
     const [state, setState] = useState(states[0].label);
     const [pages, setPage] = useState(0)
     const employee = useUser();
+    const [data, setData] = useState('');
 
     const handelPages = (e) => {
         setPage(pages + 1)
@@ -34,13 +43,21 @@ const GrivenceEmp = () => {
     const grvAccept = (e) => {
         const id = e.target.parentElement.parentElement.parentElement.id;
 
+        // get subject to update its state
+        fetch(`/grievances/singleGrivence/${id}`)
+            .then(result => result.json())
+            .then(data => setData(data[0]))
+            .catch(err => console.log(err));
+
         //update state of grivances
         fetch('/grievances/update-state', {
                 method: 'PATCH',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
                     _id: id,
-                    state: 'مقبول'
+                    state: 'مقبول',
+                    subject: data.subject,
+                    username: data.username
                 })
             }).then((result) => console.log(result))
             .catch((err) => console.log(err));
@@ -49,13 +66,21 @@ const GrivenceEmp = () => {
     const grvDisaccept = (e) => {
         const id = e.target.parentElement.parentElement.parentElement.id;
 
+        // get subject to update its state
+        fetch(`/grievances/singleGrivence/${id}`)
+            .then(result => result.json())
+            .then(data => setData(data[0]))
+            .catch(err => console.log(err));
+
         //update state of grivances
         fetch('/grievances/update-state', {
                 method: 'PATCH',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
                     _id: id,
-                    state: 'مرفوض'
+                    state: 'مرفوض',
+                    subject: data.subject,
+                    username: data.username
                 })
             }).then((result) => console.log(result))
             .catch((err) => console.log(err));
@@ -116,7 +141,7 @@ const GrivenceEmp = () => {
                                 </section>
                                 <section className='grv-state'>
                                     <p>حالة التظلم: {e.state}</p>
-                                    <time dateTime={e.createdAt}>التاريخ: {e.date}</time>
+                                    <time dateTime={getDate(e.date)}>التاريخ: {getDate(e.date)}</time>
                                     {
                                         e.state === 'تحت المعالجة' &&
                                         <section className='buttons'>

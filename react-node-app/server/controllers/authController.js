@@ -64,6 +64,7 @@ module.exports.update_state = async (req, res) => {
         .catch(err => console.log(err));
 }
 
+// update data of user
 module.exports.update_User = async (req, res) => {
     const {username} = req.query;
 
@@ -72,6 +73,24 @@ module.exports.update_User = async (req, res) => {
             return res.status(200).json(result)
         })
         .catch(err => console.log(err))
+}
+
+// delete notification
+module.exports.deleteNotification = async (req, res) => {
+    const {username, id} = req.body;
+
+    Student.updateOne({username: username}, {$pull: {notification: {id: +id}}})
+    .then(result => res.status(200).json(result))
+    .catch(err => console.log(err))
+}
+
+// update state of notification
+module.exports.stateNotification = async (req, res) => {
+    const {username, id} = req.body;
+
+    Student.updateOne({username: username, "notification.id": +id}, {$set: {"notification.$.new": false}})
+    .then(result => res.status(200).json(result))
+    .catch(err => console.log(err))
 }
 
 //To add students with Hashed password
