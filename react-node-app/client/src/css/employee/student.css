@@ -1,0 +1,51 @@
+.search-student {
+    margin: 15px;
+}
+
+.search-student input {
+    width: 700px;
+    padding: 10px;
+    margin: 0 10px;
+    font-family: Cairo;
+    color: var(--dark-color);
+}
+
+.selects {
+    display: flex;
+    justify-content: space-between;
+}
+
+.selects select {
+    padding: 5px;
+    width: 150px;
+    margin: 0 10px;
+    font-family: Cairo;
+    color: var(--dark-color);
+}
+
+.selects select option {
+    font-family: Cairo;
+    color: var(--dark-color);
+}
+
+.student {
+    padding: 20px;
+    box-shadow: 3px 3px 10px 2px #ddd;
+    background-color: var(--white);
+    margin: 25px auto;
+}
+
+.student-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.students-notification {
+    padding: 0 20px;
+    display: flex;
+    margin: 15px 0 0;
+}
+
+.students-notification .btn {
+    margin: 0 10px;
+}

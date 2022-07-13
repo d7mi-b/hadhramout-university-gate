@@ -1,9 +1,9 @@
 .home-emp {
-    margin-top: 60px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 70vh;
+    height: 80vh;
 }
 
 .sections {

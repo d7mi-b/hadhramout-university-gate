@@ -93,16 +93,40 @@ module.exports.stateNotification = async (req, res) => {
     .catch(err => console.log(err))
 }
 
+// get students from database
+module.exports.getStudents = async (req, res) => {
+    const department = req.params.department;
+
+    Student.find({department: department})
+    .then(result => res.status(200).json(result))
+    .catch(err => console.log(err));
+}
+
+module.exports.addNotification = async (req, res) => {
+    const {username, notify} = req.body;
+
+    Student.updateOne({username: username}, {$push: {notification : {
+        id: new Date().getTime(),
+        notify: `الرجاء ${notify}`,
+        new: true,
+        date: new Date()
+    }}})
+    .then(result => res.status(200).json(result))
+    .catch(err => console.log(err))
+}
+
 //To add students with Hashed password
 module.exports.registerStudent= async (req,res) => {
 
         try{
             const student = await Student.create({
                 name:"علي محمد",
-                age:24,
-                email:"abdulrahman@gmail.com",
-                phoneNo:7345689,
-                dateOfBirth:"27-5-1998",
+                email:"ali@gmail.com",
+                DOB:"27-5-1998",
+                POB: 'المكلا',
+                sex: 'ذكر',
+                nationality: 'اليمن',
+                yearToJoin: '2018-2019',
                 level: "المستوى الرابع",
                 department:"هندسة حاسوب",
                 semester:"الفصل الدراسي الأول",
@@ -112,8 +136,9 @@ module.exports.registerStudent= async (req,res) => {
                 state: true,
                 wallet:10000,
                 GPA: '79%',
-                username:1111,
-                password:"1234"
+                username:33333333333,
+                password:"1234",
+                notification: [],
             })
             res.status(201).json(student)
         }
