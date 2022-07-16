@@ -136,7 +136,7 @@ const DegreeSt = () => {
     const handelGetDegSt = (e) => {
         setData(JSON.parse(e.target.attributes.send.value));
         const backgroundSection = document.querySelector('.background-section');
-        backgroundSection.style.cssText = "display: flex";
+        backgroundSection.style.cssText = "display: flex;";
     }
 
     useEffect(() => {
@@ -158,6 +158,8 @@ const DegreeSt = () => {
         .then((data) => setDegree(data));
 
         handelContent();
+
+        console.log(document.body.offsetHeight)
     }, [])
 
     return (

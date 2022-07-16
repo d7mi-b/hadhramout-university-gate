@@ -30,7 +30,8 @@ const Renew = () => {
                     level: student.level,
                     department: student.department,
                     typeOfRegister: student.typeOfRegister,
-                    collage: student.collage
+                    collage: student.collage,
+                    logo: '/server/public/Hadhrmout.jpg'
                 }))
                 .then(res => console.log(res))
                 .catch(err => console.log(err));

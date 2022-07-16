@@ -270,7 +270,30 @@
     border-radius: 5px;
     display: none;
     color: var(--gray);
+    scrollbar-color: var(--blue) var(--dark-color);
+    scrollbar-width: thin;
 }
+
+.navigations::-webkit-scrollbar-track {
+    scrollbar-color: var(--blue) var(--dark-color);
+    scrollbar-width: thin;
+}
+
+/* width */
+.navigations::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.navigations::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+.navigations::-webkit-scrollbar-thumb {
+    background: var(--blue);
+    border-radius: 10px;
+} 
 
 .empty-notification {
     width: 200px;
@@ -303,10 +326,15 @@
 }
 
 .navigation time {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     text-align: right;
     font-size: 12px;
     padding: 0 10px;
+}
+
+.navigation time p {
+    width: fit-content;
 }
 
 .navigation .info {
