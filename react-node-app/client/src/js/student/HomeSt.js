@@ -2,6 +2,13 @@ import { Link } from 'react-router-dom'
 import '../../css/student/homeSt.css'
 import { useNews,useAdv } from '../DataProvider';
 
+const getDate = (e) => {
+  const year = new Date(e).getFullYear();
+  const month = new Date(e).getMonth();
+  const day = new Date(e).getDate();
+
+  return `${year}-${month}-${day}`;
+}
 
 let services = [
     {
@@ -85,7 +92,7 @@ const HomeSt = () => {
                                                     <h3>{e.title.slice(0, 70)}..</h3>
                                                 </header>
                                                 <p>{e.body.slice(0, 120)}...</p>
-                                                <time dateTime={e.date} className="new-date">{e.date}</time>
+                                                <time dateTime={getDate(e.date)} className="new-date">{getDate(e.date)}</time>
                                                 <Link to={`/details/${e._id}`}>قراءة المزيد</Link>
                                             </section>
                                         </article>
@@ -95,7 +102,7 @@ const HomeSt = () => {
                     </div>
                 </section>
                 {/* END NEWS */}
-                
+
                 {/* START ADVERTISEMENTS */}
                 <section className='advertisements'>
                     <header>
@@ -110,7 +117,7 @@ const HomeSt = () => {
                                         <header>
                                             <h3>{e.title.slice(0, 60)}</h3>
                                         </header>
-                                        <time dateTime={e.dateNo}>{e.date}</time>
+                                        <time dateTime={getDate(e.date)}>{getDate(e.date)}</time>
                                     </article>
                                 );
                             })

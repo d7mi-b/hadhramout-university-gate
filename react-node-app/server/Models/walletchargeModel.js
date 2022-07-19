@@ -9,7 +9,7 @@ const walletChargeSchema = new Schema(
         checkNo: {type: Number},
         amount:{type: Number},
         type: {type: String},
-        date: {type:String}
+        date: {type: Date}
     },
     {
         timestamps: true

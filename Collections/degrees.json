@@ -2,9 +2,9 @@
   "_id": {
     "$oid": "62a82e0d3aab54b31cef1cdc"
   },
-  "username": 1111,
-  "name": "عبدالرحمن بهيان",
-  "department": "هندسة حاسوب",
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "levels": [
     {
       "levelName": "المستوى الأول",
@@ -12,6 +12,7 @@
         {
           "semester": "الفصل الدراسي الأول",
           "semAvg": "86%",
+          "semGrd": "جيد جدًا",
           "subjects": [
             {
               "name": "رياضيات 4",
@@ -32,6 +33,7 @@
         {
           "semester": "الفصل الدراسي الأول",
           "semAvg": "82%",
+          "semGrd": "جيد جدًا",
           "subjects": [
             {
               "id": 21,
@@ -86,6 +88,7 @@
         {
           "semester": "الفصل الدراسي الثاني",
           "semAvg": "85%",
+          "semGrd": "جيد جدًا",
           "subjects": [
             {
               "id": 21,
@@ -146,6 +149,7 @@
         {
           "semester": "الفصل الدراسي الأول",
           "semAvg": "82%",
+          "semGrd": "جيد جدًا",
           "subjects": [
             {
               "id": 31,
@@ -200,6 +204,7 @@
         {
           "semester": "الفصل الدراسي الثاني",
           "semAvg": "82%",
+          "semGrd": "جيد جدًا",
           "subjects": [
             {
               "id": 31,
@@ -222,7 +227,7 @@
               "name": "إحصاء وإحتمالات",
               "hours": 3,
               "degree": 109,
-              "points": 2,
+              "points": 3,
               "grade": "جيد"
             },
             {

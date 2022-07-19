@@ -1,0 +1,93 @@
+[{
+  "_id": {
+    "$oid": "62b32e1dc68bd9de23f65daf"
+  },
+  "studentNo": {
+    "$numberLong": "11111111111"
+  },
+  "studentName": "عبدالرحمن بهيان",
+  "checkNo": 1548995,
+  "amount": 30000,
+  "type": "إيداع",
+  "date": "2022-06-22",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655909917361"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655909917361"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b33a19f46f842ccf6b38e1"
+  },
+  "studentNo": {
+    "$numberLong": "11111111111"
+  },
+  "studentName": "عبدالرحمن بهيان",
+  "checkNo": 15478,
+  "amount": 30000,
+  "type": "إيداع",
+  "date": "2022-06-22",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655912985778"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655912985778"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b33a5380699b444a286fd2"
+  },
+  "studentNo": {
+    "$numberLong": "11111111111"
+  },
+  "studentName": "عبدالرحمن بهيان",
+  "checkNo": 0,
+  "amount": 500,
+  "type": "سحب",
+  "date": "2022-06-22",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655913043403"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655913043403"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b3419c7d0fe2df3a6283d1"
+  },
+  "studentNo": {
+    "$numberLong": "11111111111"
+  },
+  "studentName": "عبدالرحمن بهيان",
+  "checkNo": 1245879,
+  "amount": 50000,
+  "type": "إيداع",
+  "date": "2022-06-22",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655914908539"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655914908539"
+    }
+  },
+  "__v": 0
+}]

@@ -3,8 +3,6 @@ const {Schema} = mongoose;
 
 const degreeSchema = new Schema({
     username: {type: Number},
-    name: {type: String},
-    department: {type: String},
     levels: {type: Array}
     },
     {

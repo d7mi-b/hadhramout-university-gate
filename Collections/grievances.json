@@ -1,276 +1,594 @@
 [{
   "_id": {
-    "$oid": "62ab79f0b96f87bdc74cc513"
+    "$oid": "62b32daac68bd9de23f64d45"
   },
-  "username": 1111,
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "name": "عبدالرحمن بهيان",
   "department": "هندسة حاسوب",
   "level": "مستوى الرابع",
+  "date": "2022-6-22",
+  "subject": "معالجات دقيقة",
+  "degree": "137",
+  "reson": "",
+  "type": "جمع درجات",
+  "state": "تحت المعالجة",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655909802692"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655909802692"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b32de4c68bd9de23f65abb"
+  },
+  "username": {
+    "$numberLong": "11111111111"
+  },
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "date": "2022-6-22",
+  "subject": "معالجات دقيقة",
+  "degree": "137",
+  "reson": "",
+  "type": "جمع درجات",
+  "state": "تحت المعالجة",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655909860389"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655909860389"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b32deac68bd9de23f65bd9"
+  },
+  "username": {
+    "$numberLong": "11111111111"
+  },
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "date": "2022-6-22",
+  "subject": "هندسة برمجيات",
+  "degree": "136",
+  "reson": "",
+  "type": "جمع درجات",
+  "state": "تحت المعالجة",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655909866005"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655909866005"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b32defc68bd9de23f65cb9"
+  },
+  "username": {
+    "$numberLong": "11111111111"
+  },
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "date": "2022-6-22",
+  "subject": "أنظمة تشغيل",
+  "degree": "109",
+  "reson": "",
+  "type": "جمع درجات",
+  "state": "تحت المعالجة",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655909871202"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655909871202"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b32e34c68bd9de23f65dbc"
+  },
+  "username": {
+    "$numberLong": "11111111111"
+  },
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "date": "2022-6-22",
+  "subject": "إحصاء وإحتمالات",
+  "degree": "109",
+  "reson": "",
+  "type": "جمع درجات",
+  "state": "تحت المعالجة",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655909940922"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655909940922"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b32e39c68bd9de23f65dc6"
+  },
+  "username": {
+    "$numberLong": "11111111111"
+  },
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "date": "2022-6-22",
+  "subject": "أنظمة تشغيل",
+  "degree": "109",
+  "reson": "",
+  "type": "جمع درجات",
+  "state": "تحت المعالجة",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655909945091"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655909945091"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b32e3cc68bd9de23f65dd0"
+  },
+  "username": {
+    "$numberLong": "11111111111"
+  },
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "date": "2022-6-22",
+  "subject": "معمارية حاسوب",
+  "degree": "111",
+  "reson": "",
+  "type": "جمع درجات",
+  "state": "تحت المعالجة",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655909948589"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655909948589"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b32e40c68bd9de23f65dda"
+  },
+  "username": {
+    "$numberLong": "11111111111"
+  },
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "date": "2022-6-22",
   "subject": "قياسات الكترونية",
   "degree": "136",
+  "reson": "",
   "type": "جمع درجات",
-  "state": false,
+  "state": "تحت المعالجة",
   "createdAt": {
     "$date": {
-      "$numberLong": "1655405040823"
+      "$numberLong": "1655909952732"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655405040823"
+      "$numberLong": "1655909952732"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "62ab7a20eda18ee48b5bf200"
+    "$oid": "62b32e44c68bd9de23f65de4"
   },
-  "username": 1111,
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "name": "عبدالرحمن بهيان",
   "department": "هندسة حاسوب",
   "level": "مستوى الرابع",
+  "date": "2022-6-22",
+  "subject": "هندسة برمجيات",
+  "degree": "136",
+  "reson": "",
+  "type": "جمع درجات",
+  "state": "تحت المعالجة",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655909956724"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655909956724"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b32e47c68bd9de23f65dee"
+  },
+  "username": {
+    "$numberLong": "11111111111"
+  },
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "date": "2022-6-22",
+  "subject": "أنظمة تشغيل",
+  "degree": "109",
+  "reson": "",
+  "type": "جمع درجات",
+  "state": "تحت المعالجة",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655909959788"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655909959788"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b340b37d0fe2df3a628320"
+  },
+  "username": {
+    "$numberLong": "11111111111"
+  },
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "date": "2022-6-22",
+  "subject": "أنظمة تشغيل",
+  "degree": "109",
+  "reson": "",
+  "type": "جمع درجات",
+  "state": "تحت المعالجة",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655914675291"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655914675291"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b340b77d0fe2df3a62832c"
+  },
+  "username": {
+    "$numberLong": "11111111111"
+  },
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "date": "2022-6-22",
+  "subject": "هندسة برمجيات",
+  "degree": "136",
+  "reson": "",
+  "type": "جمع درجات",
+  "state": "تحت المعالجة",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655914679133"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655914679133"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b340ba7d0fe2df3a628338"
+  },
+  "username": {
+    "$numberLong": "11111111111"
+  },
+  "name": "عبدالرحمن بهيان",
+  "department": "هندسة حاسوب",
+  "level": "مستوى الرابع",
+  "date": "2022-6-22",
   "subject": "قياسات الكترونية",
   "degree": "136",
+  "reson": "",
   "type": "جمع درجات",
-  "state": false,
+  "state": "تحت المعالجة",
   "createdAt": {
     "$date": {
-      "$numberLong": "1655405088766"
+      "$numberLong": "1655914682736"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655405088766"
+      "$numberLong": "1655914682736"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "62ab7ae2621dcfe956a9bc04"
+    "$oid": "62b340be7d0fe2df3a628344"
   },
-  "username": 1111,
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "name": "عبدالرحمن بهيان",
   "department": "هندسة حاسوب",
   "level": "مستوى الرابع",
-  "subject": "إحصاء وإحتمالات",
-  "degree": "109",
+  "date": "2022-6-22",
+  "subject": "معمارية حاسوب",
+  "degree": "111",
+  "reson": "",
   "type": "جمع درجات",
-  "state": false,
+  "state": "تحت المعالجة",
   "createdAt": {
     "$date": {
-      "$numberLong": "1655405282614"
+      "$numberLong": "1655914686925"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655405282614"
+      "$numberLong": "1655914686925"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "62ab7b173f0ca0e988e5a27c"
+    "$oid": "62b340c27d0fe2df3a628350"
   },
-  "username": 1111,
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "name": "عبدالرحمن بهيان",
   "department": "هندسة حاسوب",
   "level": "مستوى الرابع",
-  "subject": "إحصاء وإحتمالات",
+  "date": "2022-6-22",
+  "subject": "أنظمة تشغيل",
   "degree": "109",
+  "reson": "",
   "type": "جمع درجات",
-  "state": false,
+  "state": "تحت المعالجة",
   "createdAt": {
     "$date": {
-      "$numberLong": "1655405335183"
+      "$numberLong": "1655914690056"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655405335183"
+      "$numberLong": "1655914690056"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "62ab7c8bf8f52c51c78b190b"
+    "$oid": "62b340c67d0fe2df3a62835c"
   },
-  "username": 1111,
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "name": "عبدالرحمن بهيان",
   "department": "هندسة حاسوب",
   "level": "مستوى الرابع",
+  "date": "2022-6-22",
   "subject": "إحصاء وإحتمالات",
   "degree": "109",
+  "reson": "",
   "type": "جمع درجات",
-  "state": false,
+  "state": "تحت المعالجة",
   "createdAt": {
     "$date": {
-      "$numberLong": "1655405707978"
+      "$numberLong": "1655914694353"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655405707978"
+      "$numberLong": "1655914694353"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "62ab7ce1cd3c8a2259e0cecf"
+    "$oid": "62b341657d0fe2df3a628388"
   },
-  "username": 1111,
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "name": "عبدالرحمن بهيان",
   "department": "هندسة حاسوب",
   "level": "مستوى الرابع",
-  "subject": "إحصاء وإحتمالات",
-  "degree": "109",
+  "date": "2022-6-22",
+  "subject": "قياسات الكترونية",
+  "degree": "136",
+  "reson": "",
   "type": "جمع درجات",
-  "state": false,
+  "state": "مقبول",
   "createdAt": {
     "$date": {
-      "$numberLong": "1655405793834"
+      "$numberLong": "1655914853609"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655405793834"
+      "$numberLong": "1655915112648"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "62ab7d48aa270ba522280ea3"
+    "$oid": "62b341687d0fe2df3a628394"
   },
-  "username": 1111,
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "name": "عبدالرحمن بهيان",
   "department": "هندسة حاسوب",
   "level": "مستوى الرابع",
-  "subject": "إحصاء وإحتمالات",
-  "degree": "109",
+  "date": "2022-6-22",
+  "subject": "هندسة برمجيات",
+  "degree": "136",
+  "reson": "",
   "type": "جمع درجات",
-  "state": false,
+  "state": "مرفوض",
   "createdAt": {
     "$date": {
-      "$numberLong": "1655405896475"
+      "$numberLong": "1655914856685"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655405896475"
+      "$numberLong": "1655915107552"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "62ab7df1b3233740a62dcc71"
+    "$oid": "62b3416b7d0fe2df3a6283a0"
   },
-  "username": 1111,
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "name": "عبدالرحمن بهيان",
   "department": "هندسة حاسوب",
   "level": "مستوى الرابع",
-  "subject": "إحصاء وإحتمالات",
+  "date": "2022-6-22",
+  "subject": "أنظمة تشغيل",
   "degree": "109",
+  "reson": "",
   "type": "جمع درجات",
-  "state": false,
+  "state": "مرفوض",
   "createdAt": {
     "$date": {
-      "$numberLong": "1655406065267"
+      "$numberLong": "1655914859815"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655406065267"
+      "$numberLong": "1655915106852"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "62ab7e898c629a5dd2a2fb34"
+    "$oid": "62b3416e7d0fe2df3a6283ac"
   },
-  "username": 1111,
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "name": "عبدالرحمن بهيان",
   "department": "هندسة حاسوب",
   "level": "مستوى الرابع",
-  "subject": "إحصاء وإحتمالات",
-  "degree": "109",
+  "date": "2022-6-22",
+  "subject": "معمارية حاسوب",
+  "degree": "111",
+  "reson": "",
   "type": "جمع درجات",
-  "state": false,
+  "state": "مقبول",
   "createdAt": {
     "$date": {
-      "$numberLong": "1655406217180"
+      "$numberLong": "1655914862815"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655406217180"
+      "$numberLong": "1655915104825"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "62ab7f00bd6c4e2fbf5941a0"
+    "$oid": "62b341717d0fe2df3a6283b8"
   },
-  "username": 1111,
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "name": "عبدالرحمن بهيان",
   "department": "هندسة حاسوب",
   "level": "مستوى الرابع",
-  "subject": "إحصاء وإحتمالات",
-  "degree": "109",
+  "date": "2022-6-22",
+  "subject": "قياسات الكترونية",
+  "degree": "136",
+  "reson": "",
   "type": "جمع درجات",
-  "state": false,
+  "state": "مرفوض",
   "createdAt": {
     "$date": {
-      "$numberLong": "1655406336674"
+      "$numberLong": "1655914865871"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655406336674"
+      "$numberLong": "1655915103767"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "62ab7f1e8e86baa6e5b8780b"
+    "$oid": "62b341747d0fe2df3a6283c4"
   },
-  "username": 1111,
+  "username": {
+    "$numberLong": "11111111111"
+  },
   "name": "عبدالرحمن بهيان",
   "department": "هندسة حاسوب",
   "level": "مستوى الرابع",
-  "subject": "إحصاء وإحتمالات",
-  "degree": "109",
+  "date": "2022-6-22",
+  "subject": "معالجات دقيقة",
+  "degree": "137",
+  "reson": "",
   "type": "جمع درجات",
-  "state": false,
+  "state": "مقبول",
   "createdAt": {
     "$date": {
-      "$numberLong": "1655406367004"
+      "$numberLong": "1655914868792"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655406367004"
-    }
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "62ab864d5dbe1c51722f7591"
-  },
-  "username": 1111,
-  "name": "عبدالرحمن بهيان",
-  "department": "هندسة حاسوب",
-  "level": "مستوى الرابع",
-  "subject": "إحصاء وإحتمالات",
-  "degree": "109",
-  "type": "جمع درجات",
-  "state": false,
-  "createdAt": {
-    "$date": {
-      "$numberLong": "1655408205055"
-    }
-  },
-  "updatedAt": {
-    "$date": {
-      "$numberLong": "1655408205055"
+      "$numberLong": "1655915102827"
     }
   },
   "__v": 0

@@ -54,6 +54,7 @@ module.exports.update_wallte = async (req, res) => {
         .catch(err => console.log(err));
 }
 
+// update state of student
 module.exports.update_state = async (req, res) => {
     const {username, state, wallet} = req.body;
 
@@ -66,7 +67,7 @@ module.exports.update_state = async (req, res) => {
 module.exports.update_User = async (req, res) => {
     const {username} = req.query;
 
-    Student.findOne({ username })
+    Student.findOne({ username }, {password: 0})
         .then(result => {
             return res.status(200).json(result)
         })

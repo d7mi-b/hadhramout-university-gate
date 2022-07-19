@@ -2,6 +2,14 @@ import React from 'react';
 import '../../css/student/unClanderSt.css'
 import { useState } from 'react';
 
+const getDate = (e) => {
+  const year = new Date(e).getFullYear();
+  const month = new Date(e).getMonth();
+  const day = new Date(e).getDate();
+
+  return `${year}-${month}-${day}`;
+}
+
 const UnCalenderSt = () => {
     const [sem1, setSem1] = useState([])
     const [sem2, setSem2] = useState([])
@@ -82,7 +90,7 @@ const UnCalenderSt = () => {
                     </tbody>
                 </table>
             </section>
-            
+
             {/* NOTES */}
             
         </div>

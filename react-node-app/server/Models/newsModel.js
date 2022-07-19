@@ -7,16 +7,12 @@ const newsSchema = new Schema(
     {
         title: {type: String},
         body: {type: String},
-        date: {type: String},
+        date: {type: Date},
         img: {
             data: Buffer,
-            contentType: String 
+            contentType: String
         }
-    },
-    {
-        timestamps: true
-    }
-);
+    });
 
 const News = mongoose.model("news",newsSchema);
 
