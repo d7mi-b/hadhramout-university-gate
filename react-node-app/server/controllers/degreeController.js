@@ -1,4 +1,3 @@
-const { ObjectId } = require('mongodb');
 const Degree = require('../Models/degreeModel');
 
 const degree_index = (req, res) => {

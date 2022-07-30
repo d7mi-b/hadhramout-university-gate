@@ -75,15 +75,10 @@ const updateStateGrv = async (req, res) => {
 
 // get all griveances of a student
 const MyGrievance = async (req, res) => {
-    const {username, page, state} = req.query;
+    const {username} = req.query;
 
-    const pages = page || 0;
-    const grvPerPage = 5;
-
-    Grievance.find({ username: username, state: state })
+    Grievance.find({ username: username })
         .sort({$natural: -1})
-        .skip(pages * grvPerPage)
-        .limit(grvPerPage)
         .then(result => {
             return res.status(200).json(result)
         })

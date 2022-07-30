@@ -5,6 +5,14 @@ import { useUser } from '../DataProvider';
 let amount = 5000;
 const date = new Date();
 
+const getDate = (e) => {
+    const year = new Date(e).getFullYear();
+    const month = new Date(e).getMonth() + 1;
+    const day = new Date(e).getDate();
+
+    return `${year}-${month}-${day}`;
+}
+
 const Renew = () => {
     const student = useUser();
     const [checkWallet, setCheckWallet] = useState(true);
@@ -31,19 +39,22 @@ const Renew = () => {
                     department: student.department,
                     typeOfRegister: student.typeOfRegister,
                     collage: student.collage,
-                    logo: '/server/public/Hadhrmout.jpg'
+                    logo: '/server/public/Hadhrmout.jpg',
+                    date: getDate(new Date())
                 }))
-                .then(res => console.log(res))
+                .then(res => {
+                    fetch('/updateUser?' + new URLSearchParams({
+                        username: student.username
+                    }))
+                    .then((res) => res.json())
+                    .then((data) => {
+                        window.sessionStorage.setItem('user', JSON.stringify(data))
+                        window.location.replace("/renew")
+                    });
+                })
                 .catch(err => console.log(err));
 
-                fetch('/updateUser?' + new URLSearchParams({
-                    username: student.username
-                }))
-                .then((res) => res.json())
-                .then((data) => {
-                    window.sessionStorage.setItem('user', JSON.stringify(data))
-                    window.location.reload()
-                });
+                
             }
         })
     }

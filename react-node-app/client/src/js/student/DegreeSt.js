@@ -122,7 +122,7 @@ const DegreeSt = () => {
                     .then((res) => res.json())
                     .then((data) => {
                         window.sessionStorage.setItem('user', JSON.stringify(data))
-                        window.location.reload()
+                        //window.location.reload()
                     });
                 }
             }).catch(err => console.log(err))

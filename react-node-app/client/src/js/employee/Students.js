@@ -118,7 +118,7 @@ const Student = () => {
         const username = e.target.value;
 
         fetch('/updateUser?' + new URLSearchParams({
-            username: username,
+            username,
         }))
         .then(res => res.json())
         .then(data => setSearchStudent(data))
@@ -140,12 +140,12 @@ const Student = () => {
 
             <form className='students-fillter'>
                 <section className='search-student'>
-                    <label for='search'>البحث عن طالب</label>
+                    <label htmlFor='search'>البحث عن طالب</label>
                     <input type='search' name='search' placeholder='رقم القيد الخاص بالطالب' onChange={searchStudent}/>
                 </section>
                 <section className='selects'>
                     <section className='levels'>
-                        <label for='level'>المستوى</label>
+                        <label htmlFor='level'>المستوى</label>
                         <select name='level' onChange={handelChangeLevel}>
                             {
                                 levels.map(e => {
@@ -157,7 +157,7 @@ const Student = () => {
                         </select>
                     </section>
                     <section className='type-of-register'>
-                        <label for='typeOfRegister'>نوع القبول</label>
+                        <label htmlFor='typeOfRegister'>نوع القبول</label>
                         <select name='typeOfRegister' onChange={handelTypesOfRegister}>
                             {
                                 typesOfRegister.map(e => {
@@ -169,7 +169,7 @@ const Student = () => {
                         </select>
                     </section>
                     <section className='levels'>
-                        <label for='level'>حالة القيد</label>
+                        <label htmlFor='level'>حالة القيد</label>
                         <select name='level' onChange={handelState}>
                             {
                                 states.map(e => {

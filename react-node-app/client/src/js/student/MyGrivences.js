@@ -3,11 +3,11 @@ import '../../css/employee/grivanceEmp.css'
 import { useUser } from '../DataProvider';
 
 const getDate = (e) => {
-  const year = new Date(e).getFullYear();
-  const month = new Date(e).getMonth();
-  const day = new Date(e).getDate();
+    const year = new Date(e).getFullYear();
+    const month = new Date(e).getMonth();
+    const day = new Date(e).getDate();
 
-  return `${year}-${month}-${day}`;
+    return `${year}-${month}-${day}`;
 }
 
 let states = [
@@ -27,7 +27,6 @@ let states = [
 
 const MyGrivences = () => {
     const [grivence, setGrivence] = useState([]);
-    const [state, setState] = useState(states[0].label);
     const [pages, setPage] = useState(0)
     const student = useUser();
 
@@ -35,16 +34,10 @@ const MyGrivences = () => {
         setPage(pages + 1)
     }
 
-    const handelChangeState = e => {
-        setState(e.target.value);
-    }
-
     useEffect(() => {
 
         fetch('/grievances/myGrievances?' + new URLSearchParams({
-            username: student.username,
-            page: +pages,
-            state: state
+            username: student.username
         }))
         .then((res) => res.json())
         .then((data) => setGrivence(data));
@@ -57,25 +50,9 @@ const MyGrivences = () => {
                 <h2>تظلماتي</h2>
             </header>
 
-            <sectoin className="choose-state">
-                <form action='#' method=''>
-                    <label htmlFor='state'>حالة التظلم</label>
-                    <select name='state' value={state} onChange={handelChangeState}>
-                        {
-                            states.map(e => {
-                                return (
-                                    <option key={e.id}>{e.label}</option>
-                                )
-                            })
-                        }
-                    </select>
-                </form>
-            </sectoin>
-
             <section className='grivance-container'>
                 {
                     grivence.map(e => {
-                        if (state === e.state)
                         return (
                             <article className='grivance' key={e._id} id={e._id}>
                                 <p className='bold'>بيانات الطالب</p>
