@@ -265,11 +265,105 @@
     top: 40px;
     left: 250px;
     margin: 20px;
-    background-color: var(--gray);
-    padding: 20px;
+    background-color: var(--dark-color);
+    padding: 10px;
     border-radius: 5px;
     display: none;
+    color: var(--gray);
+    scrollbar-color: var(--blue) var(--dark-color);
+    scrollbar-width: thin;
 }
+
+.navigations::-webkit-scrollbar-track {
+    scrollbar-color: var(--blue) var(--dark-color);
+    scrollbar-width: thin;
+}
+
+/* width */
+.navigations::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.navigations::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+.navigations::-webkit-scrollbar-thumb {
+    background: var(--blue);
+    border-radius: 10px;
+} 
+
+.empty-notification {
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+}
+
+.new-notification {
+    background-color: red;
+    padding: 5px;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    position: relative;
+    left: 20px;
+    top: 10px;
+    display: none;
+}
+
+
+.navigation {
+    background-image: linear-gradient(
+        135deg,
+        var(--dark-color) 0%,
+        var(--blue) 100%);
+    padding: 10px;
+    margin: 5px auto;
+    border-radius: 5px;
+    color: var(--gray);
+}
+
+.navigation time {
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+    font-size: 12px;
+    padding: 0 10px;
+}
+
+.navigation time p {
+    width: fit-content;
+}
+
+.navigation .info {
+    display: flex;
+    text-align: center;
+}
+
+.navigation p {
+    text-align: center;
+    width: 300px;
+}
+
+.navigation .delete {
+    width: 15px;
+    margin: 0 20px;
+}
+
+.navigation .delete svg {
+    fill: var(--gray);
+}
+
+.new-notify {
+    color: var(--hover-color);
+}
+
+.new-notify .delete svg {
+    fill: var(--hover-color);
+}
+
 /* END NAVIGATION */
 
 @media (min-width: 270px) and (max-width: 768px) {

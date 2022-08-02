@@ -8,7 +8,15 @@ const grievancePost = (req, res) => {
 
     grievance.save()
         .then(result => {
-            Student.updateOne({username: req.body.username}, {$set: {wallet: req.body.wallet}})
+            Student.updateOne({username: req.body.username}, {
+                $set: {wallet: req.body.wallet},
+                $push: {notification : {
+                    id: new Date().getTime(),
+                    notify: `تم رفع تظلم في مادة ${req.body.subject}`,
+                    new: true,
+                    date: new Date()
+                }}
+            })
                 .then(result => res.status(200).json(result))
                 .catch(err => console.log(err));
         })
@@ -23,7 +31,7 @@ const grievanceGet = async (req, res) => {
     const grvPerPage = 5;
 
     try {
-        const grievance = await Grievance.find({department: department})
+        const grievance = await Grievance.find({department: department, state: state})
             .sort({$natural: -1})
             .skip(pages * grvPerPage)
             .limit(grvPerPage)
@@ -36,14 +44,31 @@ const grievanceGet = async (req, res) => {
     }
 }
 
+const getSingleGrevince = (req, res) => {
+    const id = req.params.id;
+
+    Grievance.find({ _id: ObjectId(id)})
+    .then(result => res.status(200).json(result))
+    .catch(err => console.log(err));
+
+}
+
 // update state of a grievance
 const updateStateGrv = async (req, res) => {
-    const { _id, state} = req.body;
+    const { _id, state, subject, username} = req.body;
 
-    Grievance.updateOne({_id: ObjectId(_id)}, {$set: {state: req.body.state}})
+    Grievance.updateOne({_id: ObjectId(_id)}, {$set: {state: state}})
         .then(result => {
-            console.log(result)
-            return res.status(200);
+            Student.updateOne({username: username}, {
+                $push: {notification : {
+                    id: new Date().getTime(),
+                    notify: `تم تحديث حالة التظلم في مادة ${subject} إالى ${state}`,
+                    new: true,
+                    date: new Date()
+                }}
+            })
+                .then(result => res.status(200).json(result))
+                .catch(err => console.log(err));
         })
         .catch(err => console.log(err));
 }
@@ -68,6 +93,7 @@ const MyGrievance = async (req, res) => {
 module.exports = {
     grievancePost,
     grievanceGet,
+    getSingleGrevince,
     updateStateGrv,
     MyGrievance
 }

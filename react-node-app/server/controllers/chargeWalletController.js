@@ -20,7 +20,15 @@ module.exports.addToWallet= async (req,res) => {
 module.exports.updateWallet = async (req, res) => {
     const {username, amount} = req.body;
 
-    Student.updateOne({username:username}, {$inc: {wallet: amount}})
+    Student.updateOne({username:username}, {
+        $inc: {wallet: amount},
+        $push: {notification : {
+            id: new Date().getTime(),
+            notify: `تم شحن المحفظة بمبلغ ${amount} ريال`,
+            new: true,
+            date: new Date()
+        }}
+    })
         .then(result => res.status(200).json("wallet updated"))
         .catch(err => console.log(err));
 }
@@ -29,7 +37,15 @@ module.exports.updateWallet = async (req, res) => {
 module.exports.withdrawWallet = async (req, res) => {
     const {username, amount} = req.body;
 
-    Student.updateOne({username:username}, {$inc: {wallet: -amount}})
+    Student.updateOne({username:username}, {
+        $inc: {wallet: -amount},
+        $push: {notification : {
+            id: new Date().getTime(),
+            notify: `تم السحب من المحفظة مبلغ ${amount} ريال`,
+            new: true,
+            date: new Date()
+        }}
+    })
         .then(result => res.status(200).json("wallet updated"))
         .catch(err => console.log(err));
 }

@@ -27,6 +27,7 @@ import MyGrivences from "./js/student/MyGrivences";
 import SuggestionsST from "./js/student/SuggestionsST";
 import SuggestionEmp from "./js/employee/SuggestionEmp";
 import CalanderEmp from "./js/employee/CalanderEmp";
+import Student from "./js/employee/Students";
 
 function App() {
   const [student, setStudent] = useState();
@@ -166,13 +167,19 @@ function App() {
                 </Route>
 
                 {/* GRIVENCES PAGE FOR EMPLOYEE */}
-                  <Route path='/grievance-emp'>
-                    <GrivenceEmp />
-                  </Route>
+                <Route path='/grievance-emp'>
+                  <GrivenceEmp />
+                </Route>
 
-                  <Route path='/suggestion-Emp'>
-                    <SuggestionEmp />
-                  </Route>
+                {/* SUGGESTION PAGE FOR EMPLOYEE */}
+                <Route path='/suggestion-Emp'>
+                  <SuggestionEmp />
+                </Route>
+
+                {/* STUDENTS PAGE FOR EMPLOYEE */}
+                <Route path='/students'>
+                  <Student />
+                </Route>
 
                   <Route path='/Add-calander'>
                     <CalanderEmp />

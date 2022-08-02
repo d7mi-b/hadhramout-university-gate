@@ -250,7 +250,11 @@ const ScheduleEmp = () => {
         })
     }
 
-    useEffect(getSchedule);
+    React.useEffect(() => {
+        getSchedule();
+
+    }, [])
+    
 
     return (
         <div className="container-schedule container-page container">

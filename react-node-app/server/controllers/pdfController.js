@@ -3,51 +3,39 @@ const fs = require('fs-extra');
 const hbs = require('handlebars');
 const path = require('path');
 const moment = require('moment');
-const express = require('express');
-const Student = require('../Models/studentModel');
 
-const compile = async (templateName, data) => {
-    const filePath = path.join(process.cwd(), 'server/controllers/templates', `${templateName}.hbs`);
-    const html = await fs.readFile(filePath, 'utf-8');
-    return hbs.compile(html)(data)
+function renderTemplate(data, templateName) {
+    const html = fs.readFileSync(path.join(process.cwd(), 'server/controllers/templates', `${templateName}.hbs`), {
+        encoding: "utf-8",
+    });
+
+    const template = hbs.compile(html);
+
+    const rendered = template(data);
+    return rendered;
 }
 
-hbs.registerHelper('dataFormat', (value, format) => {
-    return moment(value.format(format))
-})
+async function createPdf(outputPath, htmlContent) {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
 
-module.exports.regCirt =  (req, res) => {
+    await page.setContent(htmlContent);
 
-    (async function() {
-        try {
-            const browser = await puppeteer.launch();
-            const page = await browser.newPage();
+    await page.emulateMediaType("print");
+    await page.pdf({path: outputPath, format: "A4"});
 
-            // for name of pdf file
-            let milis = new Date();
-	        milis = milis.getTime();
+    await browser.close();
+}
 
-            const content = await compile('/regCit', req.query);
+module.exports.regCirt =  async (req, res) => {
 
-            await page.setContent(content);
-            await page.emulateMediaType('screen');
-            await page.pdf({
-                path: `${milis}.pdf`,
-                format: "A4",
-                printBackground: true
-            });
+    const htmlContent = renderTemplate(req.query, '/regCit');
 
-            await browser.close();
-            return res.status(200);
-        }
-        catch(err) {
-            console.log(err)
-        }
-    })();
+    await createPdf(`${new Date().getTime()}.pdf`, htmlContent);
 
 };
 
-module.exports.degreeSt = (req, res) => {
+module.exports.degreeSt = async (req, res) => {
     const data = {
         username: req.query.username,
         name: req.query.name,
@@ -68,30 +56,8 @@ module.exports.degreeSt = (req, res) => {
         subjects: JSON.parse(req.query.subjects)
     };
 
-    (async function() {
-        try {
-            const browser = await puppeteer.launch();
-            const page = await browser.newPage();
+    const htmlContent = renderTemplate(data, '/degreesSt');
 
-            // for name of pdf file
-            let milis = new Date().getTime();
-
-            const content = await compile('/degreesSt', data);
-
-            await page.setContent(content);
-            await page.emulateMediaType('screen');
-            await page.pdf({
-                path: `${milis}.pdf`,
-                format: "A4",
-                printBackground: true
-            });
-
-            await browser.close();
-        }
-        catch(err) {
-            console.log(err)
-        }
-    })();
-
+    await createPdf(`${new Date().getTime()}.pdf`, htmlContent);
 
 };

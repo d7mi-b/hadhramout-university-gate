@@ -44,6 +44,16 @@ const CalanderEmp = () => {
     const [sem1, setSem1] = useState([])
     const [sem2, setSem2] = useState([])
 
+    const getDate = (e) => {
+        const year1 = new Date(e).getFullYear();
+        const month = new Date(e).getMonth();
+        const day = new Date(e).getDate();
+    
+        return `${year1}-${month}-${day}`;
+    }
+
+    
+
     const addCalander = (e) => {
         const form = document.getElementById('cal-form')
         const details = form.details.value;
@@ -86,17 +96,39 @@ const CalanderEmp = () => {
          
     }
 
+    const hijri = (date) => {
+        var now = date;
+        var dayOfYear = Math.floor((new Date() - new Date(new Date(now).getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24))
+        var hijriDate = ((new Date(now).getFullYear()-621.5643)*365.24225 + dayOfYear) / 354.36707
+        var hijriYear = Math.floor(hijriDate)
+        var hijriMonth = Math.ceil((hijriDate - Math.floor(hijriDate)) * 354.36707 / 29.530589)
+        var hijriDay = Math.floor((hijriDate - Math.floor(hijriDate)) * 354.36707 % 29.530589)
+
+        return `${hijriYear}-${hijriMonth}-${hijriDay-2}`;
+    }
+    
+    function GetHijriDate(dateTime) {    
+        var dayOfYear = Math.floor((new Date(dateTime) - new Date(new Date(dateTime).getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24))
+        var hijriDate = ((new Date(dateTime).getFullYear() - 621.5643) * 365.24225 + dayOfYear) / 354.36707
+        var hijriYear = Math.floor(hijriDate)
+        var hijriMonth = Math.ceil((hijriDate - Math.floor(hijriDate)) * 354.36707 / 29.530589)
+        var hijriDay = Math.floor((hijriDate - Math.floor(hijriDate)) * 354.36707 % 29.530589)
+        return `${hijriYear}-${hijriMonth}-${hijriDay}`
+    }
+
     const addDetails = (e) => {
         
         const form = document.getElementById('cal-form')
         const date = form.date.value;
         const details = form.details.value;
         const Id = Math.random();
+        const hijridate = GetHijriDate(date);
+    
 
         fetch(`/calander/${id}`,{
             method:'PATCH',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({date, details, semester, Id})
+            body: JSON.stringify({date, details, semester, Id, hijridate})
         })
         .then(res => res.json())
         .then(result => {
@@ -116,8 +148,7 @@ const CalanderEmp = () => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({Id: e, sem:i}) 
             })
-            .then(res => res.json())
-            .then(result => addCalander())
+            .then(res =>addCalander())
             .catch(err => console.log(err))
     }
 
@@ -193,6 +224,7 @@ const CalanderEmp = () => {
                     <thead>
                         <tr>
                             <th><h4>التاريخ الميلادي</h4></th>
+                            <th><h4>التاريخ الهجري</h4></th>
                             <th><h4>التفاصيل</h4></th>
 
                         </tr>
@@ -203,7 +235,8 @@ const CalanderEmp = () => {
                             sem1.map(e => {
                                 return(
                                     <tr key={e.Id}>
-                                        <td>{e.date}</td>
+                                        <td><time dateTime={getDate(e.date)} className="new-date">{e.date}</time></td>
+                                        <td><time dateTime={e.hijridate} className="new-date">{e.hijridate}</time></td>
                                         <td>{e.details}</td>
                                         <td className='deletebtn'>
                                             <div className='delete icons'>
@@ -228,6 +261,7 @@ const CalanderEmp = () => {
                     <thead>
                         <tr>
                             <th><h4>التاريخ الميلادي</h4></th>
+                            <th><h4>التاريخ الهجري</h4></th>
                             <th><h4>التفاصيل</h4></th>
 
                         </tr>
@@ -239,6 +273,7 @@ const CalanderEmp = () => {
                                 return(
                                     <tr key={e.Id}>
                                         <td>{e.date}</td>
+                                        <td>{e.hijridate}</td>
                                         <td>{e.details}</td>
                                         <td className='deletebtn'>
                                             <div className='delete icons'>

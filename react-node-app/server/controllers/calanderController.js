@@ -19,13 +19,13 @@ module.exports.add_cal= async (req,res) => {
 
 module.exports.add_details = (req,res) => {
     const id = req.params.id;
-    const {date, details, semester, Id} = req.body;
+    const {date, details, semester, Id, hijridate} = req.body;
 
 
         
         if(semester === 'first-semestar')
         {
-            Calander.findByIdAndUpdate({_id: ObjectId(id)},{$push:{semester1: {date, details, Id}}})
+            Calander.findByIdAndUpdate({_id: ObjectId(id)},{$push:{semester1: {date, hijridate, details, Id}}})
             .then(result => {
             
                 res.status(201).json(result);
@@ -36,7 +36,7 @@ module.exports.add_details = (req,res) => {
             }); 
         }
         else {
-            Calander.findByIdAndUpdate({_id: ObjectId(id)},{$push:{semester2:{date, details, Id}}})
+            Calander.findByIdAndUpdate({_id: ObjectId(id)},{$push:{semester2:{date, hijridate, details, Id}}})
             .then(result => {
             
                 res.status(201).json(result);

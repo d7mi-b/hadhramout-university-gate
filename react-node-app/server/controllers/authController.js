@@ -64,6 +64,7 @@ module.exports.update_state = async (req, res) => {
         .catch(err => console.log(err));
 }
 
+// update data of user
 module.exports.update_User = async (req, res) => {
     const {username} = req.query;
 
@@ -74,16 +75,58 @@ module.exports.update_User = async (req, res) => {
         .catch(err => console.log(err))
 }
 
+// delete notification
+module.exports.deleteNotification = async (req, res) => {
+    const {username, id} = req.body;
+
+    Student.updateOne({username: username}, {$pull: {notification: {id: +id}}})
+    .then(result => res.status(200).json(result))
+    .catch(err => console.log(err))
+}
+
+// update state of notification
+module.exports.stateNotification = async (req, res) => {
+    const {username, id} = req.body;
+
+    Student.updateOne({username: username, "notification.id": +id}, {$set: {"notification.$.new": false}})
+    .then(result => res.status(200).json(result))
+    .catch(err => console.log(err))
+}
+
+// get students from database
+module.exports.getStudents = (req, res) => {
+    const department = req.params.department;
+
+    Student.find({department: department})
+    .then(result => res.status(200).json(result))
+    .catch(err => console.log(err));
+}
+
+module.exports.addNotification = async (req, res) => {
+    const {username, notify} = req.body;
+
+    Student.updateOne({username: username}, {$push: {notification : {
+        id: new Date().getTime(),
+        notify: `الرجاء ${notify}`,
+        new: true,
+        date: new Date()
+    }}})
+    .then(result => res.status(200).json(result))
+    .catch(err => console.log(err))
+}
+
 //To add students with Hashed password
 module.exports.registerStudent= async (req,res) => {
 
         try{
             const student = await Student.create({
                 name:"علي محمد",
-                age:24,
-                email:"abdulrahman@gmail.com",
-                phoneNo:7345689,
-                dateOfBirth:"27-5-1998",
+                email:"ali@gmail.com",
+                DOB:"27-5-1998",
+                POB: 'المكلا',
+                sex: 'ذكر',
+                nationality: 'اليمن',
+                yearToJoin: '2018-2019',
                 level: "المستوى الرابع",
                 department:"هندسة حاسوب",
                 semester:"الفصل الدراسي الأول",
@@ -93,8 +136,9 @@ module.exports.registerStudent= async (req,res) => {
                 state: true,
                 wallet:10000,
                 GPA: '79%',
-                username:1111,
-                password:"1234"
+                username:33333333333,
+                password:"1234",
+                notification: [],
             })
             res.status(201).json(student)
         }
