@@ -49,7 +49,7 @@ const CalanderEmp = () => {
         const month = new Date(e).getMonth();
         const day = new Date(e).getDate();
     
-        return `${year1}-${month}-${day}`;
+        return `${year1}-${month+1}-${day}`;
     }
 
     
@@ -96,20 +96,11 @@ const CalanderEmp = () => {
          
     }
 
-    const hijri = (date) => {
-        var now = date;
-        var dayOfYear = Math.floor((new Date() - new Date(new Date(now).getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24))
-        var hijriDate = ((new Date(now).getFullYear()-621.5643)*365.24225 + dayOfYear) / 354.36707
-        var hijriYear = Math.floor(hijriDate)
-        var hijriMonth = Math.ceil((hijriDate - Math.floor(hijriDate)) * 354.36707 / 29.530589)
-        var hijriDay = Math.floor((hijriDate - Math.floor(hijriDate)) * 354.36707 % 29.530589)
 
-        return `${hijriYear}-${hijriMonth}-${hijriDay-2}`;
-    }
     
     function GetHijriDate(dateTime) {    
-        var dayOfYear = Math.floor((new Date(dateTime) - new Date(new Date(dateTime).getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24))
-        var hijriDate = ((new Date(dateTime).getFullYear() - 621.5643) * 365.24225 + dayOfYear) / 354.36707
+        var dayOfYear = Math.floor((dateTime - new Date(dateTime.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24))
+        var hijriDate = ((dateTime.getFullYear() - 621.5643) * 365.24225 + dayOfYear) / 354.36707
         var hijriYear = Math.floor(hijriDate)
         var hijriMonth = Math.ceil((hijriDate - Math.floor(hijriDate)) * 354.36707 / 29.530589)
         var hijriDay = Math.floor((hijriDate - Math.floor(hijriDate)) * 354.36707 % 29.530589)
@@ -119,7 +110,7 @@ const CalanderEmp = () => {
     const addDetails = (e) => {
         
         const form = document.getElementById('cal-form')
-        const date = form.date.value;
+        const date = new Date(form.date.value);
         const details = form.details.value;
         const Id = Math.random();
         const hijridate = GetHijriDate(date);
@@ -235,7 +226,7 @@ const CalanderEmp = () => {
                             sem1.map(e => {
                                 return(
                                     <tr key={e.Id}>
-                                        <td><time dateTime={getDate(e.date)} className="new-date">{e.date}</time></td>
+                                        <td><time dateTime={getDate(e.date)} className="new-date">{getDate(e.date)}</time></td>
                                         <td><time dateTime={e.hijridate} className="new-date">{e.hijridate}</time></td>
                                         <td>{e.details}</td>
                                         <td className='deletebtn'>
@@ -272,7 +263,7 @@ const CalanderEmp = () => {
                             sem2.map(e => {
                                 return(
                                     <tr key={e.Id}>
-                                        <td>{e.date}</td>
+                                        <td>{getDate(e.date)}</td>
                                         <td>{e.hijridate}</td>
                                         <td>{e.details}</td>
                                         <td className='deletebtn'>

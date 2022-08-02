@@ -41,6 +41,7 @@ const UnCalenderSt = () => {
                     <thead>
                         <tr>
                             <th><h4>التاريخ الميلادي</h4></th>
+                            <th><h4>التاريخ الهجري</h4></th>
                             <th><h4>التفاصيل</h4></th>
 
                         </tr>
@@ -51,7 +52,8 @@ const UnCalenderSt = () => {
                             sem1.map(e => {
                                 return(
                                     <tr key={e.Id}>
-                                        <td>{e.date}</td>
+                                        <td>{getDate(e.date)}</td>
+                                        <td>{e.hijridate}</td>
                                         <td>{e.details}</td>
                                     </tr>
                                     
@@ -71,6 +73,7 @@ const UnCalenderSt = () => {
                 <thead>
                         <tr>
                             <th><h4>التاريخ الميلادي</h4></th>
+                            <th><h4>التاريخ الهجري</h4></th>
                             <th><h4>التفاصيل</h4></th>
 
                         </tr>
@@ -81,7 +84,8 @@ const UnCalenderSt = () => {
                             sem2.map(e => {
                                 return(
                                     <tr key={e.Id}>
-                                        <td>{e.date}</td>
+                                        <td>{getDate(e.date)}</td>
+                                        <td>{e.hijridate}</td>
                                         <td>{e.details}</td>
                                     </tr>
                                 )
