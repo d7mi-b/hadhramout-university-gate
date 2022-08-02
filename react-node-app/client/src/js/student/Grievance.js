@@ -4,14 +4,11 @@ import { useUser } from '../DataProvider';
 import {Link} from 'react-router-dom';
 
 let subjects = [];
+let data = [];
 
 let amount = 5000;
 
 let counter = 0;
-
-// get the date of today
-var d = new Date(); 
-var NoTimeDate = d.getFullYear()+'-'+(d.getMonth() +1)+'-'+(d.getDate());
 
 let canSelect = true;
 let selectType = true;
@@ -31,13 +28,13 @@ const Grievance = () => {
     const student = useUser();
     const [degrees, setDegree] = useState([]);
     const [checkAmount, setCheckAmount] = useState(true);
-    const [checkOpenTest, setCheckOpenTest] = useState(0);
+    const [myGrivences, setMyGrivences] = useState([]);
     const [data] = useState({
         username: student.username,
         name: student.name,
         department: student.department,
         level: student.level,
-        date: NoTimeDate,
+        date: new Date(),
         subject: '',
         degree: 0,
         reson: '',
@@ -170,11 +167,16 @@ const Grievance = () => {
 
         // fetch degrees of student
         fetch('/degree?'  + new URLSearchParams({
-            username: student.username,
-            name: student.name
+            username: student.username
         }))
         .then((res) => res.json())
         .then((data) => setDegree(data));
+
+        fetch('/grievances/myGrievances?' + new URLSearchParams({
+            username: student.username,
+        }))
+        .then((res) => res.json())
+        .then((data) => setMyGrivences(data));
 
     }, [])
 
@@ -185,7 +187,31 @@ const Grievance = () => {
         })
     })
 
-    checkPoints(subjects)
+    const checkSubjects = () => {
+        let data = [];
+        for(let i = 0; i < subjects.length; i++) {
+            for(let j = 0; j < myGrivences.length; j++) {
+                if(myGrivences[j].subject === subjects[i].name) {
+                    myGrivences.pop(myGrivences[j]);
+                }
+                else {
+                    if (data.length === 0) {
+                        data.push(subjects[i])
+                    }
+                    else
+                        for (let k = 0; k < data.length; k++) {
+                            console.log(data[k].name)
+                            if (data[k].name === subjects[i].name)
+                                continue;
+                        }
+                }
+            }
+        }
+        console.log(data)
+    }
+
+    checkPoints(subjects);
+    checkSubjects();
 
     return (
         <div className="container container-page grievance">
@@ -199,7 +225,7 @@ const Grievance = () => {
                 </header>
                 <section className="subjects-container">
                     {
-                        subjects.map(e => {
+                        subjects.map((e, j, arr) => {
                             return (
                                 <article className="subject" key={e.id} id={e.id} onClick={chooseSubject}>
                                     <p className='bold' id='name'>{e.name}</p>
