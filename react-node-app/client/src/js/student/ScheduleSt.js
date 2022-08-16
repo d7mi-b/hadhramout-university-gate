@@ -66,18 +66,17 @@ const ScheduleSt = () => {
                                 <tr className='day' key={e.id}>
                                     <th><p className='bold'>{e.day}</p></th>
                                     {
-                                        
                                         schedule.map(i => {
-                                            if (e.day === i.day)
-                                           { 
-                                               return (
+                                            if (e.day === i.day) { 
+                                                return (
                                                 <td className='subject' key={i.Id}>
                                                     <p className='bold'>{i.subject}</p>
                                                     <p>{i.prof}</p>
                                                     <p>{i.time_from}-{i.time_to}</p>
                                                     <p>{i.place}</p>
                                                 </td>
-                                            )}
+                                                )
+                                            }
                                         })
                                     }
                                 </tr>

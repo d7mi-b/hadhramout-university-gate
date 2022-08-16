@@ -253,6 +253,20 @@
     font-size: 0.7rem;
 }
 
+.profile .edit-info a {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: .9rem;
+    display: block;
+    margin: 5px 0;
+}
+
+.profile .edit-info a:hover {
+    color: var(--hover-color);
+    transform: scale(1.04);
+    transition: 0.2s;
+}
+
 .profile-list:hover .profile,
 .navigation-list:hover .navigations {
     display: block;

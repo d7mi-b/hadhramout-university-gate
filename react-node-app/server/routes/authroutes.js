@@ -16,6 +16,7 @@ router.patch('/deleteNotification', authController.deleteNotification);
 router.patch('/stateNotification', authController.stateNotification);
 router.get('/getStudents/:department', authController.getStudents);
 router.patch('/addNotification', authController.addNotification);
+router.patch('/changePassword', authController.changePassword);
 
 
 

@@ -57,13 +57,11 @@ const CalanderEmp = () => {
     const addCalander = (e) => {
         const form = document.getElementById('cal-form')
         const details = form.details.value;
-       
 
         fetch(`/calander/${year}`)
         .then(res => res.json())
         .then(data => {
             if(data){
-                console.log(data._id)
                 setId(data._id)
                 setSem1(data.semester1)
                 setSem2(data.semester2)
@@ -93,11 +91,8 @@ const CalanderEmp = () => {
         })
         .catch(err => console.log(err))
 
-         
     }
 
-
-    
     function GetHijriDate(dateTime) {    
         var dayOfYear = Math.floor((dateTime - new Date(dateTime.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24))
         var hijriDate = ((dateTime.getFullYear() - 621.5643) * 365.24225 + dayOfYear) / 354.36707
@@ -143,8 +138,6 @@ const CalanderEmp = () => {
             .catch(err => console.log(err))
     }
 
-
-
     const handelChangeSem = e => {
         setSemester(e.target.value);
     }
@@ -153,12 +146,10 @@ const CalanderEmp = () => {
         setYear(e.target.value);
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         addCalander();
-
     }, [])
     
-
     return(
         <div className='container-schedule container-page container'>
             <header className="header">
@@ -190,7 +181,7 @@ const CalanderEmp = () => {
                             }
                         </select>
                     </div>
-                   
+
                     <div>
                         <label htmlFor='date' className='edit-text'>التاريخ</label>
                         <input name='date' type='date' className='form__field data' ></input>
@@ -203,8 +194,7 @@ const CalanderEmp = () => {
                 <div className='btn-add'>
                         <button  className='btn btn-add' onClick={addCalander} >اضافة</button>
                 </div>
-                
-                
+
             </section>
 
             <section className='semestar'>
@@ -217,7 +207,6 @@ const CalanderEmp = () => {
                             <th><h4>التاريخ الميلادي</h4></th>
                             <th><h4>التاريخ الهجري</h4></th>
                             <th><h4>التفاصيل</h4></th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -242,7 +231,7 @@ const CalanderEmp = () => {
                     </tbody>
                 </table>
             </section>
- 
+
             {/* SECOND SEMESTER */}
             <section className='semestar'>
                 <header>
@@ -254,7 +243,6 @@ const CalanderEmp = () => {
                             <th><h4>التاريخ الميلادي</h4></th>
                             <th><h4>التاريخ الهجري</h4></th>
                             <th><h4>التفاصيل</h4></th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -281,8 +269,5 @@ const CalanderEmp = () => {
         </div>
     )
 }
-
-
-
 
 export default CalanderEmp;

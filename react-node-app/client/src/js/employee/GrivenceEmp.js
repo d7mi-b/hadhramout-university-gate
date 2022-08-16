@@ -59,7 +59,7 @@ const GrivenceEmp = () => {
                     subject: data.subject,
                     username: data.username
                 })
-            }).then((result) => console.log(result))
+            }).then((result) => result)
             .catch((err) => console.log(err));
     }
 
@@ -82,7 +82,7 @@ const GrivenceEmp = () => {
                     subject: data.subject,
                     username: data.username
                 })
-            }).then((result) => console.log(result))
+            }).then((result) => result)
             .catch((err) => console.log(err));
     }
 

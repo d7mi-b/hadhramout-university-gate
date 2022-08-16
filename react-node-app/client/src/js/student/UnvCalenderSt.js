@@ -3,11 +3,11 @@ import '../../css/student/unClanderSt.css'
 import { useState } from 'react';
 
 const getDate = (e) => {
-  const year = new Date(e).getFullYear();
-  const month = new Date(e).getMonth();
-  const day = new Date(e).getDate();
+    const year = new Date(e).getFullYear();
+    const month = new Date(e).getMonth();
+    const day = new Date(e).getDate();
 
-  return `${year}-${month}-${day}`;
+    return `${year}-${month}-${day}`;
 }
 
 const UnCalenderSt = () => {
@@ -19,7 +19,7 @@ const UnCalenderSt = () => {
         fetch(`/calander/last`)
         .then(res => res.json())
         .then(result => 
-          {
+        {
             setSem1(result.semester1)
             setSem2(result.semester2)
             setYear(result.year)

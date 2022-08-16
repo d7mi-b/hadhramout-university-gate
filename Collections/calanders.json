@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "62effe9a066ce279f6d5cc4d"
+  },
+  "year": "2021-2022",
+  "semester1": [
+    {
+      "date": "2022-08-15T00:00:00.000Z",
+      "hijridate": "1444-1-19",
+      "details": "بداية العام",
+      "Id": 0.574133765527331
+    }
+  ],
+  "semester2": [
+    {
+      "date": "2022-10-26T00:00:00.000Z",
+      "hijridate": "1444-4-2",
+      "details": "نهاية العام",
+      "Id": 0.3444447247521939
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1659895450334"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1659895694157"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62effe9a066ce279f6d5cc4b"
+  },
+  "year": "2021-2022",
+  "semester1": [],
+  "semester2": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1659895450331"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1659895450331"
+    }
+  },
+  "__v": 0
+}]

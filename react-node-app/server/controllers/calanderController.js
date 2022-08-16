@@ -83,9 +83,8 @@ module.exports.get_last = async (req,res) => {
 
     
     try{
-    const get = await Calander.findOne().sort({year:-1})
-     res.status(200).json(get)
-    
+        const get = await Calander.findOne().sort({year:-1})
+            res.status(200).json(get)
     }
     catch(err){
         console.log(err)

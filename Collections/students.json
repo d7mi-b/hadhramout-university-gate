@@ -7,7 +7,7 @@
     "$numberLong": "22222222222"
   },
   "email": "halah@gmail.com",
-  "wallet": 5000,
+  "wallet": 4800,
   "level": "المستوى الرابع",
   "department": "هندسة حاسوب",
   "typeOfRegister": "قبول عام",
@@ -19,7 +19,7 @@
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1655648291761"
+      "$numberLong": "1657789300001"
     }
   },
   "__v": 0,
@@ -33,14 +33,25 @@
   "nationality": "اليمن",
   "DOB": {
     "$date": {
-      "$numberLong": "921445200000"
+      "$numberLong": "919026000000"
     }
   },
   "POB": "السعودية",
   "yearToJoin": "2018-2019",
   "gread": "ممتاز",
   "notification": [
-    ""
+    {
+      "id": {
+        "$numberLong": "1657789300000"
+      },
+      "notify": "تم إصدار شهادة قيد",
+      "new": true,
+      "date": {
+        "$date": {
+          "$numberLong": "1657789300000"
+        }
+      }
+    }
   ]
 },{
   "_id": {
@@ -52,7 +63,7 @@
   },
   "email": "abdulrahman@gmail.com",
   "state": true,
-  "wallet": 26700,
+  "wallet": 29500,
   "level": "المستوى الرابع",
   "department": "هندسة حاسوب",
   "typeOfRegister": "نفقة خاصة",
@@ -64,7 +75,7 @@
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1657529140706"
+      "$numberLong": "1660584036699"
     }
   },
   "__v": 0,
@@ -101,36 +112,96 @@
         "$numberLong": "1657528962173"
       },
       "notify": "تم شحن المحفظة بمبلغ 10000 ريال",
-      "new": true,
+      "new": false,
       "date": {
         "$date": {
           "$numberLong": "1657528962173"
         }
       }
-    },
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "62f3f4ffcceac7f4f74050b9"
+  },
+  "name": "علي محمد",
+  "username": {
+    "$numberLong": "33333333333"
+  },
+  "email": "ali@gmail.com",
+  "state": true,
+  "wallet": 9000,
+  "level": "المستوى الرابع",
+  "department": "هندسة حاسوب",
+  "semester": "الفصل الدراسي الأول",
+  "group1": "A",
+  "group2": "صباحي",
+  "typeOfRegister": "نفقة خاصة",
+  "password": "$2a$10$LKrHogLi1Rqui598ATo02OqPSNr/mFNim2txceydYsdVqYSdGKsvK",
+  "GPA": "79%",
+  "sex": "ذكر",
+  "nationality": "اليمن",
+  "POB": "المكلا",
+  "yearToJoin": "2018-2019",
+  "notification": [
     {
       "id": {
-        "$numberLong": "1657528996342"
+        "$numberLong": "1660483278099"
       },
-      "notify": "تم إصدار شهادة قيد",
-      "new": true,
+      "notify": "تم تغيير كلمة المرور بنجاح",
+      "new": false,
       "date": {
         "$date": {
-          "$numberLong": "1657528996342"
+          "$numberLong": "1660483278099"
         }
       }
     },
     {
       "id": {
-        "$numberLong": "1657529140705"
+        "$numberLong": "1660680418611"
       },
-      "notify": "تم تحديث حالة التظلم في مادة أنظمة تشغيل إالى مقبول",
+      "notify": "تم رفع تظلم في مادة معالجات دقيقة",
+      "new": false,
+      "date": {
+        "$date": {
+          "$numberLong": "1660680418611"
+        }
+      }
+    },
+    {
+      "id": {
+        "$numberLong": "1660680427147"
+      },
+      "notify": "تم رفع تظلم في مادة أنظمة تشغيل",
       "new": true,
       "date": {
         "$date": {
-          "$numberLong": "1657529140705"
+          "$numberLong": "1660680427147"
+        }
+      }
+    },
+    {
+      "id": {
+        "$numberLong": "1660680622873"
+      },
+      "notify": "تم تغيير كلمة المرور بنجاح",
+      "new": true,
+      "date": {
+        "$date": {
+          "$numberLong": "1660680622873"
         }
       }
     }
-  ]
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1660155135426"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1660680622874"
+    }
+  },
+  "__v": 0
 }]

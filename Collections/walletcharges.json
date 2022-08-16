@@ -90,4 +90,58 @@
     }
   },
   "__v": 0
+},{
+  "_id": {
+    "$oid": "62caeb6437bf0d8eea51476a"
+  },
+  "studentNo": {
+    "$numberLong": "11111111111"
+  },
+  "studentName": "عبدالرحمن بهيان",
+  "checkNo": 111455522,
+  "amount": 10000,
+  "type": "إيداع",
+  "date": {
+    "$date": {
+      "$numberLong": "1657411200000"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1657465700893"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1657465700893"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62cbe28259152103315cdce0"
+  },
+  "studentNo": {
+    "$numberLong": "11111111111"
+  },
+  "studentName": "عبدالرحمن بهيان",
+  "checkNo": 145557887,
+  "amount": 10000,
+  "type": "إيداع",
+  "date": {
+    "$date": {
+      "$numberLong": "1657497600000"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1657528962230"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1657528962230"
+    }
+  },
+  "__v": 0
 }]

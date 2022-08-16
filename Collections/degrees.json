@@ -260,4 +260,266 @@
       "id": 3
     }
   ]
+},{
+  "_id": {
+    "$oid": "62a82e0d3aab54b31cef1cdd"
+  },
+  "username": {
+    "$numberLong": "33333333333"
+  },
+  "levels": [
+    {
+      "levelName": "المستوى الأول",
+      "semesters": [
+        {
+          "semester": "الفصل الدراسي الأول",
+          "semAvg": "86%",
+          "semGrd": "جيد جدًا",
+          "subjects": [
+            {
+              "name": "رياضيات 4",
+              "hours": 3,
+              "degree": 100,
+              "points": 3,
+              "grade": "جيد",
+              "id": 11
+            }
+          ]
+        }
+      ],
+      "id": 1
+    },
+    {
+      "levelName": "المستوى الثاني",
+      "semesters": [
+        {
+          "semester": "الفصل الدراسي الأول",
+          "semAvg": "82%",
+          "semGrd": "جيد جدًا",
+          "subjects": [
+            {
+              "id": 21,
+              "name": "رياضيات 3",
+              "hours": 3,
+              "degree": 114,
+              "points": 2,
+              "grade": "جيد"
+            },
+            {
+              "id": 22,
+              "name": "مقدمة برمجة 2",
+              "hours": 3,
+              "degree": 124,
+              "points": 3,
+              "grade": "جيد جدًا"
+            },
+            {
+              "id": 23,
+              "name": "رياضيات متقطعة",
+              "hours": 3,
+              "degree": 120,
+              "points": 3,
+              "grade": "جيد جدًا"
+            },
+            {
+              "id": 24,
+              "name": "أجهزة إلكترونية",
+              "hours": 3,
+              "degree": 122,
+              "points": 3,
+              "grade": "جيد جدًا"
+            },
+            {
+              "id": 25,
+              "name": "إحتسابية عددية",
+              "hours": 3,
+              "degree": 120,
+              "points": 3,
+              "grade": "جيد جدًا"
+            },
+            {
+              "id": 26,
+              "name": "لغة إنجليزية فنية",
+              "hours": 2,
+              "degree": 97,
+              "points": 4,
+              "grade": "ممتاز"
+            }
+          ]
+        },
+        {
+          "semester": "الفصل الدراسي الثاني",
+          "semAvg": "85%",
+          "semGrd": "جيد جدًا",
+          "subjects": [
+            {
+              "id": 21,
+              "name": "رياضيات 4",
+              "hours": 3,
+              "degree": 100,
+              "points": 2,
+              "grade": "جيد"
+            },
+            {
+              "id": 22,
+              "name": "هيكلة بيانات",
+              "hours": 3,
+              "degree": 124,
+              "points": 3,
+              "grade": "جيد جدًا"
+            },
+            {
+              "id": 23,
+              "name": "تصميم منطقي",
+              "hours": 4,
+              "degree": 177,
+              "points": 3,
+              "grade": "جيد جدًا"
+            },
+            {
+              "id": 24,
+              "name": "إشارات ونظم",
+              "hours": 2,
+              "degree": 81,
+              "points": 3,
+              "grade": "جيد جدًا"
+            },
+            {
+              "id": 25,
+              "name": "تصميم مواقع الإنترنت",
+              "hours": 3,
+              "degree": 143,
+              "points": 4,
+              "grade": "ممتاز"
+            },
+            {
+              "id": 26,
+              "name": "دوائر الكترونية",
+              "hours": 3,
+              "degree": 129,
+              "points": 3,
+              "grade": "جيد جدًا"
+            }
+          ]
+        }
+      ],
+      "id": 2
+    },
+    {
+      "levelName": "المستوى الثالث",
+      "semesters": [
+        {
+          "semester": "الفصل الدراسي الأول",
+          "semAvg": "82%",
+          "semGrd": "جيد جدًا",
+          "subjects": [
+            {
+              "id": 31,
+              "name": "مبادئ قواعد البيانات",
+              "hours": 3,
+              "degree": 126,
+              "points": 3,
+              "grade": "جيد جدًا"
+            },
+            {
+              "id": 32,
+              "name": "مبادئ أنظمة الأتصالات",
+              "hours": 3,
+              "degree": 121,
+              "points": 3,
+              "grade": "جيد جدًا"
+            },
+            {
+              "id": 33,
+              "name": "ألكترونية رقمية",
+              "hours": 3,
+              "degree": 130,
+              "points": 3,
+              "grade": "جيد جدًا"
+            },
+            {
+              "id": 34,
+              "name": "برمجة موجهة للموضوع",
+              "hours": 3,
+              "degree": 137,
+              "points": 4,
+              "grade": "ممتاز"
+            },
+            {
+              "id": 35,
+              "name": "نظم وسيطرة",
+              "hours": 3,
+              "degree": 140,
+              "points": 4,
+              "grade": "ممتاز"
+            },
+            {
+              "id": 36,
+              "name": "تنظيم الحاسوب",
+              "hours": 3,
+              "degree": 116,
+              "points": 2,
+              "grade": "جيد"
+            }
+          ]
+        },
+        {
+          "semester": "الفصل الدراسي الثاني",
+          "semAvg": "82%",
+          "semGrd": "جيد جدًا",
+          "subjects": [
+            {
+              "id": 31,
+              "name": "معمارية حاسوب",
+              "hours": 3,
+              "degree": 111,
+              "points": 2,
+              "grade": "جيد"
+            },
+            {
+              "id": 32,
+              "name": "هندسة برمجيات",
+              "hours": 3,
+              "degree": 136,
+              "points": 4,
+              "grade": "ممتاز"
+            },
+            {
+              "id": 33,
+              "name": "إحصاء وإحتمالات",
+              "hours": 3,
+              "degree": 109,
+              "points": 3,
+              "grade": "جيد"
+            },
+            {
+              "id": 34,
+              "name": "معالجات دقيقة",
+              "hours": 3,
+              "degree": 137,
+              "points": 4,
+              "grade": "ممتاز"
+            },
+            {
+              "id": 35,
+              "name": "قياسات الكترونية",
+              "hours": 3,
+              "degree": 136,
+              "points": 4,
+              "grade": "ممتاز"
+            },
+            {
+              "id": 36,
+              "name": "أنظمة تشغيل",
+              "hours": 3,
+              "degree": 109,
+              "points": 2,
+              "grade": "جيد"
+            }
+          ]
+        }
+      ],
+      "id": 3
+    }
+  ]
 }]

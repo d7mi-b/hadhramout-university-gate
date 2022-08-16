@@ -1,0 +1,70 @@
+.edit-info-student {
+    width: max-content;
+    margin: 20px auto;
+}
+
+.edit-email,
+.edit-password {
+    padding: 0 10px;
+}
+
+.edit-info-student label {
+    margin: 0 10px;
+    display: block;
+}
+
+.edit-info-student label::before {
+    content: '';
+    border-right: 3px solid var(--hover-color);
+    margin-left: 10px;
+}
+
+.input {
+    display: flex;
+}
+
+.edit-password .input svg {
+    width: 20px;
+    fill: #9b9b9b;
+    cursor: pointer;
+}
+
+.edit-password .input svg:hover {
+    fill: var(--hover-color);
+    transform: scale(1.01);
+    transition: 0.3;
+}
+
+.edit-info-student input {
+    padding: 5px 10px;
+    width: 300px;
+    color: var(--dark-color);
+    display: block;
+    margin: 15px 25px 15px 10px;
+    font-family: Cairo;
+}
+
+#old-email {
+    display: inline-block;
+}
+
+.edit-info-student .btn {
+    position: relative;
+    right: 265px;
+}
+
+.icon-check {
+    width: 250px;
+    position: relative;
+    top: 5px;
+}
+
+.icon-check svg {
+    fill: var(--dark-color);
+    width: 20px;
+    margin: 0 25px 0 5px;
+}
+
+.check-password {
+    display: none;
+}

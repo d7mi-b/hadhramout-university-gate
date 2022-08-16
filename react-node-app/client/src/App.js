@@ -28,6 +28,7 @@ import SuggestionsST from "./js/student/SuggestionsST";
 import SuggestionEmp from "./js/employee/SuggestionEmp";
 import CalanderEmp from "./js/employee/CalanderEmp";
 import Student from "./js/employee/Students";
+import EditInfoStudent from "./js/student/EditInfoStudent";
 
 function App() {
   const [student, setStudent] = useState();
@@ -111,6 +112,10 @@ function App() {
 
                 <Route path='/suggestions-submet'>
                   <SuggestionsST />
+                </Route>
+
+                <Route path='/edit-info'>
+                  <EditInfoStudent />
                 </Route>
                 
                 <Footer />

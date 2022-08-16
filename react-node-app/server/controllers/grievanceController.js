@@ -9,7 +9,7 @@ const grievancePost = (req, res) => {
     grievance.save()
         .then(result => {
             Student.updateOne({username: req.body.username}, {
-                $set: {wallet: req.body.wallet},
+                $inc: {wallet: -req.body.amount},
                 $push: {notification : {
                     id: new Date().getTime(),
                     notify: `تم رفع تظلم في مادة ${req.body.subject}`,

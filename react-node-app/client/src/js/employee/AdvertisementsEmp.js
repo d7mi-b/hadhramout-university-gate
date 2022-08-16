@@ -16,7 +16,6 @@ const AdvertisementsEmp = () => {
     const advertisements = useAdv();
 
     const deleteAdv = (id) => {
-        console.log(id)
         fetch(`/ads/deleteads/${id}`,{
             method: 'DELETE',
         })

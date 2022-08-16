@@ -1,6 +1,6 @@
 const Student = require('../Models/studentModel');
 const Employee = require('../Models/employeeModel');
-const { ObjectId } = require('mongodb');
+const bcrypt = require("bcryptjs");
 
 
 const handleErrors = (err) => {
@@ -59,7 +59,7 @@ module.exports.update_state = async (req, res) => {
     const {username, state, wallet} = req.body;
 
     const student = Student;
-    student.updateOne({username: username}, {$set: {state: state, wallet: wallet}})
+    student.updateOne({username: username}, {$set: {state: state}})
         .then(result => res.status(200).json(result))
         .catch(err => console.log(err));
 }
@@ -102,6 +102,7 @@ module.exports.getStudents = (req, res) => {
     .catch(err => console.log(err));
 }
 
+// to add notifaction 
 module.exports.addNotification = async (req, res) => {
     const {username, notify} = req.body;
 
@@ -112,6 +113,25 @@ module.exports.addNotification = async (req, res) => {
         date: new Date()
     }}})
     .then(result => res.status(200).json(result))
+    .catch(err => console.log(err))
+}
+
+// change password of student
+module.exports.changePassword = async (req, res) => {
+    let password = req.body.password;
+    const salt = await bcrypt.genSalt()
+    let newpassword = await bcrypt.hash(password,salt);
+
+    Student.updateOne({username: req.body.username}, {
+        $set: {password: newpassword},
+        $push: {notification : {
+            id: new Date().getTime(),
+            notify: `تم تغيير كلمة المرور بنجاح`,
+            new: true,
+            date: new Date()
+        }}
+    })
+    .then(res => res.status(200))
     .catch(err => console.log(err))
 }
 

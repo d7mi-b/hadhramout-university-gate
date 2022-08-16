@@ -35,7 +35,6 @@ module.exports.deleteAdv= async (req,res) => {
         try{
             const adv = await Advertisements.findByIdAndDelete(id)
             res.status(200).json(adv)
-
         }
         catch(err) {
             console.log(err);

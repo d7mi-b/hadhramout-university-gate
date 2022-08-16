@@ -1,23 +1,12 @@
 [{
   "_id": {
-    "$oid": "62ae23d6fd6c47b5d8c1a399"
+    "$oid": "62f54dd758b4842b8ddece14"
   },
-  "username": 1111,
-  "name": "عبدالرحمن بهيان",
-  "department": "هندسة حاسوب",
-  "level": "مستوى الرابع",
-  "type": "إقتراح",
-  "body": "رصيد مجاني",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "62ae2479b1d317df742f1d03"
-  },
-  "username": 1111,
-  "name": "عبدالرحمن بهيان",
-  "department": "هندسة حاسوب",
-  "level": "مستوى الرابع",
-  "type": "شكوى",
-  "body": "سرقتوا رصيدي",
+  "username": 1111111111,
+  "name": "my name",
+  "department": "department",
+  "level": "",
+  "type": "اقتراح",
+  "body": "خالد الحامدي",
   "__v": 0
 }]

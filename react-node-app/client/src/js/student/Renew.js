@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import '../../css/student/renewSt.css';
 import { useUser } from '../DataProvider';
 
-let amount = 5000;
 const date = new Date();
 
 const getDate = (e) => {
@@ -39,7 +38,6 @@ const Renew = () => {
                     department: student.department,
                     typeOfRegister: student.typeOfRegister,
                     collage: student.collage,
-                    logo: '/server/public/Hadhrmout.jpg',
                     date: getDate(new Date())
                 }))
                 .then(res => {
@@ -60,28 +58,42 @@ const Renew = () => {
     }
     // to post into transaction collection and update state of student.
     const handelRenew = () => {
-        // update state of student
-        fetch('/updateUserState', {
-            method: 'PATCH',
+        fetch('/transaction/addTransaction', {
+            method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 username: student.username,
-                state: true,
-                wallet: student.wallet - amount
-            })})
-        .then((result) => {
+                date: date,
+                service: 'تجديد قيد',
+                type: '',
+                price: price
+            })
+        })
+        .then(result => {
             if (result.status === 200) {
-                fetch('/updateUser?' + new URLSearchParams({
-                    username: student.username
-                }))
-                .then((res) => res.json())
-                .then((data) => {
-                    window.sessionStorage.setItem('user', JSON.stringify(data))
-                    window.location.reload()
-                });
+                // update state of student
+                fetch('/updateUserState', {
+                    method: 'PATCH',
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        username: student.username,
+                        state: true,
+                    })})
+                .then((result) => {
+                    if (result.status === 200) {
+                        fetch('/updateUser?' + new URLSearchParams({
+                            username: student.username
+                        }))
+                        .then((res) => res.json())
+                        .then((data) => {
+                            window.sessionStorage.setItem('user', JSON.stringify(data))
+                            // window.location.reload()
+                        });
+                    }
+                })
+                .catch((err) => console.log(err));
             }
         })
-        .catch((err) => console.log(err));
     }
 
     // function to check wallte

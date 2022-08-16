@@ -21,8 +21,6 @@ module.exports.addSubjects = (req,res) => {
     const id = req.params.id;
     const data = req.body;
 
-
-        console.log(data)
         Schedule.findByIdAndUpdate({_id: ObjectId(id)},{$push:{subjects:data}})
         .then(result => {
             

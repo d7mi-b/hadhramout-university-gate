@@ -164,6 +164,19 @@
     transition: 0.2s;
 }
 
+.form__group svg {
+    width: 20px;
+    fill: #9b9b9b;
+    cursor: pointer;
+    display: block;
+    float: left;
+    margin: 15px 0;
+}
+
+.form__group svg:hover {
+    fill: var(--hover-color);
+}
+
 @media (min-width: 238px) and (max-width: 991px) {
     .login-data .form {
         width: 300px;
