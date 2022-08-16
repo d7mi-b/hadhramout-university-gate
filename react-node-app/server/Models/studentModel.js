@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 const bcrypt = require("bcryptjs");
-const { json } = require('express');
+
 
 
 const studentSchema = new Schema(
@@ -66,38 +66,6 @@ studentSchema.statics.login = async function(username , password) {
 
 
 
-/*studentSchema.pre('save', function(next) {
-
-
-
-    var student = this;
-
-// only hash the password if it has been modified (or is new)
-if (!student.isModified('password')) return next();
-
-// generate a salt
-bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
-    if (err) return next(err);
-
-    // hash the password using our new salt
-    bcrypt.hash(student.password, salt, function(err, hash) {
-        if (err) return next(err);
-
-        // override the cleartext password with the hashed one
-        this.password = hash;
-        next();
-    });
-});
-
-
-});
-
-studentSchema.methods.comparePassword = function(candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-        if (err) return cb(err);
-        cb(null, isMatch);
-    });
-};*/
 
 
 const Student = mongoose.model('students',studentSchema);
