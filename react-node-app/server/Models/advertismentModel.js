@@ -5,7 +5,8 @@ const { Schema } = mongoose;
 const advertisementSchema = new Schema(
     {
         title:{type: String} ,
-        date: {type: Date}
+        date: {type: Date} ,
+        employee: {type:Number}
     }
 )
 

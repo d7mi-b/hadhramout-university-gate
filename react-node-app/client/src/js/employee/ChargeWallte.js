@@ -29,7 +29,8 @@ const ChargeWallte = () => {
         checkNo: 0,
         amount: 0,
         type: 'إيداع',
-        date: ''
+        date: '',
+        employee:JSON.parse(window.sessionStorage.getItem('user')).username
     });
 
     
@@ -42,6 +43,7 @@ const ChargeWallte = () => {
         data.checkNo = +form.checkNo.value;
         data.amount = +form.amount.value;
         data.date = form.date.value;
+        
 
         const charge = await chargeWallet(data);
 

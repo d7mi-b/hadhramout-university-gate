@@ -19,8 +19,10 @@ const CreateAdv = () => {
         const form = document.getElementById("adv-form");
         const title = form.title.value;
         const date = form.date.value;
+        const employee = JSON.parse(window.sessionStorage.getItem('user')).username;
+        
 
-        const data = await adsCreate({ title, date});
+        const data = await adsCreate({ title, date, employee});
     }
 
 

@@ -29,9 +29,13 @@ import SuggestionEmp from "./js/employee/SuggestionEmp";
 import CalanderEmp from "./js/employee/CalanderEmp";
 import Student from "./js/employee/Students";
 import EditInfoStudent from "./js/student/EditInfoStudent";
+import NavbarAdmin from "./js/admin/NavbarAdmin";
+import HomeAdmin from "./js/admin/HomeAdmin";
 
 function App() {
   const [student, setStudent] = useState();
+  const [employee, setEmployee] = useState();
+  const [admin, setAdmin] = useState();
 
   const route = () => {
     if (!JSON.parse(window.sessionStorage.getItem('user')) && window.location.href !== 'http://localhost:3000/') {
@@ -42,11 +46,18 @@ function App() {
   route()
 
   useEffect(() => {
+    
+    
     if (JSON.parse(window.sessionStorage.getItem('user'))) {
-      if (JSON.parse(window.sessionStorage.getItem('user')).position)
-        setStudent(false)
-      else
+
+      if (JSON.parse(window.sessionStorage.getItem('user')).position==='student')
         setStudent(true)
+        
+      else if(JSON.parse(window.sessionStorage.getItem('user')).position==='employee')
+      setEmployee(true)
+    
+      else if(JSON.parse(window.sessionStorage.getItem('user')).position==='admin')
+      setAdmin(true)
     }
     else{
     
@@ -65,6 +76,8 @@ function App() {
             <DataProvider>
             {/* STUDENT */}
             { student &&
+              
+              
               <div id="student">
                 <NavbarSt />
                 {/* HOME PAGE FOR STUDENT */}
@@ -120,9 +133,10 @@ function App() {
                 
                 <Footer />
               </div>
+            
             }
             {
-              !student && 
+              employee && 
               <div id="employee">
                 {/* EMPLOYEE */}
                 <NavbarEmp />
@@ -189,6 +203,18 @@ function App() {
                   <Route path='/Add-calander'>
                     <CalanderEmp />
                   </Route>
+
+                <Footer />
+              </div>
+            }
+            {
+              admin &&
+              <div id="employee">
+                <NavbarAdmin />
+
+                <Route path='/admin'>
+                  <HomeAdmin />
+                </Route>
 
                 <Footer />
               </div>

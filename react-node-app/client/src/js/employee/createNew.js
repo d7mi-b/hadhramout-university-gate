@@ -22,8 +22,9 @@ const CreateNew = () => {
         const body = form.body.value;
         const image = form.image.value;
         const date = form.date.value;
+        const employee = JSON.parse(window.sessionStorage.getItem('user')).username;
 
-        const res = await submitNews({ title, body, image, date});
+        const res = await submitNews({ title, body, image, date, employee});
     }
 
 
