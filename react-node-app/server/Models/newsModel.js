@@ -11,7 +11,8 @@ const newsSchema = new Schema(
         img: {
             data: Buffer,
             contentType: String
-        }
+        },
+        employee: {type:Number}
     });
 
 const News = mongoose.model("news",newsSchema);

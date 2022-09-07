@@ -1,5 +1,6 @@
 const Student = require('../Models/studentModel');
 const Employee = require('../Models/employeeModel');
+const Admin= require('../Models/adminModel')
 const bcrypt = require("bcryptjs");
 const nodemailer = require('nodemailer');
 
@@ -37,6 +38,22 @@ module.exports.login_post_employee = async (req,res) => {
         const employee = await Employee.login(username,password)
         if(employee){
             res.status(200).json(employee)
+            return;
+        }
+    }
+    catch(err) {
+        res.status(400).json(err.message)
+    }
+}
+
+module.exports.login_post_admin = async (req,res) => {
+
+    const {username , password} = req.body;
+
+    try{
+        const admin = await Admin.login(username,password)
+        if(admin){
+            res.status(200).json(admin)
             return;
         }
     }
@@ -232,6 +249,7 @@ module.exports.registerStudent= async (req,res) => {
                 username:33333333333,
                 password:"1234",
                 notification: [],
+                position: "student"
             })
             res.status(201).json(student)
         }
@@ -256,9 +274,30 @@ module.exports.registerEmployee= async (req,res) => {
             date_Of_Birth:"2-5-1989",
             username:"111",
             password:1234,
-            position:"true"
+            position:"employee"
         })
         res.status(201).json(employee)
+    }
+    catch (err){
+        console.log(err);
+        res.status(400).send('error employee not created')
+    }
+}
+
+module.exports.registerAdmin= async (req,res) => {
+
+    //create admin
+
+    try{
+        const admin = await Admin.create({
+        
+            name:"Halah",
+            department:"maneger",
+            username:12345678,
+            password:1234,
+            position:"admin"
+        })
+        res.status(201).json(admin)
     }
     catch (err){
         console.log(err);

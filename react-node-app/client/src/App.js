@@ -30,9 +30,13 @@ import CalanderEmp from "./js/employee/CalanderEmp";
 import Student from "./js/employee/Students";
 import EditInfoStudent from "./js/student/EditInfoStudent";
 import ForgetPassword from "./js/ForgetPassword";
+import NavbarAdmin from "./js/admin/NavbarAdmin";
+import HomeAdmin from "./js/admin/HomeAdmin";
 
 function App() {
   const [student, setStudent] = useState();
+  const [employee, setEmployee] = useState();
+  const [admin, setAdmin] = useState();
 
   const route = () => {
     if ((!JSON.parse(window.sessionStorage.getItem('user')) && window.location.href !== 'http://localhost:3000/') && !window.location.href.includes('http://localhost:3000/forgetPassword/')) {
@@ -43,14 +47,17 @@ function App() {
   route()
 
   useEffect(() => {
+    
+    
     if (JSON.parse(window.sessionStorage.getItem('user'))) {
-      if (JSON.parse(window.sessionStorage.getItem('user')).position)
-        setStudent(false)
+      if(JSON.parse(window.sessionStorage.getItem('user')).position==='employee')
+        setEmployee(true)
+    
+      else if(JSON.parse(window.sessionStorage.getItem('user')).position==='admin')
+        setAdmin(true)
+
       else
         setStudent(true)
-    }
-    else{
-    
     }
   }, [])
 
@@ -69,136 +76,151 @@ function App() {
             </Route>
 
             <DataProvider>
-            {/* STUDENT */}
-            { student &&
-              <div id="student">
-                <NavbarSt />
-                {/* HOME PAGE FOR STUDENT */}
-                <Route path='/home'>
-                  <HomeSt />
-                </Route>
+              {/* STUDENT */}
+              { student &&
+                <div id="student">
+                  <NavbarSt />
 
-                {/* NEWS PAGE FOR STUDENT */}
-                <Route path='/news'>
-                  <NewsST />
-                </Route>
+                  {/* HOME PAGE FOR STUDENT */}
+                  <Route path='/home'>
+                    <HomeSt />
+                  </Route>
 
-                {/* NEWS DETAILS PAGE */}
-                <Route path="/details/:id">
-                  <NewDetails />
-                </Route>
+                  {/* NEWS PAGE FOR STUDENT */}
+                  <Route path='/news'>
+                    <NewsST />
+                  </Route>
 
-                {/* UNVERSITY CALENDER PAGE FOR STUDENT */}
-                <Route path='/calender'>
-                  <UnCalenderSt />
-                </Route>
+                  {/* NEWS DETAILS PAGE */}
+                  <Route path="/details/:id">
+                    <NewDetails />
+                  </Route>
 
-                {/* SCHEDULE PAGE FOR STUDENT */}
-                <Route path='/schedule'>
-                  <ScheduleSt />
-                </Route>
+                  {/* UNVERSITY CALENDER PAGE FOR STUDENT */}
+                  <Route path='/calender'>
+                    <UnCalenderSt />
+                  </Route>
 
-                {/* RENEW PAGE FOR STUDENT */}
-                <Route path='/renew'>
-                  <Renew />
-                </Route>
+                  {/* SCHEDULE PAGE FOR STUDENT */}
+                  <Route path='/schedule'>
+                    <ScheduleSt />
+                  </Route>
 
-                {/* DEGREE STATEMENT PAGE FOR STUDENT */}
-                <Route path='/degree-statement'>
-                  <DegreeSt />
-                </Route>
+                  {/* RENEW PAGE FOR STUDENT */}
+                  <Route path='/renew'>
+                    <Renew />
+                  </Route>
 
-                <Route path='/grievance-up'>
-                  <Grievance />
-                </Route>
+                  {/* DEGREE STATEMENT PAGE FOR STUDENT */}
+                  <Route path='/degree-statement'>
+                    <DegreeSt />
+                  </Route>
 
-                <Route path='/my-grievane'>
-                  <MyGrivences />
-                </Route>
+                  <Route path='/grievance-up'>
+                    <Grievance />
+                  </Route>
 
-                <Route path='/suggestions-submet'>
-                  <SuggestionsST />
-                </Route>
+                  <Route path='/my-grievane'>
+                    <MyGrivences />
+                  </Route>
 
-                <Route path='/edit-info'>
-                  <EditInfoStudent />
-                </Route>
-                
-                <Footer />
-              </div>
-            }
-            {
-              !student && 
-              <div id="employee">
-                {/* EMPLOYEE */}
-                <NavbarEmp />
-                {/* HOME PAGE FOR EMPLOYEE */}
-                <Route path='/employee'>
-                  <HomeEmp />
-                </Route>
+                  <Route path='/suggestions-submet'>
+                    <SuggestionsST />
+                  </Route>
 
-                {/* NEWS PAGE FOR EMPLOYEE */}
-                <Route path='/newsEmp'>
-                  <NewsEmp />
-                </Route>
+                  <Route path='/edit-info'>
+                    <EditInfoStudent />
+                  </Route>
+                  
+                  <Footer />
+                </div>
+              
+              }
+              {
+                employee && 
+                <div id="employee">
+                  {/* EMPLOYEE */}
+                  <NavbarEmp />
 
-                {/* NEWS DETAILS PAGE */}
-                <Route path="/details/:id">
-                  <NewDetails />
-                </Route>
+                  {/* HOME PAGE FOR EMPLOYEE */}
+                  <Route path='/employee'>
+                    <HomeEmp />
+                  </Route>
 
-                {/* CREATE NEW NEWS PAGE */}
-                <Route path='/create-new'>
-                  <CreateNew />
-                </Route>
+                  {/* NEWS PAGE FOR EMPLOYEE */}
+                  <Route path='/newsEmp'>
+                    <NewsEmp />
+                  </Route>
 
-                {/* CHARGE WALLTE PAGE */}
-                <Route path='/charge-wallte'>
-                  <ChargeWallte />
-                </Route>
+                  {/* NEWS DETAILS PAGE */}
+                  <Route path="/details/:id">
+                    <NewDetails />
+                  </Route>
 
-                {/* WITHDRAW FROM WALLTE PAGE */}
-                <Route path='/withdraw'>
-                  <Withdraw />
-                </Route>
+                  {/* CREATE NEW NEWS PAGE */}
+                  <Route path='/create-new'>
+                    <CreateNew />
+                  </Route>
 
-                {/* SCHEDULE PAGE FOR STUDENT */}
-                <Route path='/edit-schedule'>
-                  <ScheduleEmp />
-                </Route>
+                  {/* CHARGE WALLTE PAGE */}
+                  <Route path='/charge-wallte'>
+                    <ChargeWallte />
+                  </Route>
 
-                {/* ADVERTISEMENTS PAGE FOR EMPLOYEE */}
-                <Route path='/advertisements'>
-                  <AdvertisementsEmp />
-                </Route>
+                  {/* WITHDRAW FROM WALLTE PAGE */}
+                  <Route path='/withdraw'>
+                    <Withdraw />
+                  </Route>
 
-                {/* CREATE ADVERTISEMENTS PAGE FOR EMPLOYEE */}
-                <Route path='/create-adv'>
-                  <CreateAdv />
-                </Route>
+                  {/* SCHEDULE PAGE FOR STUDENT */}
+                  <Route path='/edit-schedule'>
+                    <ScheduleEmp />
+                  </Route>
 
-                {/* GRIVENCES PAGE FOR EMPLOYEE */}
-                <Route path='/grievance-emp'>
-                  <GrivenceEmp />
-                </Route>
+                  {/* ADVERTISEMENTS PAGE FOR EMPLOYEE */}
+                  <Route path='/advertisements'>
+                    <AdvertisementsEmp />
+                  </Route>
 
-                {/* SUGGESTION PAGE FOR EMPLOYEE */}
-                <Route path='/suggestion-Emp'>
-                  <SuggestionEmp />
-                </Route>
+                  {/* CREATE ADVERTISEMENTS PAGE FOR EMPLOYEE */}
+                  <Route path='/create-adv'>
+                    <CreateAdv />
+                  </Route>
 
-                {/* STUDENTS PAGE FOR EMPLOYEE */}
-                <Route path='/students'>
-                  <Student />
-                </Route>
+                  {/* GRIVENCES PAGE FOR EMPLOYEE */}
+                  <Route path='/grievance-emp'>
+                    <GrivenceEmp />
+                  </Route>
 
-                <Route path='/Add-calander'>
-                  <CalanderEmp />
-                </Route>
+                  {/* SUGGESTION PAGE FOR EMPLOYEE */}
+                  <Route path='/suggestion-Emp'>
+                    <SuggestionEmp />
+                  </Route>
 
-                <Footer />
-              </div>
-            }
+                  {/* STUDENTS PAGE FOR EMPLOYEE */}
+                  <Route path='/students'>
+                    <Student />
+                  </Route>
+
+                  <Route path='/Add-calander'>
+                    <CalanderEmp />
+                  </Route>
+
+                  <Footer />
+                </div>
+              }
+              {
+                admin &&
+                <div id="admin">
+                  <NavbarAdmin />
+
+                  <Route path='/admin'>
+                    <HomeAdmin />
+                  </Route>
+
+                  <Footer />
+                </div>
+              }
             </DataProvider>
             
             {/* 404 PAGE */}

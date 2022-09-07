@@ -21,6 +21,14 @@ const loginEmployee = async (data) => {
         }).then(data => data.json());
 }
 
+const loginAdmin = async (data) => {
+    return fetch('/adminLogin', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {'Content-Type': 'application/json'}
+        }).then(data => data.json());
+}
+
 const Login = () => {
     const [ error, setError ] = useState(false);
     const [errMsg, setErrMsg] = useState('');
@@ -79,8 +87,26 @@ const Login = () => {
             }
             else {
                 setError(false)
+                console.log(data)
                 window.sessionStorage.setItem("user", JSON.stringify(data));
                 window.location.replace('/employee')
+            }
+        }
+        else if (text.length === 9){
+            const data = await loginAdmin({username: text, password});
+            if (data === 'incorrect user') {
+                setErrMsg('اسم المستخدم غير صحيح')
+                setError(true)
+            }
+            else if (data === 'incorrect password') {
+                setErrMsg('كلمة المرور غير صحيحة')
+                setError(true)
+            }
+            else {
+                setError(false)
+                console.log( JSON.stringify(data))
+                window.sessionStorage.setItem("user", JSON.stringify(data));
+                window.location.replace('/admin')
             }
         }
     }
