@@ -180,6 +180,13 @@
     fill: var(--hover-color);
 }
 
+.email {
+    font-size: 14px;
+    color: #9b9b9b;
+    text-align: right;
+    margin: 0 30px
+}
+
 @media (min-width: 238px) and (max-width: 991px) {
     .login-data .form {
         width: 300px;

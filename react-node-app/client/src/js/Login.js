@@ -4,6 +4,7 @@ import logo from '../images/HUGLogo.png';
 import had from '../images/Hadhrmout.jpg';
 import signIn from '../images/sign_in.svg';
 import React, {useState} from 'react';
+import { set } from 'mongoose';
 
 const loginStudent = async (data) => {
     return fetch('/studentLogin', {
@@ -34,6 +35,7 @@ const Login = () => {
     const [errMsg, setErrMsg] = useState('');
     const [forgetPass, setForgetPass] = useState(false);
     const [email, setEmail] = useState(null);
+    const [inputEmail, setInputEmail] = useState(null);
     const [encryptEmail, setEncryptEmail] = useState(null);
     const [username, setUsername] = useState(null);
 
@@ -134,25 +136,26 @@ const Login = () => {
     const getUsername = (e) => {
 
         setUsername(e.target.value)
-        // if (username) {
-        //     fetch('/updateUser?' + new URLSearchParams({
-        //         username: username
-        //     }))
-        //     .then(result => result.json())
-        //     .then(data => {
-        //         return setEmail(data.email)
-        //     })
-        //     .catch(err => console.log(err))
-    
-        //     setEncryptEmail(encryptMail(email));
-        // } else if (!username) {
-        //     setEmail(null)
-        //     setEncryptEmail(null)
-        // }
+        if (e.target.value) {
+            fetch('/updateUser?' + new URLSearchParams({
+                username: e.target.value
+            }))
+            .then(result => result.json())
+            .then(data => setEmail(data.email))
+            .catch(err => console.log(err))
+        } else if (!e.target.value) {
+            setUsername(null)
+            setEmail(null)
+            setEncryptEmail(null)
+        }
     }
 
     const getUserEmail = (e) => {
-        setEmail(e.target.value)
+        setInputEmail(e.target.value)
+    }
+
+    const showEncryptEmail = () => {
+        setEncryptEmail(encryptMail(email));
     }
 
     // encrypt email
@@ -167,7 +170,9 @@ const Login = () => {
 
     const sendEmail = (e) => {
         e.preventDefault();
-        if (username && email) {
+        if (username && email === inputEmail) {
+            setError(true)
+            setErrMsg('تم إرسال الطلب')
             fetch('/sendForgetPass', {
                 method: 'POST',
                 body: JSON.stringify({username, email}),
@@ -175,6 +180,10 @@ const Login = () => {
             })
             .then(result => console.log(result))
             .catch(err => console.log(err))
+        }
+        else if (username && email !== inputEmail) {
+            setError(true)
+            setErrMsg('البريد الإلكتروني غير صحيح')
         }
     }
 
@@ -233,8 +242,11 @@ const Login = () => {
                         {
                             forgetPass &&
                             <section>
+                                {
+                                    encryptEmail && <p className='email'>{encryptEmail}</p>
+                                }
                                 <div className="form__group field">
-                                    <input onBlur={getUserEmail} required placeholder="البريد الإلكتروني" name='email' className="form__field" type="email" />
+                                    <input onBlur={getUserEmail} onFocus={showEncryptEmail} required placeholder="البريد الإلكتروني" name='email' className="form__field" type="email" />
                                     <label className="form__label" htmlFor='email'>البريد الإلكتروني</label>
                                 </div>
                                 {

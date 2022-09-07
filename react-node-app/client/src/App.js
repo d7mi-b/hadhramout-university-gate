@@ -50,12 +50,10 @@ function App() {
     
     
     if (JSON.parse(window.sessionStorage.getItem('user'))) {
-      if(JSON.parse(window.sessionStorage.getItem('user')).position==='employee')
+      if(JSON.parse(window.sessionStorage.getItem('user')).position === 'employee')
         setEmployee(true)
-    
-      else if(JSON.parse(window.sessionStorage.getItem('user')).position==='admin')
+      else if(JSON.parse(window.sessionStorage.getItem('user')).position === 'admin')
         setAdmin(true)
-
       else
         setStudent(true)
     }
