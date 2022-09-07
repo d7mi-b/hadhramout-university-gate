@@ -16,10 +16,19 @@
     margin: 25px auto;
 }
 
+.choose-state form .search-student {
+    display: inline-block;
+}
+
+.choose-state form .search-student input {
+    width: 250px;
+    padding: 5px;
+}
+
 .choose-state select {
     font-family: Cairo;
     margin: 0 10px;
-    padding: 3px;
+    padding: 5px;
     width: 150px;
 }
 

@@ -128,7 +128,7 @@
 .login-data .form .btn {
     width: fit-content;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     margin: 10px auto;
     right: 0;
 }
@@ -140,6 +140,7 @@
     margin: 10px auto;
     color: var(--blue);
     width: fit-content;
+    cursor: pointer;
 }
 
 .link:hover {
@@ -168,9 +169,11 @@
     width: 20px;
     fill: #9b9b9b;
     cursor: pointer;
-    display: block;
-    float: left;
+    display: inline-block;
     margin: 15px 0;
+    position: absolute;
+    top: 20px;
+    left: 0;
 }
 
 .form__group svg:hover {

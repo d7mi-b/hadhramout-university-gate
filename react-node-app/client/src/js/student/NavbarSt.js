@@ -38,42 +38,29 @@ const NavbarSt = () => {
 
     const handelStateNotf = (e) => {
         const id = e.target.id;
+        
+        if (document.getElementById(`${id}`).classList.contains('new-notify')) {
+            document.getElementById(`${id}`).classList.remove('new-notify')
 
-        document.getElementById(`${id}`).classList.remove('new-notify')
-
-        fetch('/stateNotification', {
-            method: "PATCH",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                username: student.username,
-                id: id
+            fetch('/stateNotification', {
+                method: "PATCH",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    username: student.username,
+                    id: id
+                })
             })
-        })
-        .then(res => res )
-        .catch(err => console.log(err))
+            .then(res => res )
+            .catch(err => console.log(err))
+        }
 
-    }
-
-    const handelDeleteNotf = (e) => {
-        const id = e.target.parentElement.parentElement.parentElement.parentElement.id;
-
-        fetch('/deleteNotification', {
-            method: "PATCH",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                username: student.username,
-                id: id
-            })
-        })
-        .then(res => res )
-        .catch(err => console.log(err))
     }
 
     useEffect(() => {
         logOut();
 
-        student.notification.some(e => {
-            if (e.new === true) {
+        student.notification.some((e, i) => {
+            if (e.new === true && i < 25) {
                 document.querySelector('.new-notification').style.cssText = "display: block";
                 document.getElementById(`${e.id}`).classList.add('new-notify')
             }
@@ -82,7 +69,7 @@ const NavbarSt = () => {
         if (student.notification.length > 5) {
             document.querySelector('.navigations').style.cssText = 'height: 435px; overflow-y: scroll;';
         }
-    }, [])
+    }, [student.notification])
     
     return (
         <nav className="navbar">
@@ -151,8 +138,7 @@ const NavbarSt = () => {
                     <section className='navigations'>
                         {
                             student.notification &&
-                            student.notification.map((e, i, arr) => {
-                                if (i < 25)
+                            student.notification.filter((e, i) => i < 25).map((e, i, arr) => {
                                 return (
                                     <section className='navigation' key={e.id} id={e.id} onMouseEnter={handelStateNotf}>
                                         <time dateTime={getDate(e.date)}>

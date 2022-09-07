@@ -4,7 +4,6 @@ import { useUser } from '../DataProvider';
 import {Link} from 'react-router-dom';
 
 let subjects = [];
-let data = [];
 
 let amount = 5000;
 

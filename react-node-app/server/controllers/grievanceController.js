@@ -28,14 +28,14 @@ const grievanceGet = async (req, res) => {
     const {department, page, state} = req.query;
 
     const pages = page || 0;
-    const grvPerPage = 5;
+    const grvPerPage = 7;
 
     try {
         const grievance = await Grievance.find({department: department, state: state})
             .sort({$natural: -1})
             .skip(pages * grvPerPage)
             .limit(grvPerPage)
-            
+        
         res.status(200).json(grievance);
     }
     catch (err) {

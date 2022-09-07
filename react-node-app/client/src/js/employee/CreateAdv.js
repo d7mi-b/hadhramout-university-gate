@@ -20,7 +20,7 @@ const CreateAdv = () => {
         const title = form.title.value;
         const date = form.date.value;
 
-        const data = await adsCreate({ title, date});
+        await adsCreate({ title, date});
     }
 
 

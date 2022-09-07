@@ -29,12 +29,13 @@ import SuggestionEmp from "./js/employee/SuggestionEmp";
 import CalanderEmp from "./js/employee/CalanderEmp";
 import Student from "./js/employee/Students";
 import EditInfoStudent from "./js/student/EditInfoStudent";
+import ForgetPassword from "./js/ForgetPassword";
 
 function App() {
   const [student, setStudent] = useState();
 
   const route = () => {
-    if (!JSON.parse(window.sessionStorage.getItem('user')) && window.location.href !== 'http://localhost:3000/') {
+    if ((!JSON.parse(window.sessionStorage.getItem('user')) && window.location.href !== 'http://localhost:3000/') && !window.location.href.includes('http://localhost:3000/forgetPassword/')) {
         window.location.replace('/')
     }
   }
@@ -60,6 +61,11 @@ function App() {
             {/* LOGIN PAGE */}
             <Route exact path="/">
               <Login />
+            </Route>
+
+            {/* Forget Password Page */}
+            <Route path='/forgetPassword/:date/:username'>
+              <ForgetPassword />
             </Route>
 
             <DataProvider>
@@ -186,14 +192,15 @@ function App() {
                   <Student />
                 </Route>
 
-                  <Route path='/Add-calander'>
-                    <CalanderEmp />
-                  </Route>
+                <Route path='/Add-calander'>
+                  <CalanderEmp />
+                </Route>
 
                 <Footer />
               </div>
             }
             </DataProvider>
+            
             {/* 404 PAGE */}
             <Route path='*'>
               <NotFound />

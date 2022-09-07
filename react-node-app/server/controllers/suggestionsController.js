@@ -12,7 +12,7 @@ module.exports.suggestionsGet = async (req, res) => {
     const {page} = req.query;
 
     const pages = page || 0;
-    const grvPerPage = 5;
+    const grvPerPage = 7;
 
     try {
         const suggestion = await Suggestions.find()

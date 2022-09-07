@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../../css/employee/scheduleEmp.css'
 
 
@@ -218,7 +218,6 @@ const ScheduleEmp = () => {
 
     const handelChangeSem = e => {
         setSemester(e.target.value);
-       
     }
 
     const handelChangeGroup2 = e => {
@@ -339,8 +338,7 @@ const ScheduleEmp = () => {
                                     <th><p className='bold'>{i.day}</p></th>
                                     { 
                                         schedules &&
-                                        schedules.map(e => {
-                                            if (e.day === i.day){
+                                        schedules.filter(e => e.day === i.day).map(e => {
                                                 return(
                                                     <td className='subject subject-emp' key={e.Id}>
                                                         <p className='bold'>{e.subject}</p>
@@ -353,7 +351,7 @@ const ScheduleEmp = () => {
                                                     </td>
                                                 )
                                             }
-                                        })
+                                        )
                                     }
                                 </tr>
                             )

@@ -15,10 +15,20 @@ const types = [
 const SuggestionEmp = () => {
     const [suggestion, setSuggestion] = useState([]);
     const [type, setType] = useState('إقتراح');
-    const [pages, setPage] = useState(0);
+    const [page, setPage] = useState(0);
 
-    const handelPages = (e) => {
-        setPage(pages + 1)
+    const handlePrevious = () => {
+        setPage((p) => {
+            if (p === 0) return p;
+            return p - 1;
+            });
+    }
+
+    const handleNext = () => {
+        setPage((p) => {
+            // if (p === pageCount) return p;
+            return p + 1;
+        });
     }
 
     const handelChangeType = (e) => {
@@ -27,11 +37,11 @@ const SuggestionEmp = () => {
 
     useEffect(() => {
         fetch('/suggestion/get-all?'  + new URLSearchParams({
-            page: +pages,
+            page: page,
         }))
             .then(res => res.json())
             .then(data => setSuggestion(data));
-    }, []);
+    }, [page]);
 
     return (
         <div className='container container-page'>
@@ -54,8 +64,7 @@ const SuggestionEmp = () => {
 
             <section className='suggestion-container'>
                 {
-                    suggestion.map(e => {
-                        if(type === e.type)
+                    suggestion.filter(e => type === e.type).map(e => {
                         return (
                             <article className='suggestion' key={e._id}>
                                 <header>
@@ -75,13 +84,26 @@ const SuggestionEmp = () => {
                 }
             </section>
             {
-                suggestion.length >= 5 &&
+                suggestion.length >= 7 && page !== 0 &&
                 <section className='pages'>
-                    <button className='btn' onClick={handelPages}>المزيد...</button>
+                    <button className='btn' onClick={handleNext}>التالي</button>
+                    <button className='btn' onClick={handlePrevious}>السابق</button>
+                </section>
+            }
+            {
+                suggestion.length >= 7 && page === 0 &&
+                <section className='pages'>
+                    <button className='btn' onClick={handleNext}>التالي</button>
+                </section>
+            }
+            {
+                suggestion.length < 7 && page !== 0 && 
+                <section className='pages'>
+                    <button className='btn' onClick={handlePrevious}>السابق</button>
                 </section>
             }
         </div>
     );
 }
- 
+
 export default SuggestionEmp;

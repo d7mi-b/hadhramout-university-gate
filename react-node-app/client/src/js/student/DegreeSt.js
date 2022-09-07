@@ -113,7 +113,17 @@ const DegreeSt = () => {
                         gread: student.gread,
                         subjects: JSON.stringify(data.subjects)
                     }))
-                    .then(() => console.log('done'))
+                    .then(response => {
+                        response.blob().then(blob => {
+                            // Creating new object of PDF file
+                            const fileURL = window.URL.createObjectURL(blob);
+                            // Setting various property values
+                            let alink = document.createElement('a');
+                            alink.href = fileURL;
+                            alink.download = `بيان درجات ${student.name}.pdf`;
+                            alink.click();
+                        })
+                    })
                     .catch(err => console.log(err))
 
                     fetch('/updateUser?' + new URLSearchParams({
@@ -158,9 +168,7 @@ const DegreeSt = () => {
         .then((data) => setDegree(data));
 
         handelContent();
-
-        console.log(document.body.offsetHeight)
-    }, [])
+    }, [student.username])
 
     return (
         <div className="container-page container container-degree-page">
@@ -196,54 +204,51 @@ const DegreeSt = () => {
             {/* DISPALY DEGREE STATEMENT */}
             <section className='display-degrees'>
                 {
-                    degrees.map(e => {
-                        if (e.levelName === level) {
-                            return e.semesters.map(ele => {
-                                if (ele.semester === semester) {
-                                    return (
-                                        <div key={e.id}>
-                                            <header className='display-degrees-header'>
-                                                <h4>{level}</h4>
-                                                <h4>{semester}</h4>
-                                            </header>
-                                            <section className='averages'>
-                                                <p className='bold'>المعدل الفصلي: {ele.semAvg}</p>
-                                                <p className='bold'>المعدل التراكمي: {student.GPA}</p>
-                                            </section>
-                                            <table>
-                                                <thead>
-                                                    <tr>
-                                                        <th>المقرر الدراسي</th>
-                                                        <th>الساعات المعتمدة</th>
-                                                        <th>الدرجة</th>
-                                                        <th>النقاط</th>
-                                                        <th>التقدير</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {
-                                                        ele.subjects.map(el => {
-                                                            return (
-                                                                <tr key={el.id}>
-                                                                    <td>{el.name}</td>
-                                                                    <td>{el.hours}</td>
-                                                                    <td>{el.degree}</td>
-                                                                    <td>{el.points}</td>
-                                                                    <td>{el.grade}</td>
-                                                                </tr>
-                                                            )
-                                                        })
-                                                    }
-                                                </tbody>
-                                            </table>
+                    degrees.filter(e => e.levelName === level).map(e => {
+                            return e.semesters.filter(ele => ele.semester === semester).map(ele => {
+                                return (
+                                    <div key={e.id}>
+                                        <header className='display-degrees-header'>
+                                            <h4>{level}</h4>
+                                            <h4>{semester}</h4>
+                                        </header>
+                                        <section className='averages'>
+                                            <p className='bold'>المعدل الفصلي: {ele.semAvg}</p>
+                                            <p className='bold'>المعدل التراكمي: {student.GPA}</p>
+                                        </section>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>المقرر الدراسي</th>
+                                                    <th>الساعات المعتمدة</th>
+                                                    <th>الدرجة</th>
+                                                    <th>النقاط</th>
+                                                    <th>التقدير</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {
+                                                    ele.subjects.map(el => {
+                                                        return (
+                                                            <tr key={el.id}>
+                                                                <td>{el.name}</td>
+                                                                <td>{el.hours}</td>
+                                                                <td>{el.degree}</td>
+                                                                <td>{el.points}</td>
+                                                                <td>{el.grade}</td>
+                                                            </tr>
+                                                        )
+                                                    })
+                                                }
+                                            </tbody>
+                                        </table>
 
-                                            <button className='get-dgree btn' id='get-dgrees' onClick={handelGetDegSt} send={JSON.stringify(ele)}>الحصول عليه</button>
-                                        </div>
-                                    )
-                                }
+                                        <button className='get-dgree btn' id='get-dgrees' onClick={handelGetDegSt} send={JSON.stringify(ele)}>الحصول عليه</button>
+                                    </div>
+                                )
                             })
                         }
-                    })
+                    )
                 }
             </section>
             {/* SECTION OF PAYMENT */}
