@@ -26,15 +26,17 @@ import GrivenceEmp from "./js/employee/GrivenceEmp";
 import MyGrivences from "./js/student/MyGrivences";
 import SuggestionsST from "./js/student/SuggestionsST";
 import SuggestionEmp from "./js/employee/SuggestionEmp";
-import CalanderEmp from "./js/employee/CalanderEmp";
+import CalanderEmp from "./js/admin/CalanderEmp";
 import Student from "./js/employee/Students";
 import EditInfoStudent from "./js/student/EditInfoStudent";
 import NavbarAdmin from "./js/admin/NavbarAdmin";
 import HomeAdmin from "./js/admin/HomeAdmin";
+import ReportsAdmin from "./js/admin/ReportsAdmin";
+import EditEmployee from "./js/admin/editEmployees";
 
 function App() {
   const [student, setStudent] = useState();
-  const [employee, setEmployee] = useState();
+  const [employee, setEmployee] = useState(); 
   const [admin, setAdmin] = useState();
 
   const route = () => {
@@ -200,10 +202,6 @@ function App() {
                   <Student />
                 </Route>
 
-                  <Route path='/Add-calander'>
-                    <CalanderEmp />
-                  </Route>
-
                 <Footer />
               </div>
             }
@@ -216,6 +214,18 @@ function App() {
                   <HomeAdmin />
                 </Route>
 
+                <Route path='/reports'>
+                  <ReportsAdmin /> 
+                </Route>
+
+                <Route path='/Add-calander'>
+                    <CalanderEmp />
+                </Route>
+
+                <Route path='/editEmployee'>
+                    <EditEmployee />
+                </Route>
+                
                 <Footer />
               </div>
             }
