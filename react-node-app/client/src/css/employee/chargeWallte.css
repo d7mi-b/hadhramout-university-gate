@@ -39,7 +39,26 @@
 }
 
 .buttons .btn {
-    float: left;
+    float: center;
+
+}
+
+.chechbox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+    
+}
+.entercheckbox {
+    display: flex;
+    gap: 5px;
+    padding: 8px;
+}
+
+.check{
+    height: 20px;
+    width: 20px;
+    margin-left: 20px;
 }
 
 @media (min-width: 238px) and (max-width: 767px) {
