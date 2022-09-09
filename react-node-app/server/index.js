@@ -12,6 +12,7 @@ const calanderRoute = require('./routes/calanderRoute')
 const pdfRoutes = require('./routes/pdfRoutes');
 const servicesRoute = require('./routes/servicesRoute');
 const transactionReoute = require('./routes/transactionRoute');
+const archiveRoute = require('./routes/archiveRoute')
 
 const PORT = process.env.PORT || 3001;
 
@@ -45,3 +46,4 @@ app.use('/calander',calanderRoute)
 app.use('/pdf', pdfRoutes);
 app.use('/services', servicesRoute);
 app.use('/transaction', transactionReoute);
+app.use('/archive', archiveRoute)

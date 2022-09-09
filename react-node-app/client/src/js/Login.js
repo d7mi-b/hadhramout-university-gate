@@ -147,6 +147,8 @@ const Login = () => {
             setUsername(null)
             setEmail(null)
             setEncryptEmail(null)
+            setError(false)
+            setErrMsg(null)
         }
     }
 
@@ -178,7 +180,7 @@ const Login = () => {
                 body: JSON.stringify({username, email}),
                 headers: {'Content-Type': 'application/json'} 
             })
-            .then(result => console.log(result))
+            .then(result => setErrMsg('تم إرسال الطلب'))
             .catch(err => console.log(err))
         }
         else if (username && email !== inputEmail) {
