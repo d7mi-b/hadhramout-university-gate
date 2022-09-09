@@ -45,7 +45,7 @@ const ChargeWallte = () => {
         data.date = form.date.value;
         
 
-        const charge = await chargeWallet(data);
+        await chargeWallet(data);
 
         }
 

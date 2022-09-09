@@ -53,6 +53,10 @@
     right: 265px;
 }
 
+.edit-password .link {
+    margin: 0 25px 5px;
+}
+
 .icon-check {
     width: 250px;
     position: relative;

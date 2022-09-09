@@ -80,23 +80,22 @@ const HomeSt = () => {
                     </header>
                     <div className="news-container">
                         {
-                            news.map((e, i, arr) => {
-                                if (i <= 2)
-                                    return (
-                                        <article className="new" key={e._id}>
-                                            <div className="image">
-                                                
-                                            </div>
-                                            <section>
-                                                <header>
-                                                    <h3>{e.title.slice(0, 70)}..</h3>
-                                                </header>
-                                                <p>{e.body.slice(0, 120)}...</p>
-                                                <time dateTime={getDate(e.date)} className="new-date">{getDate(e.date)}</time>
-                                                <Link to={`/details/${e._id}`}>قراءة المزيد</Link>
-                                            </section>
-                                        </article>
-                                    );
+                            news.filter((e, i) => i <= 2).map((e, i, arr) => {
+                                return (
+                                    <article className="new" key={e._id}>
+                                        <div className="image">
+                                            
+                                        </div>
+                                        <section>
+                                            <header>
+                                                <h3>{e.title.slice(0, 70)}..</h3>
+                                            </header>
+                                            <p>{e.body.slice(0, 120)}...</p>
+                                            <time dateTime={getDate(e.date)} className="new-date">{getDate(e.date)}</time>
+                                            <Link to={`/details/${e._id}`}>قراءة المزيد</Link>
+                                        </section>
+                                    </article>
+                                );
                             })
                         }
                     </div>
@@ -110,8 +109,7 @@ const HomeSt = () => {
                     </header>
                     <div className='advertisements-container'>
                         {
-                            advertisement.map((e, i) => {
-                                if(i < 5)
+                            advertisement.filter((e, i) => i < 5).map((e, i) => {
                                 return (
                                     <article className='advertisement' key={e._id}>
                                         <header>

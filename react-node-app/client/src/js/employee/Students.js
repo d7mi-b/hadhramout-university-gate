@@ -131,7 +131,7 @@ const Student = () => {
         .then(res => res.json())
         .then(data => setStudents(data))
         .catch(err => console.log(err));
-    }, [])
+    }, [employee.department])
 
     return (
         <div className="container container-page">

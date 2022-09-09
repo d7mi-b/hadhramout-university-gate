@@ -2,6 +2,7 @@ const Student = require('../Models/studentModel');
 const Employee = require('../Models/employeeModel');
 const Admin= require('../Models/adminModel')
 const bcrypt = require("bcryptjs");
+const nodemailer = require('nodemailer');
 
 
 const handleErrors = (err) => {
@@ -133,6 +134,19 @@ module.exports.addNotification = async (req, res) => {
     .catch(err => console.log(err))
 }
 
+// check old password
+module.exports.checkOldPassword = async (req, res) => {
+    const {username, password} = req.query;
+
+    const student = await Student.findOne({ username });
+    const auth = await bcrypt.compare(password, student.password);
+
+    if (auth)
+        return res.status(200).json(auth)
+    else
+        return res.status(400).json(auth)
+}
+
 // change password of student
 module.exports.changePassword = async (req, res) => {
     let password = req.body.password;
@@ -148,8 +162,67 @@ module.exports.changePassword = async (req, res) => {
             date: new Date()
         }}
     })
-    .then(res => res.status(200))
+    .then(result => res.status(200).json(result))
     .catch(err => console.log(err))
+}
+
+// to send email
+module.exports.sendEmail = async (req, res) => {
+    const {username, email} = req.body;
+    // Generate test SMTP service account from ethereal.email
+    // Only needed if you don't have a real mail account for testing
+    let testAccount = await nodemailer.createTestAccount();
+
+    // create reusable transporter object using the default SMTP transport
+    var transport = nodemailer.createTransport({
+        host: "smtp.mailtrap.io",
+        port: 2525,
+        auth: {
+            user: "91c2c8acb5d665",
+            pass: "a0a10741cf783a"
+        }
+    });
+
+    // send mail with defined transport object
+    var mailOptions = {
+        from: 'from@example.com',
+        to: email,
+        subject: 'تغير كلمة المرور',
+        text: `!مرحبًا عزيزنا المستخدم
+        لقد وصلنا منك طلب بأنك نسيت كلمة المرور يوسفنا حدوث ذلك وإليك هذا الرابط لتغير كلمة المرور الخاصة بك
+        http://localhost:3000/forgetPassword/${new Date().getTime()}/${username}
+        `,
+        html: `
+        <body dir="rtl" style="text-align: center; color: #0a214c">
+            <img src='cid:uniq-HUGLogo.png' alt='logo' width='80px' hight='25px' style='margin: 10px' />
+            <img src='cid:uniq-Hadhrmout.jpg' alt='logo' width='80px' hight='25px' style='margin: 10px' />
+            <h3>مرحبًا عزيزنا المستخدم!</h3>
+            <p> لقد وصلنا منك طلب بأنك نسيت كلمة المرور يوسفنا حدوث ذلك وإليك هذا 
+            <a href="http://localhost:3000/forgetPassword/${new Date().getTime()}/${username}">الرابط</a>
+            لتغير كلمة المرور الخاصة بك</p>
+            <P>بوابة جامعة حضرموت لخدمات الطالب</p>
+        </body>
+        `,
+        attachments: [
+            {
+                filename: 'Hadhrmout.jpg',
+                path: 'D:/College/Mini Project/Web app/hug/react-node-app/client/src/images/Hadhrmout.jpg',
+                cid: 'uniq-Hadhrmout.jpg'
+            },
+            {
+                filename: 'HUGLogo.png',
+                path: 'D:/College/Mini Project/Web app/hug/react-node-app/client/src/images/HUGLogo.png',
+                cid: 'uniq-HUGLogo.png'
+            }
+        ]
+    };
+    transport.sendMail(mailOptions, (error, info) => {
+        if (error) {
+        return res.status(500)
+        }
+        console.log('Message sent: %s', info.messageId);
+        return res.status(200)
+    });
 }
 
 //To add students with Hashed password

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import '../../css/employee/advertisements.css'
 import { useAdv } from "../DataProvider";

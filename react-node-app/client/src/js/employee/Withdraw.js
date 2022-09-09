@@ -40,7 +40,7 @@ const Withdraw = () => {
         data.amount = +form.amount.value;
         data.date = form.date.value;
 
-        const withdraw = await withdrawWallet(data);
+        await withdrawWallet(data);
 
     }
 

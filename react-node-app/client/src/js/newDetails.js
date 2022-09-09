@@ -1,6 +1,5 @@
 import '../css/newDetails.css';
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { useNews } from './DataProvider';
 import { useEffect, useState } from 'react';
 
 const getDate = (e) => {
@@ -19,7 +18,7 @@ const NewDetails = () => {
         fetch(`/news/${id}`)
             .then((res) => res.json())
             .then((data) => setNews(data));
-    }, [])
+    }, [id])
 
     return (
         <div className="new-details-page">
@@ -29,7 +28,7 @@ const NewDetails = () => {
                 </div>
                 <header>
                     <h1 className="title">{news.title}</h1>
-                    <time datetime={getDate(news.date)} className="date">{getDate(news.date)}</time>
+                    <time dateTime={getDate(news.date)} className="date">{getDate(news.date)}</time>
                 </header>
                 <section className='body'>{news.body}</section>
             </article>

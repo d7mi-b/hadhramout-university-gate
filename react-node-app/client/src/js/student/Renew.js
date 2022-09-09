@@ -40,14 +40,24 @@ const Renew = () => {
                     collage: student.collage,
                     date: getDate(new Date())
                 }))
-                .then(res => {
+                .then(response => {
+                    response.blob().then(blob => {
+                        // Creating new object of PDF file
+                        const fileURL = window.URL.createObjectURL(blob);
+                        // Setting various property values
+                        let alink = document.createElement('a');
+                        alink.href = fileURL;
+                        alink.download = `شهادة قيد ${student.name}.pdf`;
+                        alink.click();
+                    })
+                    
                     fetch('/updateUser?' + new URLSearchParams({
                         username: student.username
                     }))
                     .then((res) => res.json())
                     .then((data) => {
                         window.sessionStorage.setItem('user', JSON.stringify(data))
-                        window.location.replace("/renew")
+                        // window.location.replace("/renew")
                     });
                 })
                 .catch(err => console.log(err));
@@ -149,7 +159,9 @@ const Renew = () => {
     }
 
     // function to check price of services
-    const checkPrice = () => {
+    
+
+    useEffect(() => {
         // to get the price of service
         if (student.state) {
             fetch('/services/checkPrice?' + new URLSearchParams({
@@ -169,12 +181,9 @@ const Renew = () => {
             .then(data => setPrice(data.price))
             .catch(err => console.log(err))
         }
-    }
 
-    useEffect(() => {
-        checkPrice();
         handelContent();
-    },[]);
+    }, [student.state]);
 
     return (
         <div className="renew container container-page">

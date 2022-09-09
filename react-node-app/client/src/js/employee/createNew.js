@@ -34,13 +34,13 @@ const CreateNew = () => {
                 <h2>خبر جديد</h2>
             </header>
             <form onSubmit={handelSubmit} id="news_form" >
-                <label for='title'>العنوان</label>
+                <label htmlFor='title'>العنوان</label>
                 <input name="title" type='text' id="title-new" required />
-                <label for='body'>الخبر</label>
+                <label htmlFor='body'>الخبر</label>
                 <textarea name="body" id="body-new" required ></textarea>
-                <label for='image'>الصورة</label>
+                <label htmlFor='image'>الصورة</label>
                 <input type='file' name="image" id="image-new"/>
-                <label for='date'>التاريخ</label>
+                <label htmlFor='date'>التاريخ</label>
                 <input name="date" type='date' id="date-new" required />
                 <button className='btn'>إنشاء</button>
             </form>

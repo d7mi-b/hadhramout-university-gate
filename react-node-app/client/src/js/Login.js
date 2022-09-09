@@ -3,8 +3,8 @@ import landding from '../images/operating_system.svg';
 import logo from '../images/HUGLogo.png';
 import had from '../images/Hadhrmout.jpg';
 import signIn from '../images/sign_in.svg';
-import { Link } from 'react-router-dom';
 import React, {useState} from 'react';
+import { set } from 'mongoose';
 
 const loginStudent = async (data) => {
     return fetch('/studentLogin', {
@@ -33,6 +33,11 @@ const loginAdmin = async (data) => {
 const Login = () => {
     const [ error, setError ] = useState(false);
     const [errMsg, setErrMsg] = useState('');
+    const [forgetPass, setForgetPass] = useState(false);
+    const [email, setEmail] = useState(null);
+    const [inputEmail, setInputEmail] = useState(null);
+    const [encryptEmail, setEncryptEmail] = useState(null);
+    const [username, setUsername] = useState(null);
 
     // HANDEL CONTENT
     const handelContent = () => {
@@ -89,7 +94,7 @@ const Login = () => {
                 window.location.replace('/employee')
             }
         }
-        else if (text.length==9){
+        else if (text.length === 9){
             const data = await loginAdmin({username: text, password});
             if (data === 'incorrect user') {
                 setErrMsg('اسم المستخدم غير صحيح')
@@ -120,8 +125,73 @@ const Login = () => {
         }
     }
 
+    const handelForget = () => {
+        if (forgetPass === true)
+            setForgetPass(false);
+        else
+            setForgetPass(true);
+    }
+
+    // get user data when forget password
+    const getUsername = (e) => {
+
+        setUsername(e.target.value)
+        if (e.target.value) {
+            fetch('/updateUser?' + new URLSearchParams({
+                username: e.target.value
+            }))
+            .then(result => result.json())
+            .then(data => setEmail(data.email))
+            .catch(err => console.log(err))
+        } else if (!e.target.value) {
+            setUsername(null)
+            setEmail(null)
+            setEncryptEmail(null)
+            setError(false)
+            setErrMsg(null)
+        }
+    }
+
+    const getUserEmail = (e) => {
+        setInputEmail(e.target.value)
+    }
+
+    const showEncryptEmail = () => {
+        setEncryptEmail(encryptMail(email));
+    }
+
+    // encrypt email
+    const encryptMail = (mail) => {
+        var i = mail.indexOf('@');
+        var startIndex = i * .2 | 0;
+        var endIndex   = i * .9 | 0;
+        return mail.slice(0, startIndex) +
+                mail.slice(startIndex, endIndex).replace(/./g, '*') +
+                mail.slice(endIndex);
+    }
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        if (username && email === inputEmail) {
+            setError(true)
+            setErrMsg('تم إرسال الطلب')
+            fetch('/sendForgetPass', {
+                method: 'POST',
+                body: JSON.stringify({username, email}),
+                headers: {'Content-Type': 'application/json'} 
+            })
+            .then(result => setErrMsg('تم إرسال الطلب'))
+            .catch(err => console.log(err))
+        }
+        else if (username && email !== inputEmail) {
+            setError(true)
+            setErrMsg('البريد الإلكتروني غير صحيح')
+        }
+    }
+
     React.useEffect(() => {
         handelContent();
+
     }, [])
 
     return (
@@ -152,20 +222,43 @@ const Login = () => {
                         <svg className='cancel' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
                         <img src={signIn} alt='sign in' />
                         <div className="form__group field">
-                            <input required placeholder="رقم المستخدم" name='username' className="form__field" type="input" />
+                            <input onBlur={getUsername} required placeholder="رقم المستخدم" name='username' className="form__field" type="input" />
                             <label className="form__label" htmlFor='username'>رقم المستخدم</label>
                         </div>
-                        <div className="form__group field">
-                            <input required placeholder="كلمة السر" name='password' className="form__field" type="password" />
-                            <label className="form__label" htmlFor='password'>كلمة المرور</label>
-                            <svg onClick={showPassword} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M279.6 160.4C282.4 160.1 285.2 160 288 160C341 160 384 202.1 384 256C384 309 341 352 288 352C234.1 352 192 309 192 256C192 253.2 192.1 250.4 192.4 247.6C201.7 252.1 212.5 256 224 256C259.3 256 288 227.3 288 192C288 180.5 284.1 169.7 279.6 160.4zM480.6 112.6C527.4 156 558.7 207.1 573.5 243.7C576.8 251.6 576.8 260.4 573.5 268.3C558.7 304 527.4 355.1 480.6 399.4C433.5 443.2 368.8 480 288 480C207.2 480 142.5 443.2 95.42 399.4C48.62 355.1 17.34 304 2.461 268.3C-.8205 260.4-.8205 251.6 2.461 243.7C17.34 207.1 48.62 156 95.42 112.6C142.5 68.84 207.2 32 288 32C368.8 32 433.5 68.84 480.6 112.6V112.6zM288 112C208.5 112 144 176.5 144 256C144 335.5 208.5 400 288 400C367.5 400 432 335.5 432 256C432 176.5 367.5 112 288 112z"/></svg>
-                        </div>
                         {
-                            error && 
-                            <p className='error'>{errMsg}</p>
+                            !forgetPass &&
+                            <section>
+                                <div className="form__group field">
+                                    <input required placeholder="كلمة السر" name='password' className="form__field" type="password" />
+                                    <label className="form__label" htmlFor='password'>كلمة المرور</label>
+                                    <svg onClick={showPassword} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M279.6 160.4C282.4 160.1 285.2 160 288 160C341 160 384 202.1 384 256C384 309 341 352 288 352C234.1 352 192 309 192 256C192 253.2 192.1 250.4 192.4 247.6C201.7 252.1 212.5 256 224 256C259.3 256 288 227.3 288 192C288 180.5 284.1 169.7 279.6 160.4zM480.6 112.6C527.4 156 558.7 207.1 573.5 243.7C576.8 251.6 576.8 260.4 573.5 268.3C558.7 304 527.4 355.1 480.6 399.4C433.5 443.2 368.8 480 288 480C207.2 480 142.5 443.2 95.42 399.4C48.62 355.1 17.34 304 2.461 268.3C-.8205 260.4-.8205 251.6 2.461 243.7C17.34 207.1 48.62 156 95.42 112.6C142.5 68.84 207.2 32 288 32C368.8 32 433.5 68.84 480.6 112.6V112.6zM288 112C208.5 112 144 176.5 144 256C144 335.5 208.5 400 288 400C367.5 400 432 335.5 432 256C432 176.5 367.5 112 288 112z"/></svg>
+                                </div>
+                                {
+                                    error && 
+                                    <p className='error'>{errMsg}</p>
+                                }
+                                <button to='#' className='btn'>تسجيل الدخول</button>
+                                <p className='link' onClick={handelForget}>نسيت كلمة المرور</p>
+                            </section>
                         }
-                        <button to='#' className='btn'>تسجيل الدخول</button>
-                        <Link className='link' to='#'>نسيت كلمة المرور</Link>
+                        {
+                            forgetPass &&
+                            <section>
+                                {
+                                    encryptEmail && <p className='email'>{encryptEmail}</p>
+                                }
+                                <div className="form__group field">
+                                    <input onBlur={getUserEmail} onFocus={showEncryptEmail} required placeholder="البريد الإلكتروني" name='email' className="form__field" type="email" />
+                                    <label className="form__label" htmlFor='email'>البريد الإلكتروني</label>
+                                </div>
+                                {
+                                    error && 
+                                    <p className='error'>{errMsg}</p>
+                                }
+                                <button onClick={sendEmail} className='btn'>إرسال طلب</button>
+                                <p className='link' onClick={handelForget}>العودة لتسجيل الدخول</p>
+                            </section>
+                        }
                     </form>
                 </div>
 

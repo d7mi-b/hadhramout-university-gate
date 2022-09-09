@@ -150,6 +150,9 @@ const ReportsAdmin = () => {
                     
                 </tbody>
             </table>
+            <div className='container'>
+                <button className='btn btn-add'>نقل إلى الارشيف</button>
+            </div>
         </div>
     );
 }

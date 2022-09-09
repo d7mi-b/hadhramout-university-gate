@@ -13,6 +13,7 @@ const pdfRoutes = require('./routes/pdfRoutes');
 const servicesRoute = require('./routes/servicesRoute');
 const transactionReoute = require('./routes/transactionRoute');
 const reportsRoutes = require('./routes/reportsRoutes');
+const archiveRoute = require('./routes/archiveRoute')
 
 const PORT = process.env.PORT || 3001;
 
@@ -47,3 +48,4 @@ app.use('/pdf', pdfRoutes);
 app.use('/services', servicesRoute);
 app.use('/transaction', transactionReoute);
 app.use('/collection',reportsRoutes)
+app.use('/archive', archiveRoute)
