@@ -81,3 +81,15 @@ module.exports.degreeSt = async (req, res) => {
     })
 
 };
+
+module.exports.grievancyPDF =  async (req, res) => {
+
+    const htmlContent = renderTemplate(req.query, '/registration');
+
+    await createPdf(`${new Date().getTime()}.pdf`, htmlContent)
+        .then(pdf => {
+            res.set({ 'Content-Type': 'application/pdf', 'Content-Length': pdf.length })
+            res.send(pdf)
+        })
+
+};

@@ -1,4 +1,5 @@
 const { parse } = require('json2csv');
+const { ObjectId } = require('mongodb');
 const Advertisements = require('../Models/advertismentModel');
 const calander = require('../Models/calanderModel');
 const Grievance = require('../Models/grievanceModel');
@@ -118,6 +119,39 @@ module.exports.archiveSchedules = async (req, res) => {
             const csv = parse(arr, opts);
             res.setHeader("Content-Type", "text/csv");
             res.setHeader("Content-Disposition", `attachment; filename=Schedules${year}.csv`);
+            res.status(200).end(csv);
+        }
+        catch(err) {
+            console.log(err)
+        }
+    }).remove();
+}
+
+module.exports.archiveSingleSchedule = async (req, res) => {
+    const { id } = req.query;
+    schedule.find({ _id: ObjectId(id)}, {}, (err, data) => {
+
+        const fields = ['_id', 'department', 'level', 'semester', 'group1', 'group2', 'subject', 'prof', 'time_from', 'time_to', 'place', 'day', 'Id', "__v"];
+        const opts = { fields };
+
+        let arr = [
+            {
+                _id: data[0]._id,
+                department: data[0].department,
+                level: data[0].level,
+                semester: data[0].semester,
+                group1: data[0].group1,
+                group2: data[0].group2,
+            },
+            ...data[0].subjects
+        ];
+
+        console.log(arr);
+
+        try {
+            const csv = parse(arr, opts);
+            res.setHeader("Content-Type", "text/csv");
+            res.setHeader("Content-Disposition", `attachment; filename=Schedule${year}.csv`);
             res.status(200).end(csv);
         }
         catch(err) {

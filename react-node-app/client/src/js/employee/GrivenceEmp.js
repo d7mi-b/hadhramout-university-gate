@@ -113,6 +113,28 @@ const GrivenceEmp = () => {
         }
     }
 
+    const grievancesPDF = () => {
+        fetch('/pdf/degreeSt?' + new URLSearchParams({
+            name: employee.name,
+            department: employee.department,
+            level: student.level,
+            date: new Date(),
+            grivences: JSON.stringify(grivence)
+        }))
+        .then(response => {
+            response.blob().then(blob => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = `بيان درجات ${student.name}.pdf`;
+                alink.click();
+            })
+        })
+        .catch(err => console.log(err))
+    }
+
     useEffect(() => {
         // get grivances from database
         fetch('/grievances/get?'  + new URLSearchParams({
