@@ -1,5 +1,6 @@
 const { parse } = require('json2csv');
 const { ObjectId } = require('mongodb');
+const puppeteer = require('puppeteer');
 const Advertisements = require('../Models/advertismentModel');
 const calander = require('../Models/calanderModel');
 const Grievance = require('../Models/grievanceModel');
@@ -127,6 +128,31 @@ module.exports.archiveSchedules = async (req, res) => {
     }).remove();
 }
 
+function renderTemplate(data, templateName) {
+    const html = fs.readFileSync(path.join(process.cwd(), 'server/controllers/templates', `${templateName}.hbs`), {
+        encoding: "utf-8",
+    });
+
+    const template = hbs.compile(html);
+
+    const rendered = template(data);
+    return rendered;
+}
+
+async function createPdf(outputPath, htmlContent) {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+
+    await page.setContent(htmlContent);
+
+    await page.emulateMediaType("print");
+    const pdf = await page.pdf({format: "A4"});
+
+    await browser.close();
+
+    return pdf;
+}
+
 module.exports.archiveSingleSchedule = async (req, res) => {
     const { id } = req.query;
     schedule.find({ _id: ObjectId(id)}, {}, (err, data) => {
@@ -145,8 +171,6 @@ module.exports.archiveSingleSchedule = async (req, res) => {
             },
             ...data[0].subjects
         ];
-
-        console.log(arr);
 
         try {
             const csv = parse(arr, opts);

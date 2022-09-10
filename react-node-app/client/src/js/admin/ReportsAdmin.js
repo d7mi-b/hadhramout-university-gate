@@ -3,7 +3,6 @@ import '../../css/employee/scheduleEmp.css'
 
 
 let collections = [
-   
     {
         id: 1,
         name:'employee',
@@ -51,8 +50,6 @@ const ReportsAdmin = () => {
     const [data, setData] = useState([]);
     const [header, setHeader]= useState([]);
 
-   
-
     const getCollection = (e) => {
         
         fetch(`/collection/${collection}`)
@@ -72,9 +69,7 @@ const ReportsAdmin = () => {
             delete i.__v;
             delete i.createdAt;
             delete i.updatedAt;
-
         })
-
         return e;
     }
 
@@ -116,13 +111,11 @@ const ReportsAdmin = () => {
                     <tr className='' key={Math.random()}>
                     {
                         data &&
-                             
                         header.map(i =>{
                             return(    
-                            <th><p className='bold'>{i}</p></th>
-                        )}
+                                <th><p className='bold'>{i}</p></th>
+                            )}
                         )
-                            
                     }
                     </tr>
                 </thead>
@@ -130,22 +123,19 @@ const ReportsAdmin = () => {
                     
                     {
                         data &&
-                        
                         data.map(i => {
                             return(
                                 <tr className='' key={Math.random()}>
-                            {
-                            Object.values(i).map(j => {
-
-                                return(
-                                <td><p>{j}</p></td>
-                                )
-                            
-                        })  }
-                        </tr>
-                        )
+                                {
+                                    Object.values(i).map(j => {
+                                        return(
+                                            <td><p>{j}</p></td>
+                                        )
+                                    })  
+                                }
+                                </tr>
+                            )
                         })
-                       
                     }
                     
                 </tbody>

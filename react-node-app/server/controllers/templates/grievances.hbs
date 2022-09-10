@@ -39,9 +39,8 @@
 
     .content section {
         width: 95%;
-        margin: 35px auto;
-        font-size: 22px;
-        line-height: 1.8;
+        margin: 5px auto;
+        font-size: 14px;
     }
 
     .user-data {
@@ -58,13 +57,13 @@
         box-shadow: 3px 3px 10px 2px #ddd;
         background-color: var(--white);
         width: 80%;
-        margin: 15px auto;
-        padding: 10px;
+        margin: 5px auto;
+        padding: 5px 10px;
         border-radius: 5px;
     }
 
     .grivance .bold {
-        margin: 10px 25px;
+        margin: 10px 5px;
     }
 
     .choose-state {
@@ -84,6 +83,13 @@
         margin: 10px 0;
     }
 
+    .grivance .grv-state .buttons .btn {
+        height: 30px;
+        padding: 5px 10px;
+        border: 1px solid gray;
+        background: none;
+    }
+
     .buttons button {
         margin-left: 10px;
     }
@@ -92,7 +98,6 @@
     .grv-state time {
         display: flex;
         flex-direction: column;
-        height: 70px;
         justify-content: center;
     }
 
@@ -131,40 +136,39 @@
 
             <artical class="content">
                 {{#each grivences as |grivence|}}
-                <article class='grivance' id={grivence._id}>
+                <article class='grivance' id={{grivence._id}}>
                     <p class='bold'>بيانات الطالب</p>
                     <section class='student-grv'>
-                        <p>رقم القيد: {grivence.username}</p>
-                        <p>الأسم: {grivence.name}</p>
-                        <p>القسم: {grivence.department}</p>
-                        <p>المستوى: {grivence.level}</p>
+                        <p>رقم القيد: {{grivence.username}}</p>
+                        <p>الأسم: {{grivence.name}}</p>
+                        <p>القسم: {{grivence.department}}</p>
+                        <p>المستوى: {{grivence.level}}</p>
                     </section>
                     <p class='bold'>بيانات المادة</p>
                     <section class='subject-grv'>
-                        <p>المادة: {grivence.subject}</p>
-                        <p>الدرجة: {grivence.degree}</p>
-                        <p>نوع التظلم: {grivence.type}</p>
-                        <p>سبب التظلم: {grivence.reson}</p>
+                        <p>المادة: {{grivence.subject}}</p>
+                        <p>الدرجة: {{grivence.degree}}</p>
+                        <p>نوع التظلم: {{grivence.type}}</p>
+                        <p>سبب التظلم: {{grivence.reson}}</p>
                     </section>
                     <section class='grv-state'>
-                        <p>حالة التظلم: {grivence.state}</p>
-                        <time dateTime={getDate(grivence.date)}>التاريخ: {getDate(grivence.date)}</time>
+                        <p>حالة التظلم: {{grivence.state}}</p>
+                        <time dateTime={{grivence.date}}>التاريخ: {{date}}</time>
                         <section class='buttons'>
                             <button class='btn' id='btn-accept'>قبول التظلم</button>
                             <button class='btn' id='btn-accept'>رفص التظلم</button>
                         </section>
                     </section>
-                    {{/each}}
                 </article>
+                {{/each}}
             </artical>
 
 
             <footer class="footer">
                 <div>
-                    <p>المكلا - الرمز البريدي: (50512 - 50511) - هاتف: (360868) - فاكس: 360864 (009675) </p>
-                    <p>Mukall - post: (50511 - 50512) - tel.: (360868) - fax: (009675) 360864</p>
+                    <p>الموظف: {{name}}</p>
+                    <p>القسم: {{department}}</p>
                 </div>
-                <p>Email: HADHRAMOUT_UNIV@Y.NET.YE (البريد الإلكتروني)</p>
             </footer>
         </div>
 

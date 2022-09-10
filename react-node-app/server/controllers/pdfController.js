@@ -84,7 +84,14 @@ module.exports.degreeSt = async (req, res) => {
 
 module.exports.grievancyPDF =  async (req, res) => {
 
-    const htmlContent = renderTemplate(req.query, '/registration');
+    const data = {
+        name: req.query.name,
+        department: req.query.department,
+        date: req.query.date,
+        grivences: JSON.parse(req.query.grivences)
+    }
+
+    const htmlContent = renderTemplate(data, '/grievances');
 
     await createPdf(`${new Date().getTime()}.pdf`, htmlContent)
         .then(pdf => {

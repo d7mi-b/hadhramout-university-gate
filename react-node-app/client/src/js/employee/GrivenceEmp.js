@@ -113,12 +113,13 @@ const GrivenceEmp = () => {
         }
     }
 
-    const grievancesPDF = () => {
-        fetch('/pdf/degreeSt?' + new URLSearchParams({
+    const grievancesPDF = (e) => {
+        e.preventDefault();
+
+        fetch('/pdf/grievancyPDF?' + new URLSearchParams({
             name: employee.name,
             department: employee.department,
-            level: student.level,
-            date: new Date(),
+            date: getDate(new Date()),
             grivences: JSON.stringify(grivence)
         }))
         .then(response => {
@@ -128,7 +129,7 @@ const GrivenceEmp = () => {
                 // Setting various property values
                 let alink = document.createElement('a');
                 alink.href = fileURL;
-                alink.download = `بيان درجات ${student.name}.pdf`;
+                alink.download = `التظلمات.pdf`;
                 alink.click();
             })
         })
@@ -168,6 +169,9 @@ const GrivenceEmp = () => {
                         <label htmlFor='search'>البحث عن طالب</label>
                         <input type='search' name='search' placeholder='رقم القيد الخاص بالطالب' onChange={searchStudent}/>
                     </section>
+                    {
+                        state === 'تحت المعالجة' && <button onClick={grievancesPDF} className='btn'>طباعة</button>
+                    }
                 </form>
             </section>
             <section className='grivance-container'>
@@ -241,20 +245,20 @@ const GrivenceEmp = () => {
                 }
             </section>
             {
-                grivence.length >= 7 && page !== 0 && !search_student &&
+                grivence.length >= 3 && page !== 0 && !search_student &&
                 <section className='pages'>
                     <button className='btn' onClick={handleNext}>التالي</button>
                     <button className='btn' onClick={handlePrevious}>السابق</button>
                 </section>
             }
             {
-                grivence.length >= 7 && page === 0 && !search_student  &&
+                grivence.length >= 3 && page === 0 && !search_student  &&
                 <section className='pages'>
                     <button className='btn' onClick={handleNext}>التالي</button>
                 </section>
             }
             {
-                grivence.length < 7 && page !== 0 && !search_student &&
+                grivence.length < 3 && page !== 0 && !search_student &&
                 <section className='pages'>
                     <button className='btn' onClick={handlePrevious}>السابق</button>
                 </section>
