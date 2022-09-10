@@ -181,7 +181,6 @@ const ReportsAdmin = () => {
                             )}
                         )
                     }
-                    <th><p className='bold'>select</p></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -193,7 +192,9 @@ const ReportsAdmin = () => {
                                     {
                                         Object.values(i).map(j => {
                                             return(
-                                                <td><p>{j}</p></td>
+                                                <td>
+                                                    <p>{j}</p>
+                                                </td>
                                             )
                                         })  
                                     }
