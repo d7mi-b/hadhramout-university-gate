@@ -54,7 +54,7 @@ const ReportsAdmin = () => {
    
 
     const getCollection = (e) => {
-        
+        console.log("hi")
         fetch(`/collection/${collection}`)
         .then(res => res.json())
         .then(i => {
@@ -62,8 +62,11 @@ const ReportsAdmin = () => {
             setData(i)
             let j = Object.keys(i[0]);
             setHeader(j);
+            
         })
         .catch(err => console.log(err))
+
+        
 
     }
 
@@ -72,6 +75,7 @@ const ReportsAdmin = () => {
             delete i.__v;
             delete i.createdAt;
             delete i.updatedAt;
+            delete i.password;
 
         })
 
@@ -81,6 +85,24 @@ const ReportsAdmin = () => {
     const handelchangecollection = e => {
         setCollection(e.target.value);
     };
+
+    const selects = () => {
+
+        const ele=document.getElementsByName('selectAll');  
+        if(ele.checked!=true)
+        {
+            for(var i=0; i<ele.length; i++){  
+            if(ele[i].type=='checkbox')  
+                ele[i].checked=true;  
+        }  
+    }
+    else {
+        for(var i=0; i<ele.length; i++){  
+            if(ele[i].type=='checkbox')  
+                ele[i].checked=false;  
+        }  
+    }
+    }
 
 
     useEffect(() => {
@@ -107,6 +129,10 @@ const ReportsAdmin = () => {
                                 })
                             }
                         </select>
+                        
+                        <input type="checkbox" name="select" className='checkbox' onClick={selects()} />
+                        <label for="selectAll" className='label'>select All</label>
+                        
                     </div>
                 </form>
             </section>
@@ -124,6 +150,7 @@ const ReportsAdmin = () => {
                         )
                             
                     }
+                    <th><p className='bold'>select</p></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -142,6 +169,10 @@ const ReportsAdmin = () => {
                                 )
                             
                         })  }
+                        <td>
+                        
+                        <input type="checkbox" name="select" className='checkbox'/>
+                        </td>
                         </tr>
                         )
                         })
@@ -150,8 +181,9 @@ const ReportsAdmin = () => {
                     
                 </tbody>
             </table>
-            <div className='container'>
+            <div className='container btn-flex'>
                 <button className='btn btn-add'>نقل إلى الارشيف</button>
+                <button className='btn btn-add'>طباعة</button>
             </div>
         </div>
     );

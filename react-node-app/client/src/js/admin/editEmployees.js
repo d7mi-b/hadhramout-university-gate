@@ -8,14 +8,28 @@ const EditEmployee = () => {
 
     
     const handelSubmit =  (e) => {
-        e.preventDefault();
+        
 
-        const form = document.getElementById("chargeWallet-form");
-        const studentNo = form.idStudent.value;
-        const studentName = form.name.value;
-        const checkNo = +form.checkNo.value;
-        const amount = +form.amount.value;
-        const date = form.date.value;
+        const form = document.getElementById("addEmployee-form");
+        const employeeNo = form.idEmployee.value;
+        const employeeName = form.name.value;
+        const department = form.department.value;
+        const email = form.Email.value;
+        const password = form.password.value;
+        const verify = form.verify.value;
+        console.log(employeeNo)
+        
+        if(password===verify)
+       {
+         fetch(`/registerE`,{
+            method:'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({employeeNo,employeeName,department,email,password})
+                })
+                .then(res => res.json())
+                .catch(err => console.log(err))
+            }
+            
         
     }
 
@@ -26,7 +40,7 @@ const EditEmployee = () => {
             <header>
                 <h2>إضافة موظف جديد</h2>
             </header>
-            <form onSubmit={handelSubmit} className="charge-form form" id='chargeWallet-form'>
+            <form onSubmit={handelSubmit} className="addEmployee-form form" id='chargeWallet-form'>
                 <label htmlFor="idEmployee">رقم الموظف</label>
                 <input name="idEmployee" type='number' required />
                 <label htmlFor="name">إسم الموظف</label>
@@ -37,8 +51,8 @@ const EditEmployee = () => {
                 <input name="Email" type="email" required />
                 <label htmlFor="password">الرقم السري</label>
                 <input name="password" type='password' required />
-                <label htmlFor="vali">تأكيد الرقم السري</label>
-                <input name="date" type='password' required />
+                <label htmlFor="verify">تأكيد الرقم السري</label>
+                <input name="verify" type='password' required />
                 <div className='chechbox'>
                     <div className='entercheckbox'>
                 <input type="checkbox" name="news" value="news" className='check' />

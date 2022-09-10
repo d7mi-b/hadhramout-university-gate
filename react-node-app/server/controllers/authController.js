@@ -262,18 +262,17 @@ module.exports.registerStudent= async (req,res) => {
 
 module.exports.registerEmployee= async (req,res) => {
 
+    const data=req.body;
     //create employee
 
     try{
         const employee = await Employee.create({
         
-            name:"Ahmed",
-            phone_NO:712946795,
-            department:"Computer Engineering",
-            email:"Ahmed@gmail.com",
-            date_Of_Birth:"2-5-1989",
-            username:"111",
-            password:1234,
+            name:data.employeeName,
+            department:data.department,
+            email:data.email,
+            username:data.employeeNo,
+            password:data.password,
             position:"employee"
         })
         res.status(201).json(employee)
