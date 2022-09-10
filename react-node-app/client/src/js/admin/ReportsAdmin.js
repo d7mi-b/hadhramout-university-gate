@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../css/employee/scheduleEmp.css'
+import '../../css/admin/reports.css'
 
 
 let collections = [
@@ -100,10 +101,46 @@ const ReportsAdmin = () => {
     }
     }
 
+    const archive = (e) => {
+        e.preventDefault();
+        fetch(`/archive/${collection}`)
+        .then(response => {
+            response.blob().then(blob => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = `${collection} ${new Date().getFullYear()}.csv`;
+                alink.click();
+            })
+        })
+        .catch(err => console.log(err))
+    }
+
+    const printArchive = (e) => {
+        e.preventDefault();
+        fetch(`/archive/print${collection}`)
+        .then(response => {
+            response.blob().then(blob => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = `${collection} ${new Date().getFullYear()}.csv`;
+                alink.click();
+            })
+        })
+        .catch(err => console.log(err))
+    }
+
+    const deleteEmployee = (e) => {
+    }
+
 
     useEffect(() => {
         getCollection();
-
     })
 
     return (
@@ -125,10 +162,10 @@ const ReportsAdmin = () => {
                                 })
                             }
                         </select>
-                        
-                        <input type="checkbox" name="select" className='checkbox' onClick={selects()} />
-                        <label for="selectAll" className='label'>select All</label>
-                        
+                    </div>
+                    <div className='container btn-flex'>
+                        <button onClick={archive} className='btn btn-add'>نقل إلى الارشيف</button>
+                        <button onClick={printArchive} className='btn btn-add'>طباعة</button>
                     </div>
                 </form>
             </section>
@@ -148,35 +185,27 @@ const ReportsAdmin = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    
                     {
                         data &&
                         data.map(i => {
                             return(
                                 <tr className='' key={Math.random()}>
-                            {
-                            Object.values(i).map(j => {
-
-                                return(
-                                <td><p>{j}</p></td>
-                                )
-                            
-                        })  }
-                        <td>
-                        
-                        <input type="checkbox" name="select" className='checkbox'/>
-                        </td>
-                        </tr>
-                        )
+                                    {
+                                        Object.values(i).map(j => {
+                                            return(
+                                                <td><p>{j}</p></td>
+                                            )
+                                        })  
+                                    }
+                                    {
+                                        collection === 'employee' && <p onClick={deleteEmployee} className='btn'>حذف</p>
+                                    }
+                                </tr>
+                            )
                         })
                     }
-                    
                 </tbody>
             </table>
-            <div className='container btn-flex'>
-                <button className='btn btn-add'>نقل إلى الارشيف</button>
-                <button className='btn btn-add'>طباعة</button>
-            </div>
         </div>
     );
 }

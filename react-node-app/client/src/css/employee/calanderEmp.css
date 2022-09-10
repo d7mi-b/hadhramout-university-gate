@@ -20,6 +20,10 @@
     margin-right: 4px;
 }
 
+.btn-add .btn {
+    margin: 0 10px;
+}
+
 .deletebtn{
     width: fit-content;
 }

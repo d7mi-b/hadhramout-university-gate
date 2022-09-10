@@ -146,6 +146,22 @@ const CalanderEmp = () => {
         setYear(e.target.value);
     }
 
+    const archiveCalender = () => {
+        fetch('/archive/calanders')
+        .then(response => {
+            response.blob().then(blob => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = `التقويم الجامعي ${new Date().getFullYear()}.csv`;
+                alink.click();
+            })
+        })
+        .catch(err => console.log(err))
+    }
+
     useEffect(() => {
         addCalander();
     }, [])
@@ -193,6 +209,7 @@ const CalanderEmp = () => {
                 </form>
                 <div className='btn-add'>
                         <button  className='btn btn-add' onClick={addCalander} >اضافة</button>
+                        <p className='btn' onClick={archiveCalender}>نقل إلى الأرشيف</p>
                 </div>
 
             </section>

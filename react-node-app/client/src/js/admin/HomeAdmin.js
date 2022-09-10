@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import '../../css/employee/homeEmp.css';
+import '../../css/admin/homeAdmin.css'
 
 let sections = [
-   
     {
         id: 1,
         title: 'التقارير',
