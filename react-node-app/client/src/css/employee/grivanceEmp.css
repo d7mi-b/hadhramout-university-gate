@@ -59,3 +59,31 @@
     height: 70px;
     justify-content: center;
 }
+
+@media (min-width: 280px) and (max-width: 768px) {
+    .grivance {
+        width: 90%;
+    }
+    .grivance .bold {
+        margin: 10px 0;
+    }
+    .grivance .student-grv,
+    .grivance .subject-grv {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grivance .grv-state {
+        flex-direction: column;
+        text-align: center;
+    }
+    .grv-state p,
+    .grv-state time {
+        height: auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .grivance {
+        width: 90%;
+    }
+}

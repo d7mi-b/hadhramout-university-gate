@@ -5,13 +5,13 @@
 }
 
 .data {
-    
     width: 70%;
-
 }
 
 .edit-text{
     margin-left: 10px;
+    width: 60px;
+    display: inline-block;
 }
 
 .btn-add {
@@ -22,4 +22,14 @@
 
 .deletebtn{
     width: fit-content;
+}
+
+@media (min-width: 280px) and (max-width: 768px) {
+    #cal-form {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .data {
+        margin: 0 15px;
+    }
 }

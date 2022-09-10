@@ -113,6 +113,29 @@ const GrivenceEmp = () => {
         }
     }
 
+    const grievancesPDF = (e) => {
+        e.preventDefault();
+
+        fetch('/pdf/grievancyPDF?' + new URLSearchParams({
+            name: employee.name,
+            department: employee.department,
+            date: getDate(new Date()),
+            grivences: JSON.stringify(grivence)
+        }))
+        .then(response => {
+            response.blob().then(blob => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = `التظلمات.pdf`;
+                alink.click();
+            })
+        })
+        .catch(err => console.log(err))
+    }
+
     useEffect(() => {
         // get grivances from database
         fetch('/grievances/get?'  + new URLSearchParams({
@@ -146,6 +169,9 @@ const GrivenceEmp = () => {
                         <label htmlFor='search'>البحث عن طالب</label>
                         <input type='search' name='search' placeholder='رقم القيد الخاص بالطالب' onChange={searchStudent}/>
                     </section>
+                    {
+                        state === 'تحت المعالجة' && <button onClick={grievancesPDF} className='btn'>طباعة</button>
+                    }
                 </form>
             </section>
             <section className='grivance-container'>
@@ -219,20 +245,20 @@ const GrivenceEmp = () => {
                 }
             </section>
             {
-                grivence.length >= 7 && page !== 0 && !search_student &&
+                grivence.length >= 3 && page !== 0 && !search_student &&
                 <section className='pages'>
                     <button className='btn' onClick={handleNext}>التالي</button>
                     <button className='btn' onClick={handlePrevious}>السابق</button>
                 </section>
             }
             {
-                grivence.length >= 7 && page === 0 && !search_student  &&
+                grivence.length >= 3 && page === 0 && !search_student  &&
                 <section className='pages'>
                     <button className='btn' onClick={handleNext}>التالي</button>
                 </section>
             }
             {
-                grivence.length < 7 && page !== 0 && !search_student &&
+                grivence.length < 3 && page !== 0 && !search_student &&
                 <section className='pages'>
                     <button className='btn' onClick={handlePrevious}>السابق</button>
                 </section>

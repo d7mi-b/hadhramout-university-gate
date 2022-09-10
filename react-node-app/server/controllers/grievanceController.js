@@ -28,7 +28,7 @@ const grievanceGet = async (req, res) => {
     const {department, page, state} = req.query;
 
     const pages = page || 0;
-    const grvPerPage = 7;
+    const grvPerPage = 3;
 
     try {
         const grievance = await Grievance.find({department: department, state: state})

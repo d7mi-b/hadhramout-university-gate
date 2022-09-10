@@ -87,6 +87,7 @@
 }
 
 .container-schedule .choose-sechedule .buttons {
+    display: flex;
     width: max-content;
     margin: 0 auto;
     padding: 0;
@@ -94,6 +95,7 @@
 
 .container-schedule .choose-sechedule .buttons .btn {
     float: none;
+    margin: 0 10px;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

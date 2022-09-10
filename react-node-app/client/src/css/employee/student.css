@@ -49,3 +49,42 @@
 .students-notification .btn {
     margin: 0 10px;
 }
+
+@media (min-width: 280px) and (max-width: 768px) {
+    .students-fillter {
+        padding: 10px;
+    }
+    .search-student input {
+        width: fit-content;
+    }
+    .students-fillter .selects {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .students-fillter .selects section {
+        text-align: center;
+        margin: 10px auto;
+    }
+    .student {
+        width: 90%;
+    }
+    .student-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .students-fillter {
+        padding: 10px;
+    }
+    .search-student input {
+        width: 600px;
+    }
+    .students-fillter .selects {
+        padding: 0 10px;
+    }
+    .student {
+        width: 90%;
+    }
+}

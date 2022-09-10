@@ -3,7 +3,6 @@ import '../../css/employee/scheduleEmp.css'
 
 
 let collections = [
-   
     {
         id: 1,
         name:'employee',
@@ -51,8 +50,6 @@ const ReportsAdmin = () => {
     const [data, setData] = useState([]);
     const [header, setHeader]= useState([]);
 
-   
-
     const getCollection = (e) => {
         console.log("hi")
         fetch(`/collection/${collection}`)
@@ -78,7 +75,6 @@ const ReportsAdmin = () => {
             delete i.password;
 
         })
-
         return e;
     }
 
@@ -142,13 +138,11 @@ const ReportsAdmin = () => {
                     <tr className='' key={Math.random()}>
                     {
                         data &&
-                             
                         header.map(i =>{
                             return(    
-                            <th><p className='bold'>{i}</p></th>
-                        )}
+                                <th><p className='bold'>{i}</p></th>
+                            )}
                         )
-                            
                     }
                     <th><p className='bold'>select</p></th>
                     </tr>
@@ -157,7 +151,6 @@ const ReportsAdmin = () => {
                     
                     {
                         data &&
-                        
                         data.map(i => {
                             return(
                                 <tr className='' key={Math.random()}>
@@ -176,7 +169,6 @@ const ReportsAdmin = () => {
                         </tr>
                         )
                         })
-                       
                     }
                     
                 </tbody>

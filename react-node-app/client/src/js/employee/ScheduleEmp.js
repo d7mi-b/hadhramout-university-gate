@@ -249,9 +249,26 @@ const ScheduleEmp = () => {
         })
     }
 
+    const archiveSchedule = () => {
+        fetch('/archive/singleSchedule?' + new URLSearchParams({
+            id: id
+        }))
+        .then(response => {
+            response.blob().then(blob => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = `جدول محاضرات ${department} ${level} ${semester} ${group1} ${group2} ${new Date().getFullYear()}.csv`;
+                alink.click();
+            })
+        })
+        .catch(err => console.log(err))
+    }
+
     React.useEffect(() => {
         getSchedule();
-
     }, [])
     
 
@@ -325,6 +342,7 @@ const ScheduleEmp = () => {
                     </div>
                     <div className='buttons'>
                         <p className="btn" onClick={getSchedule}>عرض</p>
+                        <p className='btn' onClick={archiveSchedule}>نقل إلى الأرشيف</p>
                     </div>
                 </form>
             </section>

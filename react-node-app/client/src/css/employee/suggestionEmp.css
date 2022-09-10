@@ -22,3 +22,12 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+@media (min-width: 280px) and (max-width: 768px) {
+    .student-info {
+        flex-direction: column;
+    }
+    .student-info p:not(p:first-child) {
+        margin: 0 15px;
+    }
+}
