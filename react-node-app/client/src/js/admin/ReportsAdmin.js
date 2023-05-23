@@ -63,9 +63,6 @@ const ReportsAdmin = () => {
             
         })
         .catch(err => console.log(err))
-
-        
-
     }
 
     const filter = (e) => {
@@ -74,7 +71,6 @@ const ReportsAdmin = () => {
             delete i.createdAt;
             delete i.updatedAt;
             delete i.password;
-
         })
         return e;
     }
@@ -86,16 +82,16 @@ const ReportsAdmin = () => {
     const selects = () => {
 
         const ele=document.getElementsByName('selectAll');  
-        if(ele.checked!=true)
+        if(ele.checked !== true)
         {
-            for(var i=0; i<ele.length; i++){  
-            if(ele[i].type=='checkbox')  
-                ele[i].checked=true;  
+            for(let i = 0; i < ele.length; i++){  
+            if(ele[i].type === 'checkbox')  
+                ele[i].checked = true;  
         }  
     }
     else {
-        for(var i=0; i<ele.length; i++){  
-            if(ele[i].type=='checkbox')  
+        for(let i = 0; i < ele.length; i++){  
+            if(ele[i].type === 'checkbox')  
                 ele[i].checked=false;  
         }  
     }
@@ -141,7 +137,7 @@ const ReportsAdmin = () => {
 
     useEffect(() => {
         getCollection();
-    })
+    }, [collection])
 
     return (
         <div className="container-schedule container-page container">

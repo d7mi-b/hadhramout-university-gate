@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authroutes')
 const newsRouter = require('./routes/newsRouter');
 const advertisementsRoute = require('./routes/advertisementRoutes');
@@ -21,6 +22,12 @@ const app = express();
 app.use(express.static('./public'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true }));
+
+// support parsing of application/json type post data
+app.use(bodyParser.json());
+
+//support parsing of application/x-www-form-urlencoded post data
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //Connect to database

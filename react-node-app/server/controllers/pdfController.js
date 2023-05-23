@@ -2,8 +2,6 @@ const puppeteer = require('puppeteer');
 const fs = require('fs-extra');
 const hbs = require('handlebars');
 const path = require('path');
-const moment = require('moment');
-const Student = require('../Models/studentModel');
 
 const getDate = (e) => {
     const year = new Date(e).getFullYear();
@@ -14,7 +12,7 @@ const getDate = (e) => {
 }
 
 function renderTemplate(data, templateName) {
-    const html = fs.readFileSync(path.join(process.cwd(), 'server/controllers/templates', `${templateName}.hbs`), {
+    const html = fs.readFileSync(`${process.cwd()}\\controllers\\templates\\${templateName}.hbs`, {
         encoding: "utf-8",
     });
 
@@ -40,7 +38,7 @@ async function createPdf(outputPath, htmlContent) {
 
 module.exports.regCirt =  async (req, res) => {
 
-    const htmlContent = renderTemplate(req.query, '/registration');
+    const htmlContent = renderTemplate(req.query, 'registration');
 
     await createPdf(`${new Date().getTime()}.pdf`, htmlContent)
         .then(pdf => {
